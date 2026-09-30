@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hotnews-realtime.local/schema/article_stream.schema.json",
+  "title": "article_stream event",
+  "description": "Clean article publish/update events. Dirty records are intentionally rejected by this schema and should be routed to a Flink side output.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "article_id",
+    "title",
+    "category",
+    "tags",
+    "published_at",
+    "event_time",
+    "ingest_time",
+    "version"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^article-event-[0-9]{8}$"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "publish",
+        "update"
+      ]
+    },
+    "article_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^article-[0-9]{6}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+      "uniqueItems": true
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingest_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

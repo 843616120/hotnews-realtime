@@ -392,7 +392,7 @@ docker compose --env-file deploy\.env -f deploy\docker-compose.yml up -d zookeep
 然后打包 Flink 作业：
 
 ```powershell
-mvn -pl flink-job -am clean package -DskipTests
+mvn -pl flink-job/flink-source -am clean package -DskipTests
 ```
 
 把生成的 JAR 复制到 JobManager 容器：
@@ -522,7 +522,7 @@ docker compose --env-file deploy\.env -f deploy\docker-compose.yml down -v
 mvn clean package -DskipTests
 
 # 只编译 Flink 作业模块
-mvn -pl flink-job -am clean package -DskipTests
+mvn -pl flink-job/flink-source -am clean package -DskipTests
 ```
 
 ## 当前开发顺序

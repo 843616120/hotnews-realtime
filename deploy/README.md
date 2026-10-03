@@ -29,7 +29,11 @@ docker compose --env-file deploy\.env -f deploy\docker-compose.yml up -d zookeep
 powershell -ExecutionPolicy Bypass -File deploy\create-kafka-topics.ps1
 ```
 
-脚本会创建以下 Topic：
+在 Windows 上也可以双击 `deploy\start-kafka.cmd` 一键启动 ZooKeeper 和 Kafka；
+从项目根目录的 CMD 运行时输入 `deploy\start-kafka.cmd` 即可。脚本会在首次运行时创建
+`deploy\.env`，需要先启动 Docker Desktop。该脚本仅启动服务，不创建 Topic。
+
+运行上述 `create-kafka-topics.ps1` 后会创建以下 Topic：
 
 ```text
 topic_article   partitions=3   replication-factor=1

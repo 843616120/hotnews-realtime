@@ -11,6 +11,8 @@
     <name>hotnews-realtime</name>
     <modules>
         <module>flink-job</module>
+        <module>flink-job/flink-join</module>
+        <module>flink-job/common</module>
     </modules>
 
     <properties>

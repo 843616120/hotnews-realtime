@@ -22,8 +22,8 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 UTC = timezone.utc
 DEFAULT_START_TIME = "2026-09-27T00:00:00Z"
 DEFAULT_SEED = 20260927
-DEFAULT_ARTICLE_COUNT = 500
-DEFAULT_BEHAVIOR_COUNT = 100_000
+DEFAULT_ARTICLE_COUNT = 50
+DEFAULT_BEHAVIOR_COUNT = 1000
 DEFAULT_DISORDER_MIN = 5
 DEFAULT_DISORDER_MAX = 30
 
@@ -84,7 +84,7 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         default="json",
         help="Write JSONL files, Kafka messages, or both.",
     )
-    parser.add_argument("--output-dir", type=Path, default=Path("generator/test_data"))
+    parser.add_argument("--output-dir", type=Path, default=Path("generator/test1_data"))
     parser.add_argument("--article-topic", default="topic_article")
     parser.add_argument("--behavior-topic", default="topic_behavior")
     parser.add_argument("--kafka-bootstrap-servers", default="localhost:9092")

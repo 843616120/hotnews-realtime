@@ -52,9 +52,11 @@ py generator\generate_data.py `
 Kafka 输出需要额外安装客户端：
 
 ```powershell
-py -m pip install kafka-python
+python -m pip install kafka-python
 ```
 
+请用 IDEA 运行配置中指定的 Python 解释器执行安装命令；安装到别的环境不会解决依赖缺失。
+生成器默认使用 Kafka 输出，直接运行前需要安装客户端并启动 Kafka。只想生成核对用的文件时，使用 `--output json`。
 先启动项目的 Kafka，再发送到默认的 `localhost:9092`：
 
 ```powershell

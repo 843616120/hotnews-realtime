@@ -34,8 +34,8 @@ public class HotNewsKafkaSourceJob {
     private static final String BEHAVIOR_TOPIC = "topic_behavior";
 
     // Kafka 消费者组用于保存消费位点。
-    private static final String ARTICLE_GROUP_ID = "hotnews-source-article";
-    private static final String BEHAVIOR_GROUP_ID = "hotnews-source-behavior";
+    private static final String ARTICLE_GROUP_ID = "hotnews-source-demo-article";
+    private static final String BEHAVIOR_GROUP_ID = "hotnews-source-demo-behavior";
 
     // 本地 IDEA Web UI 使用 8082，避免和 Docker JobManager 的 8081 冲突。
     private static final int LOCAL_WEB_PORT = 8082;

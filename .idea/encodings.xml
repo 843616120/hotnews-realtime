@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/flink-job/common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-job/flink-join/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-job/flink-join/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-job/flink-rolesachieve/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-job/flink-rolesachieve/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-job/flink-source/flink-join/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-job/flink-source/flink-join/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-job/flink-source/src/main/java" charset="UTF-8" />

@@ -19,6 +19,12 @@ import java.time.OffsetDateTime;
  * 状态 TTL 按处理时间计算，生产用 24 小时；测试可传入较短 TTL 验证过期后重新接收。
  */
 public class RoleStreamUtil {
+    /*
+     * 固定生成器样本的有效行为数据最大事件时间回退约为 3625 秒。
+     * 65 分钟覆盖这段特殊的提前到达数据，并为随机边界留出余量。
+     */
+    private static final Duration EVENT_TIME_OUT_OF_ORDERNESS = Duration.ofMinutes(65);
+
     /** Join 补发行为时会沿用文章时间戳，这里先去重，再恢复行为事件时间。 */
     public static SingleOutputStreamOperator<JSONObject> prepare(DataStream<JSONObject> joined) {
         return prepare(joined, Time.hours(24));
@@ -47,7 +53,8 @@ public class RoleStreamUtil {
                     }
                 })
                 .assignTimestampsAndWatermarks(
-                        WatermarkStrategy.<JSONObject>forBoundedOutOfOrderness(Duration.ofHours(1))
+                        WatermarkStrategy.<JSONObject>forBoundedOutOfOrderness(
+                                EVENT_TIME_OUT_OF_ORDERNESS)
                                 .withTimestampAssigner(new SerializableTimestampAssigner<JSONObject>() {
                                     @Override
                                     public long extractTimestamp(JSONObject value, long previousTimestamp) {

@@ -32,6 +32,11 @@ import java.util.Set;
 public class ArticleJoinBehavior {
     private static final long ALLOWED_LATENESS_MS = Duration.ofSeconds(30).toMillis();
     private static final Duration JOIN_TTL = Duration.ofHours(2);
+    /*
+     * 固定生成器样本中，行为事件时间最大回退约为 3625 秒。
+     * 65 分钟覆盖行为提前到达造成的事件时间乱序，并保留少量边界余量。
+     */
+    private static final Duration EVENT_TIME_OUT_OF_ORDERNESS = Duration.ofMinutes(65);
 
     /** 分别接入文章、行为 Topic，校验后按 article_id 关联并输出正常及旁路结果。 */
     public static void main(String[] args) throws Exception {
@@ -89,8 +94,8 @@ public class ArticleJoinBehavior {
         );
 
         SingleOutputStreamOperator<JSONObject> BehaviorDSWithWatermark = BehaviorDS.assignTimestampsAndWatermarks(
-                WatermarkStrategy
-                        .<JSONObject>forBoundedOutOfOrderness(Duration.ofHours(1))
+            WatermarkStrategy
+                        .<JSONObject>forBoundedOutOfOrderness(EVENT_TIME_OUT_OF_ORDERNESS)
                         .withTimestampAssigner(
                                 new SerializableTimestampAssigner<JSONObject>() {
                                     /** 行为发生时间作为事件时间，用于判断关联和迟到。 */

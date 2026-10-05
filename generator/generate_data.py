@@ -81,7 +81,7 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser.add_argument(
         "--output",
         choices=("json", "kafka", "both"),
-        default="kafka",
+        default="both",
         help="Write JSONL files, Kafka messages, or both.",
     )
     parser.add_argument("--output-dir", type=Path, default=Path("generator/data"))

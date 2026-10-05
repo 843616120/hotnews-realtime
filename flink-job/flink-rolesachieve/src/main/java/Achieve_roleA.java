@@ -48,11 +48,11 @@ public class Achieve_roleA {
     }
 
     public static SingleOutputStreamOperator<JSONObject> buildRule(DataStream<JSONObject> joined) {
-        // 三十秒内的迟到数据允许重新触发窗口，超过期限的记录进入侧输出。
+        // 水位线已经覆盖固定样本的事件时间乱序；窗口关闭后额外保留100秒接收迟到数据。
         return joined.filter(value -> "click".equals(value.getString("action")))
                 .keyBy(value -> value.getString("article_id"))
                 .window(SlidingEventTimeWindows.of(Time.minutes(5), Time.minutes(1)))
-                .allowedLateness(Time.seconds(30))
+                .allowedLateness(Time.seconds(100))
                 .sideOutputLateData(lateTag)
                 .aggregate(new CountClicks(), new HotArticleWindow());
     }

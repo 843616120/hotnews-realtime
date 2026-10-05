@@ -1,4 +1,5 @@
 -- 独立基准 B：固定输入按十分钟滚动窗口统计所有行为，分类排名及类内前五篇。
+-- joined 已按 event_id 去重并取文章最新版本；SQL 不模拟 Kafka 位点和 Join Watermark。
 -- 用 (window_start_ms, rank) 逐行对照，不把不同窗口合并成最终榜单。
 WITH article_events AS (
     SELECT *, CAST(event_ms / 600000 AS INTEGER) * 600000 AS window_start_ms,

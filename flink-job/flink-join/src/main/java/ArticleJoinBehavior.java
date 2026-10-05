@@ -2,21 +2,23 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import constant.Constant;
-import org.apache.flink.api.common.state.ListState;
-import org.apache.flink.api.common.state.ListStateDescriptor;
+import org.apache.flink.api.common.state.MapState;
+import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.state.StateTtlConfig;
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.time.Time;
-import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.streaming.api.CheckpointingMode;
+import org.apache.flink.streaming.api.TimeDomain;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
+import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.streaming.api.functions.co.KeyedCoProcessFunction;
 import org.apache.flink.util.Collector;
 import org.apache.flink.util.OutputTag;
@@ -27,19 +29,31 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+/**
+ * 文章与行为双流关联。用法：三个规则都复用此流；有界验收从两条 Topic 起点回放。
+ * 思路：先做单流 Schema ETL 和行为 event_id 去重，再分别生成水位线；
+ * 在按文章键分组的时序 ETL 中
+ * 校验首版发布时间；行为先到立即报告未匹配，同时留在状态中待文章到达后补 Join。
+ * 超时迟到只进入可查询旁路，不会阻止合法行为重新关联。
+ */
 public class ArticleJoinBehavior {
-    private static final long ALLOWED_LATENESS_MS = Duration.ofSeconds(30).toMillis();
-    private static final Duration JOIN_TTL = Duration.ofHours(2);
-    /*
-     * 固定生成器样本中，行为事件时间最大回退约为 3625 秒。
-     * 65 分钟覆盖行为提前到达造成的事件时间乱序，并保留少量边界余量。
-     */
-    private static final Duration EVENT_TIME_OUT_OF_ORDERNESS = Duration.ofMinutes(65);
+    private static final long FINAL_AUDIT_TIMER = Long.MAX_VALUE - 1;
+    private static final long JOIN_RETENTION_MS = Duration.ofHours(2).toMillis();
+    private static final long JOIN_ALLOWED_LATENESS_MS = Duration.ofSeconds(30).toMillis();
+    private static final Duration ARTICLE_DISORDER = Duration.ofSeconds(30);
+    private static final Duration BEHAVIOR_DISORDER = Duration.ofMinutes(65);
+    private static final Duration BOUNDED_REPLAY_DISORDER = Duration.ofHours(2);
+    private static final Duration IDLE_TIMEOUT = Duration.ofSeconds(30);
 
     /** 分别接入文章、行为 Topic，校验后按 article_id 关联并输出正常及旁路结果。 */
     public static void main(String[] args) throws Exception {
+        boolean bounded = args.length == 1 && "--bounded".equals(args[0]);
+        if (args.length > 0 && !bounded) {
+            throw new IllegalArgumentException("仅支持 --bounded 验收参数");
+        }
         //TODO 1.基本环境准备
         Configuration conf = new Configuration();
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment(conf);
@@ -47,7 +61,15 @@ public class ArticleJoinBehavior {
 
         //TODO 2.检查点相关设置
         env.enableCheckpointing(5000, CheckpointingMode.EXACTLY_ONCE);
-        createJoinedStream(env, "hotnews-source");
+        SingleOutputStreamOperator<JSONObject> joined = createJoinedStream(
+                env, bounded ? "hotnews-join-verify" : "hotnews-source", bounded, bounded);
+        if (bounded) {
+            joined.map(value -> value.getString("event_id")).print("JOINED_ID");
+            joined.keyBy(value -> "all")
+                    .process(new CountJoined()).print("JOINED_TOTAL");
+        } else {
+            joined.print("JOINED");
+        }
 
         //TODO 7.启动执行
         env.execute("ArticleJoinBehavior");
@@ -61,160 +83,333 @@ public class ArticleJoinBehavior {
 
     public static SingleOutputStreamOperator<JSONObject> createJoinedStream(
             StreamExecutionEnvironment env, String groupPrefix, boolean bounded) {
+        return createJoinedStream(env, groupPrefix, bounded, false);
+    }
+
+    /**
+     * 有界验收从最早位点回放两条 Topic；持续消费时文章流总从起点重建维表，
+     * 行为流沿用消费组位点。两种模式都等待首次发布事件完成关联。
+     */
+    public static SingleOutputStreamOperator<JSONObject> createJoinedStream(
+            StreamExecutionEnvironment env, String groupPrefix, boolean bounded, boolean fullReplay) {
+        if (fullReplay && !bounded) {
+            throw new IllegalArgumentException("完整回放仅支持有界输入");
+        }
         //TODO 3.读取KafkaSource 并封装为流
         KafkaSource<String> articleSource = FlinkSourceUtil.getKafkaSource(
-                Constant.TOPIC_ARTICLE, groupPrefix + "-article", bounded);
+                Constant.TOPIC_ARTICLE, groupPrefix + "-article", bounded, true);
         KafkaSource<String> behaviorSource = FlinkSourceUtil.getKafkaSource(
-                Constant.TOPIC_BEHAVIOR, groupPrefix + "-behavior", bounded);
+                Constant.TOPIC_BEHAVIOR, groupPrefix + "-behavior", bounded, fullReplay);
         DataStreamSource<String> articleStream = env.fromSource(
                 articleSource, WatermarkStrategy.noWatermarks(), "Article_Source");
         DataStreamSource<String> behaviorStream = env.fromSource(
                 behaviorSource, WatermarkStrategy.noWatermarks(), "Behavior_Source");
-        //TODO 3.etl
+        //TODO 3.先分别清洗 Schema；原始字符串尚无可靠事件时间，清洗后再生成水位线。
         SingleOutputStreamOperator<JSONObject> ArticleDS = etl(articleStream);
         SingleOutputStreamOperator<JSONObject> BehaviorDS = etl(behaviorStream);
+        ArticleDS.getSideOutput(dirtyDataTag).print("DIRTY_ARTICLE");
+        BehaviorDS.getSideOutput(dirtyDataTag).print("DIRTY_BEHAVIOR");
 
-       /* ArticleDS.getSideOutput(dirtyDataTag).print("DIRTY_ARTICLE");
-        BehaviorDS.getSideOutput(dirtyDataTag).print("DIRTY_BEHAVIOR");*/
-        //TODO 4.设定水位线
-        SingleOutputStreamOperator<JSONObject> ArticleDSWithWatermark = ArticleDS.assignTimestampsAndWatermarks(
-                WatermarkStrategy
-                        .<JSONObject>forBoundedOutOfOrderness(Duration.ofSeconds(30))
-                        .withTimestampAssigner(
-                                new SerializableTimestampAssigner<JSONObject>() {
-                                    /** 使用文章的 event_time（发布或更新时刻），不以 ingest_time 生成 Watermark。 */
-                                    @Override
-                                    public long extractTimestamp(JSONObject element, long recordTimestamp) {
-                                        String eventTimeStr = element.getString("event_time");
-                                        return OffsetDateTime.parse(eventTimeStr).toInstant().toEpochMilli();
-                                    }
-                                }
-                        )
-                        .withIdleness(Duration.ofSeconds(30))
-        );
-
-        SingleOutputStreamOperator<JSONObject> BehaviorDSWithWatermark = BehaviorDS.assignTimestampsAndWatermarks(
-            WatermarkStrategy
-                        .<JSONObject>forBoundedOutOfOrderness(EVENT_TIME_OUT_OF_ORDERNESS)
-                        .withTimestampAssigner(
-                                new SerializableTimestampAssigner<JSONObject>() {
-                                    /** 行为发生时间作为事件时间，用于判断关联和迟到。 */
-                                    @Override
-                                    public long extractTimestamp(JSONObject element, long recordTimestamp) {
-                                        String eventTimeStr = element.getString("event_time");
-                                        return OffsetDateTime.parse(eventTimeStr).toInstant().toEpochMilli();
-                                    }
-                                }
-                        )
-                        .withIdleness(Duration.ofSeconds(30))
-        );
-
-        //TODO 5.双流Join - 按article_id关联
-        // 行为流可能先到；暂存到文章到达或事件时间超过等待期限。
-        SingleOutputStreamOperator<JSONObject> joinedStream = BehaviorDSWithWatermark
-                .keyBy(behavior -> behavior.getString("article_id"))
-                .connect(ArticleDSWithWatermark.keyBy(article -> article.getString("article_id")))
-                .process(new ArticleBehaviorJoin());
-
-        //TODO 6.输出富化后的流
-
-/*        joinedStream.print("JOINED");
+        //TODO 4.在 ETL 末尾先去重，后分配 Watermark；迟到事件留痕并继续 Join。
+        SingleOutputStreamOperator<JSONObject> deduplicated = deduplicateBehaviors(BehaviorDS);
+        deduplicated.getSideOutput(duplicateBehaviorTag).print("DUPLICATE_BEHAVIOR");
+        SingleOutputStreamOperator<JSONObject> joinedStream =
+                joinCleanStreams(withWatermarks(deduplicated,
+                                bounded ? BOUNDED_REPLAY_DISORDER : BEHAVIOR_DISORDER),
+                        withWatermarks(ArticleDS, ARTICLE_DISORDER), bounded);
+        joinedStream.getSideOutput(dirtyBehaviorTag).print("DIRTY_BEHAVIOR_ETL");
+        joinedStream.getSideOutput(unmatchedBehaviorTag).print("UNMATCHED_BEHAVIOR");
         joinedStream.getSideOutput(lateDataTag).print("LATE_DATA");
-        joinedStream.getSideOutput(unmatchedBehaviorTag).print("UNMATCHED_BEHAVIOR");*/
+        if (bounded) {
+            joinedStream.getSideOutput(rejoinedBehaviorTag).print("REJOINED_BEHAVIOR");
+        }
+        joinedStream.getSideOutput(replayRequiredTag).print("REPLAY_REQUIRED");
 
         return joinedStream;
     }
 
+    /** 已完成 Schema 清洗的双流直接关联；生产入口已分配水位线，测试可注入水位线。 */
+    public static SingleOutputStreamOperator<JSONObject> joinCleanStreams(
+            DataStream<JSONObject> behaviors, DataStream<JSONObject> articles, boolean bounded) {
+        return joinCleanStreams(behaviors, articles, bounded, JOIN_RETENTION_MS);
+    }
+
+    /** 测试可缩短待匹配保留时间，验证到期后明确进入回放队列。 */
+    static SingleOutputStreamOperator<JSONObject> joinCleanStreams(
+            DataStream<JSONObject> behaviors, DataStream<JSONObject> articles,
+            boolean bounded, long retentionMillis) {
+        if (retentionMillis <= 0) {
+            throw new IllegalArgumentException("待匹配保留时间必须大于 0");
+        }
+        return behaviors
+                .keyBy(behavior -> behavior.getString("article_id"))
+                .connect(articles.keyBy(article -> article.getString("article_id")))
+                .process(new ArticleBehaviorJoin(bounded, retentionMillis));
+    }
+
+    /** 跨流时序 ETL 判定早于最初发布的行为进入此脏数据旁路。 */
+    public static OutputTag<JSONObject> dirtyBehaviorTag() {
+        return dirtyBehaviorTag;
+    }
+
+    /** 行为先到时立即输出此旁路；并不表示永久无法 Join。 */
+    public static OutputTag<JSONObject> unmatchedBehaviorTag() {
+        return unmatchedBehaviorTag;
+    }
+
+    /** 超过 Join 允许迟到时间的文章或行为，同时仍参与关联。 */
+    public static OutputTag<JSONObject> lateDataTag() {
+        return lateDataTag;
+    }
+
+    /** 等待状态到期或有界回放结束仍未匹配，需要从原始 Topic 回放。 */
+    public static OutputTag<JSONObject> replayRequiredTag() {
+        return replayRequiredTag;
+    }
+
+    /** 有界审计时按 event_id 核对“先未匹配、后补 Join”的事件。 */
+    public static OutputTag<JSONObject> rejoinedBehaviorTag() {
+        return rejoinedBehaviorTag;
+    }
+
+    /** Schema 清洗后的 ETL 去重；测试可自定义 TTL，生产默认 24 小时。 */
+    public static SingleOutputStreamOperator<JSONObject> deduplicateBehaviors(DataStream<JSONObject> behaviors) {
+        return deduplicateBehaviors(behaviors, Time.hours(24));
+    }
+
+    static SingleOutputStreamOperator<JSONObject> deduplicateBehaviors(
+            DataStream<JSONObject> behaviors, Time ttl) {
+        return behaviors.keyBy(value -> value.getString("event_id"))
+                .process(new BehaviorDeduplicate(ttl));
+    }
+
+    /** 清洗后才提取事件时间；每条流独立等待乱序，闲置分区不阻塞下游水位线。 */
+    private static SingleOutputStreamOperator<JSONObject> withWatermarks(
+            DataStream<JSONObject> stream, Duration disorder) {
+        return stream.assignTimestampsAndWatermarks(
+                WatermarkStrategy.<JSONObject>forBoundedOutOfOrderness(disorder)
+                        .withTimestampAssigner((value, previous) -> eventTime(value))
+                        .withIdleness(IDLE_TIMEOUT));
+    }
+
     //JSON解析失败 字段缺失 时间非法的数据进入dirty_data旁路流
     private static final OutputTag<String> dirtyDataTag = new OutputTag<String>("dirty_data") {};
-    private static final OutputTag<JSONObject> lateDataTag = new OutputTag<JSONObject>("late_data") {};
+    private static final OutputTag<JSONObject> dirtyBehaviorTag =
+            new OutputTag<JSONObject>("dirty_data_temporal") {};
     private static final OutputTag<JSONObject> unmatchedBehaviorTag = new OutputTag<JSONObject>("unmatched_behavior") {};
+    private static final OutputTag<JSONObject> lateDataTag = new OutputTag<JSONObject>("late_data") {};
+    private static final OutputTag<JSONObject> replayRequiredTag = new OutputTag<JSONObject>("replay_required") {};
+    private static final OutputTag<JSONObject> rejoinedBehaviorTag = new OutputTag<JSONObject>("rejoined_behavior") {};
+    private static final OutputTag<JSONObject> duplicateBehaviorTag =
+            new OutputTag<JSONObject>("duplicate_behavior") {};
 
-    /** 两条已按 article_id 分组的流共享同一个 key：左侧是行为，右侧是文章。 */
+    /** 行为 ETL 去重：按 event_id 存 24 小时处理时间状态，重复副本仅进入重复旁路。 */
+    private static class BehaviorDeduplicate extends KeyedProcessFunction<String, JSONObject, JSONObject> {
+        private final Time ttl;
+        private transient ValueState<Boolean> seen;
+
+        private BehaviorDeduplicate(Time ttl) {
+            this.ttl = ttl;
+        }
+
+        @Override
+        public void open(Configuration parameters) {
+            ValueStateDescriptor<Boolean> descriptor =
+                    new ValueStateDescriptor<Boolean>("etl-seen-behavior-event-id", Boolean.class);
+            descriptor.enableTimeToLive(StateTtlConfig.newBuilder(ttl).build());
+            seen = getRuntimeContext().getState(descriptor);
+        }
+
+        @Override
+        public void processElement(JSONObject value, Context ctx, Collector<JSONObject> out)
+                throws Exception {
+            if (seen.value() == null) {
+                seen.update(true);
+                out.collect(value);
+            } else {
+                ctx.output(duplicateBehaviorTag, value);
+            }
+        }
+    }
+
+    /** 按文章键做时序 ETL 与富化；左行为、右文章，迟到旁路与主流独立输出。 */
     private static class ArticleBehaviorJoin extends KeyedCoProcessFunction<String, JSONObject, JSONObject, JSONObject> {
+        private final boolean bounded;
+        private final long retentionMillis;
         private transient ValueState<JSONObject> articleState;
-        private transient ListState<JSONObject> pendingBehaviors;
+        private transient ValueState<Long> initialPublication;
+        private transient MapState<String, JSONObject> pendingBehaviors;
+        private transient MapState<String, Long> pendingExpirations;
+        private transient ValueState<Long> pendingDeadline;
 
-        /** 每个 article_id 保存最新文章；先到的行为单独暂存，等待文章或定时器。 */
+        private ArticleBehaviorJoin(boolean bounded, long retentionMillis) {
+            this.bounded = bounded;
+            this.retentionMillis = retentionMillis;
+        }
+
+        /** 文章维度 2 小时 TTL；待匹配行为靠显式定时器清理，不允许 TTL 静默清除。 */
         @Override
         public void open(Configuration parameters) {
             ValueStateDescriptor<JSONObject> articleDescriptor =
                     new ValueStateDescriptor<JSONObject>("article", JSONObject.class);
-            articleDescriptor.enableTimeToLive(StateTtlConfig.newBuilder(Time.hours(2)).build());
+            StateTtlConfig articleTtl = StateTtlConfig.newBuilder(Time.hours(2)).build();
+            articleDescriptor.enableTimeToLive(articleTtl);
             articleState = getRuntimeContext().getState(articleDescriptor);
-            pendingBehaviors = getRuntimeContext().getListState(
-                    new ListStateDescriptor<JSONObject>("pending-behaviors", JSONObject.class));
+            ValueStateDescriptor<Long> publicationDescriptor =
+                    new ValueStateDescriptor<Long>("initial-publication", Long.class);
+            publicationDescriptor.enableTimeToLive(articleTtl);
+            initialPublication = getRuntimeContext().getState(publicationDescriptor);
+            pendingBehaviors = getRuntimeContext().getMapState(
+                    new MapStateDescriptor<String, JSONObject>(
+                            "pending-behaviors-by-event-id", String.class, JSONObject.class));
+            pendingExpirations = getRuntimeContext().getMapState(
+                    new MapStateDescriptor<String, Long>(
+                            "pending-expirations-by-event-id", String.class, Long.class));
+            pendingDeadline = getRuntimeContext().getState(
+                    new ValueStateDescriptor<Long>("pending-deadline", Long.class));
         }
 
-        /** 左流是行为流：过迟的进旁路；有文章则富化，否则暂存并预约未匹配检查。 */
+        /** 行为先到立即报告未匹配，ETL 已先去重，待匹配状态只需保存一份。 */
         @Override
         public void processElement1(JSONObject behavior, Context ctx, Collector<JSONObject> out) throws Exception {
-            long eventTime = eventTime(behavior);
-            if (isLate(eventTime, ctx.timerService().currentWatermark())) {
-                ctx.output(lateDataTag, behavior);
-                return;
-            }
-            JSONObject article = articleState.value();
-            if (article != null && eventTime >= eventTime(article)) {
-                out.collect(enrich(behavior, article));
+            reportLate(behavior, "behavior", ctx);
+            Long published = initialPublication.value();
+            if (published != null) {
+                if (eventTime(behavior) < published) {
+                    ctx.output(dirtyBehaviorTag, dirtyBehavior(behavior, "BEFORE_INITIAL_PUBLICATION"));
+                } else {
+                    out.collect(enrich(behavior, articleState.value()));
+                }
             } else {
-                pendingBehaviors.add(behavior);
-                ctx.timerService().registerEventTimeTimer(eventTime + ALLOWED_LATENESS_MS);
+                String id = behavior.getString("event_id");
+                if (pendingBehaviors.contains(id)) {
+                    return;
+                }
+                pendingBehaviors.put(id, behavior);
+                ctx.output(unmatchedBehaviorTag, dirtyBehavior(behavior,
+                        articleState.value() == null ? "ARTICLE_NOT_YET_FOUND"
+                                : "INITIAL_PUBLICATION_NOT_YET_FOUND"));
+                long deadline = ctx.timerService().currentProcessingTime() + retentionMillis;
+                pendingExpirations.put(id, deadline);
+                if (pendingDeadline.value() == null) {
+                    pendingDeadline.update(deadline);
+                    ctx.timerService().registerProcessingTimeTimer(deadline);
+                }
+                if (bounded) {
+                    ctx.timerService().registerEventTimeTimer(FINAL_AUDIT_TIMER);
+                }
             }
         }
 
-        /** 右流是文章流：保存不旧于当前版本的文章，并补齐此前先到的行为。 */
+        /** 右流是文章流：最初发布版本决定有效时间下界，再处理此前等待的行为。 */
         @Override
         public void processElement2(JSONObject article, Context ctx, Collector<JSONObject> out) throws Exception {
-            if (isLate(eventTime(article), ctx.timerService().currentWatermark())) {
-                ctx.output(lateDataTag, article);
-                return;
+            reportLate(article, "article", ctx);
+            if ("publish".equals(article.getString("event_type"))
+                    && article.getIntValue("version") == 1) {
+                Long previousPublish = initialPublication.value();
+                if (previousPublish == null || eventTime(article) < previousPublish) {
+                    initialPublication.update(eventTime(article));
+                }
             }
             JSONObject previous = articleState.value();
-            if (previous != null && article.getInteger("version") < previous.getInteger("version")) {
+            if (previous == null || article.getIntValue("version") >= previous.getIntValue("version")) {
+                articleState.update(article);
+            }
+            if (initialPublication.value() == null) {
                 return;
             }
-            articleState.update(article);
-            List<JSONObject> remaining = new ArrayList<JSONObject>();
-            Iterable<JSONObject> pending = pendingBehaviors.get();
-            if (pending != null) {
-                for (JSONObject behavior : pending) {
-                    if (eventTime(behavior) >= eventTime(article)) {
-                        out.collect(enrich(behavior, article));
-                    } else {
-                        remaining.add(behavior);
+            for (JSONObject behavior : pendingBehaviors.values()) {
+                if (eventTime(behavior) < initialPublication.value()) {
+                    ctx.output(dirtyBehaviorTag, dirtyBehavior(behavior, "BEFORE_INITIAL_PUBLICATION"));
+                } else {
+                    JSONObject enriched = enrich(behavior, articleState.value());
+                    if (bounded) {
+                        ctx.output(rejoinedBehaviorTag, enriched);
                     }
+                    out.collect(enriched);
                 }
             }
-            pendingBehaviors.update(remaining);
+            pendingBehaviors.clear();
+            pendingExpirations.clear();
+            clearDeadline(ctx.timerService());
         }
 
-        /** 水位线越过等待期限后，将仍未找到文章的行为输出到 unmatched_behavior。 */
+        /** 状态保留到期或有界回放结束，显式报告需从原始 Topic 补算的行为。 */
         @Override
         public void onTimer(long timestamp, OnTimerContext ctx, Collector<JSONObject> out) throws Exception {
-            List<JSONObject> remaining = new ArrayList<JSONObject>();
-            Iterable<JSONObject> pending = pendingBehaviors.get();
-            if (pending != null) {
-                for (JSONObject behavior : pending) {
-                    if (eventTime(behavior) + ALLOWED_LATENESS_MS <= timestamp) {
-                        ctx.output(unmatchedBehaviorTag, behavior);
+            if (ctx.timeDomain() == TimeDomain.PROCESSING_TIME
+                    && !Long.valueOf(timestamp).equals(pendingDeadline.value())) {
+                return;
+            }
+            if (ctx.timeDomain() == TimeDomain.PROCESSING_TIME) {
+                List<String> expired = new ArrayList<String>();
+                long next = Long.MAX_VALUE;
+                for (Map.Entry<String, Long> entry : pendingExpirations.entries()) {
+                    if (entry.getValue() <= timestamp) {
+                        expired.add(entry.getKey());
                     } else {
-                        remaining.add(behavior);
+                        next = Math.min(next, entry.getValue());
                     }
                 }
+                for (String id : expired) {
+                    ctx.output(replayRequiredTag, dirtyBehavior(pendingBehaviors.get(id),
+                            articleState.value() == null ? "ARTICLE_NOT_FOUND"
+                                    : "INITIAL_PUBLICATION_NOT_FOUND"));
+                    pendingBehaviors.remove(id);
+                    pendingExpirations.remove(id);
+                }
+                pendingDeadline.clear();
+                if (next != Long.MAX_VALUE) {
+                    pendingDeadline.update(next);
+                    ctx.timerService().registerProcessingTimeTimer(next);
+                }
+                return;
             }
-            pendingBehaviors.update(remaining);
+            if (!pendingBehaviors.isEmpty()) {
+                for (JSONObject behavior : pendingBehaviors.values()) {
+                    ctx.output(replayRequiredTag, dirtyBehavior(behavior,
+                            articleState.value() == null ? "ARTICLE_NOT_FOUND"
+                                    : "INITIAL_PUBLICATION_NOT_FOUND"));
+                }
+                pendingBehaviors.clear();
+            }
+            pendingExpirations.clear();
+            clearDeadline(ctx.timerService());
         }
+
+        /** 清除已成功重关联的等待超时定时器。 */
+        private void clearDeadline(org.apache.flink.streaming.api.TimerService timers) throws Exception {
+            Long deadline = pendingDeadline.value();
+            if (deadline != null) {
+                timers.deleteProcessingTimeTimer(deadline);
+                pendingDeadline.clear();
+            }
+        }
+
+        /** 迟到记录先旁路留痕，再继续走时序 ETL/Join，不静默丢弃。 */
+        private void reportLate(JSONObject value, String stream, Context ctx) {
+            long watermark = ctx.timerService().currentWatermark();
+            if (watermark != Long.MIN_VALUE
+                    && eventTime(value) < watermark - JOIN_ALLOWED_LATENESS_MS) {
+                JSONObject late = dirtyBehavior(value, "BEYOND_JOIN_ALLOWED_LATENESS");
+                late.put("stream", stream);
+                ctx.output(lateDataTag, late);
+            }
+        }
+    }
+
+    /** 加入原因但不改变原事件，以便区分 Schema 脏数据与早于首次发布的行为。 */
+    private static JSONObject dirtyBehavior(JSONObject behavior, String reason) {
+        JSONObject copy = new JSONObject();
+        copy.putAll(behavior);
+        copy.put("dirty_reason", reason);
+        return copy;
     }
 
     /** 将已校验的 ISO-8601 event_time 统一转成毫秒，供状态关联和定时器比较。 */
     private static long eventTime(JSONObject value) {
         return OffsetDateTime.parse(value.getString("event_time")).toInstant().toEpochMilli();
-    }
-
-    /** 允许事件时间落后当前水位线最多 30 秒；初始水位线是最小 long，不能直接相减。 */
-    private static boolean isLate(long eventTime, long watermark) {
-        return watermark != Long.MIN_VALUE && eventTime < watermark - ALLOWED_LATENESS_MS;
     }
 
     /** 保留原行为字段，并从同一 article_id 的文章状态补充标题、分类和标签。 */
@@ -346,8 +541,32 @@ public class ArticleJoinBehavior {
     /** 按固定数据的到达时间校验：事件时间超前 ingest_time 两小时以上视为脏数据。 */
     private static void validateFutureEventTime(JSONObject jsonObject) {
         if (eventTime(jsonObject) > OffsetDateTime.parse(jsonObject.getString("ingest_time"))
-                .toInstant().plus(JOIN_TTL).toEpochMilli()) {
+                .toInstant().plus(Duration.ofHours(2)).toEpochMilli()) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    /** 有界关联核对统计 Schema 清洗且已在 ETL 去重的有效行为。 */
+    private static class CountJoined extends org.apache.flink.streaming.api.functions.KeyedProcessFunction<
+            String, JSONObject, Long> {
+        private transient ValueState<Long> count;
+
+        @Override
+        public void open(Configuration parameters) {
+            count = getRuntimeContext().getState(
+                    new ValueStateDescriptor<Long>("joined-count", Long.class));
+        }
+
+        @Override
+        public void processElement(JSONObject value, Context context, Collector<Long> out) throws Exception {
+            Long current = count.value();
+            count.update(current == null ? 1L : current + 1);
+            context.timerService().registerEventTimeTimer(FINAL_AUDIT_TIMER);
+        }
+
+        @Override
+        public void onTimer(long timestamp, OnTimerContext context, Collector<Long> out) throws Exception {
+            out.collect(count.value());
         }
     }
 

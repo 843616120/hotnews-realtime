@@ -41,7 +41,7 @@ test('固定输入的三条 SQL 按窗口计算，日志逐窗口报告差异', 
     ['--no-warnings', script, '--data-dir', directory, '--sqlite', sqlite],
     { encoding: 'utf8', timeout: 20000 });
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /behavior_clean：1053/);
+  assert.match(result.stdout, /behavior_clean：1052/);
   assert.match(result.stdout, /ROLE_A：SQL 基准 5 行/);
   assert.match(result.stdout, /ROLE_B：SQL 基准 1 行/);
   assert.match(result.stdout, /ROLE_C：SQL 基准 1 行/);
@@ -54,6 +54,7 @@ test('固定输入的三条 SQL 按窗口计算，日志逐窗口报告差异', 
   const c = db.prepare(fs.readFileSync(path.join(__dirname, 'role_c.sql'), 'utf8')).all();
   assert.equal(c[0].article_count, 51);
   assert.equal(c[0].click_count, 51);
+  const b = db.prepare(fs.readFileSync(path.join(__dirname, 'role_b.sql'), 'utf8')).all();
   db.close();
 
   const log = path.join(directory, 'role-a.log');
@@ -76,4 +77,124 @@ test('固定输入的三条 SQL 按窗口计算，日志逐窗口报告差异', 
     { encoding: 'utf8', timeout: 20000 });
   assert.equal(missing.status, 1, missing.stderr);
   assert.match(missing.stdout, /缺失=1/);
+
+  const bLog = path.join(directory, 'role-b.log');
+  const expectedB = {
+    rank: b[0].rank, category: b[0].category, score: b[0].score,
+    top_articles: JSON.parse(b[0].top_articles).map((item) => ({
+      score: item.score, title: item.title, article_id: item.article_id,
+    })),
+    window_start: new Date(b[0].window_start_ms).toISOString(),
+    window_end: new Date(b[0].window_end_ms).toISOString(),
+  };
+  fs.writeFileSync(bLog, `ROLE_B:1> ${JSON.stringify({ ...expectedB, score: 1 })}\n`
+    + `ROLE_B:1> ${JSON.stringify(expectedB)}\n`);
+  const corrected = spawnSync(process.execPath,
+    ['--no-warnings', script, '--data-dir', directory, '--role', 'b', '--flink-log', bLog],
+    { encoding: 'utf8', timeout: 20000 });
+  assert.equal(corrected.status, 0, corrected.stdout + corrected.stderr);
+  assert.match(corrected.stdout, /字段差异=0/);
+
+  expectedB.top_articles[0].title = '错误标题';
+  fs.appendFileSync(bLog, `ROLE_B:1> ${JSON.stringify(expectedB)}\n`);
+  const badTitle = spawnSync(process.execPath,
+    ['--no-warnings', script, '--data-dir', directory, '--role', 'b', '--flink-log', bLog],
+    { encoding: 'utf8', timeout: 20000 });
+  assert.equal(badTitle.status, 1, badTitle.stderr);
+  assert.match(badTitle.stdout, /字段差异=1/);
+  assert.match(badTitle.stdout, /top_articles:/);
+
+  const cLog = path.join(directory, 'role-c.log');
+  const expectedC = {
+    ip: c[0].ip, article_count: c[0].article_count, click_count: c[0].click_count,
+    avg_read_duration_ms: c[0].avg_read_duration_ms,
+    alert_minute: Math.floor(c[0].window_end_ms / 60000) * 60000,
+    window_start: new Date(c[0].window_start_ms).toISOString(),
+    window_end: new Date(c[0].window_end_ms).toISOString(),
+  };
+  fs.writeFileSync(cLog, `ROLE_C:1> ${JSON.stringify({ ...expectedC, click_count: 50 })}\n`
+    + `ROLE_C:1> ${JSON.stringify(expectedC)}\n`);
+  const correctedC = spawnSync(process.execPath,
+    ['--no-warnings', script, '--data-dir', directory, '--role', 'c', '--flink-log', cLog],
+    { encoding: 'utf8', timeout: 20000 });
+  assert.equal(correctedC.status, 0, correctedC.stdout + correctedC.stderr);
+  fs.appendFileSync(cLog, `ROLE_C:1> ${JSON.stringify({
+    ip: expectedC.ip, alert_minute: expectedC.alert_minute, retracted: true,
+  })}\n`);
+  const retractedC = spawnSync(process.execPath,
+    ['--no-warnings', script, '--data-dir', directory, '--role', 'c', '--flink-log', cLog],
+    { encoding: 'utf8', timeout: 20000 });
+  assert.equal(retractedC.status, 1, retractedC.stderr);
+  assert.match(retractedC.stdout, /缺失=1/);
+});
+
+test('行为有效时间以最初发布版本为准，更新不追溯淘汰此前行为', () => {
+  const db = new DatabaseSync(':memory:');
+  db.exec('CREATE TABLE article_raw(line TEXT NOT NULL); CREATE TABLE behavior_raw(line TEXT NOT NULL);');
+  const publish = {
+    event_id: 'article-event-00000001', event_type: 'publish',
+    article_id: 'article-000001', title: '初版', category: 'science',
+    tags: ['新闻'], published_at: '2026-09-27T00:00:00.000Z',
+    event_time: '2026-09-27T00:00:00.000Z', ingest_time: '2026-09-27T00:00:00.000Z',
+    version: 1,
+  };
+  const update = {
+    ...publish, event_id: 'article-event-00000002', event_type: 'update',
+    title: '更新版', version: 2,
+    event_time: '2026-09-27T00:10:00.000Z', ingest_time: '2026-09-27T00:10:00.000Z',
+  };
+  const behavior = (eventId, time) => ({
+    event_id: eventId, user_id: 'user-000001', article_id: 'article-000001',
+    action: 'click', ip: '127.0.0.1', read_duration_ms: 1000,
+    event_time: time, ingest_time: time,
+  });
+  const insertArticle = db.prepare('INSERT INTO article_raw(line) VALUES (?)');
+  const insertBehavior = db.prepare('INSERT INTO behavior_raw(line) VALUES (?)');
+  for (const article of [publish, update]) insertArticle.run(JSON.stringify(article));
+  for (const item of [
+    behavior('behavior-event-00000001', '2026-09-26T23:59:59.000Z'),
+    behavior('behavior-event-00000002', '2026-09-27T00:05:00.000Z'),
+    behavior('behavior-event-00000003', '2026-09-27T00:11:00.000Z'),
+  ]) insertBehavior.run(JSON.stringify(item));
+  db.exec(fs.readFileSync(path.join(__dirname, 'prepare.sql'), 'utf8'));
+  const rows = db.prepare('SELECT event_id, title FROM joined ORDER BY event_id')
+    .all().map((row) => ({ event_id: row.event_id, title: row.title }));
+  assert.deepEqual(rows, [
+    { event_id: 'behavior-event-00000002', title: '更新版' },
+    { event_id: 'behavior-event-00000003', title: '更新版' },
+  ]);
+  db.close();
+});
+
+test('Schema ETL 先过滤非法 IP 和脏副本，再按 event_id 去重', () => {
+  const db = new DatabaseSync(':memory:');
+  db.exec('CREATE TABLE article_raw(line TEXT NOT NULL); CREATE TABLE behavior_raw(line TEXT NOT NULL);');
+  const time = '2026-09-27T00:00:00.000Z';
+  db.prepare('INSERT INTO article_raw(line) VALUES (?)').run(JSON.stringify({
+    event_id: 'article-event-00000001', event_type: 'publish',
+    article_id: 'article-000001', title: '初版', category: 'science',
+    tags: ['新闻'], published_at: time, event_time: time, ingest_time: time, version: 1,
+  }));
+  const behavior = (eventId, ip) => ({
+    event_id: eventId, user_id: 'user-000001', article_id: 'article-000001',
+    action: 'click', ip, read_duration_ms: 1000, event_time: time, ingest_time: time,
+  });
+  const insert = db.prepare('INSERT INTO behavior_raw(line) VALUES (?)');
+  for (const [index, ip] of ['256.0.0.1', '127..0.1', 'a.0.0.1', '127.0.0.1',
+    '127.0.0.1', '127.0.0.1'].entries()) {
+    insert.run(JSON.stringify(behavior(
+      index < 4 ? 'behavior-event-00000001' : `behavior-event-${String(index - 2).padStart(8, '0')}`,
+      ip,
+    )));
+  }
+  db.exec(fs.readFileSync(path.join(__dirname, 'prepare.sql'), 'utf8'));
+  const rows = db.prepare('SELECT event_id, ip FROM behavior_clean ORDER BY event_id').all()
+    .map(({ event_id, ip }) => ({ event_id, ip }));
+  assert.deepEqual(rows, [
+    { event_id: 'behavior-event-00000001', ip: '127.0.0.1' },
+    { event_id: 'behavior-event-00000002', ip: '127.0.0.1' },
+    { event_id: 'behavior-event-00000003', ip: '127.0.0.1' },
+  ]);
+  assert.equal(db.prepare('SELECT COUNT(*) AS n FROM joined').get().n, 3);
+  db.close();
 });

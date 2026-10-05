@@ -3,18 +3,22 @@
 ## 概念与实现
 
 `ValueState` 保存一个键的最新值（去重标记、IP 窗口、文章热度快照）；
-原规则 C 的 `ListState` 保存同一 IP 最近一分钟的点击明细；第四天的
+规则 C 的 `MapState` 保存同一 IP 的点击及每分钟告警版本；第四天的
 `MapState` 在文章或 IP 键下按 `window_start:shard` 保存分片累计结果。
 TTL 是**处理时间**的失效策略，
-不是事件时间窗口的关闭条件。窗口仍由 Watermark 和 30 秒允许迟到来清理；
+不是事件时间窗口的关闭条件。规则 A/B/C 的修正状态采用**事件时间**
+窗口结束后 24 小时清理；第四天独立状态作业仍按各自窗口和 TTL 策略结算；
 TTL 到期不保证物理空间立即回收。重放超过 24 小时的同一 `event_id` 可能再次被计数，
 长期归档或离线补数必须另有幂等键。
 
-处理链路：Join 富化 -> 按 `event_id` 去重（24h）-> 恢复行为事件时间 ->
+处理链路：Schema ETL -> 按 `event_id` 去重（24h）-> Watermark ->
+首版时间时序 ETL / Join 富化 -> 规则入口的二次幂等保护与时间恢复 ->
 各自独立运行 A/B/C、`ArticleHeatStateJob` 或 `IpWindowStateJob`。
-A/B 的 `aggregate` 自带 Flink 窗口状态，C 原先已有 IP 的 `ListState` 和
-上次告警分钟 `ValueState`，三条 Role 均不因本实验而改写。
-文章作业的五分钟窗口到窗口结束加 30 秒清理；
+A/B 按文章键保存可修正窗口状态，C 按 IP 保存明细与可更新/撤销的告警。
+第四天的独立状态作业仍与 A/B/C 分开，不把规则窗口的事件时间保留期误称为
+第四天状态的处理时间 TTL。
+独立文章作业优化模式的五分钟分片窗口到窗口结束加 30 秒清理，
+未优化模式复用规则 A 的 24 小时事件时间修正状态；
 `day4-article-latest-heat` 单独保存每篇**已告警**文章的最近热度，
 24h 无更新后失效，不把五分钟窗口误称作 24h 状态。
 IP 作业的 `day4-ip-window` 按 IP、窗口起点及分片记录不同文章集合、
@@ -27,16 +31,16 @@ IP 作业的 `day4-ip-window` 按 IP、窗口起点及分片记录不同文章�
 
 | 类名 | 怎么用 | 实现思路 |
 | --- | --- | --- |
-| `ArticleJoinBehavior` | 规则作业调用 `createJoinedStream` | 双 Kafka Source 清洗后按 `article_id` 连接，输出富化行为；保持原有 Join 代码不变。 |
-| `RoleStreamUtil` | 每个作业在 `buildRule` 前调用 `prepare` | `event_id` 的 `ValueState` 先去重，然后按行为 `event_time` 重新设置 Watermark；测试用短 TTL 验证失效。 |
-| `Achieve_roleA` | 原有热点文章基线，不带 `--optimized` | 五分钟滑动窗口、每分钟滑动，窗口状态由 Flink 管理。 |
+| `ArticleJoinBehavior` / `BehaviorDeduplicate` | 规则作业调用 `createJoinedStream`；`--bounded` 只做固定批次验收 | Schema 清洗后 ETL 去重；按流生成 Watermark；先到行为立即未匹配、保留待首版文章补 Join，迟到留痕后仍继续 Join。 |
+| `RoleStreamUtil` | 每个作业在 `buildRule` 前调用 `prepare` | 在生产 ETL 已去重的前提下做二次幂等保护，再按行为 `event_time` 恢复 Watermark；测试用短 TTL 验证失效。 |
+| `Achieve_roleA`、`ClickAccumulator`、`CountClicks` | 原有热点文章规则，不带 `--optimized` | 五分钟滑动窗口，每分钟滑动；按文章键保存 24 小时事件时间修正状态，晚到点击可补发过阈值结果。 |
 | `ArticleHeatStateJob` | 独立启动；追加 `--optimized` 启用加盐 | 原始模式复用规则 A 输出；优化模式先按事件 ID 分 16 片再按文章合并，都保存最近热度 24h。 |
 | `ClickAccumulator`、`CountClicks` | 文章作业优化模式的聚合对象和增量函数 | 统计次数，按版本及事件时间保留最新文章维度；`merge` 合并分片。 |
 | `ShardWindow` | 文章作业第一阶段的窗口输出 | 按分片输出五分钟滑动窗口累计值。 |
 | `PartialClicks`、`MergeShards` | 分片消息及第二阶段合并算子 | 用文章键重聚合，迟到更新覆盖同一片的旧累计值；待上游窗口清理后合并并删除分片状态。 |
-| `RememberHeat` | 文章作业两种模式的输出端共用 | `ValueState` 保存最近的热点结果，TTL 24h；不修改规则 A。 |
-| `Achieve_roleB` | 原有热门话题规则 | 文章窗口预聚合后按分类排序；本日未改动。 |
-| `Achieve_roleC`、`DetectSuspiciousIp` | 原有逐点击回看刷量规则 | IP 的点击 `ListState` 与上次告警 `ValueState` 已存在；本日保留原样。 |
+| `RememberHeat` | 独立文章作业两种模式的输出端共用 | `ValueState` 保存最近的热点结果，处理时间 TTL 24h，与规则 A 的事件时间保留期不同。 |
+| `Achieve_roleB`、`ArticleScore`、`RankCategories` | 分类热度规则 | 按文章累计，窗口键重算榜单，晚到更新可覆盖旧文章分数。 |
+| `Achieve_roleC`、`CandidateAlert`、`DetectSuspiciousIp` | 逐点击回看刷量规则 | 按 IP 保存点击与最早告警；晚到点击按分钟更新或撤销，24 小时事件时间清理。 |
 | `IpWindowStateJob` | 独立启动；追加 `--optimized` 按 IP 加盐 | 原始模式一片，优化模式 16 片，两者都先算一分钟局部状态再合并、按相同阈值告警。 |
 | `IpWindowState`、`IpPartial` | IP 作业的完整状态和单分片输出 | 保存不同文章集合、点击数、时长总和与窗口起止；分片只传累计指标。 |
 | `CountIpShard`、`MergeIpShards` | IP 作业的两阶段算子 | 前者按事件时间累计并注册定时器；后者合并集合及计数，输出快照与告警。 |
@@ -95,6 +99,8 @@ Checkpoint 大小/时长、GC、吞吐及 p95，再判断是否切换。
 作业启动与本机噪声影响明显，不能声称优化达到生产性能目标。
 `p95_source_to_keyed_ms` 仅从 Source 打点到分组探针，不是告警端到端延迟。
 
-`mvn -o -pl flink-job/flink-rolesachieve -am test`：6 个 Java 用例通过。
+当前规则测试从 `flink-job/pom.xml` 启动：`mvn -o -f flink-job/pom.xml
+-pl flink-rolesachieve -am test`，10 个 Java 用例通过。上述倾斜测量
+为修改规则 A/C 之前的历史数据，不能当作本轮规则吞吐结论。
 `node --no-warnings --test tests/roles/baseline.test.js`：1 个独立 SQL 用例通过。
 本机没有 Docker，Kafka 的有界双 Topic 实跑及 RocksDB 对照尚未验收。

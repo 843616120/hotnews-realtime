@@ -1,0 +1,92 @@
+{
+  "stage": "after-savepoint-restore",
+  "capturedAt": "2026-10-05T19:04:45.548Z",
+  "jobId": "995346f409afd03a37db6459a5476c0d",
+  "state": "RUNNING",
+  "vertices": [
+    {
+      "name": "Source: Article_Source -> Process -> (Sink: Print to Std. Out, Timestamps/Watermarks)",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "Source: Behavior_Source -> Process -> Sink: Print to Std. Out",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "KeyedProcess -> (Sink: Print to Std. Out, Timestamps/Watermarks)",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "Co-Keyed-Process -> (Sink: Print to Std. Out, Sink: Print to Std. Out, Sink: Print to Std. Out, Sink: Print to Std. Out, Map, Map, Map, Map)",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "KeyedProcess -> Timestamps/Watermarks -> (Sink: MySQL clean behavior, Filter, Filter)",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "KeyedProcess -> (Map, Sink: MySQL article alerts)",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "KeyedProcess -> (Map, Sink: MySQL IP alerts)",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "KeyedProcess -> Map",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "KeyedProcess -> (Map, Sink: MySQL category ranks, Filter)",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "Sink: MySQL queryable exceptions",
+      "status": "RUNNING",
+      "parallelism": 3
+    },
+    {
+      "name": "Sink: Redis atomic latest category top 5",
+      "status": "RUNNING",
+      "parallelism": 1
+    }
+  ],
+  "parallelism": 3,
+  "checkpoints": {
+    "counts": {
+      "restored": 1,
+      "total": 53,
+      "in_progress": 0,
+      "completed": 36,
+      "failed": 17
+    },
+    "latestCompleted": {
+      "id": 72,
+      "durationMs": 721,
+      "path": "file:/opt/flink/checkpoints/day5/995346f409afd03a37db6459a5476c0d/chk-72"
+    },
+    "restored": {
+      "id": 36,
+      "restore_timestamp": 1791226553980,
+      "is_savepoint": true,
+      "external_path": "file:/opt/flink/savepoints/savepoint-f43a63-bae3b1f5f00c"
+    }
+  },
+  "redis": {
+    "windowStartMs": "1790469600000",
+    "revision": "15004",
+    "rankingLength": 5,
+    "ttlSeconds": 3767,
+    "semanticSha256": "7c735285fbb0da5b5cda3e2fbce2e17f91ecfffec4ae55fb862e10ffd943f45b"
+  },
+  "mysql": "not queried: host credentials require explicit user configuration"
+}

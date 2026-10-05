@@ -18,7 +18,7 @@ WITH parsed AS (
            json_extract(doc, '$.ingest_time') AS ingest_time
     FROM parsed
 )
-SELECT sequence, article_id, title, category, version,
+SELECT sequence, article_id, event_type, title, category, version,
        unixepoch(event_time) * 1000 + CAST(substr(event_time, 21, 3) AS INTEGER) AS event_ms
 FROM fields
 WHERE json_type(doc, '$.event_id') = 'text'
@@ -40,7 +40,7 @@ WHERE json_type(doc, '$.event_id') = 'text'
   AND unixepoch(event_time) <= unixepoch(ingest_time) + 7200;
 
 CREATE TABLE behavior_clean AS
-WITH parsed AS (
+WITH RECURSIVE parsed AS (
     SELECT rowid AS sequence, CASE WHEN json_valid(line) THEN line ELSE '{}' END AS doc
     FROM behavior_raw
 ), fields AS (
@@ -54,7 +54,23 @@ WITH parsed AS (
            json_extract(doc, '$.event_time') AS event_time,
            json_extract(doc, '$.ingest_time') AS ingest_time
     FROM parsed
-)
+), ip_octets AS (
+    SELECT sequence, substr(ip, 1, instr(ip, '.') - 1) AS octet,
+           substr(ip, instr(ip, '.') + 1) AS remaining, 1 AS position
+    FROM fields
+    WHERE json_type(doc, '$.ip') = 'text' AND instr(ip, '.') > 0
+    UNION ALL
+    SELECT sequence,
+           CASE WHEN instr(remaining, '.') > 0
+                THEN substr(remaining, 1, instr(remaining, '.') - 1)
+                ELSE remaining END,
+           CASE WHEN instr(remaining, '.') > 0
+                THEN substr(remaining, instr(remaining, '.') + 1)
+                ELSE '' END,
+           position + 1
+    FROM ip_octets
+    WHERE position < 4 AND remaining <> ''
+), valid AS (
 SELECT sequence, event_id, article_id, action, ip, read_duration_ms,
        unixepoch(event_time) * 1000 + CAST(substr(event_time, 21, 3) AS INTEGER) AS event_ms
 FROM fields
@@ -67,27 +83,47 @@ WHERE json_type(doc, '$.event_id') = 'text'
   AND action IN ('click', 'share', 'comment')
   AND json_type(doc, '$.ip') = 'text'
   AND length(ip) - length(replace(ip, '.', '')) = 3
+  AND EXISTS (
+      SELECT 1 FROM ip_octets WHERE ip_octets.sequence = fields.sequence
+      GROUP BY ip_octets.sequence
+      HAVING COUNT(*) = 4
+         AND MIN(CASE WHEN length(octet) BETWEEN 1 AND 3
+                           AND octet NOT GLOB '*[^0-9]*'
+                           AND CAST(octet AS INTEGER) <= 255
+                      THEN 1 ELSE 0 END) = 1
+  )
   AND json_type(doc, '$.read_duration_ms') = 'integer'
   AND read_duration_ms BETWEEN 0 AND 86400000
   AND json_type(doc, '$.event_time') = 'text' AND unixepoch(event_time) IS NOT NULL
   AND json_type(doc, '$.ingest_time') = 'text' AND unixepoch(ingest_time) IS NOT NULL
-  AND unixepoch(event_time) <= unixepoch(ingest_time) + 7200;
+  AND unixepoch(event_time) <= unixepoch(ingest_time) + 7200
+)
+-- 先按 Schema 清洗再去重，避免脏副本挤掉同 ID 的合法行为。
+SELECT sequence, event_id, article_id, action, ip, read_duration_ms, event_ms
+FROM (
+    SELECT *, ROW_NUMBER() OVER (PARTITION BY event_id ORDER BY sequence) AS event_rank
+    FROM valid
+)
+WHERE event_rank = 1;
 
--- 固定数据只有 publish；排序仍保留同一文章多个版本的离线候选逻辑。
+-- 最初的 version=1 publish 决定行为有效时间；更新版本只决定富化的文章信息。
 CREATE TABLE joined AS
 WITH articles AS (
     SELECT *, ROW_NUMBER() OVER (
         PARTITION BY article_id ORDER BY version DESC, event_ms DESC, sequence DESC
     ) AS article_rank
     FROM article_clean
-), behaviors AS (
-    SELECT *, ROW_NUMBER() OVER (PARTITION BY event_id ORDER BY sequence) AS behavior_rank
-    FROM behavior_clean
+), initial_publication AS (
+    SELECT article_id, MIN(event_ms) AS first_event_ms
+    FROM article_clean
+    WHERE event_type = 'publish' AND version = 1
+    GROUP BY article_id
 )
 SELECT b.event_id, b.article_id, b.action, b.ip, b.read_duration_ms, b.event_ms,
        a.title, a.category, a.version AS article_version
-FROM behaviors b JOIN articles a ON a.article_id = b.article_id
-WHERE b.behavior_rank = 1 AND a.article_rank = 1 AND b.event_ms >= a.event_ms;
+FROM behavior_clean b JOIN articles a ON a.article_id = b.article_id
+JOIN initial_publication p ON p.article_id = b.article_id
+WHERE a.article_rank = 1 AND b.event_ms >= p.first_event_ms;
 
 CREATE INDEX joined_article_time ON joined(article_id, event_ms);
 CREATE INDEX joined_ip_time ON joined(ip, event_ms);

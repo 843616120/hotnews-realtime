@@ -15,8 +15,9 @@ import java.time.Duration;
 import java.time.OffsetDateTime;
 
 /**
- * 三条规则共用的事件预处理：按 event_id 去重，再恢复行为事件时间。
- * 状态 TTL 按处理时间计算，生产用 24 小时；测试可传入较短 TTL 验证过期后重新接收。
+ * 三条规则共用的二次幂等保护与行为时间恢复。生产入口的 Schema ETL
+ * 已在 Join 前按 event_id 去重；这里防御 Checkpoint 回退/单独调用规则的重复输入。
+ * 状态 TTL 按处理时间计算，生产用 24 小时；测试可传入较短 TTL 验证过期。
  */
 public class RoleStreamUtil {
     /*

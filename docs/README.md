@@ -1,6 +1,11 @@
 # 学习记录和验收材料
 
 这里保存项目架构、数据字典、Watermark、Join 状态、TTL、Checkpoint、反压压测、故障恢复 SOP、测试报告和代码审计记录。
+第五天可执行步骤、类名思路和外部一致性边界见
+[04-Day5-Sink与恢复验收.md](04-Day5-Sink与恢复验收.md)。
+一致性边界的一页时序图见
+[05-Day5-一致性边界.md](05-Day5-一致性边界.md)，
+真实故障/Savepoint 记录见 [../tests/day5/README.md](../tests/day5/README.md)。
 
 ## Word 笔记
 

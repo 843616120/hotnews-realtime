@@ -26,10 +26,10 @@ state_join_candidates: 990
 no_article_candidates: 0
 ```
 
-The 990 rows are **candidates**, not a promise of 990 runtime `JOINED` lines:
-Kafka partition order, event-time watermarks, late records, and incomplete replay
-can change the actual count. Duplicate `event_id` is not filtered by the Day 2
-job; deduplication belongs to Day 4. The old 30-second interval only covers 11
+The 990 rows are **schema-valid candidates before event_id deduplication**, not
+a promise of 990 runtime Join outputs. The current production ETL removes duplicate
+behavior event IDs before assigning watermarks and joining; SQL in `tests/roles`
+reflects that same ordering. The old 30-second interval only covers 11
 pairs in this dataset, because most behaviors occur well after publication.
 
 The small fixed edge inputs are in `inputs/`. They cover behavior arriving
@@ -59,22 +59,26 @@ Then inspect `joined_missing` alongside `late_actual` and `unmatched_actual`.
 Do not compare a run that includes earlier Kafka messages or multiple replays
 against this one-dataset baseline.
 
-Join design in `ArticleJoinBehavior`: both streams key by `article_id`; article
-`ValueState` stores title/category/tags with a two-hour processing-time TTL.
-Behavior arriving first stays in `ListState` until its event-time timer fires
-or the article arrives, then it is emitted as `UNMATCHED_BEHAVIOR` or `JOINED`.
-Pending state is cleaned by event-time timers, not a processing-time TTL, so
-long idleness cannot silently drop an unmatched record. `LATE_DATA` is separate
-from invalid input `DIRTY_ARTICLE`/`DIRTY_BEHAVIOR`. The behavior watermark waits
-one hour because this generator deliberately sends some behavior records with
-event times up to an hour ahead of their simulated arrival; the article stream
-waits 30 seconds, and idle partitions are detected after 30 seconds.
+Current Join design in `ArticleJoinBehavior`: both streams key by `article_id`;
+article and first-publication state have a two-hour processing-time TTL. First
+clean/schema-valid behavior is deduplicated by event ID. Behavior arriving before
+its first publication immediately enters `UNMATCHED_BEHAVIOR` and is retained
+in keyed `MapState` for rejoining when the publication arrives. Every pending
+event has a two-hour processing-time deadline; unresolved records go to
+`REPLAY_REQUIRED`, never disappear silently. With bounded replay a final
+event-time audit handles unresolved keys. `LATE_DATA` records beyond the Join's
+30-second allowed-lateness bound are still passed through temporal ETL/Join.
+Article watermark disorder is 30 seconds, behavior is 65 minutes in continuous
+mode and two hours for accelerated bounded cross-partition replay; idle partitions
+are detected after 30 seconds. An event earlier than first publication is rejected
+by temporal ETL into `DIRTY_BEHAVIOR_ETL`.
 
-Compensation design: persist `UNMATCHED_BEHAVIOR` by `event_id` and retain
-`LATE_DATA` articles. When a late article arrives, replay the unmatched
-behaviors with the same `article_id`, enrich them, and upsert by `event_id`
-to avoid double-counting. This replay/sink is not implemented yet; currently
-the three outputs are labeled separately in the console for inspection.
+Compensation: late publication automatically joins pending behaviors within the
+two-hour state period; `Day5SinkJob` saves unmatched/late/replay-required events
+to the MySQL `pipeline_event` table, while `clean_behavior` is keyed by event_id.
+After TTL expiry, a fresh `--bounded` replay from retained raw Kafka topics can
+rebuild article state and upsert the clean behavior. Kafka retention must still
+cover that replay; missing source data cannot be recreated.
 
 Kafka is unbounded: at the end of a finite replay, event-time timers for the
 last pending records need more input/watermark advancement before firing.

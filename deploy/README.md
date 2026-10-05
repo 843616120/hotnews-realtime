@@ -51,12 +51,14 @@ IDEA 本地运行作业:   http://localhost:8082
 Docker JobManager:  http://localhost:8081
 ```
 
-IDEA 本地运行的作业通过 `flink-runtime-web` 创建 MiniCluster Web UI。Docker 运行时，`jobmanager` 和 `taskmanager` 挂载 `flink-conf.yaml`，并共享以下命名卷：
+IDEA 本地运行的作业通过 `flink-runtime-web` 创建 MiniCluster Web UI。Docker 运行时，`jobmanager` 和 `taskmanager` 挂载 `flink-conf.yaml`，并共享 D 盘上的以下目录：
 
 ```text
-deploy_flink-checkpoints
-deploy_flink-savepoints
+D:\docker_data\flink\checkpoints
+D:\docker_data\flink\savepoints
 ```
+
+Compose 将这两个 Windows 目录分别绑定到容器内的 `/opt/flink/checkpoints` 和 `/opt/flink/savepoints`。`D:\docker_data\docker-desktop\DockerDesktopWSL` 是 Docker Desktop 自己管理的内部存储目录，不要直接作为 Flink 挂载源目录。
 
 配置包含：
 
@@ -112,6 +114,15 @@ MySQL:      mysql:3306
 Redis:      redis:6379
 JobManager: jobmanager:8081
 ```
+
+第五天的一体化 Sink 作业使用同一套 Compose。先从
+`deploy/.env.example` 创建未提交的 `.env` 并修改 MySQL 密码，
+构建 `flink-rolesachieve` 打包 JAR 后在 JobManager 容器执行
+`flink run -d -c Day5SinkJob /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar`。
+Kafka、MySQL、Redis 连接地址由容器环境变量传入，不再复用宿主机的
+`localhost`。MySQL 首次建表脚本在 `sql/01-day5-tables.sql`；
+固定批次核验、Checkpoint/Savepoint 恢复及一致性边界详见
+[`../docs/04-Day5-Sink与恢复验收.md`](../docs/04-Day5-Sink与恢复验收.md)。
 
 ## 常见概念
 

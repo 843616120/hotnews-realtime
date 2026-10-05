@@ -1,10 +1,6 @@
 import com.alibaba.fastjson.JSONObject;
-import org.apache.flink.api.common.state.ListState;
-import org.apache.flink.api.common.state.ListStateDescriptor;
-import org.apache.flink.api.common.state.StateTtlConfig;
-import org.apache.flink.api.common.state.ValueState;
-import org.apache.flink.api.common.state.ValueStateDescriptor;
-import org.apache.flink.api.common.time.Time;
+import org.apache.flink.api.common.state.MapState;
+import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -15,23 +11,30 @@ import org.apache.flink.util.Collector;
 import org.apache.flink.util.OutputTag;
 
 import java.time.Instant;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 /**
  * 规则 C：识别一分钟内点击超过 50 篇不同文章、平均阅读不足两秒的 IP。
  *
- * <p>思路：复用 Join 富化结果并只保留点击，按 IP 保存点击明细；每条点击注册事件时间
- * 定时器，触发时回看一分钟，计算不同文章数、点击数和阅读时长之和，同一分钟只告警一次。
- * 目前集合、计数、时长总和和窗口边界均在定时器中临时计算，尚未单独作为 IP 状态保存。</p>
+ * <p>思路：按 IP 保存点击明细，按事件时间复算点击回看的一分钟。后到点击可能
+ * 改变该分钟最早告警，也可能使平均时长超过阈值；因此同一分钟按 alert_minute
+ * 发布更新或撤销。事件时间超过窗口终点 24 小时的修正进入旁路。</p>
  */
 public class Achieve_roleC {
     private static final long MINUTE_MS = 60_000L;
-    private static final long LATENESS_MS = 30_000L;
+    private static final long RETENTION_MS = 86_400_000L;
     private static final OutputTag<JSONObject> lateTag =
             new OutputTag<JSONObject>("role-c-late") {};
+
+    /** 共用作业可订阅超过规则 C 状态保留时间的点击。 */
+    public static OutputTag<JSONObject> lateTag() {
+        return lateTag;
+    }
 
     public static void main(String[] args) throws Exception {
         boolean bounded = args.length == 1 && "--bounded".equals(args[0]);
@@ -43,10 +46,10 @@ public class Achieve_roleC {
         env.setParallelism(3);
         env.enableCheckpointing(5000, CheckpointingMode.EXACTLY_ONCE);
 
-        //TODO 2.接入 Join 富化后的行为流，验收模式使用独立消费组。
+        //TODO 2.有界验收回放文章和行为，文章未到时不丢掉有效点击。
         SingleOutputStreamOperator<JSONObject> joined =
                 ArticleJoinBehavior.createJoinedStream(env,
-                        bounded ? "hotnews-role-c-verify" : "hotnews-role-c", bounded);
+                        bounded ? "hotnews-role-c-verify" : "hotnews-role-c", bounded, bounded);
 
         //TODO 3.去重并恢复事件时间，按 IP 检查滚动一分钟的不同文章数与平均阅读时长。
         SingleOutputStreamOperator<JSONObject> result = buildRule(RoleStreamUtil.prepare(joined));
@@ -61,22 +64,25 @@ public class Achieve_roleC {
                 .process(new DetectSuspiciousIp());
     }
 
+    /** 一分钟中按事件时间最早的有效告警值；用于比较更新和发出撤销。 */
+    public static class CandidateAlert {
+        public long windowEnd;
+        public int articleCount;
+        public int clickCount;
+        public long durationSum;
+    }
+
+    /** 按 IP 保存点击和每分钟的告警版本，晚到点击重新检查本分钟与下一分钟。 */
     private static class DetectSuspiciousIp extends KeyedProcessFunction<String, JSONObject, JSONObject> {
-        private transient ListState<JSONObject> clicks;
-        private transient ValueState<Long> lastAlertMinute;
+        private transient MapState<String, JSONObject> clicks;
+        private transient MapState<Long, CandidateAlert> alerts;
 
         @Override
         public void open(Configuration parameters) {
-            // 点击明细与上次告警分钟均设置一小时 TTL；这不是文章热度状态的 TTL。
-            StateTtlConfig ttl = StateTtlConfig.newBuilder(Time.hours(1)).build();
-            ListStateDescriptor<JSONObject> clickDescriptor =
-                    new ListStateDescriptor<JSONObject>("ip-clicks", JSONObject.class);
-            clickDescriptor.enableTimeToLive(ttl);
-            clicks = getRuntimeContext().getListState(clickDescriptor);
-            ValueStateDescriptor<Long> alertDescriptor =
-                    new ValueStateDescriptor<Long>("ip-last-alert-minute", Long.class);
-            alertDescriptor.enableTimeToLive(ttl);
-            lastAlertMinute = getRuntimeContext().getState(alertDescriptor);
+            clicks = getRuntimeContext().getMapState(new MapStateDescriptor<String, JSONObject>(
+                    "role-c-clicks", String.class, JSONObject.class));
+            alerts = getRuntimeContext().getMapState(new MapStateDescriptor<Long, CandidateAlert>(
+                    "role-c-alerts", Long.class, CandidateAlert.class));
         }
 
         @Override
@@ -84,49 +90,114 @@ public class Achieve_roleC {
                 throws Exception {
             long timestamp = RoleStreamUtil.eventTime(click);
             long watermark = context.timerService().currentWatermark();
-            if (watermark != Long.MIN_VALUE && timestamp + LATENESS_MS <= watermark) {
+            long minute = Math.floorDiv(timestamp, MINUTE_MS) * MINUTE_MS;
+            if (watermark >= minute + 2 * MINUTE_MS + RETENTION_MS) {
                 context.output(lateTag, click);
                 return;
             }
-            clicks.add(click);
-            context.timerService().registerEventTimeTimer(timestamp + LATENESS_MS);
+            clicks.put(click.getString("event_id"), click);
+            boolean partiallyExpired = false;
+            for (int offset = 0; offset <= 1; offset++) {
+                long targetMinute = minute + offset * MINUTE_MS;
+                long expires = targetMinute + MINUTE_MS + RETENTION_MS;
+                if (watermark >= expires) {
+                    partiallyExpired = true;
+                    continue;
+                }
+                context.timerService().registerEventTimeTimer(expires + 1);
+                recalculate(targetMinute, context.getCurrentKey(), out);
+            }
+            if (partiallyExpired) {
+                context.output(lateTag, click);
+            }
         }
 
         @Override
         public void onTimer(long timer, OnTimerContext context, Collector<JSONObject> out) throws Exception {
-            // 遍历保留的点击明细，临时计算当前窗口指标，并淘汰窗口外的记录。
-            long end = timer - LATENESS_MS;
-            List<JSONObject> retained = new ArrayList<JSONObject>();
-            Set<String> distinctArticles = new HashSet<String>();
-            long durationSum = 0;
-            int clickCount = 0;
-            for (JSONObject click : clicks.get()) {
-                long timestamp = RoleStreamUtil.eventTime(click);
-                if (timestamp > end - MINUTE_MS) {
-                    retained.add(click);
-                    if (timestamp <= end) {
-                        distinctArticles.add(click.getString("article_id"));
-                        durationSum += click.getLongValue("read_duration_ms");
-                        clickCount++;
-                    }
+            List<String> expiredClicks = new ArrayList<String>();
+            for (Map.Entry<String, JSONObject> entry : clicks.entries()) {
+                long minute = Math.floorDiv(RoleStreamUtil.eventTime(entry.getValue()), MINUTE_MS) * MINUTE_MS;
+                if (timer >= minute + 2 * MINUTE_MS + RETENTION_MS + 1) {
+                    expiredClicks.add(entry.getKey());
                 }
             }
-            clicks.update(retained);
-            long minute = end / MINUTE_MS;
-            Long lastMinute = lastAlertMinute.value();
-            if (distinctArticles.size() <= 50 || clickCount == 0
-                    || durationSum >= 2000L * clickCount
-                    || (lastMinute != null && lastMinute == minute)) {
+            for (String id : expiredClicks) {
+                clicks.remove(id);
+            }
+            alerts.remove(timer - RETENTION_MS - MINUTE_MS - 1);
+        }
+
+        private void recalculate(long minute, String ip, Collector<JSONObject> out) throws Exception {
+            List<JSONObject> ordered = new ArrayList<JSONObject>();
+            for (JSONObject click : clicks.values()) {
+                long ts = RoleStreamUtil.eventTime(click);
+                if (ts >= minute - MINUTE_MS && ts < minute + MINUTE_MS) {
+                    ordered.add(click);
+                }
+            }
+            ordered.sort(Comparator.comparingLong(RoleStreamUtil::eventTime)
+                    .thenComparing(value -> value.getString("event_id")));
+            ArrayDeque<JSONObject> recent = new ArrayDeque<JSONObject>();
+            Map<String, Integer> articles = new HashMap<String, Integer>();
+            long durationSum = 0;
+            CandidateAlert candidate = null;
+            for (int index = 0; index < ordered.size();) {
+                long end = RoleStreamUtil.eventTime(ordered.get(index));
+                while (!recent.isEmpty() && RoleStreamUtil.eventTime(recent.peekFirst()) <= end - MINUTE_MS) {
+                    JSONObject removed = recent.removeFirst();
+                    String articleId = removed.getString("article_id");
+                    int count = articles.get(articleId);
+                    if (count == 1) {
+                        articles.remove(articleId);
+                    } else {
+                        articles.put(articleId, count - 1);
+                    }
+                    durationSum -= removed.getLongValue("read_duration_ms");
+                }
+                while (index < ordered.size() && RoleStreamUtil.eventTime(ordered.get(index)) == end) {
+                    JSONObject value = ordered.get(index++);
+                    recent.addLast(value);
+                    String articleId = value.getString("article_id");
+                    articles.put(articleId, articles.getOrDefault(articleId, 0) + 1);
+                    durationSum += value.getLongValue("read_duration_ms");
+                }
+                if (end >= minute && articles.size() > 50
+                        && durationSum < 2000L * recent.size()) {
+                    candidate = new CandidateAlert();
+                    candidate.windowEnd = end;
+                    candidate.articleCount = articles.size();
+                    candidate.clickCount = recent.size();
+                    candidate.durationSum = durationSum;
+                    break;
+                }
+            }
+            CandidateAlert previous = alerts.get(minute);
+            if (candidate == null) {
+                if (previous != null) {
+                    alerts.remove(minute);
+                    JSONObject retraction = new JSONObject();
+                    retraction.put("ip", ip);
+                    retraction.put("alert_minute", minute);
+                    retraction.put("retracted", true);
+                    out.collect(retraction);
+                }
                 return;
             }
-            lastAlertMinute.update(minute);
+            if (previous != null && previous.windowEnd == candidate.windowEnd
+                    && previous.articleCount == candidate.articleCount
+                    && previous.clickCount == candidate.clickCount
+                    && previous.durationSum == candidate.durationSum) {
+                return;
+            }
+            alerts.put(minute, candidate);
             JSONObject result = new JSONObject();
-            result.put("ip", context.getCurrentKey());
-            result.put("article_count", distinctArticles.size());
-            result.put("click_count", clickCount);
-            result.put("avg_read_duration_ms", (double) durationSum / clickCount);
-            result.put("window_start", Instant.ofEpochMilli(end - MINUTE_MS).toString());
-            result.put("window_end", Instant.ofEpochMilli(end).toString());
+            result.put("ip", ip);
+            result.put("alert_minute", minute);
+            result.put("article_count", candidate.articleCount);
+            result.put("click_count", candidate.clickCount);
+            result.put("avg_read_duration_ms", (double) candidate.durationSum / candidate.clickCount);
+            result.put("window_start", Instant.ofEpochMilli(candidate.windowEnd - MINUTE_MS).toString());
+            result.put("window_end", Instant.ofEpochMilli(candidate.windowEnd).toString());
             result.put("detect_time", Instant.now().toString());
             out.collect(result);
         }

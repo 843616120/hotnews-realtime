@@ -55,10 +55,15 @@ function windowId(row, actual) {
 }
 
 function rowId(name, row, actual) {
+  if (name === 'c') {
+    const end = actual ? (row.alert_minute ?? Date.parse(row.window_end))
+      : row.window_end_ms;
+    const minute = Math.floor(end / 60000) * 60000;
+    return `${new Date(minute).toISOString()}|${row.ip}`;
+  }
   const window = windowId(row, actual);
   if (name === 'a') return `${window}|${row.article_id}`;
   if (name === 'b') return `${window}|${row.rank}`;
-  return `${window}|${row.ip}`;
 }
 
 function differences(name, expected, actual) {
@@ -66,14 +71,24 @@ function differences(name, expected, actual) {
     ? ['article_id', 'title', 'category', 'click_count']
     : name === 'b'
       ? ['rank', 'category', 'score', 'top_articles']
-      : ['ip', 'article_count', 'click_count', 'avg_read_duration_ms'];
+      : ['ip', 'article_count', 'click_count', 'avg_read_duration_ms', 'window_start', 'window_end'];
   return fields.filter((field) => {
+    if (field === 'window_start' || field === 'window_end') {
+      return Date.parse(actual[field]) !== expected[`${field}_ms`];
+    }
     const left = field === 'top_articles' ? JSON.parse(expected[field]) : expected[field];
     const right = actual[field];
     if (field === 'avg_read_duration_ms') return Math.abs(left - right) >= 0.001;
+    if (field === 'top_articles') {
+      return !Array.isArray(right) || left.length !== right.length
+        || left.some((article, index) => ['article_id', 'title', 'score']
+          .some((key) => article[key] !== right[index]?.[key]));
+    }
     return JSON.stringify(left) !== JSON.stringify(right);
   }).map((field) => `${field}: SQL=${JSON.stringify(field === 'top_articles'
-    ? JSON.parse(expected[field]) : expected[field])}, Flink=${JSON.stringify(actual[field])}`);
+    ? JSON.parse(expected[field])
+    : field === 'window_start' || field === 'window_end'
+      ? new Date(expected[`${field}_ms`]).toISOString() : expected[field])}, Flink=${JSON.stringify(actual[field])}`);
 }
 
 let failed = false;
@@ -88,9 +103,12 @@ for (const name of role ? [role] : ['a', 'b', 'c']) {
       const match = pattern.exec(line);
       if (!match) continue;
       const item = JSON.parse(match[1]);
-      if (Date.parse(item.window_end) <= closedThrough) {
-        // 允许迟到补算重复输出同一窗口：以日志中最后一次结果为准。
-        actual.set(rowId(name, item, true), item);
+      const end = item.retracted ? item.alert_minute + 60000 : Date.parse(item.window_end);
+      if (end <= closedThrough) {
+        // C 的撤销清除该 IP 在这一分钟的旧告警，其余修正按最终版本覆盖。
+        const id = rowId(name, item, true);
+        if (item.retracted) actual.delete(id);
+        else actual.set(id, item);
       }
     }
   }

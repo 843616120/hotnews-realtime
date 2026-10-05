@@ -13,7 +13,10 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>common</module>
         <module>flink-source</module>
+        <module>flink-join</module>
+        <module>flink-rolesachieve</module>
     </modules>
 
     <properties>

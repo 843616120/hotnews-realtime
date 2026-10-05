@@ -40,7 +40,6 @@ public class ArticleJoinBehavior {
 
     /** 分别接入文章、行为 Topic，校验后按 article_id 关联并输出正常及旁路结果。 */
     public static void main(String[] args) throws Exception {
-
         //TODO 1.基本环境准备
         Configuration conf = new Configuration();
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment(conf);
@@ -48,17 +47,35 @@ public class ArticleJoinBehavior {
 
         //TODO 2.检查点相关设置
         env.enableCheckpointing(5000, CheckpointingMode.EXACTLY_ONCE);
-        //TODO 3.读取KafkaSource 并封装为流
-        KafkaSource<String> ArticleSource = FlinkSourceUtil.getKafkaSource(Constant.TOPIC_ARTICLE, "hotnews-source-article");
-        KafkaSource<String> BehaviorSource = FlinkSourceUtil.getKafkaSource(Constant.TOPIC_BEHAVIOR, "hotnews-source-behavior");
-        DataStreamSource<String> ArticleStream = env.fromSource(ArticleSource, WatermarkStrategy.noWatermarks(), "Article_Source");
-        DataStreamSource<String> BehaviorStream = env.fromSource(BehaviorSource, WatermarkStrategy.noWatermarks(), "Behavior_Source");
-        //TODO 3.etl
-        SingleOutputStreamOperator<JSONObject> ArticleDS = etl(ArticleStream);
-        SingleOutputStreamOperator<JSONObject> BehaviorDS = etl(BehaviorStream);
+        createJoinedStream(env, "hotnews-source");
 
-        ArticleDS.getSideOutput(dirtyDataTag).print("DIRTY_ARTICLE");
-        BehaviorDS.getSideOutput(dirtyDataTag).print("DIRTY_BEHAVIOR");
+        //TODO 7.启动执行
+        env.execute("ArticleJoinBehavior");
+    }
+
+    /** 每个规则使用独立消费组，复用同一套双流关联逻辑。 */
+    public static SingleOutputStreamOperator<JSONObject> createJoinedStream(
+            StreamExecutionEnvironment env, String groupPrefix) {
+        return createJoinedStream(env, groupPrefix, false);
+    }
+
+    public static SingleOutputStreamOperator<JSONObject> createJoinedStream(
+            StreamExecutionEnvironment env, String groupPrefix, boolean bounded) {
+        //TODO 3.读取KafkaSource 并封装为流
+        KafkaSource<String> articleSource = FlinkSourceUtil.getKafkaSource(
+                Constant.TOPIC_ARTICLE, groupPrefix + "-article", bounded);
+        KafkaSource<String> behaviorSource = FlinkSourceUtil.getKafkaSource(
+                Constant.TOPIC_BEHAVIOR, groupPrefix + "-behavior", bounded);
+        DataStreamSource<String> articleStream = env.fromSource(
+                articleSource, WatermarkStrategy.noWatermarks(), "Article_Source");
+        DataStreamSource<String> behaviorStream = env.fromSource(
+                behaviorSource, WatermarkStrategy.noWatermarks(), "Behavior_Source");
+        //TODO 3.etl
+        SingleOutputStreamOperator<JSONObject> ArticleDS = etl(articleStream);
+        SingleOutputStreamOperator<JSONObject> BehaviorDS = etl(behaviorStream);
+
+       /* ArticleDS.getSideOutput(dirtyDataTag).print("DIRTY_ARTICLE");
+        BehaviorDS.getSideOutput(dirtyDataTag).print("DIRTY_BEHAVIOR");*/
         //TODO 4.设定水位线
         SingleOutputStreamOperator<JSONObject> ArticleDSWithWatermark = ArticleDS.assignTimestampsAndWatermarks(
                 WatermarkStrategy
@@ -101,15 +118,13 @@ public class ArticleJoinBehavior {
 
         //TODO 6.输出富化后的流
 
-        joinedStream.print("JOINED");
+/*        joinedStream.print("JOINED");
         joinedStream.getSideOutput(lateDataTag).print("LATE_DATA");
-        joinedStream.getSideOutput(unmatchedBehaviorTag).print("UNMATCHED_BEHAVIOR");
+        joinedStream.getSideOutput(unmatchedBehaviorTag).print("UNMATCHED_BEHAVIOR");*/
 
-        //TODO 7.启动执行
-        env.execute("ArticleJoinBehavior");
-
-
+        return joinedStream;
     }
+
     //JSON解析失败 字段缺失 时间非法的数据进入dirty_data旁路流
     private static final OutputTag<String> dirtyDataTag = new OutputTag<String>("dirty_data") {};
     private static final OutputTag<JSONObject> lateDataTag = new OutputTag<JSONObject>("late_data") {};

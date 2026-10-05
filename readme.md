@@ -1,5 +1,10 @@
 # Realtime Hot News
 
+第四天刷量、去重、TTL 与热点 Key 倾斜的代码说明、固定输入和本地验收：
+[`tests/day4/README.md`](tests/day4/README.md)；
+状态设计与实测报告：
+[`docs/03-状态TTL与内存模型笔记.md`](docs/03-状态TTL与内存模型笔记.md)。
+
 实时热点新闻检测系统学习项目。
 
 项目目标是使用 Kafka、Flink、MySQL 和 Redis，完成文章流与用户行为流的实时处理，覆盖：
@@ -398,7 +403,7 @@ mvn -pl flink-job/flink-source -am clean package -DskipTests
 把生成的 JAR 复制到 JobManager 容器：
 
 ```powershell
-docker cp flink-job\flink-source\target\flink-source-1.0-SNAPSHOT.jar `
+docker cp flink-job\flink-source\target\flink-source-1.0-SNAPSHOT-all.jar `
   deploy-jobmanager-1:/opt/flink/hotnews-job.jar
 ```
 

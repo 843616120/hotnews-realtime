@@ -107,23 +107,23 @@ public class ArticleJoinBehavior {
         //TODO 3.先分别清洗 Schema；原始字符串尚无可靠事件时间，清洗后再生成水位线。
         SingleOutputStreamOperator<JSONObject> ArticleDS = etl(articleStream);
         SingleOutputStreamOperator<JSONObject> BehaviorDS = etl(behaviorStream);
-        ArticleDS.getSideOutput(dirtyDataTag).print("DIRTY_ARTICLE");
-        BehaviorDS.getSideOutput(dirtyDataTag).print("DIRTY_BEHAVIOR");
+/*        ArticleDS.getSideOutput(dirtyDataTag).print("DIRTY_ARTICLE");
+        BehaviorDS.getSideOutput(dirtyDataTag).print("DIRTY_BEHAVIOR");*/
 
         //TODO 4.在 ETL 末尾先去重，后分配 Watermark；迟到事件留痕并继续 Join。
         SingleOutputStreamOperator<JSONObject> deduplicated = deduplicateBehaviors(BehaviorDS);
-        deduplicated.getSideOutput(duplicateBehaviorTag).print("DUPLICATE_BEHAVIOR");
+ /*       deduplicated.getSideOutput(duplicateBehaviorTag).print("DUPLICATE_BEHAVIOR");*/
         SingleOutputStreamOperator<JSONObject> joinedStream =
                 joinCleanStreams(withWatermarks(deduplicated,
                                 bounded ? BOUNDED_REPLAY_DISORDER : BEHAVIOR_DISORDER),
                         withWatermarks(ArticleDS, ARTICLE_DISORDER), bounded);
-        joinedStream.getSideOutput(dirtyBehaviorTag).print("DIRTY_BEHAVIOR_ETL");
+/*        joinedStream.getSideOutput(dirtyBehaviorTag).print("DIRTY_BEHAVIOR_ETL");
         joinedStream.getSideOutput(unmatchedBehaviorTag).print("UNMATCHED_BEHAVIOR");
         joinedStream.getSideOutput(lateDataTag).print("LATE_DATA");
         if (bounded) {
             joinedStream.getSideOutput(rejoinedBehaviorTag).print("REJOINED_BEHAVIOR");
         }
-        joinedStream.getSideOutput(replayRequiredTag).print("REPLAY_REQUIRED");
+        joinedStream.getSideOutput(replayRequiredTag).print("REPLAY_REQUIRED");*/
 
         return joinedStream;
     }

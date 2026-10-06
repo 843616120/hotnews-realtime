@@ -1,21 +1,30 @@
-# 学习记录和验收材料
+# 项目笔记与验收索引
 
-这里保存项目架构、数据字典、Watermark、Join 状态、TTL、Checkpoint、反压压测、故障恢复 SOP、测试报告和代码审计记录。
-第五天可执行步骤、类名思路和外部一致性边界见
-[04-Day5-Sink与恢复验收.md](04-Day5-Sink与恢复验收.md)。
-一致性边界的一页时序图见
-[05-Day5-一致性边界.md](05-Day5-一致性边界.md)，
-真实故障/Savepoint 记录见 [../tests/day5/README.md](../tests/day5/README.md)。
+按根目录《Flink 大数据 7 天学习目标与考核标准》的交付顺序阅读。下面的 `项目笔记/` 是统一的 Markdown 正文；详细原始指标与操作记录仍保留在本目录及 `tests/`，不把实验设计写成实测。
 
-## Word 笔记
+| 顺序 | 考核笔记 | 主要内容 |
+| --- | --- | --- |
+| 01 | [项目架构与数据字典](项目笔记/01-项目架构与数据字典.md) | 链路、双流 Schema、Topic/Key/分区/并行度、生成器 |
+| 02 | [事件时间与 Watermark](项目笔记/02-事件时间与Watermark.md) | 乱序、空闲分区、迟到旁路、Join 与补算 |
+| 03 | [状态 TTL 与内存模型](项目笔记/03-状态TTL与内存模型.md) | Keyed State、TTL 估算、热点分片、HashMap/RocksDB |
+| 04 | [Checkpoint 与一致性](项目笔记/04-Checkpoint与一致性.md) | Barrier、外部 Sink、Savepoint、恢复与一致性边界 |
+| 05 | [反压压测与容量规划](项目笔记/05-反压压测与容量规划.md) | 2000/5000 档、Kafka Lag、调优、资源估算 |
+| 06 | [故障演练与恢复 SOP](项目笔记/06-故障演练与恢复SOP.md) | 止损、保数、定位、恢复、复核与复盘 |
+| 07 | [版本源码与代码审计](项目笔记/07-版本源码与代码审计.md) | 版本兼容、阅读路径、至少三项代码风险 |
+| 08 | [测试报告与验收矩阵](项目笔记/08-测试报告与验收矩阵.md) | 固定输入、独立基准、Flink/外部结果、缺口 |
 
-- [01-项目架构与数据字典.docx](01-项目架构与数据字典.docx)
-- [02-事件时间与Watermark笔记.docx](02-事件时间与Watermark笔记.docx)
-- [03-状态TTL与内存模型笔记.docx](03-状态TTL与内存模型笔记.docx)
-- [04-Checkpoint与一致性笔记.docx](04-Checkpoint与一致性笔记.docx)
-- [05-反压压测与容量规划.docx](05-反压压测与容量规划.docx)
-- [06-故障演练与恢复SOP.docx](06-故障演练与恢复SOP.docx)
-- [07-版本源码与代码审计.docx](07-版本源码与代码审计.docx)
-- [test-report.docx](test-report.docx)
+## 原始记录和复现入口
 
-文档中的结果分为“已运行核对”和“待实测”两类。当前已记录 Day 2 两组 SQLite 离线基线，以及 Day 4 固定热点输入的本地基准；Kafka 在线输出、MySQL/Redis Sink、持续压测和故障恢复仍需按各文档的步骤补充证据。
+| 主题 | 详细记录 |
+| --- | --- |
+| Day 2 固定边界 | [Day 2 SQL/输入说明](../tests/day2/README.md) |
+| 规则 A/B/C 独立核对 | [逐窗口 SQL、历史 Flink 日志](../tests/roles/README.md) |
+| Day 4 状态和容量推导 | [状态 TTL 与内存模型笔记](03-状态TTL与内存模型笔记.md) |
+| Day 4 本地/集群倾斜实验 | [状态与倾斜验收报告](05-第四天状态与倾斜验收报告.md)、[原始 JSON](../tests/day4/evidence/) |
+| Day 5 Sink 操作 | [提交、查询及恢复步骤](04-Day5-Sink与恢复验收.md) |
+| Day 5 一致性边界 | [一页时序图](05-Day5-一致性边界.md) |
+| Day 5 故障实测 | [Checkpoint/Savepoint 记录](06-Day5-Checkpoint与Savepoint记录.md)、[采样说明](../tests/day5/README.md) |
+| Day 6 压测详细分析 | [反压压测与容量规划现场报告](05-反压压测与容量规划.md) |
+| Day 6 隔离压测 | [原始 REST/Kafka 数据](../tests/day6/results/)、[运行器](../tests/day6/run.ps1) |
+
+结论按“代码实现 / 独立离线验证 / 集群现场证据 / 待核验”分别表述。尤其不能把旧 Word 中 10 月 5 日的“未实现 Sink”描述、短作业吞吐、未关窗的常驻结果或模拟慢 Sink 写成当前主链路的最终验收。

@@ -1,0 +1,27 @@
+{
+  "seed": 20260927,
+  "start_time": "2026-09-27T00:00:00Z",
+  "article_count": 500,
+  "behavior_count": 100000,
+  "action_counts": {
+    "click": 82138,
+    "share": 9977,
+    "comment": 7885
+  },
+  "dirty_record_count": 1000,
+  "dirty_kinds": {
+    "negative_duration": 353,
+    "future_event_time": 339,
+    "null_article_id": 308
+  },
+  "duplicate_record_count": 2000,
+  "hot_article_ids": [
+    "article-000328",
+    "article-000338"
+  ],
+  "hot_article_click_share": 0.851733,
+  "first_article_ingest_time": "2026-09-27T00:00:33.446Z",
+  "last_article_ingest_time": "2026-09-27T01:00:00.760Z",
+  "first_behavior_ingest_time": "2026-09-27T00:00:08.641Z",
+  "last_behavior_ingest_time": "2026-09-27T01:59:46.866Z"
+}

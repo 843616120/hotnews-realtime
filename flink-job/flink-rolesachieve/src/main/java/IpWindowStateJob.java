@@ -37,14 +37,19 @@ public class IpWindowStateJob {
     public static void main(String[] args) throws Exception {
         Set<String> options = new HashSet<String>();
         String backend = "hashmap";
+        String runId = "";
         for (String arg : args) {
             if ("--backend=hashmap".equals(arg) || "--backend=rocksdb".equals(arg)) {
                 backend = arg.substring("--backend=".length());
                 continue;
             }
+            if (arg.startsWith("--run-id=") && arg.length() > "--run-id=".length()) {
+                runId = arg.substring("--run-id=".length());
+                continue;
+            }
             if (!("--bounded".equals(arg) || "--optimized".equals(arg)) || !options.add(arg)) {
                 throw new IllegalArgumentException(
-                        "仅支持 --bounded、--optimized、--backend=hashmap|rocksdb");
+                        "仅支持 --bounded、--optimized、--backend=hashmap|rocksdb、--run-id=...");
             }
         }
         boolean bounded = options.contains("--bounded");
@@ -59,7 +64,8 @@ public class IpWindowStateJob {
 
         //TODO 2.通过独立消费组接入 Join，按 event_id 去重并恢复行为事件时间。
         String group = "hotnews-day4-ip-" + (optimized ? "salted" : "baseline")
-                + (bounded ? "-verify" : "");
+                + (bounded ? "-verify" : "")
+                + (runId.isEmpty() ? "" : "-" + runId);
         DataStream<JSONObject> joined = RoleStreamUtil.prepare(
                 ArticleJoinBehavior.createJoinedStream(env, group, bounded));
 

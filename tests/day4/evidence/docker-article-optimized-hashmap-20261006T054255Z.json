@@ -1,0 +1,829 @@
+{
+  "workload": "article",
+  "mode": "optimized",
+  "backend": "hashmap",
+  "job_id": "1018e29d28e6f44c4a4555ed2c42e907",
+  "job_name": "ArticleHeatStateJob",
+  "state": "FINISHED",
+  "started_at": "2026-10-06T05:42:55.2361350Z",
+  "collected_at": "2026-10-06T05:43:55.2862210Z",
+  "duration_ms": 46554,
+  "input_behavior_records": 4216,
+  "throughput_events_per_second": 90.56149847488938,
+  "p95_source_to_keyed_ms": null,
+  "p95_note": "Production job has no Source-to-keyed Probe; checkpoint and busy time are not p95.",
+  "max_taskmanager_memory_bytes": 1405528048,
+  "rocksdb_peak_bytes": 0,
+  "rocksdb_final_bytes": 0,
+  "states": [
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RESTARTING",
+    "RUNNING",
+    "FINISHED"
+  ],
+  "checkpoints": {
+    "counts": {
+      "restored": 0,
+      "total": 1,
+      "in_progress": 0,
+      "completed": 1,
+      "failed": 0
+    },
+    "summary": {
+      "checkpointed_size": {
+        "min": 551936,
+        "max": 551936,
+        "avg": 551936,
+        "p50": 551936.0,
+        "p90": 551936.0,
+        "p95": 551936.0,
+        "p99": 551936.0,
+        "p999": 551936.0
+      },
+      "state_size": {
+        "min": 551936,
+        "max": 551936,
+        "avg": 551936,
+        "p50": 551936.0,
+        "p90": 551936.0,
+        "p95": 551936.0,
+        "p99": 551936.0,
+        "p999": 551936.0
+      },
+      "end_to_end_duration": {
+        "min": 32,
+        "max": 32,
+        "avg": 32,
+        "p50": 32.0,
+        "p90": 32.0,
+        "p95": 32.0,
+        "p99": 32.0,
+        "p999": 32.0
+      },
+      "alignment_buffered": {
+        "min": 0,
+        "max": 0,
+        "avg": 0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "p999": 0.0
+      },
+      "processed_data": {
+        "min": 0,
+        "max": 0,
+        "avg": 0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "p999": 0.0
+      },
+      "persisted_data": {
+        "min": 0,
+        "max": 0,
+        "avg": 0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "p999": 0.0
+      }
+    },
+    "latest": {
+      "completed": {
+        "className": "completed",
+        "id": 1,
+        "status": "COMPLETED",
+        "is_savepoint": false,
+        "savepointFormat": null,
+        "trigger_timestamp": 1791265429343,
+        "latest_ack_timestamp": 1791265429375,
+        "checkpointed_size": 551936,
+        "state_size": 551936,
+        "end_to_end_duration": 32,
+        "alignment_buffered": 0,
+        "processed_data": 0,
+        "persisted_data": 0,
+        "num_subtasks": 24,
+        "num_acknowledged_subtasks": 24,
+        "checkpoint_type": "CHECKPOINT",
+        "tasks": {},
+        "external_path": "file:/opt/flink/checkpoints/1018e29d28e6f44c4a4555ed2c42e907/chk-1",
+        "discarded": true
+      },
+      "savepoint": null,
+      "failed": null,
+      "restored": null
+    },
+    "history": [
+      {
+        "className": "completed",
+        "id": 1,
+        "status": "COMPLETED",
+        "is_savepoint": false,
+        "savepointFormat": null,
+        "trigger_timestamp": 1791265429343,
+        "latest_ack_timestamp": 1791265429375,
+        "checkpointed_size": 551936,
+        "state_size": 551936,
+        "end_to_end_duration": 32,
+        "alignment_buffered": 0,
+        "processed_data": 0,
+        "persisted_data": 0,
+        "num_subtasks": 24,
+        "num_acknowledged_subtasks": 24,
+        "checkpoint_type": "CHECKPOINT",
+        "tasks": {},
+        "external_path": "file:/opt/flink/checkpoints/1018e29d28e6f44c4a4555ed2c42e907/chk-1",
+        "discarded": true
+      }
+    ]
+  },
+  "vertices": [
+    {
+      "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+      "name": "Source: Article_Source -> Process -> Timestamps/Watermarks",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": true,
+        "write-bytes": 191222,
+        "write-bytes-complete": true,
+        "read-records": 0,
+        "read-records-complete": true,
+        "write-records": 500,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 754,
+        "accumulated-busy-time": 10447.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "160"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "168"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "172"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6cdc5bb954874d922eaee11a8e7b5dd5",
+      "name": "Source: Behavior_Source -> Process",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": true,
+        "write-bytes": 979481,
+        "write-bytes-complete": true,
+        "read-records": 0,
+        "read-records-complete": true,
+        "write-records": 4216,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 710,
+        "accumulated-busy-time": 10431.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1428"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "2788"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a7656bc88070ceb7fdbe4bea9f8054df",
+      "name": "KeyedProcess -> Timestamps/Watermarks",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 979940,
+        "read-bytes-complete": true,
+        "write-bytes": 970855,
+        "write-bytes-complete": true,
+        "read-records": 4182,
+        "read-records-complete": true,
+        "write-records": 4145,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 10996,
+        "accumulated-busy-time": 173.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1417"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1432"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1356"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1369"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1372"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1381"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e098739ad2a962784a754409e94d442",
+      "name": "Co-Keyed-Process",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 1162995,
+        "read-bytes-complete": true,
+        "write-bytes": 1890780,
+        "write-bytes-complete": true,
+        "read-records": 4645,
+        "read-records-complete": true,
+        "write-records": 4145,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 11012,
+        "accumulated-busy-time": 224.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1434"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1594"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1431"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1599"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1280"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1452"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f86c4b044cbef4fc048b42cbbf97289f",
+      "name": "KeyedProcess -> Timestamps/Watermarks -> Filter",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 1891239,
+        "read-bytes-complete": true,
+        "write-bytes": 762327,
+        "write-bytes-complete": true,
+        "read-records": 4145,
+        "read-records-complete": true,
+        "write-records": 1673,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 10982,
+        "accumulated-busy-time": 213.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "575"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1417"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "554"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1356"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "544"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "1372"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "604ed6ccd6faebc1491403cb131529e2",
+      "name": "SlidingEventTimeWindows -> Sink: Print to Std. Out",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 762786,
+        "read-bytes-complete": true,
+        "write-bytes": 1172804,
+        "write-bytes-complete": true,
+        "read-records": 1673,
+        "read-records-complete": true,
+        "write-records": 0,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 10975,
+        "accumulated-busy-time": 210.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "594"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "513"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "566"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e242c494eaf2dfd787bcc99c1ffb58c2",
+      "name": "KeyedProcess",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 1173263,
+        "read-bytes-complete": true,
+        "write-bytes": 117,
+        "write-bytes-complete": true,
+        "read-records": 7924,
+        "read-records-complete": true,
+        "write-records": 0,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 11144,
+        "accumulated-busy-time": 77.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "2711"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "2668"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "2545"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f8be2609df804fc1fec0b6a5f5c7c6a1",
+      "name": "KeyedProcess -> Sink: Print to Std. Out",
+      "parallelism": 3,
+      "status": "FINISHED",
+      "metrics": {
+        "read-bytes": 576,
+        "read-bytes-complete": true,
+        "write-bytes": 0,
+        "write-bytes-complete": true,
+        "read-records": 0,
+        "read-records-complete": true,
+        "write-records": 0,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 11180,
+        "accumulated-busy-time": 20.0
+      },
+      "subtasks": [
+        {
+          "subtask": 0,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 1,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "subtask": 2,
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "1000.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "taskmanager_log": "tests\\day4\\evidence\\docker-article-optimized-hashmap-20261006T054255Z-taskmanager.log"
+}

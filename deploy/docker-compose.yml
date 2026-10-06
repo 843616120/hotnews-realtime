@@ -108,7 +108,6 @@ services:
       - type: bind
         source: D:/docker_data/flink/rocksdb
         target: /opt/flink/rocksdb
-      - ./flink-conf.yaml:/opt/flink/conf/flink-conf.yaml:ro
       - type: bind
         source: D:/docker_data/flink/checkpoints
         target: /opt/flink/checkpoints

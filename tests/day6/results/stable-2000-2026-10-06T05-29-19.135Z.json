@@ -1,0 +1,4508 @@
+{
+  "jobId": "2c90f95bd03f9710af142af56d6b96dd",
+  "label": "stable-2000",
+  "intervalSeconds": 2,
+  "restUrl": "http://localhost:8081",
+  "collectedAt": "2026-10-06T05:29:19.135Z",
+  "definitions": {
+    "queuedProxy": "day6_emitted - day6_consumed; 非 Kafka Lag，且多个并行子任务须求和",
+    "latency": "day6_last_latency_ms 是单个 Sink 子任务最后一条记录，不是 p95",
+    "throughput": "对两个样本的计数差除以实际采样秒数，非目标发速"
+  },
+  "samples": [
+    {
+      "at": "2026-10-06T05:28:50.723Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 0,
+          "in_progress": 0,
+          "completed": 0,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "state_size": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "end_to_end_duration": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          }
+        },
+        "latest": {
+          "completed": null,
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": []
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264529676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 352381744,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 234369272,
+              "nonHeapCommitted": 243814400,
+              "nonHeapMax": 780140544,
+              "directCount": 5108,
+              "directUsed": 168084151,
+              "directMax": 168084150,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5079,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5079,
+              "nettyShuffleMemorySegmentsUsed": 0,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 166428672,
+              "nettyShuffleMemoryUsed": 0,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 201,
+                  "time": 8287
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "243814400",
+            "Status.JVM.Memory.NonHeap.Used": "234369272",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168084151",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1894980000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "201",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168084150",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "161742848",
+            "Status.JVM.Memory.Metaspace.Used": "155849304",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5108",
+            "Status.JVM.CPU.Load": "0.11075987424192965",
+            "Status.JVM.Memory.Heap.Used": "352381744",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8287",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:28:52.761Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "CREATED",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "DEPLOYING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "DEPLOYING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 0,
+          "in_progress": 0,
+          "completed": 0,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "state_size": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "end_to_end_duration": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": "NaN",
+            "p90": "NaN",
+            "p95": "NaN",
+            "p99": "NaN",
+            "p999": "NaN"
+          }
+        },
+        "latest": {
+          "completed": null,
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": []
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264529676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 360770352,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 234457840,
+              "nonHeapCommitted": 243814400,
+              "nonHeapMax": 780140544,
+              "directCount": 5117,
+              "directUsed": 168187575,
+              "directMax": 168187574,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5068,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5068,
+              "nettyShuffleMemorySegmentsUsed": 11,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 166068224,
+              "nettyShuffleMemoryUsed": 360448,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 201,
+                  "time": 8287
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "243814400",
+            "Status.JVM.Memory.NonHeap.Used": "234457840",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168187575",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1896880000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "201",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168187574",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "161742848",
+            "Status.JVM.Memory.Metaspace.Used": "155869640",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5117",
+            "Status.JVM.CPU.Load": "0.005544961126595276",
+            "Status.JVM.Memory.Heap.Used": "360770352",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8287",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:28:54.788Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 1,
+          "in_progress": 0,
+          "completed": 1,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "end_to_end_duration": {
+            "min": 68,
+            "max": 68,
+            "avg": 68,
+            "p50": 68,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 17932,
+            "max": 17932,
+            "avg": 17932,
+            "p50": 17932,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264529676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 360770352,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 234457840,
+              "nonHeapCommitted": 243814400,
+              "nonHeapMax": 780140544,
+              "directCount": 5117,
+              "directUsed": 168187575,
+              "directMax": 168187574,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5068,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5068,
+              "nettyShuffleMemorySegmentsUsed": 11,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 166068224,
+              "nettyShuffleMemoryUsed": 360448,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 201,
+                  "time": 8287
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "243814400",
+            "Status.JVM.Memory.NonHeap.Used": "234457840",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168187575",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1896880000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "201",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168187574",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "161742848",
+            "Status.JVM.Memory.Metaspace.Used": "155869640",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5117",
+            "Status.JVM.CPU.Load": "0.005544961126595276",
+            "Status.JVM.Memory.Heap.Used": "360770352",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8287",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:28:56.827Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 1,
+          "in_progress": 0,
+          "completed": 1,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "end_to_end_duration": {
+            "min": 68,
+            "max": 68,
+            "avg": 68,
+            "p50": 68,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 17932,
+            "max": 17932,
+            "avg": 17932,
+            "p50": 17932,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264529676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 360770352,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 234457840,
+              "nonHeapCommitted": 243814400,
+              "nonHeapMax": 780140544,
+              "directCount": 5117,
+              "directUsed": 168187575,
+              "directMax": 168187574,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5068,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5068,
+              "nettyShuffleMemorySegmentsUsed": 11,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 166068224,
+              "nettyShuffleMemoryUsed": 360448,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 201,
+                  "time": 8287
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "243814400",
+            "Status.JVM.Memory.NonHeap.Used": "234457840",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168187575",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1896880000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "201",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168187574",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "161742848",
+            "Status.JVM.Memory.Metaspace.Used": "155869640",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5117",
+            "Status.JVM.CPU.Load": "0.005544961126595276",
+            "Status.JVM.Memory.Heap.Used": "360770352",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8287",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:28:58.865Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 1,
+          "in_progress": 0,
+          "completed": 1,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "end_to_end_duration": {
+            "min": 68,
+            "max": 68,
+            "avg": 68,
+            "p50": 68,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 17932,
+            "max": 17932,
+            "avg": 17932,
+            "p50": 17932,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264529676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 360770352,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 234457840,
+              "nonHeapCommitted": 243814400,
+              "nonHeapMax": 780140544,
+              "directCount": 5117,
+              "directUsed": 168187575,
+              "directMax": 168187574,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5068,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5068,
+              "nettyShuffleMemorySegmentsUsed": 11,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 166068224,
+              "nettyShuffleMemoryUsed": 360448,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 201,
+                  "time": 8287
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "243814400",
+            "Status.JVM.Memory.NonHeap.Used": "234457840",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168187575",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1896880000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "201",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168187574",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "161742848",
+            "Status.JVM.Memory.Metaspace.Used": "155869640",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5117",
+            "Status.JVM.CPU.Load": "0.005544961126595276",
+            "Status.JVM.Memory.Heap.Used": "360770352",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8287",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:00.909Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 1,
+          "in_progress": 0,
+          "completed": 1,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "end_to_end_duration": {
+            "min": 68,
+            "max": 68,
+            "avg": 68,
+            "p50": 68,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 17932,
+            "max": 17932,
+            "avg": 17932,
+            "p50": 17932,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264539675,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 360770352,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 234457840,
+              "nonHeapCommitted": 243814400,
+              "nonHeapMax": 780140544,
+              "directCount": 5117,
+              "directUsed": 168187575,
+              "directMax": 168187574,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5068,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5068,
+              "nettyShuffleMemorySegmentsUsed": 11,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 166068224,
+              "nettyShuffleMemoryUsed": 360448,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 201,
+                  "time": 8287
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "243814400",
+            "Status.JVM.Memory.NonHeap.Used": "234457840",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168187575",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1896880000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "201",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168187574",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "161742848",
+            "Status.JVM.Memory.Metaspace.Used": "155869640",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5117",
+            "Status.JVM.CPU.Load": "0.005544961126595276",
+            "Status.JVM.Memory.Heap.Used": "360770352",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8287",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:02.941Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 2,
+          "in_progress": 0,
+          "completed": 2,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "end_to_end_duration": {
+            "min": 32,
+            "max": 68,
+            "avg": 50,
+            "p50": 50,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 8513,
+            "max": 17932,
+            "avg": 13222,
+            "p50": 13222.5,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264539675,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 160858392,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237964160,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237964160",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1918390000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158840816",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.46319414550150667",
+            "Status.JVM.Memory.Heap.Used": "160858392",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:04.969Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 2,
+          "in_progress": 0,
+          "completed": 2,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 125664,
+            "avg": 125664,
+            "p50": 125664,
+            "p90": 125664,
+            "p95": 125664,
+            "p99": 125664,
+            "p999": 125664
+          },
+          "end_to_end_duration": {
+            "min": 32,
+            "max": 68,
+            "avg": 50,
+            "p50": 50,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 8513,
+            "max": 17932,
+            "avg": 13222,
+            "p50": 13222.5,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264539675,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 160858392,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237964160,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237964160",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1918390000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158840816",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.46319414550150667",
+            "Status.JVM.Memory.Heap.Used": "160858392",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:07.002Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 3,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 131597,
+            "p50": 125664,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 131597,
+            "p50": 125664,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "end_to_end_duration": {
+            "min": 32,
+            "max": 68,
+            "avg": 45,
+            "p50": 35,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 17932,
+            "avg": 8815,
+            "p50": 8513,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264539675,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 160858392,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237964160,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237964160",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1918390000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158840816",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.46319414550150667",
+            "Status.JVM.Memory.Heap.Used": "160858392",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:09.028Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 3,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 131597,
+            "p50": 125664,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 131597,
+            "p50": 125664,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "end_to_end_duration": {
+            "min": 32,
+            "max": 68,
+            "avg": 45,
+            "p50": 35,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 17932,
+            "avg": 8815,
+            "p50": 8513,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": false
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264539675,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 160858392,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237964160,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237964160",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1918390000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158840816",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.46319414550150667",
+            "Status.JVM.Memory.Heap.Used": "160858392",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:11.073Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 4,
+          "in_progress": 0,
+          "completed": 4,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 134564,
+            "p50": 134564,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 134564,
+            "p50": 134564,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "end_to_end_duration": {
+            "min": 27,
+            "max": 68,
+            "avg": 40,
+            "p50": 33.5,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 17932,
+            "avg": 11089,
+            "p50": 13212,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 4,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264549440,
+            "latest_ack_timestamp": 1791264549467,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 27,
+            "alignment_buffered": 0,
+            "processed_data": 17911,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-4",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 4,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264549440,
+            "latest_ack_timestamp": 1791264549467,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 27,
+            "alignment_buffered": 0,
+            "processed_data": 17911,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-4",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": true
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264549676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 160858392,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237964160,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237964160",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1918390000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158840816",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.46319414550150667",
+            "Status.JVM.Memory.Heap.Used": "160858392",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:13.093Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 4,
+          "in_progress": 0,
+          "completed": 4,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 134564,
+            "p50": 134564,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 134564,
+            "p50": 134564,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "end_to_end_duration": {
+            "min": 27,
+            "max": 68,
+            "avg": 40,
+            "p50": 33.5,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 17932,
+            "avg": 11089,
+            "p50": 13212,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 4,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264549440,
+            "latest_ack_timestamp": 1791264549467,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 27,
+            "alignment_buffered": 0,
+            "processed_data": 17911,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-4",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 4,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264549440,
+            "latest_ack_timestamp": 1791264549467,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 27,
+            "alignment_buffered": 0,
+            "processed_data": 17911,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-4",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": true
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264549676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 354844952,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237970384,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237970384",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1939840000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158842688",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.4497798280561963",
+            "Status.JVM.Memory.Heap.Used": "354844952",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:15.114Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 5,
+          "in_progress": 0,
+          "completed": 5,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 136344,
+            "p50": 143464,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 136344,
+            "p50": 143464,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "end_to_end_duration": {
+            "min": 22,
+            "max": 68,
+            "avg": 36,
+            "p50": 32,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 17932,
+            "avg": 8871,
+            "p50": 8513,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 5,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264554440,
+            "latest_ack_timestamp": 1791264554462,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 22,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-5",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 5,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264554440,
+            "latest_ack_timestamp": 1791264554462,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 22,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-5",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 4,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264549440,
+            "latest_ack_timestamp": 1791264549467,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 27,
+            "alignment_buffered": 0,
+            "processed_data": 17911,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-4",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": true
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": true
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264549676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 354844952,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237970384,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237970384",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1939840000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158842688",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.4497798280561963",
+            "Status.JVM.Memory.Heap.Used": "354844952",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    },
+    {
+      "at": "2026-10-06T05:29:17.133Z",
+      "jobState": "RUNNING",
+      "vertices": [
+        {
+          "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+          "name": "Source: Day6 isolated source -> Timestamps/Watermarks -> Filter",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "60d9c5bb315bb9564eb2b96228f3da0e",
+          "name": "KeyedProcess",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "fb942e120ceaf51a21fa052cb8cb1db3",
+          "name": "Sink: Day6 rule A result probe",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        },
+        {
+          "id": "b728d985904d42b0fdd945a9e3253fca",
+          "name": "Sink: Day6 simulated mysql sink",
+          "status": "RUNNING",
+          "subtasks": [
+            {
+              "index": 0,
+              "state": "RUNNING",
+              "metrics": {}
+            },
+            {
+              "index": 1,
+              "state": "RUNNING",
+              "metrics": {}
+            }
+          ]
+        }
+      ],
+      "checkpoints": {
+        "counts": {
+          "restored": 0,
+          "total": 5,
+          "in_progress": 0,
+          "completed": 5,
+          "failed": 0
+        },
+        "summary": {
+          "checkpointed_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 136344,
+            "p50": 143464,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "state_size": {
+            "min": 125664,
+            "max": 143464,
+            "avg": 136344,
+            "p50": 143464,
+            "p90": 143464,
+            "p95": 143464,
+            "p99": 143464,
+            "p999": 143464
+          },
+          "end_to_end_duration": {
+            "min": 22,
+            "max": 68,
+            "avg": 36,
+            "p50": 32,
+            "p90": 68,
+            "p95": 68,
+            "p99": 68,
+            "p999": 68
+          },
+          "alignment_buffered": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          },
+          "processed_data": {
+            "min": 0,
+            "max": 17932,
+            "avg": 8871,
+            "p50": 8513,
+            "p90": 17932,
+            "p95": 17932,
+            "p99": 17932,
+            "p999": 17932
+          },
+          "persisted_data": {
+            "min": 0,
+            "max": 0,
+            "avg": 0,
+            "p50": 0,
+            "p90": 0,
+            "p95": 0,
+            "p99": 0,
+            "p999": 0
+          }
+        },
+        "latest": {
+          "completed": {
+            "className": "completed",
+            "id": 5,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264554440,
+            "latest_ack_timestamp": 1791264554462,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 22,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-5",
+            "discarded": false
+          },
+          "savepoint": null,
+          "failed": null,
+          "restored": null
+        },
+        "history": [
+          {
+            "className": "completed",
+            "id": 5,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264554440,
+            "latest_ack_timestamp": 1791264554462,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 22,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-5",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 4,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264549440,
+            "latest_ack_timestamp": 1791264549467,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 27,
+            "alignment_buffered": 0,
+            "processed_data": 17911,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-4",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264544440,
+            "latest_ack_timestamp": 1791264544475,
+            "checkpointed_size": 143464,
+            "state_size": 143464,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 0,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-3",
+            "discarded": false
+          },
+          {
+            "className": "completed",
+            "id": 2,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264539440,
+            "latest_ack_timestamp": 1791264539472,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 32,
+            "alignment_buffered": 0,
+            "processed_data": 8513,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-2",
+            "discarded": true
+          },
+          {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1791264534441,
+            "latest_ack_timestamp": 1791264534509,
+            "checkpointed_size": 125664,
+            "state_size": 125664,
+            "end_to_end_duration": 68,
+            "alignment_buffered": 0,
+            "processed_data": 17932,
+            "persisted_data": 0,
+            "num_subtasks": 7,
+            "num_acknowledged_subtasks": 7,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2c90f95bd03f9710af142af56d6b96dd/chk-1",
+            "discarded": true
+          }
+        ]
+      },
+      "taskmanagers": [
+        {
+          "id": "172.18.0.3:33001-6ee08c",
+          "info": {
+            "id": "172.18.0.3:33001-6ee08c",
+            "path": "akka.tcp://flink@172.18.0.3:33001/user/rpc/taskmanager_0",
+            "dataPort": 45231,
+            "jmxPort": -1,
+            "timeSinceLastHeartbeat": 1791264549676,
+            "slotsNumber": 4,
+            "freeSlots": 2,
+            "totalResource": {
+              "cpuCores": 4,
+              "taskHeapMemory": 537,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 634,
+              "networkMemory": 158,
+              "extendedResources": {}
+            },
+            "freeResource": {
+              "cpuCores": 2,
+              "taskHeapMemory": 268,
+              "taskOffHeapMemory": 0,
+              "managedMemory": 317,
+              "networkMemory": 79,
+              "extendedResources": {}
+            },
+            "hardware": {
+              "cpuCores": 4,
+              "physicalMemory": 8328429568,
+              "freeMemory": 698351616,
+              "managedMemory": 665719939
+            },
+            "memoryConfiguration": {
+              "frameworkHeap": 134217728,
+              "taskHeap": 563714445,
+              "frameworkOffHeap": 134217728,
+              "taskOffHeap": 0,
+              "networkMemory": 166429984,
+              "managedMemory": 665719939,
+              "jvmMetaspace": 268435456,
+              "jvmOverhead": 214748368,
+              "totalFlinkMemory": 1664299824,
+              "totalProcessMemory": 2147483648
+            },
+            "allocatedSlots": [],
+            "metrics": {
+              "heapUsed": 354844952,
+              "heapCommitted": 698351616,
+              "heapMax": 698351616,
+              "nonHeapUsed": 237970384,
+              "nonHeapCommitted": 247091200,
+              "nonHeapMax": 780140544,
+              "directCount": 5106,
+              "directUsed": 168086199,
+              "directMax": 168086198,
+              "mappedCount": 0,
+              "mappedUsed": 0,
+              "mappedMax": 0,
+              "memorySegmentsAvailable": 5056,
+              "memorySegmentsTotal": 5079,
+              "nettyShuffleMemorySegmentsAvailable": 5056,
+              "nettyShuffleMemorySegmentsUsed": 23,
+              "nettyShuffleMemorySegmentsTotal": 5079,
+              "nettyShuffleMemoryAvailable": 165675008,
+              "nettyShuffleMemoryUsed": 753664,
+              "nettyShuffleMemoryTotal": 166428672,
+              "garbageCollectors": [
+                {
+                  "name": "G1_Young_Generation",
+                  "count": 202,
+                  "time": 8364
+                },
+                {
+                  "name": "G1_Old_Generation",
+                  "count": 0,
+                  "time": 0
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "Status.JVM.Memory.Mapped.TotalCapacity": "0",
+            "Status.JVM.Memory.NonHeap.Committed": "247091200",
+            "Status.JVM.Memory.NonHeap.Used": "237970384",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Count": "0",
+            "Status.JVM.Memory.Metaspace.Max": "268435456",
+            "Status.JVM.Memory.Mapped.MemoryUsed": "0",
+            "Status.JVM.Memory.Direct.MemoryUsed": "168086199",
+            "Status.Flink.Memory.Managed.Total": "665719939",
+            "Status.JVM.CPU.Time": "1939840000000",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Count": "202",
+            "Status.JVM.Memory.Direct.TotalCapacity": "168086198",
+            "Status.JVM.GarbageCollector.G1_Old_Generation.Time": "0",
+            "Status.JVM.Memory.Heap.Committed": "698351616",
+            "Status.JVM.Memory.Mapped.Count": "0",
+            "Status.JVM.Memory.Metaspace.Committed": "164626432",
+            "Status.JVM.Memory.Metaspace.Used": "158842688",
+            "Status.Flink.Memory.Managed.Used": "0",
+            "Status.JVM.Memory.Direct.Count": "5106",
+            "Status.JVM.CPU.Load": "0.4497798280561963",
+            "Status.JVM.Memory.Heap.Used": "354844952",
+            "Status.JVM.Memory.Heap.Max": "698351616",
+            "Status.JVM.GarbageCollector.G1_Young_Generation.Time": "8364",
+            "Status.JVM.Memory.NonHeap.Max": "780140544"
+          }
+        }
+      ]
+    }
+  ]
+}

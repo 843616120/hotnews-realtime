@@ -12,12 +12,15 @@ flowchart LR
     KB --> D["Flink Schema ETL<br/>行为 event_id 去重 / Watermark"]
     E --> J["按 article_id 关联<br/>首版发布时间 / 状态 TTL"]
     D --> J
-    E --> X["脏数据旁路"]
-    D --> X
-    J --> X
+    E --> U["Schema 原文侧输出<br/>未连接 Sink"]
+    D --> U
+    J --> X["Join/规则异常旁路"]
     J --> A["规则 A<br/>5 分钟滑动 / 1 分钟步长"]
     J --> B["规则 B<br/>10 分钟分类 Top 5"]
     J --> C["规则 C<br/>IP 回看 1 分钟"]
+    A --> X
+    B --> X
+    C --> X
     J --> M["MySQL clean_behavior"]
     A --> M2["MySQL article_alert"]
     B --> M3["MySQL category_rank"]
@@ -35,7 +38,7 @@ Kafka 缓冲突发流量并保留可回放的原始消息；两条 Topic 都按 
 | [`sql/`](sql/README.md) | MySQL 五张表、查询 SQL；独立规则基准 SQL 在 `tests/roles/` |
 | [`deploy/`](deploy/README.md) | 本项目的 Compose、Flink 配置和 Topic 脚本 |
 | [`tests/`](tests/README.md) | 固定数据、边界用例、独立 SQL 对照及本地性能实验 |
-| [`docs/`](docs/README.md) | 架构/时间/状态/一致性/性能/故障/源码笔记和测试报告 |
+| [`docs/`](docs/README.md) | 按考核顺序索引的[项目笔记](docs/项目笔记/01-项目架构与数据字典.md)、现场记录和测试报告 |
 
 ## 输入字段与约束
 
@@ -95,43 +98,60 @@ python generator\generate_data.py `
 
 [`generation_report.json`](generator/generator/data/generation_report.json)记录固定 seed 的 500 篇文章、100000 条行为、1000 条脏记录、2000 个重复事件；两篇热点文章占点击约 85.17%，两流到达覆盖至少 1 小时。异常包括空 `article_id`、负时长、未来时间，以及行为先于文章到达。报告的重复数是原始数据中的重复数；Schema 清洗后的重复口径以独立 SQL 基准为准。
 
-## 应用程序：作用与实现思路
+## 程序与类：作用和思路
 
-下表的“入口”可以独立运行；辅助类由相应作业调用，不应作为单独作业提交。Java 主类位于各模块的 `src/main/java/`，`--bounded` 仅用于隔离固定批次回放，持续模式不加此参数。
+Python 生成器负责造数；Java 类按“有 `main` 的独立作业 / 被作业调用的组件 / 测试”区分。`--bounded` 只用于隔离固定批次回放，持续消费不传此参数；不能把辅助类单独作为 Flink 作业提交。
 
-| 程序/模块 | 作用 | 实现思路及边界 |
+| 独立入口（按处理阶段） | 作用 | 实现思路及边界 |
 | --- | --- | --- |
-| [`generate_data.py`](generator/generate_data.py) | 生成文章、行为、统计报告；可发送 Kafka | 固定随机种子，按 `ingest_time` 排序，注入乱序、脏记录、重复、热点倾斜和跨流先后颠倒 |
-| [`HotNewsKafkaSourceJob`](flink-job/flink-source/src/main/java/com/agd/flink/source/HotNewsKafkaSourceJob.java) | 独立 Kafka 连通性演示 | 两个 `KafkaSource<String>` 读取原始 JSON 文本，`noWatermarks()` 接丢弃 Sink；**不做** Schema 校验、Join、业务指标或外部写入 |
-| [`ArticleJoinBehavior`](flink-job/flink-join/src/main/java/ArticleJoinBehavior.java) | 生产链路复用的双流 ETL/Join；可独立审计输出 | 先分别校验 Schema，行为按 `event_id` 去重，再分别分配 Watermark；按 `article_id` 保存文章及先到行为，首版发布后富化 `title/category/tags`，超期未配对留痕供回放 |
-| [`Achieve_roleA`](flink-job/flink-rolesachieve/src/main/java/Achieve_roleA.java) | 热点文章告警 | 只取 `click`，文章键下计算 5 分钟滑动、1 分钟步长；点击数 **>1000** 输出文章、分类、次数、窗口起止和检测时间，晚到可修订 |
-| [`Achieve_roleB`](flink-job/flink-rolesachieve/src/main/java/Achieve_roleB.java) | 十分钟热门分类 Top 5 | `click+share+comment` 先按分类/文章计数，再按窗口汇总、排序并输出每类前五文章 `top_articles[]`；修订时发整份榜单和 `revision` |
-| [`Achieve_roleC`](flink-job/flink-rolesachieve/src/main/java/Achieve_roleC.java) | 疑似刷量 IP 告警 | 每次点击按 IP 回看上一分钟：不同文章 **>50** 且平均时长 **<2000 ms**；晚到可更新或撤销同一分钟告警 |
-| [`ArticleHeatStateJob`](flink-job/flink-rolesachieve/src/main/java/ArticleHeatStateJob.java) | 第四天文章热点倾斜实验 | 原始模式沿用 A；`--optimized` 按事件 ID 把热点文章打散为 16 片后合并；独立保存最近热度快照 |
-| [`IpWindowStateJob`](flink-job/flink-rolesachieve/src/main/java/IpWindowStateJob.java) | 第四天 IP 状态/倾斜实验 | 原始 1 片或优化 16 片，保存不同文章集合、点击数、总时长、窗口起止并合并；**一分钟不重叠窗口，不等于规则 C 的逐点击回看** |
-| [`Day5SinkJob`](flink-job/flink-rolesachieve/src/main/java/Day5SinkJob.java) | 整合 Join、A/B/C 和外部结果 | 共用一次清洗后的流，分发到五类 MySQL 写入与 Redis 排名；配置 Checkpoint、重启策略；`--plan` 只生成执行图，不会写库 |
-| [`Day5MySqlSink`](flink-job/flink-rolesachieve/src/main/java/Day5MySqlSink.java) | 写清洗明细、三类结果、异常事件 | 每 200 行或 Checkpoint 前 JDBC 批量提交；失败由 Flink 重试，表唯一键 + UPSERT 抵消重复写入，不做累加式更新 |
-| [`Day5RedisRankSink`](flink-job/flink-rolesachieve/src/main/java/Day5RedisRankSink.java) | 写最新分类 Top 5 | 仅接收携带完整榜单的 rank=1，Lua 按窗口起点和修订号原子覆盖 `hotnews:top5:latest`，TTL 2 小时 |
+| [`generate_data.py`](generator/generate_data.py) | 生成双流及统计报告，可发送 Kafka | 固定 seed，按 `ingest_time` 排序，注入乱序、脏记录、重复、热点倾斜及跨流先后颠倒；`--rate` 是生成速率，不是 Flink 实测吞吐 |
+| [`HotNewsKafkaSourceJob`](flink-job/flink-source/src/main/java/com/agd/flink/source/HotNewsKafkaSourceJob.java) | 最小 Kafka 连通性演示 | 原始文本双 Source + `noWatermarks()` + 丢弃 Sink；地址硬编码 `localhost:9092`，适合宿主机演示，**不是**实际 Join/规则入口，也不做 Schema/业务计算 |
+| [`ArticleJoinBehavior`](flink-job/flink-join/src/main/java/ArticleJoinBehavior.java) | 可独立运行的 ETL/Join，也是其他作业的共享入口 | 双流分别校验、行为 `event_id` 去重后生成 Watermark；按 `article_id` 暂存先到行为，等首次发布后富化；有界模式从两条 Topic 起点回放并打印 Join ID/总数 |
+| [`Achieve_roleA`](flink-job/flink-rolesachieve/src/main/java/Achieve_roleA.java) | 文章热点告警 | 仅计 `click`，按文章做 5 分钟滑窗、1 分钟步长，点击 **>1000** 输出告警；窗口关闭后允许保留期内修订 |
+| [`Achieve_roleB`](flink-job/flink-rolesachieve/src/main/java/Achieve_roleB.java) | 10 分钟分类 Top 5 | 对点击/分享/评论按文章和窗口计数，再按分类汇总排序；输出分类名次、每类 `top_articles[]` 和完整榜单快照，迟到用 `revision` 修订 |
+| [`Achieve_roleC`](flink-job/flink-rolesachieve/src/main/java/Achieve_roleC.java) | 疑似刷量 IP 告警 | 每次点击按 IP 回看前 1 分钟；不同文章数 **>50** 且平均阅读时长 **<2000 ms** 时告警，晚到可更新/撤销；主输出尚无 `article_ids[]` |
+| [`ArticleHeatStateJob`](flink-job/flink-rolesachieve/src/main/java/ArticleHeatStateJob.java) | Day 4 文章状态与热 Key 实验 | 基线复用 A，优化模式按 `event_id` 将热点分成 16 片再合并，额外保存最近热度快照（处理时间 TTL 24 小时） |
+| [`IpWindowStateJob`](flink-job/flink-rolesachieve/src/main/java/IpWindowStateJob.java) | Day 4 IP 状态与倾斜实验 | 基线按 IP 聚合，优化模式 16 片两阶段合并文章 ID 集合/点击/时长，状态 TTL 1 小时；**1 分钟不重叠窗口不等于规则 C 的逐点击回看** |
+| [`Day5SinkJob`](flink-job/flink-rolesachieve/src/main/java/Day5SinkJob.java) | 共享清洗流驱动 A/B/C 与外部存储 | 配置 10 秒 Checkpoint 和失败重启，将明细/告警/异常写 MySQL、完整榜单写 Redis；`--plan` 只构建执行图，不连接外部系统 |
+| [`Day6BackpressureJob`](flink-job/flink-rolesachieve/src/main/java/Day6BackpressureJob.java) | Day 6 **隔离压测** | 从 A 复制滑窗计算分支，另接可控慢 Sink；支持限速合成源或独立 `hotnews-day6-*` Kafka Topic，按速率、键数、延迟/并行度比较反压、Checkpoint 与 Lag；不连接真实 MySQL/Redis |
 
-辅助组件：[`FlinkSourceUtil`](flink-job/common/src/main/java/util/FlinkSourceUtil.java) 统一构造 Kafka Source、消费组和回放位点；[`RoleStreamUtil`](flink-job/flink-rolesachieve/src/main/java/RoleStreamUtil.java) 在规则入口二次防重并恢复事件时间。独立验证入口 [`tests/day2/verify.py`](tests/day2/verify.py) 用 SQLite 校验 Day 2 固定输入；[`tests/roles/verify.js`](tests/roles/verify.js) 加载原始 JSONL，运行 [`prepare.sql`](tests/roles/prepare.sql) 和 A/B/C 独立 SQL，并可与 Flink 日志逐窗口比对；[`Day4SkewBenchmark`](flink-job/flink-rolesachieve/src/test/java/Day4SkewBenchmark.java) 测原始/加盐两种路径的本地分布与时延。
+Day 4 两个入口支持 `--optimized`、`--bounded`、`--backend=hashmap|rocksdb`、`--run-id=...`（隔离消费组）。`Day5SinkJob` 支持 `--bounded`、`--plan`、`--mysql-batch-size 1..10000`（前两者不可同时传）；默认批量 200，也可用 `HOTNEWS_MYSQL_BATCH_SIZE` 设置。Day 6 支持 `--rate`、`--seconds`、`--parallelism`、`--sink-parallelism`、`--delay-ms`、`--keys`、`--target mysql|redis`、`--plan`；Kafka 模式须同时传隔离的 `--kafka-topic` 和 `--kafka-group`。安全范围与复现步骤见 [`tests/day6/README.md`](tests/day6/README.md)。
+
+| 非独立入口类 | 作用 | 实现思路及边界 |
+| --- | --- | --- |
+| [`Constant`](flink-job/common/src/main/java/constant/Constant.java) | 共享业务 Topic 常量 | 定义 `topic_article` 和 `topic_behavior`；其中旧的 `KAFKA_BROKERS` 常量不是实际 Join 连接地址 |
+| [`FlinkSourceUtil`](flink-job/common/src/main/java/util/FlinkSourceUtil.java) | 为 Join/规则构造 Kafka Source | 从 `KAFKA_BOOTSTRAP_SERVERS` 取地址（默认 `localhost:9092`）；持续行为消费组优先用已提交位点，新组回退最早位点；有界全量回放显式从最早位点读到启动时末尾 |
+| [`RoleStreamUtil`](flink-job/flink-rolesachieve/src/main/java/RoleStreamUtil.java) | 规则入口二次去重与时间恢复 | 按 `event_id` 做 24 小时处理时间 TTL 防重，再按行为 `event_time` 重新分配 Watermark，避免 Join 补发时的时间戳污染规则窗口 |
+| [`Day5MySqlSink`](flink-job/flink-rolesachieve/src/main/java/Day5MySqlSink.java) | 写五类 MySQL 表 | JDBC 批量 UPSERT，达批次阈值或快照前提交；恢复时显式加载 JDBC 驱动；A 点击数取较大值、B 用修订号防旧榜单，C 旧快照撤销仍有版本风险 |
+| [`Day5RedisRankSink`](flink-job/flink-rolesachieve/src/main/java/Day5RedisRankSink.java) | 写 Redis 最新榜单 | 单并行度接收规则 B 的 rank=1 完整快照，Lua 按窗口和修订号原子覆盖，Key 保留 2 小时；过期后不再有版本记忆 |
+| [`Day6SyntheticSource`](flink-job/flink-rolesachieve/src/main/java/Day6SyntheticSource.java) | 隔离合成负载输入 | 单调时钟按并行子任务分摊目标速率，打上实际发出时间；不能用于证明 Kafka Lag |
+| [`Day6KafkaRecordDeserializer`](flink-job/flink-rolesachieve/src/main/java/Day6KafkaRecordDeserializer.java) | 独立压测 Topic 的记录转换 | 从分区/offset 构造 ID，用 Kafka 记录时间戳计算排队延迟；不解析业务双流 Schema |
+| [`Day6DelaySink`](flink-job/flink-rolesachieve/src/main/java/Day6DelaySink.java) | 可控慢 Sink 与指标探针 | 每条同步等待指定毫秒，记录消费数和**最近一条**时延；`mysql`/`redis` 只是模拟目标标签，时延 Gauge 不是 p95 |
+
+| 测试类（均不提交为作业） | 验证思路 |
+| --- | --- |
+| [`RoleRulesTest`](flink-job/flink-rolesachieve/src/test/java/RoleRulesTest.java) | 用固定输入断言 Join/去重/迟到补发、A/B/C 阈值与修订，以及 Day 4 两种聚合模式的结果一致性 |
+| [`Day4SkewBenchmark`](flink-job/flink-rolesachieve/src/test/java/Day4SkewBenchmark.java) | 显式启用的本地热点基准；同批输入交错测基线/加盐分布、吞吐和 Source-to-keyed p95，输出 JSON |
+| [`Day5SinkContractTest`](flink-job/flink-rolesachieve/src/test/java/Day5SinkContractTest.java) | 检查 UPSERT、撤销字段、批量参数、异常键和 JDBC 类路径契约，不代替现场写库 |
+| [`Day5LiveSinkIntegrationTest`](flink-job/flink-rolesachieve/src/test/java/Day5LiveSinkIntegrationTest.java) | 按环境开关用临时 MySQL 表/独立 Redis Key 验证旧版本拒绝；未启用或认证失败不得视为通过 |
+| [`Day6BackpressureJobTest`](flink-job/flink-rolesachieve/src/test/java/Day6BackpressureJobTest.java) | 验证压测参数上限与 Kafka Topic/消费组隔离约束，不测真实 Sink 容量 |
+
+独立非 Java 验证入口：[`tests/day2/verify.py`](tests/day2/verify.py) 以 SQLite 核对固定输入；[`tests/roles/verify.js`](tests/roles/verify.js) 从原始 JSONL 运行 [`prepare.sql`](tests/roles/prepare.sql) 与 A/B/C 独立 SQL，并可逐窗口比对 Flink 日志。按考核项阅读笔记见 [`docs/README.md`](docs/README.md)。
 
 ## 时间、状态与异常处理
 
 - 清洗后才取 `event_time`：文章乱序等待 30 秒，行为持续作业等待 65 分钟，隔离有界回放等待 2 小时；空闲分区 30 秒后不再拖住活跃分区的 Watermark。这些行为等待值用于处理实际跨分区到达跨度，不是生成器 5-30 秒乱序参数的同义词。
-- Schema 解析失败或字段非法进入 `dirty_data` 日志旁路；跨流时序非法进入 `DIRTY_BEHAVIOR_ETL`。行为清洗后按 `event_id` 去重，处理时间 TTL 24 小时；超期后的同一 ID 不能承诺全局永久去重。
+- Schema 解析失败或字段非法进入 `dirty_data` 侧输出；跨流时序非法进入 `dirty_data_temporal` 侧输出。当前 `ArticleJoinBehavior.createJoinedStream` 中原始 Schema 脏数据、重复事件等旁路的 `print` 已被注释，**没有连接可查询 Sink，不能当成已保存的日志**。行为清洗后按 `event_id` 去重，处理时间 TTL 24 小时；超期后的同一 ID 不能承诺全局永久去重。
 - Join 文章状态与首版发布时间状态处理时间 TTL 2 小时。行为先到时输出 `UNMATCHED_BEHAVIOR` 并暂存；文章到达后自动补 Join。等待期满或有界回放结束仍未解决，输出 `REPLAY_REQUIRED`，需保留原始 Kafka 消息作隔离回放；实际不存在的文章无法补齐。
 - 超过 Join 30 秒允许迟到边界的记录输出 `LATE_DATA`，仍尝试时序 ETL/Join。A/B/C 可修正的事件时间状态在窗口结束后保留 24 小时，超过各自边界进入 `ROLE_*_LATE` 旁路，不等于已经在线补算。独立 Day 4 文章快照处理时间 TTL 为 24 小时，IP 实验状态 TTL 为 1 小时；TTL 不是 Watermark，也不保证立即物理回收。
-- `Day5SinkJob` 的 `pipeline_event` 存 Join 未匹配、迟到、待回放及 A/B/C 超期事件；Schema 原文旁路、ETL 重复旁路目前主要打印到作业日志，**不是全部写入 MySQL**。需分别保存日志和查询表，不能声称所有异常都已持久化。
+- `Day5SinkJob` 的 `pipeline_event` 接入 Join 未匹配、迟到、时序脏数据、待回放及 A/B/C 超期事件；Schema 原文脏数据、ETL 重复等旁路未接入该表，**不能声称所有异常都已持久化**。后续审计须单独为这些未消费侧输出接 Sink。
 
 ## 本项目运行命令
 
-环境依赖：Python、Node.js（支持 `node:sqlite`）、Java 8/Maven；项目 Compose 的 Flink 镜像使用 Java 11。运行外部链路时还需 Docker Desktop 与 Kafka 生成器依赖 `kafka-python`。以下 PowerShell 命令均在项目根目录执行；`.env` 应由示例创建并修改口令，不能提交真实密码。
+环境依赖：Python、Node.js（支持 `node:sqlite`）、Java 8/Maven；本项目 Compose 的 Flink 镜像使用 Java 11。Kafka 数据生成还需 `kafka-python`。以下 PowerShell 命令均在项目根目录执行，假设本项目的 Kafka/Flink/MySQL/Redis 服务及 `deploy/.env` 已就绪；环境准备、端口和配置参见 [`deploy/README.md`](deploy/README.md)，此处仅保留本项目数据、作业和核验命令，不提供 Docker 通用启动教程。勿将实际口令提交仓库。
 
 ```powershell
-# 先检查本项目配置，再启动所需服务和创建双 Topic。
-if (-not (Test-Path deploy\.env)) { Copy-Item deploy\.env.example deploy\.env }
-docker compose --env-file deploy\.env -f deploy\docker-compose.yml config
-docker compose --env-file deploy\.env -f deploy\docker-compose.yml up -d
+# 创建本项目的文章/行为 Topic。
 powershell -ExecutionPolicy Bypass -File deploy\create-kafka-topics.ps1
 
 # 在隔离 Topic/空消费环境发送固定参数数据；不要向已有验收 Topic 重复发送。
@@ -145,11 +165,11 @@ mvn -f flink-job\pom.xml -pl flink-rolesachieve -am package
 docker compose --env-file deploy\.env -f deploy\docker-compose.yml exec jobmanager `
   flink run -d -c Day5SinkJob /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar
 
-# 查询作业、MySQL 核验 SQL 和 Redis 榜单；Checkpoint 指标见 Web UI。
+# 核验本项目作业、MySQL 结果和 Redis 榜单；Checkpoint 指标见 Web UI。
 docker compose --env-file deploy\.env -f deploy\docker-compose.yml exec jobmanager flink list
-Get-Content sql\queries\day5-check.sql -Raw | docker compose --env-file deploy\.env `
-  -f deploy\docker-compose.yml exec -T mysql `
-  sh -c 'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysql -uroot hotnews'
+docker compose --env-file deploy\.env -f deploy\docker-compose.yml exec mysql `
+  mysql -uroot -p hotnews
+# 输入实际口令后，在 mysql> 中执行 SOURCE /docker-entrypoint-initdb.d/queries/day5-check.sql;
 docker compose --env-file deploy\.env -f deploy\docker-compose.yml exec redis `
   redis-cli HGETALL hotnews:top5:latest
 docker compose --env-file deploy\.env -f deploy\docker-compose.yml exec redis `
@@ -158,7 +178,12 @@ docker compose --env-file deploy\.env -f deploy\docker-compose.yml exec redis `
 
 Flink Web UI：Docker `http://localhost:8081`；本地 Source 演示 `http://localhost:8082`。宿主机程序连接 Kafka 用 `localhost:9092`，容器内作业通过 Compose 环境变量连接 `kafka:29092`。Compose 中 Checkpoint/Savepoint 绑定目录是 `D:\docker_data\flink\checkpoints` / `D:\docker_data\flink\savepoints`，换机需先修改绑定路径。MySQL 的初始化脚本只在**新数据目录**第一次启动时执行；已有数据卷需要手动应用 [`01-day5-tables.sql`](sql/01-day5-tables.sql)，不要通过删卷来加载新表。
 
-**当前部署待核验：**[`docker-compose.yml`](deploy/docker-compose.yml) 的 `taskmanager.volumes` 重复挂载了同一份 `flink-conf.yaml`；提交前应检查该条目，并以 `docker compose ... config` 和实际启动结果为准。当前环境未运行 Docker，因此以上命令是项目操作步骤，**不是**启动成功的证据。更详细的外部存储核验及故障演练步骤见 [`Day 5 恢复验收`](docs/04-Day5-Sink与恢复验收.md)。根 README 不收录 Docker 通用概念、镜像下载教程或清空数据卷的命令。
+Day 5 曾在 2026-10-06 现场运行，历史结果见
+[`记录`](docs/06-Day5-Checkpoint与Savepoint记录.md)；这不代表当前
+`Day5SinkJob` 正在运行。更详细的提交、查询及故障演练步骤见
+[`Day 5 操作手册`](docs/04-Day5-Sink与恢复验收.md)。
+改动 Compose 后的配置核对和维护操作见 [`deploy/README.md`](deploy/README.md)，
+不要为了核验文档而重新创建运行中的容器。
 
 ## 对照测试与考核证据
 
@@ -178,6 +203,8 @@ mvn -o -f flink-job\pom.xml -pl flink-rolesachieve -am `
 node --no-warnings tests\roles\verify.js --role b --flink-log tests\roles\role-b-snapshot-20261005.log
 ```
 
+Day 4 的 Docker HashMap/RocksDB 完整批次对照用 [`tests/day4/run-docker-day4.ps1`](tests/day4/run-docker-day4.ps1)；Day 6 的限速合成输入、独立 Kafka Topic、采样与追平用 [`tests/day6/README.md`](tests/day6/README.md) 的项目专用脚本。共享集群存在其他作业时不要直接提交压测；只对隔离 Topic/消费组运行，勿以 `--target mysql|redis` 推断已测试真实外部存储。
+
 固定输入的独立 SQL 口径：500 篇有效文章、99000 条 Schema 合法行为，其中 1956 条重复 `event_id`；去重后可 Join 的行为为 **97044**。A 最终 **123** 行、B 最终 **60** 行、C **0** 行。保留的有界回放日志 [`Join`](tests/roles/join-etl-dedup-20261005.log)、[`A`](tests/roles/role-a-etl-dedup-20261005.log)、[`B 完整快照`](tests/roles/role-b-snapshot-20261005.log)、[`C`](tests/roles/role-c-etl-dedup-20261005.log)用于对照；C=0 只能说明该大样本无告警，其 49/50/51 篇、1999/2000 ms 和迟到撤销正例由 [`RoleRulesTest`](flink-job/flink-rolesachieve/src/test/java/RoleRulesTest.java)验证。未关闭的持续流窗口不能和完整有界基准直接比较。
 
 | PDF 考核项 | 本仓库证据及当前状态 |
@@ -185,12 +212,12 @@ node --no-warnings tests\roles\verify.js --role b --flink-log tests\roles\role-b
 | Day 1：字段、架构、生成器 | 本文 Schema/示例/架构；固定 [`generation_report.json`](generator/generator/data/generation_report.json) 与生成器；重复运行应在**新目录**核对文件一致性 |
 | Day 2：Watermark、脏数据、Join、补算 | `ArticleJoinBehavior`、[`tests/day2/`](tests/day2/README.md) 离线基准及边界输入；在线空闲分区/迟到完整回放日志仍需补足 |
 | Day 3：A/B 窗口、阈值、独立基准 | [`tests/roles/`](tests/roles/README.md) 中逐窗口 SQL、回放日志及 Java 边界测试 |
-| Day 4：C、去重、TTL、热点倾斜 | [`状态与内存笔记`](docs/03-状态TTL与内存模型笔记.md)、[`Day 4 实验`](tests/day4/README.md) 与本地结果；RocksDB/集群资源对照尚未实测 |
-| Day 5：MySQL/Redis、Checkpoint、恢复 | Sink/表结构/配置与本地合约测试已写；**MySQL/Redis 实写、Kill TaskManager、Savepoint 尚未实测**，按 [`验收步骤`](docs/04-Day5-Sink与恢复验收.md) 补证据 |
-| Day 6：2000/5000 events/s、反压、容量 | 有本地倾斜探针吞吐和 p95，但探针 p95 **不是**端到端延迟；持续 2000/5000、Kafka Lag、Sink 反压及内存指标缺实际集群报告 |
+| Day 4：C、去重、TTL、热点倾斜 | [`状态与倾斜报告`](docs/05-第四天状态与倾斜验收报告.md)、[`Day 4 实验`](tests/day4/README.md)：本地固定热点结果一致；Docker Linux 已保存 HashMap/RocksDB 8 组有效批次和资源对照，RocksDB 加盐两组各有 1 次 Checkpoint 失败；Docker 作业 p95 未采集 |
+| Day 5：MySQL/Redis、Checkpoint、恢复 | 已有真实 MySQL/Redis 写入、TaskManager Kill 自动恢复、Savepoint 后状态加载及 Redis 证据；Savepoint 后 MySQL 逐键核验、旧 Checkpoint 回放和有界最终值待补，见 [`记录`](docs/06-Day5-Checkpoint与Savepoint记录.md) |
+| Day 6：2000/5000 events/s、反压、容量 | [`现场报告`](docs/05-反压压测与容量规划.md)、[`原始数据`](tests/day6/results/)：隔离合成源 2000/5000 档、模拟慢 Sink/并行度调优、Kafka Lag 与追平、Checkpoint/堆/网络指标已记录；**真实 MySQL/Redis 降速、业务 Topic Lag、OOM 和端到端 p95 未验证** |
 | Day 7：空环境、故障、回归 | 文档和恢复 SOP 位于 [`docs/`](docs/README.md)；空环境完整运行、至少两类现场故障、截图及恢复后逐表核对尚待执行 |
 
-第四天的本地数据为每组 12000 条、90% 热点、并行度 3，两轮对照显示加盐改善 Subtask 分布且结果一致，但吞吐没有稳定提升；不能据此宣称满足 PDF 的持续 **2000 events/s** 或性能评分。结果和测量定义见 [`tests/day4/README.md`](tests/day4/README.md)。
+第四天本地数据为每组 12000 条、90% 热点、并行度 3，两轮对照显示加盐改善 Subtask 分布且结果一致，但吞吐没有稳定提升；Docker HashMap/RocksDB 的八组结果是**完整批次**耗时与资源对照，不能当成持续处理上限或端到端 p95。第六天合成源的 35 秒档观测约 1999/s、4984/s；模拟 2 ms/条、Sink 并行度 2 时 Source 出现反压，调到 4 后同批完成时间由 54.667 秒降为 28.343 秒。隔离 Kafka 慢 Sink 消费组 Lag 曾上升至 25583，恢复提高并行度后达到连续两次 Lag=0 且 Checkpoint 成功；单条“最近延迟”不是 p95。指标定义和 Job ID 见 [`Day 6 报告`](docs/05-反压压测与容量规划.md)。
 
 **与 PDF 的已知差距：**规则 C 主作业输出有 `article_count`、`click_count`、平均时长和窗口时间，但**没有**考核示例要求的 `article_ids[]`；该字段仅出现在语义不同的 `IpWindowStateJob`，不可冒充规则 C 的输出。当前也没有可查询结果的 API/看板。补齐前不得声称这两项已交付。
 
@@ -205,6 +232,6 @@ Kafka 消费 -> Flink 去重/Join/规则状态 -> MySQL 批量 UPSERT / Redis �
                            -> MySQL 唯一键覆盖 / Redis 拒绝旧窗口及旧修订号
 ```
 
-Checkpoint 保证 **Flink 状态和 Kafka 位点**的一致恢复；MySQL/Redis 并未加入同一个分布式事务。外部结果是**至少一次写入 + 幂等最终收敛**，不是跨 MySQL 与 Redis 的原子 Exactly-Once。MySQL 用事件 ID、窗口与文章、窗口与名次、告警分钟与 IP 等唯一键；Redis 保存完整快照并拒绝更旧的窗口/修订号。故障重放期间，多张表也不保证同一瞬间一致，待消费追平后再以 [`day5-check.sql`](sql/queries/day5-check.sql)核验；异常旁路中的超期数据需另行离线补算。
+Checkpoint 保证 **Flink 状态和 Kafka 位点**的一致恢复；MySQL/Redis 并未加入同一个分布式事务。外部结果是**至少一次写入 + 有边界的业务幂等收敛**，不是跨 MySQL 与 Redis 的原子 Exactly-Once。MySQL 用事件 ID、窗口与文章、窗口与名次、告警分钟与 IP 等唯一键；Redis 在 Key 未过期时拒绝更旧的窗口/修订号。规则 C 的旧快照回放目前不能阻止活跃告警/撤销倒退，Redis 过期后也失去版本记忆。故障重放期间，多张表不保证同一瞬间一致，待消费追平后再以 [`day5-check.sql`](sql/queries/day5-check.sql)核验；异常旁路中的超期数据需另行离线补算。
 
 考核 PDF 的提交截止日期为 **2026 年 10 月 6 日**。最终提交 ID：**待实际推送后填写**。最终推送、版本标签 `v1.0-final`、监控截图和故障/压测原始证据需在实际完成后记录，不以本地文件或待执行命令代替最终验收。

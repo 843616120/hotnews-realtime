@@ -31,7 +31,20 @@ mvn -o -pl flink-job/flink-rolesachieve -am '-Dtest=Day4SkewBenchmark' '-Dsurefi
 可另对照 `tests/roles/role_a.sql`。IP 状态作业采用一分钟**不重叠**窗口，
 原规则 C 使用“每次点击回看一分钟”，不能用 C 的逐点击 SQL 对照新作业。
 原规则 C 的大样本 SQL 基准若为 0，还需本目录的 Java 正例断言验收阈值。
-资源对照请保持相同输入批次、并行度和硬件，分别记录四组运行的
+Docker Linux 资源采集从项目根目录执行（脚本会创建唯一 `--run-id`，避免旧消费位点污染样本）：
+
+```powershell
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload article -Backend hashmap
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload article -Backend hashmap -Optimized
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload article -Backend rocksdb
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload article -Backend rocksdb -Optimized
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload ip -Backend hashmap
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload ip -Backend hashmap -Optimized
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload ip -Backend rocksdb
+pwsh -NoProfile -ExecutionPolicy Bypass -File tests/day4/run-docker-day4.ps1 -Workload ip -Backend rocksdb -Optimized
+```
+
+脚本只有在 `input_behavior_records=100000`、`valid_full_batch=true`、`had_restart=false` 时才可作为有效样本；半批样本不要写入报告。`--run-id` 可手动传入唯一后缀，默认由脚本自动生成。资源对照请保持相同输入批次、并行度和硬件，分别记录四组运行的
 TaskManager 堆/托管内存、RocksDB 本地磁盘、GC、Checkpoint 大小和时长、
 吞吐与 p95。具备依赖时，基准入口可执行：
 
@@ -41,6 +54,8 @@ mvn -pl flink-job/flink-rolesachieve -am -Pday4-rocksdb '-Dtest=Day4SkewBenchmar
 
 对照 `local-skew-hashmap-*.json` 与 `local-skew-rocksdb-*.json` 中同一
 `article_heat` / `ip_window` 的输出及吞吐 p95，并同时采集上述资源指标。
-本机没有可用 Docker；RocksDB 依赖下载后本地 Windows JNI 加载失败
-（`librocksdbjni-win64.dll: Can't find dependent libraries`）。
-因此集群和 RocksDB 资源对照未实跑，不能把失败记录填成性能数据。
+Windows 本地 JNI 可能失败（`librocksdbjni-win64.dll: Can't find dependent libraries`），
+应使用 Linux Docker 运行 RocksDB。正式 Docker 证据保存在 `tests/day4/evidence/`；
+本次采集的 8 组有效样本已写入 `docs/05-第四天状态与倾斜验收报告.md`。
+正式 Docker 作业没有 Source-to-keyed Probe，因此其 p95 字段为空，不能用
+Checkpoint 或 backpressure 指标代替 p95。

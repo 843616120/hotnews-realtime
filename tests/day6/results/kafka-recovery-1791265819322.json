@@ -1,0 +1,10 @@
+{
+  "topic": "hotnews-day6-slow-muw95ftn",
+  "group": "hotnews-day6-slow-muw95ftn",
+  "jobId": "d7af57a48f6bfd86751077c59f329db5",
+  "parallelism": 4,
+  "lastLag": 0,
+  "caughtUp": true,
+  "elapsedSeconds": 20.249,
+  "collectedAt": "2026-10-06T05:50:19.321Z"
+}

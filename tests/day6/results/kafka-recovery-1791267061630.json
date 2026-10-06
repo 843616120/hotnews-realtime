@@ -1,0 +1,48 @@
+{
+  "topic": "hotnews-day6-audit-muwa1vfv",
+  "group": "hotnews-day6-audit-muwa1vfv",
+  "jobId": "e769ac41e78e0f16e58e22b21aa11eca",
+  "parallelism": 4,
+  "lastLag": 0,
+  "lagSamples": [
+    {
+      "at": "2026-10-06T06:10:44.171Z",
+      "lag": 8870,
+      "completedCheckpoints": 1,
+      "raw": "\nGROUP                       TOPIC                       PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 0          8525            11307           2782            -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 1          14366           14506           140             -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 2          8239            14187           5948            -               -               -\n"
+    },
+    {
+      "at": "2026-10-06T06:10:47.852Z",
+      "lag": 8308,
+      "completedCheckpoints": 1,
+      "raw": "\nGROUP                       TOPIC                       PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 0          9087            11307           2220            -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 1          14366           14506           140             -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 2          8239            14187           5948            -               -               -\n"
+    },
+    {
+      "at": "2026-10-06T06:10:51.278Z",
+      "lag": 8308,
+      "completedCheckpoints": 2,
+      "raw": "\nGROUP                       TOPIC                       PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 0          9087            11307           2220            -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 1          14366           14506           140             -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 2          8239            14187           5948            -               -               -\n"
+    },
+    {
+      "at": "2026-10-06T06:10:54.747Z",
+      "lag": 8168,
+      "completedCheckpoints": 3,
+      "raw": "\nGROUP                       TOPIC                       PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 0          9087            11307           2220            -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 1          14506           14506           0               -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 2          8239            14187           5948            -               -               -\n"
+    },
+    {
+      "at": "2026-10-06T06:10:58.236Z",
+      "lag": 0,
+      "completedCheckpoints": 3,
+      "raw": "\nGROUP                       TOPIC                       PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 0          11307           11307           0               -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 1          14506           14506           0               -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 2          14187           14187           0               -               -               -\n"
+    },
+    {
+      "at": "2026-10-06T06:11:01.630Z",
+      "lag": 0,
+      "completedCheckpoints": 4,
+      "raw": "\nGROUP                       TOPIC                       PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 0          11307           11307           0               -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 1          14506           14506           0               -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 2          14187           14187           0               -               -               -\n"
+    }
+  ],
+  "caughtUp": true,
+  "elapsedSeconds": 21.342,
+  "collectedAt": "2026-10-06T06:11:01.630Z"
+}

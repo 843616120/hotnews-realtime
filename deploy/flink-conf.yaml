@@ -2,7 +2,7 @@ jobmanager.rpc.address: jobmanager
 rest.bind-address: 0.0.0.0
 rest.port: 8081
 
-taskmanager.numberOfTaskSlots: 4
+taskmanager.numberOfTaskSlots: 8
 parallelism.default: 2
 
 # Make local Docker resource requirements explicit instead of relying on defaults.

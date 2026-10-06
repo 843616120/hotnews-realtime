@@ -36,14 +36,19 @@ public class ArticleHeatStateJob {
     public static void main(String[] args) throws Exception {
         Set<String> options = new HashSet<String>();
         String backend = "hashmap";
+        String runId = "";
         for (String arg : args) {
             if ("--backend=hashmap".equals(arg) || "--backend=rocksdb".equals(arg)) {
                 backend = arg.substring("--backend=".length());
                 continue;
             }
+            if (arg.startsWith("--run-id=") && arg.length() > "--run-id=".length()) {
+                runId = arg.substring("--run-id=".length());
+                continue;
+            }
             if (!("--bounded".equals(arg) || "--optimized".equals(arg)) || !options.add(arg)) {
                 throw new IllegalArgumentException(
-                        "仅支持 --bounded、--optimized、--backend=hashmap|rocksdb");
+                        "仅支持 --bounded、--optimized、--backend=hashmap|rocksdb、--run-id=...");
             }
         }
         boolean bounded = options.contains("--bounded");
@@ -58,7 +63,8 @@ public class ArticleHeatStateJob {
 
         //TODO 2.复用 Join 和按事件 ID 去重，不修改原有规则作业。
         String group = "hotnews-day4-heat-" + (optimized ? "salted" : "baseline")
-                + (bounded ? "-verify" : "");
+                + (bounded ? "-verify" : "")
+                + (runId.isEmpty() ? "" : "-" + runId);
         DataStream<JSONObject> joined = RoleStreamUtil.prepare(
                 ArticleJoinBehavior.createJoinedStream(env, group, bounded));
 

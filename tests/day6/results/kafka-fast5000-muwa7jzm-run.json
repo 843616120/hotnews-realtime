@@ -1,0 +1,13 @@
+{
+  "stage": "fast5000",
+  "jobId": "ad3605338e6b345aa045da417b351828",
+  "topic": "hotnews-day6-fast5000-muwa7jzm",
+  "group": "hotnews-day6-fast5000-muwa7jzm",
+  "rate": 5000,
+  "seconds": 20,
+  "delay": 0,
+  "parallelism": 2,
+  "producerOutput": "25002 records sent, 4999.4 records/sec (0.95 MB/sec), 79.2 ms avg latency, 674.0 ms max latency.\n25020 records sent, 5004.0 records/sec (0.95 MB/sec), 2.7 ms avg latency, 93.0 ms max latency.\n25000 records sent, 5000.0 records/sec (0.95 MB/sec), 0.4 ms avg latency, 7.0 ms max latency.\n100000 records sent, 4999.000200 records/sec (0.95 MB/sec), 20.81 ms avg latency, 674.00 ms max latency, 1 ms 50th, 167 ms 95th, 438 ms 99th, 665 ms 99.9th.\n",
+  "finalLag": "\nGROUP                          TOPIC                          PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-fast5000-muwa7jzm hotnews-day6-fast5000-muwa7jzm 0          33798           33798           0               -               -               -\nhotnews-day6-fast5000-muwa7jzm hotnews-day6-fast5000-muwa7jzm 1          35651           35651           0               -               -               -\nhotnews-day6-fast5000-muwa7jzm hotnews-day6-fast5000-muwa7jzm 2          30551           30551           0               -               -               -\n",
+  "collectedAt": "2026-10-06T06:13:47.837Z"
+}

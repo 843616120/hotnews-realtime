@@ -1,0 +1,13 @@
+{
+  "stage": "slow",
+  "jobId": "c2b5b487198083bfbbd136d8b8452396",
+  "topic": "hotnews-day6-slow-muw95ftn",
+  "group": "hotnews-day6-slow-muw95ftn",
+  "rate": 2000,
+  "seconds": 20,
+  "delay": 2,
+  "parallelism": 2,
+  "producerOutput": "10000 records sent, 1998.8 records/sec (0.38 MB/sec), 18.7 ms avg latency, 376.0 ms max latency.\n10018 records sent, 2003.6 records/sec (0.38 MB/sec), 0.6 ms avg latency, 8.0 ms max latency.\n9996 records sent, 1999.2 records/sec (0.38 MB/sec), 0.5 ms avg latency, 8.0 ms max latency.\n40000 records sent, 1999.600080 records/sec (0.38 MB/sec), 5.07 ms avg latency, 376.00 ms max latency, 1 ms 50th, 8 ms 95th, 174 ms 99th, 187 ms 99.9th.\n",
+  "finalLag": "\nGROUP                      TOPIC                      PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-slow-muw95ftn hotnews-day6-slow-muw95ftn 0          8591            13586           4995            -               -               -\nhotnews-day6-slow-muw95ftn hotnews-day6-slow-muw95ftn 1          13732           13732           0               -               -               -\nhotnews-day6-slow-muw95ftn hotnews-day6-slow-muw95ftn 2          6689            12682           5993            -               -               -\n",
+  "collectedAt": "2026-10-06T05:43:44.487Z"
+}

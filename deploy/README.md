@@ -66,7 +66,7 @@ Compose 将这两个 Windows 目录分别绑定到容器内的 `/opt/flink/check
 - `execution.checkpointing.mode: EXACTLY_ONCE`
 - `state.checkpoints.dir: file:///opt/flink/checkpoints`
 - `state.savepoints.dir: file:///opt/flink/savepoints`
-- `taskmanager.numberOfTaskSlots: 4`
+- `taskmanager.numberOfTaskSlots: 8`（Day 4 单作业图含多个并行算子，避免重启恢复期间瞬时 Slot 不足）
 
 Docker 内提交的作业必须把 Kafka 地址写成 `kafka:29092`；在 IDEA 或 PyCharm 宿主机进程中必须写成 `localhost:9092`。
 

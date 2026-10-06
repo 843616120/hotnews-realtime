@@ -1,173 +1,274 @@
-# 第 5 天：外部存储与恢复
+# Day 5 操作手册：提交、查询与状态恢复
 
-## 处理链路
+在项目根目录的 **PowerShell** 执行以下命令。默认六个 Compose 服务已启动；
+Flink Web UI 为 `http://localhost:8081`。先阅读
+[参数与演练记录](06-Day5-Checkpoint与Savepoint记录.md) 和
+[一致性边界](05-Day5-一致性边界.md)。
+以下 `<...>` 代表现场实际值，不要把尖括号原样输入。勿提交真实数据库口令。
 
-原始 Topic -> Schema ETL -> `event_id` 去重(24h TTL) -> 各自 Watermark
--> 时序 ETL(首版发布下界)与 Join(文章 2h TTL、先到立即旁路、迟到仍重关联)
--> 规则 A/B/C -> MySQL 与 Redis。常驻作业不需要 `--bounded`；
-它只供固定批次验收自动结束并推进终止水位线。常驻作业在真实后续事件
-推进 Watermark 后关窗；完全停更时尚未关闭的窗口不能伪称最终结果，
-应查询预览或单独做有界回放。不要注入虚假的未来事件时间以强制关窗。
-
-`Day5SinkJob`：共用一次 ETL/Join 和去重后的流，同时送四张 MySQL 明细/规则表、
-可查询的异常表与 Redis 最新榜单。`Day5MySqlSink`：五类输出共用 JDBC
-批量 UPSERT，每 200 行或 Checkpoint 前提交；失败回滚并由 Flink 重试。
-提交作业时可使用 `--mysql-batch-size 100` 覆盖批量阈值（1..10000），
-仅调整 Sink 写批，状态描述符、拓扑与 Kafka 消费组不变。
-`Achieve_roleB.RuleStreams`：排名主流和文章得分阶段的超期输入同时暴露，
-供独立运行打印日志或共用 Sink 作业落库。
-规则 B 第一阶段超期原始行为记录为 `ROLE_B_LATE_INPUT`，排名阶段的超期
-文章得分记录为 `ROLE_B_LATE`；都写入异常表供后续核对/离线补算，
-不能将进入异常表误认为已经完成补算。
-`Day5RedisRankSink`：只接收规则 B 的 rank 1 所携整份 Top 5，Lua 比较
-窗口与修订号后原子写入 `hotnews:top5:latest`，2 小时失效。
-`ArticleJoinBehavior.BehaviorDeduplicate`：清洗后、Join 前按事件 ID 去重；
-`RoleStreamUtil` 在规则入口继续做二次幂等保护。
-Docker 不可用时可执行 `Day5SinkJob --plan` 只构建作业图，
-不把它当作 MySQL/Redis 写入或故障恢复通过的证据。
-
-`--bounded` 不是生产窗口计算的前提：连续流收到足够晚的后续事件，
-Watermark 就会正常关窗；分区空闲检测避免停更分区拖住活跃分区。
-若整条流都不再产生新事件，可用处理时间定时器提供**暂定预览**，
-但可能被后到事件修正；需要可证明的最终窗口时，使用上游明确的
-批次结束信号/终止水位线，或隔离 Topic 的有界回放验收。
-不能因为进程准备停止，就把尚未关闭的事件时间窗口直接标为最终结果。
-
-## 参数和一致性
-
-Checkpoint：10 秒间隔、60 秒超时、2 秒最小间隔、最多一个并发、允许三次
-连续失败。10 秒兼顾 200 行写批与恢复间隔；若 MySQL 写批/反压导致超时，
-先记录 Web UI 的对齐、总时长和失败原因再调参。JobManager 与 TaskManager
-共享 `file:///opt/flink/checkpoints/day5` 和 `/opt/flink/savepoints` 路径；
-对应的宿主机目录为 `D:\docker_data\flink\checkpoints` 和 `D:\docker_data\flink\savepoints`，
-由 Compose 绑定挂载，
-取消作业时保留外部 Checkpoint；3 次失败后间隔 5 秒重启。
-
-Kafka 位点与 Flink 状态随成功 Checkpoint 一起恢复，但 JDBC/Redis 不参加
-Flink 分布式事务。时序：
-
-```text
-Kafka 消费 -> 规则状态变更 -> MySQL 批量事务提交 / Redis 原子快照
-           -> Checkpoint Barrier 对齐 -> Sink 快照前 flush -> 状态快照成功
-失败重启   -> 恢复上次成功快照及 Kafka 位点 -> 重放未确认事件
-           -> MySQL 相同唯一键 UPSERT / Redis 拒绝旧窗口及旧修订号
-```
-
-因此外部存储是**至少一次写入 + 幂等最终收敛**，不是跨 MySQL/Redis 的
-原子 Exactly-Once。MySQL `event_id`、(窗口起点,文章 ID)、
-(窗口起点,名次)、(告警分钟,IP) 与 (异常类型,事件 ID) 分别为唯一键，
-没有 `count=count+1`。A 累积点击数取较大值；B 同一窗口的总分
-`revision` 单调递增，旧重放不覆盖新排名。Redis 一次存完整榜单，
-同窗口旧修订号拒绝覆盖。重放期间 MySQL 多表并不具备同一时刻的一致快照，
-需等待追平后再作最终核验。C 的撤销写 `retracted=true`，查询时过滤。
-
-### 一页一致性边界与时序
-
-独立交付页见 [`05-Day5-一致性边界.md`](05-Day5-一致性边界.md)。
-
-```mermaid
-sequenceDiagram
-    participant K as Kafka
-    participant F as Flink 状态与位点
-    participant M as MySQL
-    participant R as Redis
-    participant J as JobManager
-    participant C as Checkpoint 存储
-    K->>F: 消费事件
-    F->>F: ETL / 去重 / Join / 窗口状态
-    F->>M: 批量事务 UPSERT
-    F->>R: Lua 原子更新完整榜单
-    J->>F: 触发 Checkpoint；Source 注入 Barrier
-    F->>M: snapshotState 前 flush + commit
-    F->>C: 状态 + Kafka 位点快照
-    F-->>J: 各子任务确认快照
-    Note over J,C: 只有所有任务确认后才算成功
-    C-->>F: TaskManager 故障后恢复最近成功快照
-    F->>K: 从快照中的位点重读
-    F->>M: 同唯一键 UPSERT；旧 B 修订不覆盖新版本
-    F->>R: 旧窗口/旧修订号拒绝覆盖
-```
-
-Flink 的 Exactly-Once 只覆盖由成功快照一起恢复的 Flink 状态和 Kafka
-消费位点；MySQL/Redis 均不参加该事务，故障点若位于外部写入成功、
-快照完成之前，恢复后会再写一次。MySQL 主键与 UPSERT 防止行数累加；
-规则 A 的点击数取较大值，规则 B 的同窗口排名按单调 `revision`
-拒绝旧版本。Redis Hash 包含 `window_start_ms`、`window_end`、
-`revision` 和完整 `ranking` JSON；Lua 比较窗口和修订号后一次写入，
-TTL 为 7200 秒。Redis 键过期后没有跨过期的版本记忆，必须等待回放
-追平再比较最终榜单；MySQL 多表也没有跨 Sink 的原子可见性。
-Checkpoint 是自动、频繁的故障恢复点；Savepoint 是显式创建、
-用于有计划的停机与恢复的状态快照。恢复时保持拓扑、状态序列化和
-消费组不变；不能把批量阈值变化说成状态 schema 升级。
-
-## Docker 启动与核验
-
-先安装并启动 Docker Desktop；本机安装的命令行与容器可用性须现场确认。
-项目根目录执行（已有 `.env` 时不覆盖，修改口令后再启动）：
+## 1. 准备 JAR 与数据库
 
 ```powershell
-if (-not (Test-Path deploy/.env)) { Copy-Item deploy/.env.example deploy/.env }
+$compose = @('--env-file', 'deploy/.env', '-f', 'deploy/docker-compose.yml')
+docker compose @compose ps
 mvn -o -f flink-job/pom.xml -pl flink-rolesachieve -am package
-docker compose --env-file deploy/.env -f deploy/docker-compose.yml config
-docker compose --env-file deploy/.env -f deploy/docker-compose.yml up -d
-powershell -ExecutionPolicy Bypass -File deploy/create-kafka-topics.ps1
-docker compose --env-file deploy/.env -f deploy/docker-compose.yml exec jobmanager `
-  flink run -d -c Day5SinkJob /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar
+docker compose @compose config
+docker compose @compose exec jobmanager ls -l /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar
 ```
 
-MySQL 首次初始化自动执行 `sql/01-day5-tables.sql`；已有数据卷必须手动
-执行该 SQL，**不要**用 `down -v` 清库。随后在 MySQL 执行
-`sql/queries/day5-check.sql`；查询原始数据并确认没有混入多批消息。
-固定 seed 的目标：清洗明细 97044、A 123、B 60、C 活跃告警 0。
-MySQL 已有旧版同名表时，先检查表结构是否包含 `category_rank.revision`，
-缺失则执行 `ALTER TABLE category_rank ADD COLUMN revision BIGINT NOT NULL DEFAULT 0`，
-不要期待 `CREATE TABLE IF NOT EXISTS` 修改现有表。
-Redis 用 `docker compose ... exec redis redis-cli HGETALL hotnews:top5:latest`
-查询 `ranking` JSON 数组、`revision` 和 `window_start_ms`，还需检查 TTL。
-有界验收可只在隔离 Topic/消费组执行 `Day5SinkJob --bounded`，不要在
-同一生产 MySQL 上同时运行常驻和回放作业，以免两个作业互相写旧窗口。
+若 Maven 离线依赖不全，去掉 `-o` 再构建。Compose 把
+`flink-job/flink-rolesachieve/target` **只读**挂到 JobManager 的
+`/opt/flink/usrlib`；重新打包后新提交的作业读新 JAR，
+已运行的作业不会自动热更新。不要把构建目录之外的 JAR 路径直接传给容器。
 
-## 故障与 Savepoint 操作
+首次创建 MySQL 数据卷时，`sql/01-day5-tables.sql` 会自动建表。
+已有数据卷或要确认表结构时，进入交互式 MySQL（在密码提示处输入
+**当前数据库实际口令**，不保证与事后修改的 `deploy/.env` 相同）：
 
-1. Flink Web UI（默认 `http://localhost:8081`）记录 Job ID、最新成功的
-   Checkpoint ID/时长、Kafka Lag、上面 SQL 计数与 Redis 修订号。
-2. `docker compose --env-file deploy/.env -f deploy/docker-compose.yml kill taskmanager`
-   模拟 TaskManager 故障；Kafka 保留原消息，不删除卷。观察作业重启，
-   `docker compose --env-file deploy/.env -f deploy/docker-compose.yml up -d taskmanager`。
-   再核对最新成功 Checkpoint、消费追平、四表行数和 Redis JSON。
-3. 在 JobManager 上执行 `flink savepoint <job-id> file:///opt/flink/savepoints`
-   并记录实际返回的 Savepoint 路径；`flink cancel <job-id>` 后，将
-   提交时将 `--mysql-batch-size 100` 传给主类，再执行
-   `flink run -s <实际 Savepoint 路径> -d -c Day5SinkJob <同一 JAR 路径> --mysql-batch-size 100`。
-   只改批量阈值；不要随意改状态描述符、算子拓扑、序列化格式或 Kafka 消费组。
-4. 重试模拟：同一固定 Topic 再从旧 Checkpoint/Savepoint 回放，
-   检查唯一键行数、A 点击数、B `revision`、Redis 榜单和异常未解决记录。
-   若有 SQL/Flink 差异、Checkpoint 失败或 Redis 回退，保存原始日志，
-   不以“作业 RUNNING”冒充验收成功。
+```powershell
+docker compose @compose exec mysql mysql -uroot -p hotnews
+```
 
-当前终端无 Docker CLI，但 Docker Engine 命名管道及 Kafka/MySQL/Redis/Flink
-服务均可用；`tests/day5/docker-engine.mjs` 提供对该 Compose 栈的定向
-`ps`、`exec`、`kill taskmanager`、`start taskmanager` 操作。
-实际验收的 Job ID、检查点和外部存储证据见 `tests/day5/README.md`
-及 `tests/day5/evidence/`，其中是否恢复成功应以**新成功的 Checkpoint**
-和所有算子运行、结果核对为准。
+在 `mysql>` 中输入（仅缺表时执行 `SOURCE`，该脚本的 `IF NOT EXISTS`
+不会修改既有表结构）：
 
-## 本机检查（2026-10-05）
+```sql
+SOURCE /docker-entrypoint-initdb.d/01-day5-tables.sql;
+SHOW TABLES;
+SHOW COLUMNS FROM category_rank LIKE 'revision';
+-- 若旧表确实缺少 revision，先确认备份及现有数据，再单独执行：
+-- ALTER TABLE category_rank ADD COLUMN revision BIGINT NOT NULL DEFAULT 0;
+```
 
-`mvn -o -f flink-job/pom.xml -pl flink-rolesachieve -am package`：
-20 项 Java 测试通过；Node 独立 SQL 3 项通过。`Day5SinkJob --plan`
-构建 38 个图节点，包含五个 MySQL Sink 和一个 Redis Sink；打包 JAR
-含 MySQL Connector/J 和 Jedis。SnakeYAML 静态解析 Compose 得到六个服务
-及容器侧 Kafka/MySQL/Redis 环境变量。固定 Kafka 批次核对 ETL 去重后的
-Join=97044，A=123、B=60、C=0；B 完整快照复验 60 行逐窗口无差异。
-上述结果不包含任何实际 MySQL/Redis 写入、Checkpoint 恢复或 Savepoint 演练；
-这些需要有 Docker 的环境后补足原始指标与日志。
+若不能登录，先核实管理员提供的账户与权限；不要清空数据卷来重置口令。
+建表/唯一键和查询原件分别见
+[`sql/01-day5-tables.sql`](../sql/01-day5-tables.sql)、
+[`sql/queries/day5-check.sql`](../sql/queries/day5-check.sql)。
+交付的 Sink 实现：
+[`Day5MySqlSink.java`](../flink-job/flink-rolesachieve/src/main/java/Day5MySqlSink.java)
+与
+[`Day5RedisRankSink.java`](../flink-job/flink-rolesachieve/src/main/java/Day5RedisRankSink.java)。
+本项目固定输入已在 Kafka 时不要重新发送种子批次；新环境才按
+[根 README](../readme.md) 创建 Topic 与生成数据。
 
-## 现场实测（2026-10-06）
+## 2. 提交持续作业并确认 Checkpoint
 
-本轮真实 Kafka/Flink/MySQL/Redis 指标、TaskManager Kill 与 Savepoint
-恢复路径、重放幂等比对见 [`../tests/day5/README.md`](../tests/day5/README.md)；
-REST 与 Redis 恢复已通过，恢复后的 MySQL 宿主机查询仍需提供可用的
-账号/口令及宿主机访问权限才能完成。测试探针用 MySQL 临时表和 Redis 独立 Key，
-不会修改业务数据。若凭据不一致，**不要**将 MySQL 探针失败解释为
-业务 Sink 失败，也不要宣称外部结果已完成全部核验。
+先检查 Web UI 中没有其他 **RUNNING** 的 `Day5SinkJob`。不能将两个
+同消费组的常驻/回放作业并行写入相同业务表和 Redis Key。
+
+```powershell
+docker compose @compose exec jobmanager `
+  flink run -d -c Day5SinkJob /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar
+docker compose @compose exec jobmanager flink list
+```
+
+记下返回的 **32 位 Job ID**，之后在当前 PowerShell 设置：
+
+```powershell
+$job = '<本次提交返回的 Job ID>'
+$rest = 'http://localhost:8081'
+(Invoke-RestMethod "$rest/jobs/$job").state
+(Invoke-RestMethod "$rest/jobs/$job").vertices |
+  Select-Object name,status
+$cp = Invoke-RestMethod "$rest/jobs/$job/checkpoints"
+$cp.counts
+$cp.latest.completed | Select-Object id,status,end_to_end_duration,external_path
+$cp.latest.restored
+```
+
+等待 `counts.completed` 增长、`latest.completed.status=COMPLETED`、
+所有顶点 `RUNNING`；保存成功 ID、时长、存储路径和时间。
+只有 `RUNNING` 不表示恢复成功；失败原因在 Web UI 的
+Job -> Checkpoints 和 TaskManager 日志：
+
+```powershell
+docker compose @compose logs --tail=150 taskmanager
+```
+
+## 3. 核对 MySQL 与 Redis
+
+进入 `mysql -uroot -p hotnews` 后执行：
+
+```sql
+SOURCE /docker-entrypoint-initdb.d/queries/day5-check.sql;
+SELECT window_start_ms, article_id, click_count FROM article_alert
+  ORDER BY window_start_ms, article_id LIMIT 10;
+SELECT window_start_ms, rank_no, category, score, revision FROM category_rank
+  ORDER BY window_start_ms DESC, rank_no LIMIT 10;
+SELECT COUNT(*) FROM ip_alert WHERE retracted = 0;
+```
+
+MySQL 主键：明细 `event_id`，A `(window_start_ms,article_id)`，
+B `(window_start_ms,rank_no)`，C `(alert_minute_ms,ip)`，
+异常 `(event_type,event_id)`。A 写入取 `GREATEST` 而不是 `count+1`；
+B 依 `revision` 拒绝旧版本。C 的撤销行保留主键，查询活跃值时过滤
+`retracted=0`。异常表不是已完成补算的证明。
+
+```powershell
+docker compose @compose exec redis redis-cli TYPE hotnews:top5:latest
+docker compose @compose exec redis redis-cli HGETALL hotnews:top5:latest
+docker compose @compose exec redis redis-cli HGET hotnews:top5:latest ranking
+docker compose @compose exec redis redis-cli TTL hotnews:top5:latest
+```
+
+Key 类型是 Hash，字段 `window_start_ms`、`window_end`、`revision`、
+`ranking`（完整 Top 5 JSON），TTL 写入时为 7200 秒；每次被接受的
+新写入会刷新 TTL。`TTL=-2` 表示 Key 不存在，过期后失去旧版本记忆。
+记录窗口、修订号、JSON 条数和 TTL；在输入稳定、结果已追平时逐键比较，
+不要把 TTL 递减或 `detect_time` 的变化当成业务数据错误。
+常驻流尚未关闭的窗口不应与有界回放的最终值比较：
+固定输入在有界终止水位线下的目标为明细 97044、A 123、B 60、C 活跃 0，
+不是持续流任意时刻必须达到的行数。
+
+## 4. Kill TaskManager，观察自动恢复
+
+**仅在可接受中断共享 TaskManager 上其他作业的时段**执行。先记录
+Job ID、成功 Checkpoint ID/path、上述 SQL 明细与 A/B 结果、Redis 版本，
+并确认 Checkpoint 目录由两个 Flink 容器共享。不要删除容器卷。
+
+```powershell
+docker compose @compose kill taskmanager
+docker compose @compose ps
+docker compose @compose up -d taskmanager
+docker compose @compose logs --tail=150 jobmanager
+docker compose @compose logs --tail=150 taskmanager
+$cp = Invoke-RestMethod "$rest/jobs/$job/checkpoints"
+$cp.counts
+$cp.latest.restored
+$cp.latest.completed | Select-Object id,status,end_to_end_duration,external_path
+(Invoke-RestMethod "$rest/jobs/$job").vertices | Select-Object name,status
+```
+
+同一 Job ID 下应看到 `restored.is_savepoint=false` 与恢复路径、
+所有算子回到 `RUNNING`，并且产生**比故障前更新的成功 Checkpoint**。
+等待 Kafka Lag/输入追平后，重新执行第 3 节的查询，比对 A/B 逐业务键
+的 `click_count`/`revision`，Redis 窗口、修订号和完整排名；
+没有新的成功快照时先查失败原因，不将 `RUNNING` 视为通过。
+历史实际记录与结果见[演练记录](06-Day5-Checkpoint与Savepoint记录.md)。
+
+## 5. 从指定的旧 Checkpoint 手动启动
+
+这是**单独的受控重放演练**，不是第 4 节 TaskManager 故障所需步骤
+（TaskManager 故障会自动恢复最近成功快照）。先在 Web UI/REST 取
+`latest.completed.external_path`，或选择**确实保留**的更早 `chk-N`。
+默认仅保留 3 个 Checkpoint，旧路径可能已被清理；不能凭历史日志推测
+目录仍存在。选定快照与同一 JAR/消费组的状态要兼容。
+
+```powershell
+$sourceJob = '<原 Job ID>'
+$chk = '<实际存在的 chk-N 目录名>'
+$checkpoint = "file:///opt/flink/checkpoints/day5/$sourceJob/$chk/_metadata"
+docker compose @compose exec jobmanager `
+  ls -l "/opt/flink/checkpoints/day5/$sourceJob/$chk/_metadata"
+```
+
+先完成第 3 节的“前”快照；确认备份/回放可能重写外部结果后，
+**取消唯一的原 Day 5 作业**，再启动新作业（新 Job ID）：
+
+```powershell
+docker compose @compose exec jobmanager flink cancel $sourceJob
+docker compose @compose exec jobmanager `
+  flink run -d -s $checkpoint -c Day5SinkJob `
+  /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar
+```
+
+Checkpoint 的 `-s` 指向 `_metadata` 文件（不是凭目录名猜测）；
+引用的状态文件也须保留并对两个 Flink 容器可见。
+记录新 Job ID 和 `latest.restored.external_path`，待新 Checkpoint 成功、
+输入追平后查询第 3 节并逐键比较。若 `chk-N/_metadata` 已不存在，
+**停止本实验**，改用现场保留的可用快照或独立临时表 Sink 重试探针；
+不拼接一个不存在的历史 ID。不可在原作业仍运行时另起回放写相同目标。
+
+## 6. 创建 Savepoint，改非状态配置后恢复
+
+保持原 Day 5 作业运行，执行并**复制命令返回的真实路径**：
+
+```powershell
+$sourceJob = $job
+docker compose @compose exec jobmanager `
+  flink savepoint $job file:///opt/flink/savepoints
+$savepoint = '<返回的 file:/opt/flink/savepoints/savepoint-...>'
+$savepointPath = $savepoint -replace '^file:', ''
+docker compose @compose exec jobmanager ls -l "$savepointPath/_metadata"
+docker compose @compose exec jobmanager flink cancel $job
+docker compose @compose exec jobmanager `
+  flink run -d -s $savepoint -c Day5SinkJob `
+  /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar `
+  --mysql-batch-size 100
+```
+
+`--mysql-batch-size 100` 是唯一的本次参数变化（默认 200），只影响
+JDBC 提交阈值。Savepoint 路径不要自行按 Job ID 猜测；取消前先确认
+创建命令成功且文件存在。恢复后把 `$job` 改为**新 Job ID**，重复第
+2、3 节；检查 `latest.restored.is_savepoint=true`、路径正确、新
+Checkpoint 成功。真实演练曾修复 JDBC 驱动加载错误并重新打包，
+不是一次无错误的恢复；详情见记录文档。
+
+不能随意改算子拓扑/UID、并行状态映射、状态名和类型/序列化器、
+Kafka Topic/消费组/起始位点语义、规则窗口或去重 TTL。改动这些内容
+应先做兼容性评估、用隔离环境恢复验证；不要用
+`--allowNonRestoredState` 掩盖丢状态。
+
+## 7. 重放/重试幂等验证
+
+可用已保留的旧 Checkpoint 按第 5 节回放；没有旧快照时，使用
+`Day5LiveSinkIntegrationTest` 的临时表/独立 Redis Key 探针：
+
+```powershell
+# Redis 独立 Key：旧窗口和旧 revision 被拒绝，新 revision 可覆盖。
+$env:HOTNEWS_LIVE_REDIS_TEST = '1'
+mvn -o -f flink-job/pom.xml -pl flink-rolesachieve -am `
+  '-Dtest=Day5LiveSinkIntegrationTest' `
+  '-Dsurefire.failIfNoSpecifiedTests=false' test
+```
+
+MySQL 探针需要管理员提供**宿主机可用的** `MYSQL_USER`、
+`MYSQL_PASSWORD` 和 `MYSQL_DATABASE`，且先能交互登录；
+在当前终端安全输入后设置 `HOTNEWS_LIVE_MYSQL_TEST=1` 再跑同一
+测试。该探针对 MySQL `CREATE TEMPORARY TABLE ... LIKE` 写入
+同键的 A 100/100/10 次、B revision 5/3/6 次，验证
+行数仍为 1、A 最大点击 100、B 最大修订 6；不会写业务表。
+不从容器导出口令、也不把口令写进命令行/笔记。
+
+有宿主机连接凭据时，使用 `Get-Credential` 在本机输入而不把密码写进
+命令历史，再分别采样（第 5/6 节新 Job ID 需替换）：
+
+```powershell
+$mysql = Get-Credential -Message 'MySQL 宿主机账户'
+$env:MYSQL_USER = $mysql.UserName
+$env:MYSQL_PASSWORD = $mysql.GetNetworkCredential().Password
+$env:MYSQL_DATABASE = 'hotnews'
+node tests/day5/capture.mjs before-replay-<唯一编号> $sourceJob
+# 完成第 5/6 节的恢复后：
+node tests/day5/capture.mjs after-replay-<唯一编号> <新JobID>
+node tests/day5/compare.mjs `
+  tests/day5/evidence/before-replay-<唯一编号>.json `
+  tests/day5/evidence/after-replay-<唯一编号>.json
+Remove-Item Env:MYSQL_PASSWORD
+```
+
+实际执行时把 `<唯一编号>` 与 `<新JobID>` 替换掉；
+`capture.mjs` 需要宿主机和容器内访问权限，不保证
+`docker compose exec mysql mysql -p` 成功就能从宿主机登录。
+`<stage>` 应每次唯一，脚本不会覆盖现有证据。必须核对异常表增长、
+C 的 `retracted` 行；目前 C 更新/撤销未携带单调修订号，
+**任意旧 Checkpoint 对有活跃 C 告警的反向回放不能保证最终版本不倒退**，
+因此该情形不得宣称全链路幂等通过。Redis Key 过期同样不能保证
+跨过期拒绝旧窗口。固定批次最终 A=123/B=60 的核验，应只在
+常驻作业停写后隔离执行 `Day5SinkJob --bounded`，不要同时写同一目标。
+
+```powershell
+# 必须先确认没有其他 RUNNING 的 Day5SinkJob，且本次 Topic 是预期固定输入。
+docker compose @compose exec jobmanager `
+  flink run -d -c Day5SinkJob `
+  /opt/flink/usrlib/flink-rolesachieve-1.0-SNAPSHOT-all.jar `
+  --bounded --mysql-batch-size 100
+```
+
+等待有界作业完成后，复用第 3 节查询验证明细 97044、最终 A 123、
+B 60、活跃 C 0；若 Kafka Topic 中已混入其他批次，这些目标数无效。
+`--bounded` 使用独立消费组并从 Topic 开始读，不能替代常驻作业。
+
+不要执行 `docker compose down -v`：这会删除 Kafka、MySQL、Redis 卷；
+也不要手工删除保存的 Checkpoint/Savepoint。现场已验证与待补项见
+[记录](06-Day5-Checkpoint与Savepoint记录.md)，不能把预期步骤当实测。

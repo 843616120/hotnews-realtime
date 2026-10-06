@@ -1,0 +1,13 @@
+{
+  "stage": "audit",
+  "jobId": "cc00fbeb10b368764b74fd47b6733947",
+  "topic": "hotnews-day6-audit-muwa1vfv",
+  "group": "hotnews-day6-audit-muwa1vfv",
+  "rate": 2000,
+  "seconds": 20,
+  "delay": 2,
+  "parallelism": 2,
+  "producerOutput": "9972 records sent, 1994.4 records/sec (0.38 MB/sec), 169.3 ms avg latency, 1226.0 ms max latency.\n10040 records sent, 2007.6 records/sec (0.38 MB/sec), 11.0 ms avg latency, 162.0 ms max latency.\n10002 records sent, 2000.0 records/sec (0.38 MB/sec), 3.6 ms avg latency, 101.0 ms max latency.\n40000 records sent, 1993.123723 records/sec (0.38 MB/sec), 46.82 ms avg latency, 1226.00 ms max latency, 1 ms 50th, 517 ms 95th, 581 ms 99th, 587 ms 99.9th.\n",
+  "finalLag": "\nGROUP                       TOPIC                       PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 0          6153            11307           5154            -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 1          14366           14506           140             -               -               -\nhotnews-day6-audit-muwa1vfv hotnews-day6-audit-muwa1vfv 2          8239            14187           5948            -               -               -\n",
+  "collectedAt": "2026-10-06T06:09:05.440Z"
+}

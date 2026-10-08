@@ -1,0 +1,32 @@
+{
+  "before": "tests/roles/recovery/evidence/20261008-130216-099-savepoint30-before-config-change",
+  "after": "tests/roles/recovery/evidence/20261008-130733-364-savepoint30-restored-batch100",
+  "tables": [
+    {
+      "table": "article_alert",
+      "before_sha256": "F4A2EF1BE517EC7539717625CAAAF6F47652602550FB49754DABFC50C33C2945",
+      "after_sha256": "F4A2EF1BE517EC7539717625CAAAF6F47652602550FB49754DABFC50C33C2945",
+      "equal": true
+    },
+    {
+      "table": "category_rank",
+      "before_sha256": "2E7D0285A34CBE16DFEA3F095E4744F948583D0389CA7871A0A64D73D93EFECB",
+      "after_sha256": "2E7D0285A34CBE16DFEA3F095E4744F948583D0389CA7871A0A64D73D93EFECB",
+      "equal": true
+    },
+    {
+      "table": "ip_alert",
+      "before_sha256": "ABC0FCBB51BDCE09A510D6DEC58F92E85EA5FB60150C95E985AA374D2D999DA9",
+      "after_sha256": "ABC0FCBB51BDCE09A510D6DEC58F92E85EA5FB60150C95E985AA374D2D999DA9",
+      "equal": true
+    }
+  ],
+  "redis_ranking_equal": true,
+  "redis_window_equal": true,
+  "redis_revision_equal": true,
+  "ttl_before": 5794,
+  "ttl_after": 5477,
+  "configured_batch_size": 100,
+  "runtime_batch_size_evidence": "pending container printenv",
+  "note": "Savepoint restoration without new records; does not demonstrate replay idempotence."
+}

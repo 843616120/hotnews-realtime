@@ -1,0 +1,86 @@
+[
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.throughput.MySQL_IP_alerts.records_per_second",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "14000000"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "7464"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.throughput.MySQL_IP_alerts.records",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_IP_alerts.currentInputWatermark",
+    "value": "-9223372036854775808"
+  }
+]

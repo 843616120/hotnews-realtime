@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Restore_Behavior_Event_Time.currentOutputWatermark",
+    "value": "1790474261706"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.currentInputWatermark",
+    "value": "1790474261706"
+  },
+  {
+    "id": "1.Restore_Behavior_Event_Time.numRecordsIn",
+    "value": "10505"
+  },
+  {
+    "id": "0.Restore_Behavior_Event_Time.numRecordsIn",
+    "value": "11195"
+  },
+  {
+    "id": "1.Restore_Behavior_Event_Time.currentInputWatermark",
+    "value": "1790473517494"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "64.5"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "11195"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "58.68333333333333"
+  },
+  {
+    "id": "0.Restore_Behavior_Event_Time.currentOutputWatermark",
+    "value": "1790473919262"
+  },
+  {
+    "id": "2.Restore_Behavior_Event_Time.numRecordsInPerSecond",
+    "value": "42.06666666666667"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790473919262"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Restore_Behavior_Event_Time.numRecordsOutPerSecond",
+    "value": "64.5"
+  },
+  {
+    "id": "2.numRecordsOut",
+    "value": "8561"
+  },
+  {
+    "id": "1.Restore_Behavior_Event_Time.numRecordsOutPerSecond",
+    "value": "58.68333333333333"
+  },
+  {
+    "id": "2.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "2.Restore_Behavior_Event_Time.currentInputWatermark",
+    "value": "1790474261706"
+  },
+  {
+    "id": "0.Restore_Behavior_Event_Time.numRecordsOut",
+    "value": "11195"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "11195"
+  },
+  {
+    "id": "2.Restore_Behavior_Event_Time.numRecordsOutPerSecond",
+    "value": "42.06666666666667"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.Restore_Behavior_Event_Time.numRecordsInPerSecond",
+    "value": "58.68333333333333"
+  },
+  {
+    "id": "1.Restore_Behavior_Event_Time.numRecordsOut",
+    "value": "10505"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "124900000000"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond",
+    "value": "1000"
+  }
+]

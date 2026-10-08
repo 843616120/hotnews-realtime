@@ -1,0 +1,122 @@
+[
+  {
+    "id": "2.throughput__source_behavior_records.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+    "value": "2738.0"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "50.4"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.4.currentOffset",
+    "value": "4620"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.2.committedOffset",
+    "value": "-1"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "76000000"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsInPerSecond",
+    "value": "107.11666666666666"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-rate",
+    "value": "96.86909014498843"
+  },
+  {
+    "id": "0.Process.numRecordsIn",
+    "value": "3521"
+  },
+  {
+    "id": "2.Process.numRecordsOut",
+    "value": "3152"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "22.549999999998775"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsIn",
+    "value": "3521"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "82000000"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond",
+    "value": "843"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsInErrors",
+    "value": "0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lead-min",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsOutPerSecond",
+    "value": "91.76666666666667"
+  },
+  {
+    "id": "1.Process.numRecordsIn",
+    "value": "7523"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "7523"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.5.committedOffset",
+    "value": "-1"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsInPerSecond",
+    "value": "50.4"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsOut",
+    "value": "3521"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsInPerSecond",
+    "value": "50.4"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.1.currentOffset",
+    "value": "2901"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "1.0"
+  }
+]

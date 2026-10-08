@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "1000.0"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "194.24999999999994"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsInPerSecond",
+    "value": "11.55"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records",
+    "value": "18645"
+  },
+  {
+    "id": "0.throughput__role_b_result.currentInputWatermark",
+    "value": "1790468272958"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records_per_second",
+    "value": "30.4"
+  },
+  {
+    "id": "0.throughput__role_b_result.currentOutputWatermark",
+    "value": "1790468272958"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsOutPerSecond",
+    "value": "30.4"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "290880000000"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "11.55"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "25132526526"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsOut",
+    "value": "18645"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.currentOutputWatermark",
+    "value": "1790468272958"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsIn",
+    "value": "18645"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsOut",
+    "value": "18645"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numLateRecordsDropped",
+    "value": "0"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790468272958"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.currentOutputWatermark",
+    "value": "1790468272958"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsInPerSecond",
+    "value": "30.4"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsIn",
+    "value": "11101"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsInPerSecond",
+    "value": "30.4"
+  },
+  {
+    "id": "0.throughput__role_b_result.throughput.role_b_result.records_per_second",
+    "value": "30.4"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.currentInputWatermark",
+    "value": "1790468272958"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.currentInputWatermark",
+    "value": "1790468272958"
+  },
+  {
+    "id": "0.throughput__role_b_result.throughput.role_b_result.records",
+    "value": "18645"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsIn",
+    "value": "18645"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsOutPerSecond",
+    "value": "30.4"
+  }
+]

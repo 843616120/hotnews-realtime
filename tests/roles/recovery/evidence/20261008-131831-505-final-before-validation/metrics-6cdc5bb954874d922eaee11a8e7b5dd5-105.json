@@ -1,0 +1,110 @@
+[
+  {
+    "id": "2.throughput__source_behavior_records.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+    "value": "NaN"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.4.currentOffset",
+    "value": "-1"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.2.committedOffset",
+    "value": "4935"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "10000000"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-rate",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Process.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "10000000"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsInErrors",
+    "value": "0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lead-min",
+    "value": "NaN"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Process.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.5.committedOffset",
+    "value": "5282"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.1.currentOffset",
+    "value": "-1"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "0.0"
+  }
+]

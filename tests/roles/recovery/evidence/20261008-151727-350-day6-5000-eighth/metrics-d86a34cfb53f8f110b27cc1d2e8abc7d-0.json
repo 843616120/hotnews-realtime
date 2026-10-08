@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "2.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsIn",
+    "value": "60262"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsIn",
+    "value": "60262"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "2.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "60262"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.numRecordsIn",
+    "value": "60261"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "13000000"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond",
+    "value": "0"
+  }
+]

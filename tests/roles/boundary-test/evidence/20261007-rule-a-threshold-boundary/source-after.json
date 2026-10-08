@@ -1,0 +1,52 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "F0E1408AD14503383E7561D59C87182542DACC5AB23FDCF5574AB59F0F1E3B55",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\constant\\Constant.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "A16331FBB1F4F840AEA02C489E302170F4C41E5C91D4EB0C39E43F7796A76544",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\model\\CategoryRankingSnapshot.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "0E5BB134E0B721E504BF6A556602EABFC77429F676A284BA0DE2A769061BFA9E",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkMetricsUtil.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "CB89F4D81E3C158B0E79319C7ADCD1198354CEA08FEB8C8D6B9BD66E494D724D",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkRuntimeUtil.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "7D13D33EC7CA020931488C0810340D1F8FC9D70772B2637DE1CBD4AFA42E5E4C",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSinkUtil.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "CB19C4C1AEFAC2B97551CD89A4C64B4849BBF2EE1E84449048D2421342D1C510",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSourceUtil.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "84BA65E4086651D1650799B82E9B1FB5D94A79B884B94006C4B60A6818A7CAF0",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\RoleStreamUtil.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "EDAB65CB6D9960AB9A1FFA203159649905DD7B9941914A19BBCE9A4D943E11F3",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-join\\src\\main\\java\\com\\agd\\flink\\join\\ArticleJoinBehavior.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C450DD744350A6FA553813E78A6414B17C36E9E7CE91170A8DCB44CBF8702015",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\rolea\\Achieve_roleA.java"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "8D595133697EEE1F0D4170F315C2EDD8106DFF3DE50F2FF61CE03F1D09326A52",
+    "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\roleb\\Achieve_roleB.java"
+  }
+]

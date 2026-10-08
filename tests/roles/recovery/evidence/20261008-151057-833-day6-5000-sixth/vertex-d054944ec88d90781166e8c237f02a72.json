@@ -1,0 +1,166 @@
+{
+  "id": "d054944ec88d90781166e8c237f02a72",
+  "name": "TumblingEventTimeWindows -> throughput: role_b_result -> Sink: MySQL category ranks",
+  "parallelism": 1,
+  "maxParallelism": 1,
+  "now": 1791443459832,
+  "subtasks": [
+    {
+      "subtask": 0,
+      "status": "RUNNING",
+      "attempt": 0,
+      "host": "deploy-taskmanager-1",
+      "start-time": 1791442754042,
+      "end-time": -1,
+      "duration": 705790,
+      "metrics": {
+        "read-bytes": 36635547,
+        "read-bytes-complete": true,
+        "write-bytes": 298054592,
+        "write-bytes-complete": true,
+        "read-records": 80275,
+        "read-records-complete": true,
+        "write-records": 0,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 10823,
+        "accumulated-idle-time": 292872,
+        "accumulated-busy-time": 397602.0
+      },
+      "taskmanager-id": "172.18.0.8:33007-758a13",
+      "status-duration": {
+        "RUNNING": 702595,
+        "DEPLOYING": 1150,
+        "SCHEDULED": 234,
+        "CREATED": 141,
+        "INITIALIZING": 2045
+      },
+      "start_time": 1791442754042
+    }
+  ],
+  "aggregated": {
+    "metrics": {
+      "write-records": {
+        "p25": 0,
+        "min": 0,
+        "avg": 0,
+        "median": 0,
+        "max": 0,
+        "sum": 0,
+        "p95": 0,
+        "p75": 0
+      },
+      "accumulated-backpressured-time": {
+        "p25": 10823,
+        "min": 10823,
+        "avg": 10823,
+        "median": 10823,
+        "max": 10823,
+        "sum": 10823,
+        "p95": 10823,
+        "p75": 10823
+      },
+      "accumulated-idle-time": {
+        "p25": 292872,
+        "min": 292872,
+        "avg": 292872,
+        "median": 292872,
+        "max": 292872,
+        "sum": 292872,
+        "p95": 292872,
+        "p75": 292872
+      },
+      "write-bytes": {
+        "p25": 298054592,
+        "min": 298054592,
+        "avg": 298054592,
+        "median": 298054592,
+        "max": 298054592,
+        "sum": 298054592,
+        "p95": 298054592,
+        "p75": 298054592
+      },
+      "read-bytes": {
+        "p25": 36635547,
+        "min": 36635547,
+        "avg": 36635547,
+        "median": 36635547,
+        "max": 36635547,
+        "sum": 36635547,
+        "p95": 36635547,
+        "p75": 36635547
+      },
+      "read-records": {
+        "p25": 80275,
+        "min": 80275,
+        "avg": 80275,
+        "median": 80275,
+        "max": 80275,
+        "sum": 80275,
+        "p95": 80275,
+        "p75": 80275
+      },
+      "accumulated-busy-time": {
+        "p25": 397602,
+        "min": 397602,
+        "avg": 397602,
+        "median": 397602,
+        "max": 397602,
+        "sum": 397602,
+        "p95": 397602,
+        "p75": 397602
+      }
+    },
+    "status-duration": {
+      "CREATED": {
+        "p25": 141,
+        "min": 141,
+        "avg": 141,
+        "median": 141,
+        "max": 141,
+        "sum": 141,
+        "p95": 141,
+        "p75": 141
+      },
+      "RUNNING": {
+        "p25": 702595,
+        "min": 702595,
+        "avg": 702595,
+        "median": 702595,
+        "max": 702595,
+        "sum": 702595,
+        "p95": 702595,
+        "p75": 702595
+      },
+      "INITIALIZING": {
+        "p25": 2045,
+        "min": 2045,
+        "avg": 2045,
+        "median": 2045,
+        "max": 2045,
+        "sum": 2045,
+        "p95": 2045,
+        "p75": 2045
+      },
+      "SCHEDULED": {
+        "p25": 234,
+        "min": 234,
+        "avg": 234,
+        "median": 234,
+        "max": 234,
+        "sum": 234,
+        "p95": 234,
+        "p75": 234
+      },
+      "DEPLOYING": {
+        "p25": 1150,
+        "min": 1150,
+        "avg": 1150,
+        "median": 1150,
+        "max": 1150,
+        "sum": 1150,
+        "p95": 1150,
+        "p75": 1150
+      }
+    }
+  }
+}

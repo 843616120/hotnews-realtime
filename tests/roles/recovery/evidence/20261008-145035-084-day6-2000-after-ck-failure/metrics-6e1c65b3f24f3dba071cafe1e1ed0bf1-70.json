@@ -1,0 +1,142 @@
+[
+  {
+    "id": "2.throughput__clean_behavior_records.numRecordsOut",
+    "value": "956"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsOut",
+    "value": "956"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.numRecordsInPerSecond",
+    "value": "20.083333333333332"
+  },
+  {
+    "id": "1.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records",
+    "value": "1076"
+  },
+  {
+    "id": "1.Sink__MySQL_clean_behavior.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records",
+    "value": "956"
+  },
+  {
+    "id": "1.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records_per_second",
+    "value": "16.733333333333334"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "342.0"
+  },
+  {
+    "id": "2.Sink__MySQL_clean_behavior.numRecordsInPerSecond",
+    "value": "13.933333333333334"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "246.0"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "1526"
+  },
+  {
+    "id": "2.Filter.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "16.733333333333334"
+  },
+  {
+    "id": "2.throughput__clean_behavior_records.numRecordsInPerSecond",
+    "value": "13.933333333333334"
+  },
+  {
+    "id": "0.Filter.numRecordsIn",
+    "value": "1296"
+  },
+  {
+    "id": "0.Filter.numRecordsInPerSecond",
+    "value": "20.083333333333332"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond",
+    "value": "774"
+  },
+  {
+    "id": "0.Sink__MySQL_clean_behavior.numRecordsIn",
+    "value": "1296"
+  },
+  {
+    "id": "1.Sink__MySQL_clean_behavior.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.numRecordsInPerSecond",
+    "value": "16.733333333333334"
+  },
+  {
+    "id": "2.throughput__clean_behavior_records.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Filter.numRecordsIn",
+    "value": "955"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "1077"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.numRecordsIn",
+    "value": "1296"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "722"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "0"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "243.0"
+  }
+]

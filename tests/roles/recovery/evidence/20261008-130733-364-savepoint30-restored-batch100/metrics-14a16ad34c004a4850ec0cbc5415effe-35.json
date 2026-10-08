@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.Timestamps/Watermarks.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Map.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.Map.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "161.0"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Map.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.checkpointAlignmentTime",
+    "value": "4745968"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Map.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.Map.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "837"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "8000000"
+  },
+  {
+    "id": "0.Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond",
+    "value": "0"
+  }
+]

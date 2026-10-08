@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "68.0"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "982"
+  },
+  {
+    "id": "2.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsInPerSecond",
+    "value": "48.166666666666664"
+  },
+  {
+    "id": "1.KeyedProcess.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.Filter.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "0.KeyedProcess.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.throughput.clean_behavior_records.records",
+    "value": "20160"
+  },
+  {
+    "id": "0.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records_per_second",
+    "value": "50.233333333333334"
+  },
+  {
+    "id": "1.Filter.numRecordsIn",
+    "value": "20160"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsOutPerSecond",
+    "value": "49.86666666666667"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "50.233333333333334"
+  },
+  {
+    "id": "0.Sink__MySQL_clean_behavior.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.numRecordsOut",
+    "value": "20031"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "39844882883"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsOutPerSecond",
+    "value": "48.166666666666664"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "96.0"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsOut",
+    "value": "20031"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.throughput.clean_behavior_records.records_per_second",
+    "value": "50.233333333333334"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Filter.numRecordsOut",
+    "value": "15835"
+  },
+  {
+    "id": "0.KeyedProcess.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.numRecordsOut",
+    "value": "30144"
+  },
+  {
+    "id": "2.Filter.numRecordsOutPerSecond",
+    "value": "46.11666666666667"
+  },
+  {
+    "id": "2.busyTimeMsPerSecond",
+    "value": "2.0"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsIn",
+    "value": "20031"
+  },
+  {
+    "id": "2.throughput__clean_behavior_records.throughput.clean_behavior_records.records_per_second",
+    "value": "48.166666666666664"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsOutPerSecond",
+    "value": "50.233333333333334"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.throughput.clean_behavior_records.records_per_second",
+    "value": "49.86666666666667"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "phase": "settled-before-fault",
+  "job_id": "d933102253fcaaeb92dd34ce2faa8750",
+  "base_url": "http://localhost:8081",
+  "started_at": "2026-10-08T12:39:52.6592869+08:00",
+  "completed_at": "2026-10-08T12:39:54.6321507+08:00"
+}

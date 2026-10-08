@@ -1,0 +1,118 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "1.0"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.06666666666666667"
+  },
+  {
+    "id": "1.Map.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "1.throughput__role_b_redis_snapshots.throughput.role_b_redis_snapshots.records",
+    "value": "6560"
+  },
+  {
+    "id": "0.Map.numRecordsOut",
+    "value": "6560"
+  },
+  {
+    "id": "2.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "41178000000"
+  },
+  {
+    "id": "2.Filter.numRecordsOut",
+    "value": "6559"
+  },
+  {
+    "id": "0.Map.numRecordsIn",
+    "value": "6560"
+  },
+  {
+    "id": "1.Filter.numRecordsOutPerSecond",
+    "value": "0.05"
+  },
+  {
+    "id": "1.throughput__role_b_redis_snapshots.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "0.Map.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.throughput__role_b_redis_snapshots.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "41167000000"
+  },
+  {
+    "id": "1.Map.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "1.Filter.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "0.throughput__role_b_redis_snapshots.numRecordsOutPerSecond",
+    "value": "0.06666666666666667"
+  },
+  {
+    "id": "1.Map.numRecordsOut",
+    "value": "6560"
+  },
+  {
+    "id": "0.Map.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "6560"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "32799"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "0.26666666666666666"
+  },
+  {
+    "id": "0.Filter.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "1.throughput__role_b_redis_snapshots.numRecordsIn",
+    "value": "6560"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "0.05"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "32798"
+  },
+  {
+    "id": "0.Filter.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "1.0"
+  }
+]

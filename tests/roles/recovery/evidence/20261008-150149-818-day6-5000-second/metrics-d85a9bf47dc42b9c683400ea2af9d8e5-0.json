@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.Sink__MySQL_article_alerts.currentOutputWatermark",
+    "value": "1790470239824"
+  },
+  {
+    "id": "0.Sink__MySQL_article_alerts.numRecordsInPerSecond",
+    "value": "50.3"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records_per_second",
+    "value": "50.3"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_role_A_audit_events.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.Sink__MySQL_article_alerts.numRecordsInPerSecond",
+    "value": "40.63333333333333"
+  },
+  {
+    "id": "0.SlidingEventTimeWindows.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.SlidingEventTimeWindows.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.SlidingEventTimeWindows.numRecordsIn",
+    "value": "503"
+  },
+  {
+    "id": "1.Sink__MySQL_article_alerts.currentOutputWatermark",
+    "value": "1790470239824"
+  },
+  {
+    "id": "2.throughput__role_a_result.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__role_a_result.numRecordsOutPerSecond",
+    "value": "50.3"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790470239824"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__role_a_result.throughput.role_a_result.records",
+    "value": "3620"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.throughput__role_a_result.numRecordsOutPerSecond",
+    "value": "40.63333333333333"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records",
+    "value": "0"
+  },
+  {
+    "id": "1.throughput__role_a_result.numRecordsInPerSecond",
+    "value": "40.63333333333333"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.currentInputWatermark",
+    "value": "1790470239824"
+  },
+  {
+    "id": "2.busyTimeMsPerSecond",
+    "value": "120.0"
+  },
+  {
+    "id": "1.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records_per_second",
+    "value": "40.63333333333333"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.SlidingEventTimeWindows.numRecordsInPerSecond",
+    "value": "21.1"
+  },
+  {
+    "id": "0.throughput__role_a_result.currentInputWatermark",
+    "value": "1790470239824"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__role_a_result.throughput.role_a_result.records_per_second",
+    "value": "50.3"
+  },
+  {
+    "id": "0.Sink__MySQL_role_A_audit_events.currentOutputWatermark",
+    "value": "1790470239824"
+  },
+  {
+    "id": "0.Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "taskmanagers": [
+    {
+      "id": "172.18.0.8:37507-02ec21",
+      "path": "akka.tcp://flink@172.18.0.8:37507/user/rpc/taskmanager_0",
+      "dataPort": 40363,
+      "jmxPort": -1,
+      "timeSinceLastHeartbeat": 1791436703094,
+      "slotsNumber": 8,
+      "freeSlots": 5,
+      "totalResource": {
+        "cpuCores": 8.0,
+        "taskHeapMemory": 537,
+        "taskOffHeapMemory": 0,
+        "managedMemory": 634,
+        "networkMemory": 158,
+        "extendedResources": {}
+      },
+      "freeResource": {
+        "cpuCores": 5.0,
+        "taskHeapMemory": 335,
+        "taskOffHeapMemory": 0,
+        "managedMemory": 396,
+        "networkMemory": 99,
+        "extendedResources": {}
+      },
+      "hardware": {
+        "cpuCores": 4,
+        "physicalMemory": 8328425472,
+        "freeMemory": 698351616,
+        "managedMemory": 665719939
+      },
+      "memoryConfiguration": {
+        "frameworkHeap": 134217728,
+        "taskHeap": 563714445,
+        "frameworkOffHeap": 134217728,
+        "taskOffHeap": 0,
+        "networkMemory": 166429984,
+        "managedMemory": 665719939,
+        "jvmMetaspace": 268435456,
+        "jvmOverhead": 214748368,
+        "totalFlinkMemory": 1664299824,
+        "totalProcessMemory": 2147483648
+      }
+    }
+  ]
+}

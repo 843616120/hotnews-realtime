@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1.KeyedProcess.numRecordsIn",
+    "value": "26358"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsOut",
+    "value": "17794"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Map.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.throughput__role_c_result.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_role_C_audit_events.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.Sink__MySQL_role_C_audit_events.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__MySQL_role_C_audit_events.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.Sink__MySQL_role_C_audit_events.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsIn",
+    "value": "25466"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.Sink__MySQL_role_C_audit_events.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.throughput__role_c_result.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.KeyedProcess.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "2.Map.numRecordsOut",
+    "value": "17794"
+  },
+  {
+    "id": "1.checkpointAlignmentTime",
+    "value": "93444"
+  },
+  {
+    "id": "0.throughput__role_c_result.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__MySQL_role_C_audit_events.numRecordsIn",
+    "value": "18620"
+  },
+  {
+    "id": "2.Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.throughput__role_c_result.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__MySQL_role_C_audit_events.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_role_C_audit_events.throughput.MySQL_role_C_audit_events.records",
+    "value": "18488"
+  },
+  {
+    "id": "2.Map.numRecordsIn",
+    "value": "17794"
+  },
+  {
+    "id": "1.throughput__role_c_result.throughput.role_c_result.records",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__role_c_result.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "26248"
+  },
+  {
+    "id": "0.Sink__MySQL_role_C_audit_events.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.Map.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Sink__MySQL_role_C_audit_events.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  }
+]

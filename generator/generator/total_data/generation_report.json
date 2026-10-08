@@ -1,0 +1,33 @@
+{
+  "seed": 20260927,
+  "start_time": "2026-09-27T00:00:00Z",
+  "article_count": 500,
+  "behavior_count": 100000,
+  "action_counts": {
+    "click": 82306,
+    "share": 9863,
+    "comment": 7831
+  },
+  "dirty_record_count": 998,
+  "dirty_kinds": {
+    "negative_duration": 371,
+    "null_article_id": 312,
+    "future_event_time": 315
+  },
+  "duplicate_record_count": 4000,
+  "hot_article_ids": [
+    "article-000328",
+    "article-000338"
+  ],
+  "hot_article_click_share": 0.848325,
+  "first_article_ingest_time": "2026-09-27T00:00:33.446Z",
+  "last_article_ingest_time": "2026-09-27T01:00:00.760Z",
+  "first_behavior_ingest_time": "2026-09-27T00:00:09.030Z",
+  "last_behavior_ingest_time": "2026-09-27T02:00:09.516Z",
+  "role_c_positive": {
+    "ip": "10.255.255.1",
+    "different_article_count": 51,
+    "read_duration_ms": 1000,
+    "event_time_span_seconds": 45
+  }
+}

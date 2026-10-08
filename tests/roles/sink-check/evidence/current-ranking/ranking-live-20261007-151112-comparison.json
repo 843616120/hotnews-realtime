@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-10-07T07:11:12.982Z",
+  "mysql_total_rows": 55,
+  "mysql_latest_window": {
+    "window_start_ms": 1790473200000,
+    "window_start": "2026-09-27T01:40:00.000Z",
+    "window_end": "2026-09-27T01:50:00.000Z",
+    "rows": 5
+  },
+  "redis": {
+    "key": "hotnews:top5:latest",
+    "type": "hash",
+    "fields": [
+      "ranking",
+      "revision",
+      "window_end",
+      "window_start_ms"
+    ],
+    "window_start_ms": 1790473200000,
+    "window_end": "2026-09-27T01:50:00Z",
+    "revision": 1199,
+    "ranking_rows": 5,
+    "ttl_seconds": 5992
+  },
+  "differences": [],
+  "passed": true
+}

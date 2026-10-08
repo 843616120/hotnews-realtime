@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hotnews-realtime.local/schema/behavior_stream.schema.json",
+  "title": "behavior_stream event",
+  "description": "Clean user behavior events. Dirty records such as null article_id, negative read duration, or future event_time are intentionally rejected.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "user_id",
+    "article_id",
+    "action",
+    "ip",
+    "event_time",
+    "ingest_time",
+    "read_duration_ms"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^behavior-event-[0-9]{8}$"
+    },
+    "user_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^user-[0-9]{6}$"
+    },
+    "article_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^article-[0-9]{6}$"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "click",
+        "share",
+        "comment"
+      ]
+    },
+    "ip": {
+      "type": "string",
+      "pattern": "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingest_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "read_duration_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 86400000
+    }
+  }
+}

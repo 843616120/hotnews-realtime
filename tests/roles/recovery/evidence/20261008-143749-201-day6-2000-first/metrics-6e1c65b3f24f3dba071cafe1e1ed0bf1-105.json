@@ -1,0 +1,122 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "76.49999999999987"
+  },
+  {
+    "id": "2.throughput__clean_behavior_records.numRecordsOutPerSecond",
+    "value": "44.916666666666664"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "90.0"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.currentOutputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "2.checkpointAlignmentTime",
+    "value": "28367866080"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "21899000000"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.currentOutputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "2.Filter.numRecordsOut",
+    "value": "2613"
+  },
+  {
+    "id": "2.throughput__clean_behavior_records.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Filter.numRecordsOutPerSecond",
+    "value": "43.65"
+  },
+  {
+    "id": "0.Sink__MySQL_clean_behavior.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.Sink__MySQL_clean_behavior.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.throughput__clean_behavior_records.numRecordsOut",
+    "value": "2914"
+  },
+  {
+    "id": "0.Sink__MySQL_clean_behavior.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "23325000000"
+  },
+  {
+    "id": "1.Filter.currentInputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "2.Sink__MySQL_clean_behavior.currentOutputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "2.Sink__MySQL_clean_behavior.currentInputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "0.throughput__clean_behavior_records.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.KeyedProcess.currentInputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "2.throughput__clean_behavior_records.throughput.clean_behavior_records.records",
+    "value": "2789"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "5426"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "44.916666666666664"
+  },
+  {
+    "id": "0.Filter.currentInputWatermark",
+    "value": "1790468247017"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "84.03333333333333"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "2789"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsInPerSecond",
+    "value": "46.983333333333334"
+  },
+  {
+    "id": "0.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records",
+    "value": "2947"
+  },
+  {
+    "id": "0.Filter.currentOutputWatermark",
+    "value": "1790468247017"
+  }
+]

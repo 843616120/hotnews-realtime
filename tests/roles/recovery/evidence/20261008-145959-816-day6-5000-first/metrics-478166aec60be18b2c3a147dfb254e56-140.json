@@ -1,0 +1,54 @@
+[
+  {
+    "id": "2.Sink__MySQL_matched_behavior.numRecordsInPerSecond",
+    "value": "21.733333333333334"
+  },
+  {
+    "id": "0.Sink__MySQL_matched_behavior.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__MySQL_unmatched_behavior.throughput.MySQL_unmatched_behavior.records",
+    "value": "10"
+  },
+  {
+    "id": "2.Sink__MySQL_late_data.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_late_data.throughput.MySQL_late_data.records_per_second",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__MySQL_unmatched_behavior.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790468579422"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "32.21666666666667"
+  },
+  {
+    "id": "0.Co-Keyed-Process.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "2042"
+  },
+  {
+    "id": "1.Sink__MySQL_matched_behavior.numRecordsInPerSecond",
+    "value": "35.21666666666667"
+  },
+  {
+    "id": "1.Sink__MySQL_unmatched_behavior.currentInputWatermark",
+    "value": "1790468579422"
+  }
+]

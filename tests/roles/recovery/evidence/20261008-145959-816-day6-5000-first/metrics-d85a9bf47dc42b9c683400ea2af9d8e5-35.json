@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.throughput__role_a_result.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "292.99999999999943"
+  },
+  {
+    "id": "1.throughput__role_a_result.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.Sink__MySQL_role_A_audit_events.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.currentInputWatermark",
+    "value": "1790468391197"
+  },
+  {
+    "id": "2.throughput__role_a_result.currentInputWatermark",
+    "value": "1790468391197"
+  },
+  {
+    "id": "0.Map.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_article_alerts.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Sink__MySQL_role_A_audit_events.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Sink__MySQL_article_alerts.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.throughput__role_a_result.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.throughput__role_a_result.throughput.role_a_result.records_per_second",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records_per_second",
+    "value": "0.0"
+  },
+  {
+    "id": "2.throughput__role_a_result.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__MySQL_article_alerts.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Map.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Map.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "2.throughput__role_a_result.currentOutputWatermark",
+    "value": "1790468391197"
+  },
+  {
+    "id": "2.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.throughput__role_a_result.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.Sink__MySQL_role_A_audit_events.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_article_alerts.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Map.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__role_a_result.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__role_a_result.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.throughput__role_a_result.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_role_A_audit_events.throughput.MySQL_role_A_audit_events.records",
+    "value": "0"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "0"
+  },
+  {
+    "id": "2.SlidingEventTimeWindows.numRecordsOutPerSecond",
+    "value": "0.0"
+  }
+]

@@ -1,0 +1,6 @@
+# 编译缓存不进入版本库，验收 JSON、SQL 和原始日志不受影响。
+boundary-test/evidence/**/classes/
+boundary-test/evidence/**/*.sqlite
+sql-check/evidence/**/*.sqlite
+sink-check/evidence/**/classes/
+sink-check/evidence/**/*.sqlite

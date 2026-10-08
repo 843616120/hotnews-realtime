@@ -158,42 +158,7 @@ public class Achieve_roleC {
                 long time = RoleStreamUtil.eventTime(click);
                 if (time > minute - MINUTE_MS && time < minute + MINUTE_MS) ordered.add(click);
             }
-            ordered.sort(Comparator.comparingLong(RoleStreamUtil::eventTime)
-                    .thenComparing(value -> value.getString("event_id")));
-            ArrayDeque<JSONObject> recent = new ArrayDeque<>();
-            Map<String, Integer> articles = new HashMap<>();
-            long duration = 0;
-            IpWindowState current = null;
-            for (int i = 0; i < ordered.size();) {
-                long end = RoleStreamUtil.eventTime(ordered.get(i));
-                // 范围为 (end-60s, end]；一篇文章的剩余点击数归零后才移出文章集合。
-                while (!recent.isEmpty() && RoleStreamUtil.eventTime(recent.peekFirst()) <= end - MINUTE_MS) {
-                    JSONObject removed = recent.removeFirst();
-                    String article = removed.getString("article_id");
-                    int count = articles.get(article);
-                    if (count == 1) articles.remove(article); else articles.put(article, count - 1);
-                    duration -= removed.getLongValue("read_duration_ms");
-                }
-                // 同毫秒的点击一起计入，避免输入顺序改变告警结果。
-                while (i < ordered.size() && RoleStreamUtil.eventTime(ordered.get(i)) == end) {
-                    JSONObject click = ordered.get(i++);
-                    recent.addLast(click);
-                    String article = click.getString("article_id");
-                    articles.put(article, articles.getOrDefault(article, 0) + 1);
-                    duration += click.getLongValue("read_duration_ms");
-                }
-                if (end < minute) continue;
-                current = new IpWindowState();
-                current.start = end - MINUTE_MS;
-                current.end = end;
-                current.articleIds = new ArrayList<>(articles.keySet());
-                Collections.sort(current.articleIds);
-                current.clickCount = recent.size();
-                current.durationSum = duration;
-                current.alert = articles.size() > 50 && duration < 2000L * recent.size();
-                // 同一分钟取最早命中的一次；未命中也保存最后一次的回看状态。
-                if (current.alert) break;
-            }
+            IpWindowState current = evaluate(minute, ordered);
             if (current == null) return;
             IpWindowState previous = windows.get(minute);
             if (previous != null && previous.end == current.end && previous.clickCount == current.clickCount
@@ -219,6 +184,45 @@ public class Achieve_roleC {
             result.put("detect_time", Instant.now().toString());
             out.collect(result);
         }
+    }
+
+    /** 在线 IP 状态和 MySQL 超期补算共用一分钟回看，不改成滚动窗。 */
+    public static IpWindowState evaluate(long minute, List<JSONObject> ordered) {
+        ordered.sort(Comparator.comparingLong(RoleStreamUtil::eventTime)
+                .thenComparing(value -> value.getString("event_id")));
+        ArrayDeque<JSONObject> recent = new ArrayDeque<>();
+        Map<String, Integer> articles = new HashMap<>();
+        long duration = 0;
+        IpWindowState current = null;
+        for (int i = 0; i < ordered.size();) {
+            long end = RoleStreamUtil.eventTime(ordered.get(i));
+            while (!recent.isEmpty() && RoleStreamUtil.eventTime(recent.peekFirst()) <= end - MINUTE_MS) {
+                JSONObject removed = recent.removeFirst();
+                String article = removed.getString("article_id");
+                int count = articles.get(article);
+                if (count == 1) articles.remove(article); else articles.put(article, count - 1);
+                duration -= removed.getLongValue("read_duration_ms");
+            }
+            // 相同毫秒统一加入，结果不依赖 Kafka 的到达顺序。
+            while (i < ordered.size() && RoleStreamUtil.eventTime(ordered.get(i)) == end) {
+                JSONObject click = ordered.get(i++);
+                recent.addLast(click);
+                String article = click.getString("article_id");
+                articles.put(article, articles.getOrDefault(article, 0) + 1);
+                duration += click.getLongValue("read_duration_ms");
+            }
+            if (end < minute) continue;
+            current = new IpWindowState();
+            current.start = end - MINUTE_MS;
+            current.end = end;
+            current.articleIds = new ArrayList<>(articles.keySet());
+            Collections.sort(current.articleIds);
+            current.clickCount = recent.size();
+            current.durationSum = duration;
+            current.alert = articles.size() > 50 && duration < 2000L * recent.size();
+            if (current.alert) break;
+        }
+        return current;
     }
 
     /** 主键为分钟+IP；修正按 revision 覆盖，撤销保留主键以便单独查询。 */

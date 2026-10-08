@@ -1,0 +1,102 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "0.9499999999999957"
+  },
+  {
+    "id": "0.B_category_salted_windows.numRecordsOutPerSecond",
+    "value": "21.933333333333334"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "21.933333333333334"
+  },
+  {
+    "id": "1.B_category_salted_windows.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "2.B_category_salted_windows.numRecordsIn",
+    "value": "30882"
+  },
+  {
+    "id": "2.B_category_salted_windows.currentOutputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "2.checkpointAlignmentTime",
+    "value": "16700"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "5000000"
+  },
+  {
+    "id": "1.B_category_salted_windows.numLateRecordsDropped",
+    "value": "0"
+  },
+  {
+    "id": "1.B_category_salted_windows.numRecordsOutPerSecond",
+    "value": "33.983333333333334"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "512.1"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "5000000"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "2108"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "0.B_category_salted_windows.numRecordsOut",
+    "value": "1391"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "32087"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "491.8666666666667"
+  },
+  {
+    "id": "0.B_category_salted_windows.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "30.183333333333334"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "30882"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "1.0"
+  }
+]

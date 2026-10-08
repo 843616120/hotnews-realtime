@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.throughput__role_b_result.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "0.B_results_and_late_audit.currentInput2Watermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "0.B_results_and_late_audit.numRecordsIn",
+    "value": "661"
+  },
+  {
+    "id": "1.B_results_and_late_audit.numRecordsIn",
+    "value": "478"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "10.75"
+  },
+  {
+    "id": "1.throughput__role_b_result.throughput.role_b_result.records",
+    "value": "478"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "121100"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "661"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "7.666666666666667"
+  },
+  {
+    "id": "0.B_results_and_late_audit.numRecordsInPerSecond",
+    "value": "10.75"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.throughput__role_b_result.numRecordsInPerSecond",
+    "value": "7.666666666666667"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "7.666666666666667"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "0.B_results_and_late_audit.currentInput1Watermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.B_results_and_late_audit.numRecordsOut",
+    "value": "661"
+  },
+  {
+    "id": "0.B_results_and_late_audit.currentOutputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "0.throughput__role_b_result.throughput.role_b_result.records_per_second",
+    "value": "10.75"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.B_results_and_late_audit.numRecordsOutPerSecond",
+    "value": "7.666666666666667"
+  },
+  {
+    "id": "1.B_results_and_late_audit.numRecordsInPerSecond",
+    "value": "7.666666666666667"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "478"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsIn",
+    "value": "661"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.throughput__role_b_result.numRecordsIn",
+    "value": "478"
+  },
+  {
+    "id": "1.B_results_and_late_audit.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "6000000"
+  }
+]

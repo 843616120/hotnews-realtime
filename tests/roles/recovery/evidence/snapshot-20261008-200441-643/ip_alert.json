@@ -1,0 +1,16 @@
+[
+	{
+		"alert_minute_ms":1790474400000,
+		"ip":"10.255.255.1",
+		"retracted":false,
+		"revision":1,
+		"window_start_ms":1790474344516,
+		"window_end_ms":1790474404516,
+		"article_count":51,
+		"click_count":51,
+		"avg_read_duration_ms":1000.0,
+		"read_duration_sum_ms":51000,
+		"article_ids":"[\"article-000026\", \"article-000036\", \"article-000048\", \"article-000049\", \"article-000070\", \"article-000089\", \"article-000099\", \"article-000102\", \"article-000107\", \"article-000116\", \"article-000118\", \"article-000138\", \"article-000176\", \"article-000185\", \"article-000186\", \"article-000192\", \"article-000197\", \"article-000221\", \"article-000228\", \"article-000230\", \"article-000239\", \"article-000241\", \"article-000248\", \"article-000251\", \"article-000260\", \"article-000261\", \"article-000262\", \"article-000269\", \"article-000275\", \"article-000281\", \"article-000285\", \"article-000305\", \"article-000315\", \"article-000317\", \"article-000328\", \"article-000335\", \"article-000338\", \"article-000353\", \"article-000372\", \"article-000404\", \"article-000427\", \"article-000434\", \"article-000441\", \"article-000445\", \"article-000446\", \"article-000460\", \"article-000463\", \"article-000465\", \"article-000473\", \"article-000474\", \"article-000486\"]",
+		"detect_time":"2026-10-08T11:28:31.002Z"
+	}
+]

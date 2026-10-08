@@ -1,0 +1,94 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsOut",
+    "value": "691"
+  },
+  {
+    "id": "1.throughput__role_b_result.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.B_results_and_late_audit.numRecordsOut",
+    "value": "503"
+  },
+  {
+    "id": "0.throughput__role_b_result.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.B_results_and_late_audit.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "26000000"
+  },
+  {
+    "id": "1.B_results_and_late_audit.currentInput1Watermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "1.throughput__role_b_result.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "1.B_results_and_late_audit.currentInput2Watermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "503"
+  },
+  {
+    "id": "0.B_results_and_late_audit.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__role_b_result.throughput.role_b_result.records",
+    "value": "691"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "691"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "1.throughput__role_b_result.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.throughput__role_b_result.throughput.role_b_result.records_per_second",
+    "value": "0.0"
+  },
+  {
+    "id": "1.B_results_and_late_audit.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "1.checkpointAlignmentTime",
+    "value": "577000"
+  },
+  {
+    "id": "1.throughput__role_b_result.numRecordsOut",
+    "value": "503"
+  }
+]

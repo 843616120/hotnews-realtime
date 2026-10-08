@@ -105,18 +105,7 @@ public final class FlinkSinkUtil {
                     ? Integer.parseInt(System.getenv().getOrDefault("HOTNEWS_MYSQL_BATCH_SIZE", "200"))
                     : configuredBatchSize;
             validateBatchSize(batchSize);
-            String host = System.getenv().getOrDefault("MYSQL_HOST", "localhost");
-            String port = System.getenv().getOrDefault("MYSQL_PORT", "3307");
-            String database = System.getenv().getOrDefault("MYSQL_DATABASE", "hotnews");
-            String user = System.getenv().getOrDefault("MYSQL_USER", "root");
-            String password = System.getenv().getOrDefault("MYSQL_PASSWORD", "root");
-
-            // Flink 用户代码类加载器下显式加载 JDBC 驱动，避免运行时 SPI 丢失。
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://" + host + ":" + port + "/" + database
-                            + "?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
-                    user, password);
+            connection = connectMySql();
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(sql);
             pending = new ArrayList<T>(batchSize);
@@ -238,7 +227,19 @@ public final class FlinkSinkUtil {
         }
     }
 
-    private static Jedis connectRedis() {
+    /** 完整窗口补算与批量 Sink 共用连接配置。 */
+    public static Connection connectMySql() throws Exception {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String host = System.getenv().getOrDefault("MYSQL_HOST", "localhost");
+        String port = System.getenv().getOrDefault("MYSQL_PORT", "3307");
+        String database = System.getenv().getOrDefault("MYSQL_DATABASE", "hotnews");
+        return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database
+                        + "?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
+                System.getenv().getOrDefault("MYSQL_USER", "root"),
+                System.getenv().getOrDefault("MYSQL_PASSWORD", "root"));
+    }
+
+    public static Jedis connectRedis() {
         String host = System.getenv().getOrDefault("REDIS_HOST", "localhost");
         int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_PORT", "6379"));
         Jedis redis = new Jedis(host, port);

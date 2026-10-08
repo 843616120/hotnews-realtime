@@ -35,12 +35,14 @@ public class Achieve_roleAll {
         // 先获取运行环境：IDEA 创建本地环境，flink run 使用客户端提供的集群环境。
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         if (env instanceof LocalStreamEnvironment) {
-            // 10011 只用于 IDEA 的本地 Web UI；集群提交沿用 flink-conf.yaml 的 REST 端口。
-            // 若向集群环境传入 10011，会把 Docker 的 jobmanager:8081 覆盖为 jobmanager:10011。
+            // REST 配置在创建本地环境时传入；env.configure 不会合并 REST 启动配置。
+            // 集群提交不进入此分支，仍使用 Docker JobManager 的 8081。
             Configuration configuration = new Configuration();
-            configuration.set(RestOptions.PORT, 10011);
-            configuration.set(RestOptions.BIND_PORT, "10011");
-            env.configure(configuration);
+            configuration.set(RestOptions.PORT, 10012);
+            configuration.set(RestOptions.BIND_PORT, "10012");
+            configuration.set(RestOptions.ADDRESS, "localhost");
+            configuration.set(RestOptions.BIND_ADDRESS, "127.0.0.1");
+            env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(configuration);
         }
         env.setParallelism(3);
         // 默认使用 HashMap；将环境变量改为 rocksdb 即可启动同一套作业做后端对比。
@@ -87,9 +89,8 @@ public class Achieve_roleAll {
         sinkLate(resultB.getSideOutput(Achieve_roleB.lateTag()), "ROLE_B_LATE",
                 "MySQL role B audit events");
         DataStream<JSONObject> measuredB = FlinkMetricsUtil.measure(resultB, "role_b_result")
-                .setParallelism(1);
-        FlinkSinkUtil.sinkMySql(measuredB, Achieve_roleB.MYSQL_SQL,
-                Achieve_roleB::bindMySql, null, "MySQL category ranks").setParallelism(1);
+                .setParallelism(Achieve_roleB.RANK_PARALLELISM);
+        Achieve_roleB.sinkRanks(measuredB);
         DataStream<CategoryRankingSnapshot> snapshots = resultB
                 .filter(value -> value.getIntValue("rank") == 1)
                 .map(Achieve_roleB::toRedisSnapshot);
@@ -109,7 +110,23 @@ public class Achieve_roleAll {
         resultC.print("ROLE_C");
         resultC.getSideOutput(Achieve_roleC.lateTag()).print("ROLE_C_LATE");
 
+        // 主流检查部分过期窗口，旁路兜住各规则自身判定的迟到；请求按窗口去重。
+        clean.union(replayEvents(resultA.getSideOutput(Achieve_roleA.lateTag()), "A"),
+                        replayEvents(resultB.getSideOutput(Achieve_roleB.lateTag()), "B"),
+                        replayEvents(resultC.getSideOutput(Achieve_roleC.lateTag()), "C"))
+                .addSink(new RuleReplaySink()).name("MySQL complete window replay")
+                .setParallelism(1).disableChaining();
+
         env.execute("Achieve_roleAll");
+    }
+
+    private static DataStream<JSONObject> replayEvents(DataStream<JSONObject> late, String rule) {
+        return late.map(value -> {
+            JSONObject copy = new JSONObject();
+            copy.putAll(value);
+            copy.put("replay_rule", rule);
+            return copy;
+        });
     }
 
     /** 三条规则的迟到旁路统一写入 pipeline_event，事件类型仍保留各自名称。 */

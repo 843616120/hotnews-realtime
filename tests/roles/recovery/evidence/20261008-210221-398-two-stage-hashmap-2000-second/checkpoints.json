@@ -1,0 +1,162 @@
+{
+  "counts": {
+    "restored": 0,
+    "total": 3,
+    "in_progress": 0,
+    "completed": 3,
+    "failed": 0
+  },
+  "summary": {
+    "checkpointed_size": {
+      "min": 2314252,
+      "max": 68339656,
+      "avg": 37887743,
+      "p50": 43009323.0,
+      "p90": 68339656.0,
+      "p95": 68339656.0,
+      "p99": 68339656.0,
+      "p999": 68339656.0
+    },
+    "state_size": {
+      "min": 2314252,
+      "max": 68339656,
+      "avg": 37887743,
+      "p50": 43009323.0,
+      "p90": 68339656.0,
+      "p95": 68339656.0,
+      "p99": 68339656.0,
+      "p999": 68339656.0
+    },
+    "end_to_end_duration": {
+      "min": 356,
+      "max": 3546,
+      "avg": 1539,
+      "p50": 715.0,
+      "p90": 3546.0,
+      "p95": 3546.0,
+      "p99": 3546.0,
+      "p999": 3546.0
+    },
+    "alignment_buffered": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": 0.0,
+      "p90": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "p999": 0.0
+    },
+    "processed_data": {
+      "min": 724,
+      "max": 743124,
+      "avg": 336655,
+      "p50": 266119.0,
+      "p90": 743124.0,
+      "p95": 743124.0,
+      "p99": 743124.0,
+      "p999": 743124.0
+    },
+    "persisted_data": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": 0.0,
+      "p90": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "p999": 0.0
+    }
+  },
+  "latest": {
+    "completed": {
+      "className": "completed",
+      "id": 3,
+      "status": "COMPLETED",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791464537127,
+      "latest_ack_timestamp": 1791464537483,
+      "checkpointed_size": 68339656,
+      "state_size": 68339656,
+      "end_to_end_duration": 356,
+      "alignment_buffered": 0,
+      "processed_data": 724,
+      "persisted_data": 0,
+      "num_subtasks": 54,
+      "num_acknowledged_subtasks": 54,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {},
+      "external_path": "file:/D:/study/study_flink/hotnews-realtime/checkpoints/1539ccc34d8172a24de69b955b33ecd5/chk-3",
+      "discarded": false
+    },
+    "savepoint": null,
+    "failed": null,
+    "restored": null
+  },
+  "history": [
+    {
+      "className": "completed",
+      "id": 3,
+      "status": "COMPLETED",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791464537127,
+      "latest_ack_timestamp": 1791464537483,
+      "checkpointed_size": 68339656,
+      "state_size": 68339656,
+      "end_to_end_duration": 356,
+      "alignment_buffered": 0,
+      "processed_data": 724,
+      "persisted_data": 0,
+      "num_subtasks": 54,
+      "num_acknowledged_subtasks": 54,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {},
+      "external_path": "file:/D:/study/study_flink/hotnews-realtime/checkpoints/1539ccc34d8172a24de69b955b33ecd5/chk-3",
+      "discarded": false
+    },
+    {
+      "className": "completed",
+      "id": 2,
+      "status": "COMPLETED",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791464507118,
+      "latest_ack_timestamp": 1791464510664,
+      "checkpointed_size": 43009323,
+      "state_size": 43009323,
+      "end_to_end_duration": 3546,
+      "alignment_buffered": 0,
+      "processed_data": 743124,
+      "persisted_data": 0,
+      "num_subtasks": 54,
+      "num_acknowledged_subtasks": 54,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {},
+      "external_path": "file:/D:/study/study_flink/hotnews-realtime/checkpoints/1539ccc34d8172a24de69b955b33ecd5/chk-2",
+      "discarded": true
+    },
+    {
+      "className": "completed",
+      "id": 1,
+      "status": "COMPLETED",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791464477118,
+      "latest_ack_timestamp": 1791464477833,
+      "checkpointed_size": 2314252,
+      "state_size": 2314252,
+      "end_to_end_duration": 715,
+      "alignment_buffered": 0,
+      "processed_data": 266119,
+      "persisted_data": 0,
+      "num_subtasks": 54,
+      "num_acknowledged_subtasks": 54,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {},
+      "external_path": "file:/D:/study/study_flink/hotnews-realtime/checkpoints/1539ccc34d8172a24de69b955b33ecd5/chk-1",
+      "discarded": true
+    }
+  ]
+}

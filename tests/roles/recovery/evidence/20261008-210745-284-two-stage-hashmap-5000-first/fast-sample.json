@@ -1,0 +1,191 @@
+{
+  "captured_at": "2026-10-08T21:08:19.8789795+08:00",
+  "job_id": "1539ccc34d8172a24de69b955b33ecd5",
+  "vertices": [
+    {
+      "metrics": [],
+      "parallelism": 3,
+      "backpressure": [
+        {
+          "subtask": 0,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 1,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 2,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        }
+      ],
+      "name": "Source: Behavior_Source -> throughput: source_behavior_records -> Process"
+    },
+    {
+      "metrics": [],
+      "parallelism": 3,
+      "backpressure": [
+        {
+          "subtask": 0,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 1,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 2,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        }
+      ],
+      "name": "Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior)"
+    },
+    {
+      "metrics": [],
+      "parallelism": 3,
+      "backpressure": [
+        {
+          "subtask": 0,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 1,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 2,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        }
+      ],
+      "name": "KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter)"
+    },
+    {
+      "metrics": [],
+      "parallelism": 3,
+      "backpressure": [
+        {
+          "subtask": 0,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 1,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 2,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        }
+      ],
+      "name": "B category salted windows"
+    },
+    {
+      "metrics": [],
+      "parallelism": 2,
+      "backpressure": [
+        {
+          "subtask": 0,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 1,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        }
+      ],
+      "name": "B merge window rankings"
+    },
+    {
+      "metrics": [],
+      "parallelism": 2,
+      "backpressure": [
+        {
+          "subtask": 0,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        },
+        {
+          "subtask": 1,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        }
+      ],
+      "name": "Sink: MySQL category ranks"
+    },
+    {
+      "metrics": [],
+      "parallelism": 1,
+      "backpressure": [
+        {
+          "subtask": 0,
+          "backpressureLevel": "ok",
+          "ratio": 0.0,
+          "idleRatio": 1.0,
+          "busyRatio": 0.0,
+          "backpressure-level": "ok"
+        }
+      ],
+      "name": "Sink: Redis latest category ranking"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "1.0"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "479"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "1.checkpointAlignmentTime",
+    "value": "26100"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.currentInputWatermark",
+    "value": "1790470765524"
+  }
+]

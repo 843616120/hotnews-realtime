@@ -6,6 +6,7 @@ import util.RoleStreamUtil;
 import util.FlinkSinkUtil;
 import util.FlinkMetricsUtil;
 import util.FlinkRuntimeUtil;
+import util.CoalescingEventTimeTrigger;
 import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.RestOptions;
@@ -23,6 +24,8 @@ import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+
 
 /**
  * 规则 A：识别五分钟内点击量超过 1000 次的热点文章。
@@ -53,6 +56,7 @@ public class Achieve_roleA {
         SingleOutputStreamOperator<JSONObject> joined =
                 ArticleJoinBehavior.createJoinedStream(env, "hotnews-role-a");
 
+
         // Join 补发行为时可能沿用文章时间戳，prepare 会恢复行为自身的事件时间。
         // 清洗明细按 event_id UPSERT；告警按窗口起点 + article_id UPSERT。
         SingleOutputStreamOperator<JSONObject> clean = RoleStreamUtil.prepare(joined);
@@ -81,6 +85,7 @@ public class Achieve_roleA {
                 .window(SlidingEventTimeWindows.of(Time.minutes(5), Time.minutes(1)))
                 .allowedLateness(Time.minutes(65))
                 .sideOutputLateData(lateTag)
+                .trigger(new CoalescingEventTimeTrigger())
                 .aggregate(new CountClicks(), new EmitHotArticles());
     }
 
@@ -92,7 +97,8 @@ public class Achieve_roleA {
             "INSERT INTO article_alert(window_start_ms,article_id,window_end_ms,title,"
                     + "category,click_count,detect_time) VALUES(?,?,?,?,?,?,?) "
                     + "ON DUPLICATE KEY UPDATE window_end_ms=VALUES(window_end_ms),"
-                    + "title=VALUES(title),category=VALUES(category),"
+                    + "title=IF(VALUES(click_count)>=click_count,VALUES(title),title),"
+                    + "category=IF(VALUES(click_count)>=click_count,VALUES(category),category),"
                     + "click_count=GREATEST(click_count,VALUES(click_count)),"
                     + "detect_time=VALUES(detect_time)";
 
@@ -120,7 +126,7 @@ public class Achieve_roleA {
         public String category;
     }
 
-    private static class CountClicks implements AggregateFunction<JSONObject, ClickAccumulator, ClickAccumulator> {
+    public static class CountClicks implements AggregateFunction<JSONObject, ClickAccumulator, ClickAccumulator> {
         @Override
         public ClickAccumulator createAccumulator() {
             return new ClickAccumulator();
@@ -165,20 +171,22 @@ public class Achieve_roleA {
         @Override
         public void process(String articleId, Context context, Iterable<ClickAccumulator> values,
                             Collector<JSONObject> out) {
-            ClickAccumulator count = values.iterator().next();
-            if (count.count <= 1000) {
-                return;
-            }
-            // 窗口起止由 Flink 给出，结束边界不包含在本窗口内；detect_time 是实际触发时间。
-            JSONObject result = new JSONObject();
-            result.put("article_id", articleId);
-            result.put("title", count.title);
-            result.put("category", count.category);
-            result.put("click_count", count.count);
-            result.put("window_start", Instant.ofEpochMilli(context.window().getStart()).toString());
-            result.put("window_end", Instant.ofEpochMilli(context.window().getEnd()).toString());
-            result.put("detect_time", Instant.now().toString());
-            out.collect(result);
+            JSONObject result = result(articleId, context.window().getStart(), values.iterator().next());
+            if (result != null) out.collect(result);
         }
+    }
+
+    /** 在线窗口与完整明细补算使用相同的阈值和结果格式。 */
+    public static JSONObject result(String articleId, long start, ClickAccumulator count) {
+        if (count.count <= 1000) return null;
+        JSONObject result = new JSONObject();
+        result.put("article_id", articleId);
+        result.put("title", count.title);
+        result.put("category", count.category);
+        result.put("click_count", count.count);
+        result.put("window_start", Instant.ofEpochMilli(start).toString());
+        result.put("window_end", Instant.ofEpochMilli(start + 300000).toString());
+        result.put("detect_time", Instant.now().toString());
+        return result;
     }
 }

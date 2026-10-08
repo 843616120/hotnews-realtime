@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "979"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records",
+    "value": "479"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records_per_second",
+    "value": "7.733333333333333"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.numRecordsIn",
+    "value": "660"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "7000000"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.numRecordsInPerSecond",
+    "value": "10.683333333333334"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "7.733333333333333"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records",
+    "value": "660"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "20200"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "21.0"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.currentOutputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsIn",
+    "value": "479"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "10.683333333333334"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsInPerSecond",
+    "value": "7.733333333333333"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records_per_second",
+    "value": "10.683333333333334"
+  },
+  {
+    "id": "1.Sink__MySQL_category_ranks.currentOutputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.currentInputWatermark",
+    "value": "1790470765524"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "660"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "7000000"
+  }
+]

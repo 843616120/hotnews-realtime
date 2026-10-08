@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-per-request-avg",
+    "value": "19.037216828478964"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.0.currentOffset",
+    "value": "9736"
+  },
+  {
+    "id": "0.Process.numRecordsOut",
+    "value": "10490"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.throughput.source_behavior_records.records",
+    "value": "10490"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Process.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "10490"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "1281.65"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsInErrors",
+    "value": "0"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "3"
+  },
+  {
+    "id": "0.Process.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.2.currentOffset",
+    "value": "9862"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numRecordsOutPerSecond",
+    "value": "1281.65"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.throughput.source_behavior_records.records",
+    "value": "78993"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Process.numRecordsOutPerSecond",
+    "value": "168.58333333333334"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.numRecordsOut",
+    "value": "10115"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.throughput.source_behavior_records.records",
+    "value": "10115"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-per-request-avg",
+    "value": "3.4216990788126918"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsIn",
+    "value": "10115"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lead-min",
+    "value": "4949.0"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "997"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numRecordsOut",
+    "value": "78993"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-rate",
+    "value": "202.12422911040346"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond",
+    "value": "62"
+  }
+]

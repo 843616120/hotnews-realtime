@@ -9,7 +9,10 @@ CREATE TABLE IF NOT EXISTS clean_behavior (
     read_duration_ms INT NOT NULL,
     title VARCHAR(200) NOT NULL,
     category VARCHAR(64) NOT NULL,
-    tags JSON NOT NULL
+    tags JSON NOT NULL,
+    event_time_ms BIGINT NOT NULL,
+    article_version INT NOT NULL,
+    KEY idx_clean_event_time (event_time_ms)
 ) CHARACTER SET utf8mb4;
 
 -- Rule A 的热点文章告警：同一文章在同一滑动窗口只有一行。

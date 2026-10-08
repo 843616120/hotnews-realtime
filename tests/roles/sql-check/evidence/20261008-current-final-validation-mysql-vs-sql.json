@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-10-08T11:45:00.100Z",
+  "data_dir": "D:\\study\\study_flink\\hotnews-realtime\\generator\\generator\\total_data",
+  "snapshot_dir": "D:\\study\\study_flink\\hotnews-realtime\\tests\\roles\\recovery\\evidence\\20261008-current-final-validation",
+  "input_counts": {
+    "article_raw": 500,
+    "behavior_raw": 100000
+  },
+  "roles": {
+    "a": {
+      "sqlRows": 123,
+      "mysqlRows": 123,
+      "missing": 0,
+      "extra": 0,
+      "fieldDifferences": 0,
+      "passed": true,
+      "differences": []
+    },
+    "b": {
+      "sqlRows": 64,
+      "mysqlRows": 64,
+      "missing": 0,
+      "extra": 0,
+      "fieldDifferences": 0,
+      "passed": true,
+      "differences": []
+    },
+    "c": {
+      "sqlRows": 1,
+      "mysqlRows": 1,
+      "missing": 0,
+      "extra": 0,
+      "fieldDifferences": 0,
+      "passed": true,
+      "differences": []
+    }
+  }
+}

@@ -9,6 +9,7 @@
 | `03-late-data.sql` | 超出 Join 65 分钟允许迟到范围的数据 |
 | `04-unmatched-behavior.sql` | 先到行为与补关联记录，`matched` 标明是否已关联 |
 | `05-rule-c-ip-alert.sql` | 已存在的旧版 `ip_alert` 表增列迁移 |
+| `06-clean-behavior-replay.sql` | 统一作业超期完整补算所需事件毫秒、文章版本与查询索引 |
 
 在已有 MySQL 数据卷中手动执行缺失的建表/迁移语句；Compose 初始化挂载只会在首次创建数据卷时自动执行。不要为了执行 SQL 清空数据库或 Kafka。SQL 文件不会自行启动 Flink 作业。
 

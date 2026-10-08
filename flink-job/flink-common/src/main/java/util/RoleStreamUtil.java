@@ -123,11 +123,12 @@ public class RoleStreamUtil {
      */
     public static final String MYSQL_SQL =
             "INSERT INTO clean_behavior(event_id,user_id,article_id,action,ip,event_time,"
-                    + "read_duration_ms,title,category,tags) VALUES(?,?,?,?,?,?,?,?,?,?) "
+                    + "read_duration_ms,title,category,tags,event_time_ms,article_version) VALUES(?,?,?,?,?,?,?,?,?,?,?,?) "
                     + "ON DUPLICATE KEY UPDATE user_id=VALUES(user_id),article_id=VALUES(article_id),"
                     + "action=VALUES(action),ip=VALUES(ip),event_time=VALUES(event_time),"
                     + "read_duration_ms=VALUES(read_duration_ms),title=VALUES(title),"
-                    + "category=VALUES(category),tags=VALUES(tags)";
+                    + "category=VALUES(category),tags=VALUES(tags),event_time_ms=VALUES(event_time_ms),"
+                    + "article_version=VALUES(article_version)";
 
     /** 把清洗并富化后的行为按 clean_behavior 表列顺序绑定。 */
     public static void bindMySql(PreparedStatement statement, JSONObject value) throws SQLException {
@@ -141,5 +142,7 @@ public class RoleStreamUtil {
         statement.setString(8, value.getString("title"));
         statement.setString(9, value.getString("category"));
         statement.setString(10, value.getJSONArray("tags").toJSONString());
+        statement.setLong(11, eventTime(value));
+        statement.setInt(12, value.getIntValue("article_version"));
     }
 }

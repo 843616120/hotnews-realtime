@@ -1,0 +1,534 @@
+{
+  "vertices": [
+    {
+      "name": "Source: Behavior_Source -> throughput: source_behavior_records -> Process",
+      "subtasks": [
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "22.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "757.4166666666666"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "55935"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 0
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "33.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "739.1666666666666"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "123745"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 1
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "170.08333333333334"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "20320"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 2
+        }
+      ]
+    },
+    {
+      "name": "Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior)",
+      "subtasks": [
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "94.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "42936"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "28.15"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 0
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "89.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "38910"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "28.2"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 1
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "105.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "26142"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "25.4"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 2
+        }
+      ]
+    },
+    {
+      "name": "KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter)",
+      "subtasks": [
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "8.666666666666666"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "52988"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "32188"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "5.183333333333334"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 0
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "8.366666666666667"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "53236"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "32439"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "5.066666666666666"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 1
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "8.166666666666666"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "51432"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "31361"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "4.833333333333333"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 2
+        }
+      ]
+    },
+    {
+      "name": "B category salted windows",
+      "subtasks": [
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "2.05"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "1668"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "32259"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "2.4166666666666665"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 0
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "5.983333333333333"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "2709"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "32505"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "6.966666666666667"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 1
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "5.133333333333334"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "2392"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "31224"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "5.7"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 2
+        }
+      ]
+    },
+    {
+      "name": "B merge window rankings",
+      "subtasks": [
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.5"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "721"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "3506"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "2.05"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 0
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.25"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "518"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "2626"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "0.5"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 1
+        }
+      ]
+    },
+    {
+      "name": "Sink: MySQL category ranks",
+      "subtasks": [
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "519"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "0.2833333333333333"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 0
+        },
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "720"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "0.4666666666666667"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 1
+        }
+      ]
+    },
+    {
+      "name": "Sink: Redis latest category ranking",
+      "subtasks": [
+        {
+          "metrics": [
+            {
+              "id": "busyTimeMsPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOutPerSecond",
+              "value": "0.0"
+            },
+            {
+              "id": "numRecordsOut",
+              "value": "0"
+            },
+            {
+              "id": "numRecordsIn",
+              "value": "261"
+            },
+            {
+              "id": "numRecordsInPerSecond",
+              "value": "0.15"
+            },
+            {
+              "id": "backPressuredTimeMsPerSecond",
+              "value": "0"
+            }
+          ],
+          "subtask": 0
+        }
+      ]
+    }
+  ],
+  "captured_at": "2026-10-08T21:09:13.8817698+08:00",
+  "job_id": "1539ccc34d8172a24de69b955b33ecd5"
+}

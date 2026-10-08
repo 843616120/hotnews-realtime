@@ -1,0 +1,3231 @@
+{
+  "captured_at": "2026-10-08T21:03:18.2604641+08:00",
+  "vertices": [
+    {
+      "name": "Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map",
+      "parallelism": 3,
+      "metrics": [
+        [
+          {
+            "id": "0.Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Flat_Map.currentOutputWatermark",
+            "value": "1790470766306"
+          },
+          {
+            "id": "1.Process.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Timestamps/Watermarks.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_article_records.numRecordsIn",
+            "value": "336"
+          },
+          {
+            "id": "0.throughput__source_article_records.throughput.source_article_records.records",
+            "value": "320"
+          },
+          {
+            "id": "2.Process.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_article_records.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Flat_Map.numRecordsOut",
+            "value": "2752"
+          },
+          {
+            "id": "2.accumulateBackPressuredTimeMs",
+            "value": "960"
+          },
+          {
+            "id": "1.throughput__source_article_records.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Process.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_article_records.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.Process.numRecordsOut",
+            "value": "336"
+          },
+          {
+            "id": "2.Flat_Map.numRecordsIn",
+            "value": "344"
+          },
+          {
+            "id": "0.Flat_Map.currentOutputWatermark",
+            "value": "1790470765524"
+          },
+          {
+            "id": "2.Source__Article_Source.numRecordsOut",
+            "value": "688"
+          },
+          {
+            "id": "1.throughput__source_article_records.throughput.source_article_records.records",
+            "value": "336"
+          },
+          {
+            "id": "0.Timestamps/Watermarks.numRecordsIn",
+            "value": "320"
+          },
+          {
+            "id": "1.Process.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Source__Article_Source.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Flat_Map.numRecordsOut",
+            "value": "2688"
+          },
+          {
+            "id": "2.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "2.Source__Article_Source.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Source__Article_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+            "value": "NaN"
+          },
+          {
+            "id": "1.Source__Article_Source.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Timestamps/Watermarks.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_article_records.throughput.source_article_records.records_per_second",
+            "value": "0.0"
+          }
+        ],
+        [
+          {
+            "id": "1.throughput__source_article_records.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "953"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "2.throughput__source_article_records.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Timestamps/Watermarks.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_article_records.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.Timestamps/Watermarks.currentOutputWatermark",
+            "value": "1790470765524"
+          },
+          {
+            "id": "2.Process.numRecordsIn",
+            "value": "344"
+          },
+          {
+            "id": "1.Flat_Map.numRecordsIn",
+            "value": "336"
+          },
+          {
+            "id": "2.Process.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Timestamps/Watermarks.numRecordsOut",
+            "value": "344"
+          },
+          {
+            "id": "1.throughput__source_article_records.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_article_records.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Timestamps/Watermarks.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Flat_Map.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__source_article_records.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.numRecordsOut",
+            "value": "2752"
+          },
+          {
+            "id": "1.Source__Article_Source.numRecordsOut",
+            "value": "672"
+          },
+          {
+            "id": "0.Process.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.Source__Article_Source.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Flat_Map.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Process.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Source__Article_Source.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Timestamps/Watermarks.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.Source__Article_Source.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Source__Article_Source.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          }
+        ],
+        [
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__source_article_records.throughput.source_article_records.records",
+            "value": "344"
+          },
+          {
+            "id": "2.Flat_Map.currentInputWatermark",
+            "value": "1790470766306"
+          },
+          {
+            "id": "0.Timestamps/Watermarks.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Timestamps/Watermarks.numRecordsOut",
+            "value": "320"
+          },
+          {
+            "id": "0.Process.numRecordsOut",
+            "value": "320"
+          },
+          {
+            "id": "2.throughput__source_article_records.numRecordsIn",
+            "value": "344"
+          },
+          {
+            "id": "2.Process.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.Source__Article_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+            "value": "NaN"
+          },
+          {
+            "id": "1.throughput__source_article_records.numRecordsOut",
+            "value": "336"
+          },
+          {
+            "id": "2.Timestamps/Watermarks.currentOutputWatermark",
+            "value": "1790470766306"
+          },
+          {
+            "id": "2.throughput__source_article_records.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Source__Article_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+            "value": "NaN"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "2560"
+          },
+          {
+            "id": "1.Timestamps/Watermarks.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.Process.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.Source__Article_Source.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__source_article_records.numRecordsOut",
+            "value": "344"
+          },
+          {
+            "id": "2.Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Source__Article_Source.numRecordsIn",
+            "value": "320"
+          },
+          {
+            "id": "1.Source__Article_Source.numRecordsIn",
+            "value": "336"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "2.throughput__source_article_records.throughput.source_article_records.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Flat_Map.currentOutputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.throughput__source_article_records.throughput.source_article_records.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Flat_Map.numRecordsIn",
+            "value": "320"
+          },
+          {
+            "id": "0.Source__Article_Source.numRecordsOut",
+            "value": "640"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "957"
+          }
+        ],
+        [
+          {
+            "id": "1.Flat_Map.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Timestamps/Watermarks.numRecordsIn",
+            "value": "336"
+          },
+          {
+            "id": "0.throughput__source_article_records.numRecordsOut",
+            "value": "320"
+          },
+          {
+            "id": "0.throughput__source_article_records.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Flat_Map.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Flat_Map.numRecordsOut",
+            "value": "2560"
+          },
+          {
+            "id": "2.Source__Article_Source.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Flat_Map.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_article_records.numRecordsIn",
+            "value": "320"
+          },
+          {
+            "id": "0.Timestamps/Watermarks.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Process.numRecordsIn",
+            "value": "320"
+          },
+          {
+            "id": "2.Process.numRecordsOut",
+            "value": "344"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__source_article_records.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.Flat_Map.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "2.Source__Article_Source.numRecordsIn",
+            "value": "344"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Timestamps/Watermarks.numRecordsOut",
+            "value": "336"
+          },
+          {
+            "id": "2.Timestamps/Watermarks.numRecordsIn",
+            "value": "344"
+          },
+          {
+            "id": "2.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.Flat_Map.currentInputWatermark",
+            "value": "1790470765524"
+          },
+          {
+            "id": "1.Process.numRecordsIn",
+            "value": "336"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "2688"
+          },
+          {
+            "id": "2.Flat_Map.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.Timestamps/Watermarks.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "2.mailboxLatencyMs_p95",
+            "value": "0.0"
+          }
+        ],
+        [
+          {
+            "id": "1.Timestamps/Watermarks.currentOutputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "2.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.numRecordsIn",
+            "value": "0"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Source: Behavior_Source -> throughput: source_behavior_records -> Process",
+      "parallelism": 3,
+      "metrics": [
+        [
+          {
+            "id": "0.Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Process.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.Source__Behavior_Source.numRecordsOut",
+            "value": "158790"
+          },
+          {
+            "id": "0.Source__Behavior_Source.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Source__Behavior_Source.numRecordsOut",
+            "value": "20980"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second",
+            "value": "41.6"
+          },
+          {
+            "id": "2.Source__Behavior_Source.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Process.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.numRecordsInPerSecond",
+            "value": "41.6"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.numRecordsIn",
+            "value": "10115"
+          },
+          {
+            "id": "2.Process.numRecordsIn",
+            "value": "10115"
+          },
+          {
+            "id": "2.accumulateBackPressuredTimeMs",
+            "value": "3770"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.numRecordsIn",
+            "value": "79395"
+          },
+          {
+            "id": "0.Process.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+            "value": "NaN"
+          },
+          {
+            "id": "1.Process.numRecordsOut",
+            "value": "79395"
+          },
+          {
+            "id": "1.Source__Behavior_Source.numRecordsOutPerSecond",
+            "value": "83.2"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.numRecordsOut",
+            "value": "10115"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Source__Behavior_Source.numRecordsIn",
+            "value": "10490"
+          },
+          {
+            "id": "1.Process.numRecordsInPerSecond",
+            "value": "41.6"
+          },
+          {
+            "id": "1.Source__Behavior_Source.numRecordsIn",
+            "value": "79395"
+          },
+          {
+            "id": "2.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "20"
+          },
+          {
+            "id": "1.Process.numRecordsOutPerSecond",
+            "value": "41.6"
+          },
+          {
+            "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+            "value": "NaN"
+          }
+        ],
+        [
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "213"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Source__Behavior_Source.numRecordsOut",
+            "value": "20230"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "995"
+          },
+          {
+            "id": "2.Source__Behavior_Source.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Process.numRecordsOut",
+            "value": "10490"
+          },
+          {
+            "id": "2.Process.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.Process.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "41.6"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.numRecordsOutPerSecond",
+            "value": "41.6"
+          },
+          {
+            "id": "2.Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.Source__Behavior_Source.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.numRecordsOut",
+            "value": "10115"
+          },
+          {
+            "id": "0.Process.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.throughput.source_behavior_records.records",
+            "value": "10115"
+          },
+          {
+            "id": "2.throughput__source_behavior_records.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "2.Source__Behavior_Source.numRecordsIn",
+            "value": "10115"
+          },
+          {
+            "id": "1.Process.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "2.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.numRecordsOut",
+            "value": "79395"
+          },
+          {
+            "id": "0.Source__Behavior_Source.currentOutputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "18665"
+          }
+        ],
+        [
+          {
+            "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+            "value": "NaN"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.throughput.source_behavior_records.records",
+            "value": "10490"
+          },
+          {
+            "id": "1.Source__Behavior_Source.numRecordsInPerSecond",
+            "value": "41.6"
+          },
+          {
+            "id": "0.Process.numRecordsIn",
+            "value": "10490"
+          },
+          {
+            "id": "2.Process.numRecordsOut",
+            "value": "10115"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "1.0"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "10490"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.numRecordsIn",
+            "value": "10490"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.Process.currentInputWatermark",
+            "value": "-9223372036854775808"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__source_behavior_records.throughput.source_behavior_records.records",
+            "value": "79395"
+          },
+          {
+            "id": "2.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "2.Source__Behavior_Source.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Process.numRecordsIn",
+            "value": "79395"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "79395"
+          },
+          {
+            "id": "0.Source__Behavior_Source.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.numRecordsOut",
+            "value": "10490"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.throughput__source_behavior_records.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "2.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "2.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "2.mailboxLatencyMs_p95",
+            "value": "0.0"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior)",
+      "parallelism": 3,
+      "metrics": [
+        [
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "45.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "1806"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "985"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "1.Co-Keyed-Process.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "0.Co-Keyed-Process.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "62.4"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.numRecordsInPerSecond",
+            "value": "62.4"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.throughput.MySQL_matched_behavior.records",
+            "value": "21968"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.numRecordsIn",
+            "value": "21968"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.throughput.MySQL_unmatched_behavior.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "2.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Co-Keyed-Process.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.throughput.MySQL_unmatched_behavior.records",
+            "value": "0"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "9"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Co-Keyed-Process.numRecordsIn",
+            "value": "24618"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          }
+        ],
+        [
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.throughput.MySQL_matched_behavior.records_per_second",
+            "value": "62.4"
+          },
+          {
+            "id": "1.Co-Keyed-Process.numRecordsIn",
+            "value": "37218"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.throughput.MySQL_unmatched_behavior.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.throughput.MySQL_unmatched_behavior.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.Co-Keyed-Process.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "11"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.throughput.MySQL_unmatched_behavior.records",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Co-Keyed-Process.join.etl_to_output_p95_ms",
+            "value": "6344"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.numRecordsIn",
+            "value": "38609"
+          },
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "41247"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Co-Keyed-Process.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.throughput.MySQL_late_data.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Co-Keyed-Process.join.etl_to_output_p95_ms",
+            "value": "4770"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "1789"
+          }
+        ],
+        [
+          {
+            "id": "2.Co-Keyed-Process.join.etl_to_output_p95_ms",
+            "value": "2978"
+          },
+          {
+            "id": "2.Co-Keyed-Process.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.throughput.MySQL_matched_behavior.records_per_second",
+            "value": "22.816666666666666"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.Co-Keyed-Process.numRecordsIn",
+            "value": "41247"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.throughput.MySQL_matched_behavior.records",
+            "value": "38609"
+          },
+          {
+            "id": "2.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "1.Co-Keyed-Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "6.0"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "43.63333333333333"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.throughput.MySQL_matched_behavior.records",
+            "value": "34506"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Co-Keyed-Process.numRecordsInPerSecond",
+            "value": "22.816666666666666"
+          },
+          {
+            "id": "2.Co-Keyed-Process.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_unmatched_behavior.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "37218"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "944"
+          },
+          {
+            "id": "2.Co-Keyed-Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "2.Co-Keyed-Process.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.mailboxLatencyMs_p95",
+            "value": "0.0"
+          }
+        ],
+        [
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "36.399999999999864"
+          },
+          {
+            "id": "1.Co-Keyed-Process.join.behavior_input",
+            "value": "34506"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.throughput.MySQL_late_data.records",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.throughput.MySQL_late_data.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.throughput.MySQL_matched_behavior.records_per_second",
+            "value": "43.63333333333333"
+          },
+          {
+            "id": "0.Co-Keyed-Process.join.behavior_input",
+            "value": "38609"
+          },
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.Co-Keyed-Process.join.behavior_input",
+            "value": "21968"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.throughput.MySQL_late_data.records",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_late_data.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.numRecordsInPerSecond",
+            "value": "43.63333333333333"
+          },
+          {
+            "id": "2.Sink__MySQL_matched_behavior.numRecordsInPerSecond",
+            "value": "22.816666666666666"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.numRecordsIn",
+            "value": "34506"
+          },
+          {
+            "id": "0.Sink__MySQL_matched_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.throughput.MySQL_unmatched_behavior.records",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_late_data.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Co-Keyed-Process.numRecordsInPerSecond",
+            "value": "62.4"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Co-Keyed-Process.numRecordsInPerSecond",
+            "value": "43.63333333333333"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.throughput.MySQL_late_data.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.throughput.MySQL_late_data.records",
+            "value": "0"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_unmatched_behavior.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_matched_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__MySQL_late_data.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Co-Keyed-Process.numRecordsOut",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "id": "1.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "2.numRecordsInPerSecond",
+            "value": "22.816666666666666"
+          },
+          {
+            "id": "0.Co-Keyed-Process.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.numRecordsIn",
+            "value": "24618"
+          },
+          {
+            "id": "1.Sink__MySQL_unmatched_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter)",
+      "parallelism": 3,
+      "metrics": [
+        [
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "47.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "962"
+          },
+          {
+            "id": "2.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.KeyedProcess.numRecordsInPerSecond",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "1.KeyedProcess.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Filter.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.KeyedProcess.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.throughput__clean_behavior_records.throughput.clean_behavior_records.records",
+            "value": "32135"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records_per_second",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "1.Filter.numRecordsIn",
+            "value": "32135"
+          },
+          {
+            "id": "1.KeyedProcess.numRecordsOutPerSecond",
+            "value": "58.9"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.numRecordsOut",
+            "value": "31877"
+          },
+          {
+            "id": "2.KeyedProcess.numRecordsOutPerSecond",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "63.233333333333334"
+          },
+          {
+            "id": "0.KeyedProcess.numRecordsInPerSecond",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "1.KeyedProcess.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.KeyedProcess.numRecordsOut",
+            "value": "31877"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.throughput.clean_behavior_records.records_per_second",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "0.Filter.numRecordsOut",
+            "value": "26234"
+          },
+          {
+            "id": "0.KeyedProcess.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.numRecordsOut",
+            "value": "50942"
+          },
+          {
+            "id": "2.Filter.numRecordsOutPerSecond",
+            "value": "29.2"
+          },
+          {
+            "id": "0.KeyedProcess.numRecordsIn",
+            "value": "31877"
+          },
+          {
+            "id": "2.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.KeyedProcess.numRecordsOutPerSecond",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.throughput.clean_behavior_records.records_per_second",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "1.throughput__clean_behavior_records.throughput.clean_behavior_records.records_per_second",
+            "value": "58.9"
+          }
+        ],
+        [
+          {
+            "id": "1.throughput__clean_behavior_records.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.KeyedProcess.numRecordsIn",
+            "value": "32135"
+          },
+          {
+            "id": "2.Filter.numRecordsInPerSecond",
+            "value": "54.833333333333336"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.numRecordsIn",
+            "value": "32135"
+          },
+          {
+            "id": "2.KeyedProcess.numRecordsIn",
+            "value": "31071"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.numRecordsInPerSecond",
+            "value": "58.9"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.KeyedProcess.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Filter.numRecordsInPerSecond",
+            "value": "58.916666666666664"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.throughput.clean_behavior_records.records",
+            "value": "31877"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.numRecordsInPerSecond",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Filter.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.numRecordsIn",
+            "value": "31071"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.numRecordsOutPerSecond",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.numRecordsIn",
+            "value": "31071"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.throughput__clean_behavior_records.numRecordsIn",
+            "value": "32135"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "1.KeyedProcess.numRecordsOut",
+            "value": "32135"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "31877"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Filter.numRecordsOutPerSecond",
+            "value": "30.316666666666666"
+          },
+          {
+            "id": "1.Filter.numRecordsOut",
+            "value": "26367"
+          },
+          {
+            "id": "1.throughput__clean_behavior_records.numRecordsOutPerSecond",
+            "value": "58.9"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records_per_second",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "id": "2.KeyedProcess.numRecordsOut",
+            "value": "31071"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.numRecordsOut",
+            "value": "31071"
+          },
+          {
+            "id": "1.throughput__clean_behavior_records.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.numRecordsInPerSecond",
+            "value": "58.46666666666667"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records",
+            "value": "32135"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records",
+            "value": "31071"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records_per_second",
+            "value": "58.9"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "38.0"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.numRecordsInPerSecond",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "274.74999999999943"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "52468"
+          },
+          {
+            "id": "2.Filter.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.numRecordsInPerSecond",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "58.9"
+          },
+          {
+            "id": "0.Filter.numRecordsIn",
+            "value": "31877"
+          },
+          {
+            "id": "0.Filter.numRecordsInPerSecond",
+            "value": "58.483333333333334"
+          },
+          {
+            "id": "2.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.numRecordsIn",
+            "value": "31877"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.throughput__clean_behavior_records.numRecordsInPerSecond",
+            "value": "58.9"
+          },
+          {
+            "id": "2.Filter.numRecordsIn",
+            "value": "31071"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "32135"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.numRecordsIn",
+            "value": "31877"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "953"
+          },
+          {
+            "id": "2.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "2.mailboxLatencyMs_p95",
+            "value": "125.1499999999995"
+          }
+        ],
+        [
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "158.89999999999998"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.numRecordsOutPerSecond",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "60.63333333333333"
+          },
+          {
+            "id": "0.throughput__clean_behavior_records.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Filter.numRecordsOut",
+            "value": "25471"
+          },
+          {
+            "id": "1.Filter.numRecordsOutPerSecond",
+            "value": "31.616666666666667"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_clean_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__clean_behavior_records.numRecordsOut",
+            "value": "32135"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Filter.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_clean_behavior.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.KeyedProcess.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.throughput__clean_behavior_records.throughput.clean_behavior_records.records",
+            "value": "31071"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "52734"
+          },
+          {
+            "id": "1.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Filter.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.numRecordsInPerSecond",
+            "value": "54.81666666666667"
+          },
+          {
+            "id": "2.numRecordsOutPerSecond",
+            "value": "58.4"
+          },
+          {
+            "id": "2.numRecordsIn",
+            "value": "31071"
+          },
+          {
+            "id": "1.KeyedProcess.numRecordsInPerSecond",
+            "value": "58.9"
+          },
+          {
+            "id": "0.Sink__MySQL_clean_behavior.throughput.MySQL_clean_behavior.records",
+            "value": "31877"
+          },
+          {
+            "id": "0.Filter.currentOutputWatermark",
+            "value": "1790474360622"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out, Map)",
+      "parallelism": 3,
+      "metrics": [
+        [
+          {
+            "id": "0.Sink__MySQL_article_alerts.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__MySQL_article_alerts.numRecordsInPerSecond",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "0.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records_per_second",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "2.Sink__Print_to_Std__Out.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.numRecordsInPerSecond",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "0.SlidingEventTimeWindows.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.SlidingEventTimeWindows.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.SlidingEventTimeWindows.numRecordsIn",
+            "value": "3932"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.throughput__role_a_result.numRecordsOutPerSecond",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.throughput__role_a_result.throughput.role_a_result.records",
+            "value": "311"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__Print_to_Std__Out.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "1.throughput__role_a_result.numRecordsOutPerSecond",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "1.throughput__role_a_result.numRecordsInPerSecond",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "1.Sink__Print_to_Std__Out.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records_per_second",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.SlidingEventTimeWindows.numRecordsInPerSecond",
+            "value": "35.25"
+          },
+          {
+            "id": "0.throughput__role_a_result.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__Print_to_Std__Out.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.throughput__role_a_result.throughput.role_a_result.records_per_second",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Map.numRecordsOutPerSecond",
+            "value": "0.0"
+          }
+        ],
+        [
+          {
+            "id": "0.throughput__role_a_result.numRecordsIn",
+            "value": "311"
+          },
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__role_a_result.numRecordsIn",
+            "value": "310"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__Print_to_Std__Out.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.throughput__role_a_result.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Map.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_article_alerts.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.numRecordsIn",
+            "value": "310"
+          },
+          {
+            "id": "1.throughput__role_a_result.numRecordsOut",
+            "value": "310"
+          },
+          {
+            "id": "2.throughput__role_a_result.throughput.role_a_result.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__role_a_result.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.throughput__role_a_result.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "1.Map.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Map.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "2.throughput__role_a_result.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records",
+            "value": "0"
+          },
+          {
+            "id": "1.throughput__role_a_result.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_article_alerts.numRecordsIn",
+            "value": "311"
+          },
+          {
+            "id": "1.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Map.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.throughput__role_a_result.numRecordsOut",
+            "value": "311"
+          },
+          {
+            "id": "2.throughput__role_a_result.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.SlidingEventTimeWindows.numRecordsOutPerSecond",
+            "value": "0.0"
+          }
+        ],
+        [
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "1.throughput__role_a_result.throughput.role_a_result.records",
+            "value": "310"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.throughput.MySQL_role_A_audit_events.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "2.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.throughput.MySQL_role_A_audit_events.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__Print_to_Std__Out.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "35.25"
+          },
+          {
+            "id": "2.Map.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.throughput.MySQL_role_A_audit_events.records",
+            "value": "0"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Map.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__Print_to_Std__Out.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Map.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.Map.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.throughput__role_a_result.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.throughput__role_a_result.numRecordsInPerSecond",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "1.Map.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.throughput.MySQL_role_A_audit_events.records",
+            "value": "0"
+          },
+          {
+            "id": "2.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "1.SlidingEventTimeWindows.numRecordsInPerSecond",
+            "value": "37.733333333333334"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.throughput.MySQL_role_A_audit_events.records",
+            "value": "0"
+          },
+          {
+            "id": "2.SlidingEventTimeWindows.numRecordsInPerSecond",
+            "value": "19.516666666666666"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "id": "2.Map.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__Print_to_Std__Out.numRecordsIn",
+            "value": "311"
+          },
+          {
+            "id": "0.Sink__MySQL_article_alerts.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.throughput__role_a_result.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "2.Map.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__Print_to_Std__Out.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.Sink__Print_to_Std__Out.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__Print_to_Std__Out.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.SlidingEventTimeWindows.numRecordsIn",
+            "value": "37358"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.SlidingEventTimeWindows.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Map.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.SlidingEventTimeWindows.numRecordsIn",
+            "value": "36782"
+          },
+          {
+            "id": "2.Map.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__Print_to_Std__Out.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "36782"
+          },
+          {
+            "id": "0.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records",
+            "value": "311"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.Sink__MySQL_role_A_audit_events.throughput.MySQL_role_A_audit_events.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.backPressuredTimeMsPerSecond",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "id": "1.throughput__role_a_result.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Map.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__Print_to_Std__Out.numRecordsInPerSecond",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Map.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__Print_to_Std__Out.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Map.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.SlidingEventTimeWindows.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "1.SlidingEventTimeWindows.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.SlidingEventTimeWindows.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__Print_to_Std__Out.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__Print_to_Std__Out.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "37.733333333333334"
+          },
+          {
+            "id": "1.Sink__MySQL_article_alerts.throughput.MySQL_article_alerts.records",
+            "value": "310"
+          },
+          {
+            "id": "2.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.SlidingEventTimeWindows.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.throughput__role_a_result.throughput.role_a_result.records",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_article_alerts.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "2.Sink__MySQL_article_alerts.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__MySQL_role_A_audit_events.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.throughput__role_a_result.throughput.role_a_result.records_per_second",
+            "value": "1.3833333333333333"
+          },
+          {
+            "id": "2.SlidingEventTimeWindows.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "1.SlidingEventTimeWindows.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "37358"
+          },
+          {
+            "id": "0.SlidingEventTimeWindows.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.mailboxLatencyMs_p95",
+            "value": "1.0"
+          }
+        ],
+        [
+          {
+            "id": "0.Map.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.Sink__MySQL_role_A_audit_events.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "2.SlidingEventTimeWindows.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.numRecordsInPerSecond",
+            "value": "19.516666666666666"
+          },
+          {
+            "id": "2.numRecordsIn",
+            "value": "3932"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Sink: MySQL IP alerts",
+      "parallelism": 1,
+      "metrics": [
+        [
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "1.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.throughput.MySQL_IP_alerts.records_per_second",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.currentOutputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.numRecordsIn",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.throughput.MySQL_IP_alerts.records",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_IP_alerts.currentInputWatermark",
+            "value": "1790470767078"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "B category salted windows",
+      "parallelism": 3,
+      "metrics": [
+        [
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "0.B_category_salted_windows.numRecordsOutPerSecond",
+            "value": "9.633333333333333"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "2.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.B_category_salted_windows.numRecordsIn",
+            "value": "32087"
+          },
+          {
+            "id": "2.B_category_salted_windows.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.B_category_salted_windows.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.B_category_salted_windows.numRecordsInPerSecond",
+            "value": "49.8"
+          },
+          {
+            "id": "0.B_category_salted_windows.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.B_category_salted_windows.numRecordsOut",
+            "value": "2350"
+          },
+          {
+            "id": "2.accumulateBackPressuredTimeMs",
+            "value": "2"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "49.75"
+          },
+          {
+            "id": "1.B_category_salted_windows.numRecordsOutPerSecond",
+            "value": "15.05"
+          },
+          {
+            "id": "1.B_category_salted_windows.numRecordsInPerSecond",
+            "value": "65.61666666666666"
+          },
+          {
+            "id": "0.B_category_salted_windows.numRecordsIn",
+            "value": "32114"
+          },
+          {
+            "id": "2.B_category_salted_windows.numRecordsInPerSecond",
+            "value": "60.61666666666667"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "1545"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "15.05"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.numRecordsOut",
+            "value": "2084"
+          },
+          {
+            "id": "2.B_category_salted_windows.numRecordsOutPerSecond",
+            "value": "13.483333333333333"
+          },
+          {
+            "id": "2.B_category_salted_windows.numRecordsOut",
+            "value": "2084"
+          },
+          {
+            "id": "2.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "32114"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "2"
+          },
+          {
+            "id": "2.backPressuredTimeMsPerSecond",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "65.6"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "9.633333333333333"
+          },
+          {
+            "id": "1.B_category_salted_windows.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "2.B_category_salted_windows.numRecordsIn",
+            "value": "30882"
+          },
+          {
+            "id": "2.B_category_salted_windows.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "2350"
+          },
+          {
+            "id": "1.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.B_category_salted_windows.numRecordsOut",
+            "value": "1545"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "32087"
+          },
+          {
+            "id": "2.numRecordsInPerSecond",
+            "value": "60.7"
+          },
+          {
+            "id": "0.B_category_salted_windows.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "2.numRecordsOutPerSecond",
+            "value": "13.483333333333333"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "2.numRecordsIn",
+            "value": "30882"
+          },
+          {
+            "id": "2.mailboxLatencyMs_p95",
+            "value": "0.9499999999999957"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "B merge window rankings",
+      "parallelism": 2,
+      "metrics": [
+        [
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "2.75"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "1.B_merge_window_rankings.numRecordsOutPerSecond",
+            "value": "2.0"
+          },
+          {
+            "id": "0.B_merge_window_rankings.numRecordsIn",
+            "value": "3383"
+          },
+          {
+            "id": "1.B_merge_window_rankings.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "22.6"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.B_merge_window_rankings.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "0.9499999999999957"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "691"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "2.0"
+          },
+          {
+            "id": "0.B_merge_window_rankings.numRecordsOutPerSecond",
+            "value": "2.75"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "15.566666666666666"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.B_merge_window_rankings.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.B_merge_window_rankings.numRecordsOut",
+            "value": "691"
+          },
+          {
+            "id": "1.B_merge_window_rankings.numRecordsOut",
+            "value": "503"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "503"
+          },
+          {
+            "id": "1.B_merge_window_rankings.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "2596"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.B_merge_window_rankings.numRecordsInPerSecond",
+            "value": "22.6"
+          },
+          {
+            "id": "1.B_merge_window_rankings.numRecordsIn",
+            "value": "2596"
+          },
+          {
+            "id": "1.B_merge_window_rankings.numRecordsInPerSecond",
+            "value": "15.566666666666666"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "id": "0.numRecordsIn",
+            "value": "3383"
+          },
+          {
+            "id": "1.currentInputWatermark",
+            "value": "1790474360622"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Sink: MySQL category ranks",
+      "parallelism": 2,
+      "metrics": [
+        [
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "1.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records",
+            "value": "502"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records_per_second",
+            "value": "2.033333333333333"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.numRecordsIn",
+            "value": "692"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.numRecordsInPerSecond",
+            "value": "2.8"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "2.033333333333333"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records",
+            "value": "692"
+          },
+          {
+            "id": "1.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.mailboxLatencyMs_p95",
+            "value": "0.9499999999999957"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "1.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.numRecordsIn",
+            "value": "502"
+          },
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "1.numRecordsInPerSecond",
+            "value": "2.7666666666666666"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.numRecordsInPerSecond",
+            "value": "2.033333333333333"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records_per_second",
+            "value": "2.7666666666666666"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_category_ranks.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "1.numRecordsIn",
+            "value": "692"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          }
+        ],
+        [
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "0.0"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "502"
+          },
+          {
+            "id": "1.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.Sink__MySQL_category_ranks.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "1.accumulateBackPressuredTimeMs",
+            "value": "0"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Sink: Redis latest category ranking",
+      "parallelism": 1,
+      "metrics": [
+        [
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "1.0"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.throughput.Redis_latest_category_ranking.records",
+            "value": "252"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.numRecordsInPerSecond",
+            "value": "0.9666666666666667"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.throughput.Redis_latest_category_ranking.records_per_second",
+            "value": "0.9666666666666667"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.currentOutputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "0.9666666666666667"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.currentInputWatermark",
+            "value": "1790474360622"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.numRecordsIn",
+            "value": "252"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "252"
+          },
+          {
+            "id": "0.Sink__Redis_latest_category_ranking.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "0"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Sink: MySQL complete window replay",
+      "parallelism": 1,
+      "metrics": [
+        [
+          {
+            "id": "0.backPressuredTimeMsPerSecond",
+            "value": "0"
+          },
+          {
+            "id": "0.busyTimeMsPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.mailboxLatencyMs_p95",
+            "value": "1.0"
+          },
+          {
+            "id": "0.accumulateBackPressuredTimeMs",
+            "value": "0"
+          },
+          {
+            "id": "0.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.currentInputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "0.Sink__MySQL_complete_window_replay.currentOutputWatermark",
+            "value": "1790470767078"
+          },
+          {
+            "id": "0.Sink__MySQL_complete_window_replay.numRecordsInPerSecond",
+            "value": "172.65"
+          },
+          {
+            "id": "0.numRecordsInPerSecond",
+            "value": "172.65"
+          },
+          {
+            "id": "0.Sink__MySQL_complete_window_replay.numRecordsIn",
+            "value": "95083"
+          },
+          {
+            "id": "0.numRecordsIn",
+            "value": "95083"
+          },
+          {
+            "id": "0.Sink__MySQL_complete_window_replay.numRecordsOutPerSecond",
+            "value": "0.0"
+          },
+          {
+            "id": "0.idleTimeMsPerSecond",
+            "value": "1000"
+          },
+          {
+            "id": "0.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_complete_window_replay.numRecordsOut",
+            "value": "0"
+          },
+          {
+            "id": "0.Sink__MySQL_complete_window_replay.currentInputWatermark",
+            "value": "1790470767078"
+          }
+        ]
+      ]
+    }
+  ]
+}

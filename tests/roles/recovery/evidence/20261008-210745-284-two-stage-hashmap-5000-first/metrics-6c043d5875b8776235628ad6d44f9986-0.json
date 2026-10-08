@@ -1,0 +1,78 @@
+[
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "0.9499999999999957"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_complete_window_replay.currentOutputWatermark",
+    "value": "1790474360622"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "26000000"
+  },
+  {
+    "id": "0.Sink__MySQL_complete_window_replay.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_complete_window_replay.numRecordsIn",
+    "value": "95083"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "95083"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "2280100"
+  },
+  {
+    "id": "0.Sink__MySQL_complete_window_replay.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_complete_window_replay.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Sink__MySQL_complete_window_replay.currentInputWatermark",
+    "value": "1790474360622"
+  }
+]

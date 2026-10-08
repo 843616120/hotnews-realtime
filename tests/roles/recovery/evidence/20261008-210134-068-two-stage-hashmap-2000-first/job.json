@@ -1,0 +1,1136 @@
+{
+  "jid": "1539ccc34d8172a24de69b955b33ecd5",
+  "name": "Achieve_roleAll",
+  "isStoppable": false,
+  "state": "RUNNING",
+  "start-time": 1791464448332,
+  "end-time": -1,
+  "duration": 46018,
+  "maxParallelism": -1,
+  "now": 1791464494350,
+  "timestamps": {
+    "FAILING": 0,
+    "FAILED": 0,
+    "RUNNING": 1791464448890,
+    "RESTARTING": 0,
+    "RECONCILING": 0,
+    "CREATED": 1791464448559,
+    "CANCELED": 0,
+    "INITIALIZING": 1791464448332,
+    "SUSPENDED": 0,
+    "CANCELLING": 0,
+    "FINISHED": 0
+  },
+  "vertices": [
+    {
+      "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+      "name": "Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449070,
+      "end-time": -1,
+      "duration": 45280,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "6cdc5bb954874d922eaee11a8e7b5dd5",
+      "name": "Source: Behavior_Source -> throughput: source_behavior_records -> Process",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449077,
+      "end-time": -1,
+      "duration": 45273,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "10b0aacb12137e1e4ca962d94fbd9bde",
+      "name": "Sink: MySQL dirty_data",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449078,
+      "end-time": -1,
+      "duration": 45272,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "14a16ad34c004a4850ec0cbc5415effe",
+      "name": "KeyedProcess -> Timestamps/Watermarks -> Map",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449090,
+      "end-time": -1,
+      "duration": 45260,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "478166aec60be18b2c3a147dfb254e56",
+      "name": "Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior)",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449091,
+      "end-time": -1,
+      "duration": 45259,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "ff3f75383ba36c9de1605a88b0ea0954",
+      "name": "Restore_Behavior_Event_Time",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449092,
+      "end-time": -1,
+      "duration": 45258,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "6e1c65b3f24f3dba071cafe1e1ed0bf1",
+      "name": "KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter)",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449093,
+      "end-time": -1,
+      "duration": 45257,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "e8460f28036113cd3a2e42b44c57a1e5",
+      "name": "SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out, Map)",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449094,
+      "end-time": -1,
+      "duration": 45256,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "7cc5e4845d99484565a1f7543d679a74",
+      "name": "KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out, Map)",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449095,
+      "end-time": -1,
+      "duration": 45255,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "342c8460e6570736f0949645a642b189",
+      "name": "Sink: MySQL IP alerts",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1791464449096,
+      "end-time": -1,
+      "duration": 45254,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 1,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "5f587ae615d440778b0f66af40f85589",
+      "name": "B category salted windows",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449097,
+      "end-time": -1,
+      "duration": 45253,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "66abb04601f7da964f44981ea57937c3",
+      "name": "B merge window rankings",
+      "maxParallelism": 128,
+      "parallelism": 2,
+      "status": "RUNNING",
+      "start-time": 1791464449097,
+      "end-time": -1,
+      "duration": 45253,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 2,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "9aff7b23357c1877ea3912e86d988808",
+      "name": "B results and late audit -> throughput: role_b_result",
+      "maxParallelism": 128,
+      "parallelism": 2,
+      "status": "RUNNING",
+      "start-time": 1791464449098,
+      "end-time": -1,
+      "duration": 45252,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 2,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "dfae446755255ae96f77b7b3f3334b12",
+      "name": "Sink: MySQL category ranks",
+      "maxParallelism": 128,
+      "parallelism": 2,
+      "status": "RUNNING",
+      "start-time": 1791464449099,
+      "end-time": -1,
+      "duration": 45251,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 2,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "2b0efcc573c0b14d73d529a92ee71680",
+      "name": "Map -> Sink: MySQL role B audit events",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449099,
+      "end-time": -1,
+      "duration": 45251,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "489822d4788959eab46d621d70084acb",
+      "name": "Filter -> Map -> throughput: role_b_redis_snapshots",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449100,
+      "end-time": -1,
+      "duration": 45250,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "8443e653f8a2ba267850b4bbc196e29b",
+      "name": "Sink: Redis latest category ranking",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1791464449101,
+      "end-time": -1,
+      "duration": 45249,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 1,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "811cb836dd5c39159a99e418b70cc10b",
+      "name": "Sink: Print to Std. Out",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449101,
+      "end-time": -1,
+      "duration": 45249,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "a8473b96da979c5b3386d7f2f91f9f2d",
+      "name": "Sink: Print to Std. Out",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449102,
+      "end-time": -1,
+      "duration": 45248,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "4023f813a3035d9088185b4556869bf5",
+      "name": "Map",
+      "maxParallelism": 128,
+      "parallelism": 3,
+      "status": "RUNNING",
+      "start-time": 1791464449102,
+      "end-time": -1,
+      "duration": 45248,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 3,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "6c043d5875b8776235628ad6d44f9986",
+      "name": "Sink: MySQL complete window replay",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1791464449103,
+      "end-time": -1,
+      "duration": 45247,
+      "tasks": {
+        "CREATED": 0,
+        "INITIALIZING": 0,
+        "FAILED": 0,
+        "CANCELING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "SCHEDULED": 0,
+        "RUNNING": 1,
+        "DEPLOYING": 0,
+        "CANCELED": 0
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    }
+  ],
+  "status-counts": {
+    "CREATED": 0,
+    "INITIALIZING": 0,
+    "FAILED": 0,
+    "CANCELING": 0,
+    "FINISHED": 0,
+    "RECONCILING": 0,
+    "SCHEDULED": 0,
+    "RUNNING": 21,
+    "DEPLOYING": 0,
+    "CANCELED": 0
+  },
+  "plan": {
+    "jid": "1539ccc34d8172a24de69b955b33ecd5",
+    "name": "Achieve_roleAll",
+    "type": "STREAMING",
+    "nodes": [
+      {
+        "id": "6c043d5875b8776235628ad6d44f9986",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Sink: MySQL complete window replay<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "e8460f28036113cd3a2e42b44c57a1e5",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          },
+          {
+            "num": 1,
+            "id": "7cc5e4845d99484565a1f7543d679a74",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          },
+          {
+            "num": 2,
+            "id": "4023f813a3035d9088185b4556869bf5",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          },
+          {
+            "num": 3,
+            "id": "6e1c65b3f24f3dba071cafe1e1ed0bf1",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "e8460f28036113cd3a2e42b44c57a1e5",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Window(SlidingEventTimeWindows(300000, 60000), CoalescingEventTimeTrigger, CountClicks, EmitHotArticles)<br/>:- Map<br/>:  +- Sink: MySQL role A audit events<br/>:- throughput: role_a_result<br/>:  +- Sink: MySQL article alerts<br/>:- Sink: Print to Std. Out<br/>:- Sink: Print to Std. Out<br/>+- Map<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "6e1c65b3f24f3dba071cafe1e1ed0bf1",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "342c8460e6570736f0949645a642b189",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Sink: MySQL IP alerts<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "7cc5e4845d99484565a1f7543d679a74",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "7cc5e4845d99484565a1f7543d679a74",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "KeyedProcess<br/>:- Map<br/>:  +- Sink: MySQL role C audit events<br/>:- throughput: role_c_result<br/>:- Sink: Print to Std. Out<br/>:- Sink: Print to Std. Out<br/>+- Map<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "6e1c65b3f24f3dba071cafe1e1ed0bf1",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "dfae446755255ae96f77b7b3f3334b12",
+        "parallelism": 2,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Sink: MySQL category ranks<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "9aff7b23357c1877ea3912e86d988808",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "2b0efcc573c0b14d73d529a92ee71680",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Map<br/>+- Sink: MySQL role B audit events<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "9aff7b23357c1877ea3912e86d988808",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "8443e653f8a2ba267850b4bbc196e29b",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Sink: Redis latest category ranking<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "489822d4788959eab46d621d70084acb",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "489822d4788959eab46d621d70084acb",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Filter<br/>+- Map<br/>   +- throughput: role_b_redis_snapshots<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "9aff7b23357c1877ea3912e86d988808",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "811cb836dd5c39159a99e418b70cc10b",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Sink: Print to Std. Out<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "9aff7b23357c1877ea3912e86d988808",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "a8473b96da979c5b3386d7f2f91f9f2d",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Sink: Print to Std. Out<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "9aff7b23357c1877ea3912e86d988808",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "4023f813a3035d9088185b4556869bf5",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Map<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "9aff7b23357c1877ea3912e86d988808",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "9aff7b23357c1877ea3912e86d988808",
+        "parallelism": 2,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "B results and late audit<br/>+- throughput: role_b_result<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "66abb04601f7da964f44981ea57937c3",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          },
+          {
+            "num": 1,
+            "id": "5f587ae615d440778b0f66af40f85589",
+            "ship_strategy": "REBALANCE",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "66abb04601f7da964f44981ea57937c3",
+        "parallelism": 2,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "B merge window rankings<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "5f587ae615d440778b0f66af40f85589",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "5f587ae615d440778b0f66af40f85589",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Window(TumblingEventTimeWindows(600000), CoalescingEventTimeTrigger, CountActions, EmitShard)<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "6e1c65b3f24f3dba071cafe1e1ed0bf1",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "6e1c65b3f24f3dba071cafe1e1ed0bf1",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "KeyedProcess<br/>+- throughput: clean_behavior_records<br/>   :- Sink: MySQL clean behavior<br/>   :- Filter<br/>   +- Filter<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "ff3f75383ba36c9de1605a88b0ea0954",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "ff3f75383ba36c9de1605a88b0ea0954",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Restore_Behavior_Event_Time<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "478166aec60be18b2c3a147dfb254e56",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "478166aec60be18b2c3a147dfb254e56",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Co-Keyed-Process<br/>:- Sink: MySQL late_data<br/>:- Sink: MySQL unmatched_behavior<br/>+- Sink: MySQL matched behavior<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          },
+          {
+            "num": 1,
+            "id": "14a16ad34c004a4850ec0cbc5415effe",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "10b0aacb12137e1e4ca962d94fbd9bde",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Sink: MySQL dirty_data<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          },
+          {
+            "num": 1,
+            "id": "6cdc5bb954874d922eaee11a8e7b5dd5",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "cbc357ccb763df2852fee8c4fc7d55f2",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Source: Article_Source<br/>+- throughput: source_article_records<br/>   +- Process<br/>      +- Timestamps/Watermarks<br/>         +- Flat Map<br/>",
+        "optimizer_properties": {}
+      },
+      {
+        "id": "14a16ad34c004a4850ec0cbc5415effe",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "KeyedProcess<br/>+- Timestamps/Watermarks<br/>   +- Map<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "6cdc5bb954874d922eaee11a8e7b5dd5",
+            "ship_strategy": "HASH",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "6cdc5bb954874d922eaee11a8e7b5dd5",
+        "parallelism": 3,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "Source: Behavior_Source<br/>+- throughput: source_behavior_records<br/>   +- Process<br/>",
+        "optimizer_properties": {}
+      }
+    ]
+  }
+}

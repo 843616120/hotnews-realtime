@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Achieve_roleAll_rocksdb" type="Application" factoryName="Application">
     <envs>
-      <env name="HOTNEWS_ROLE_ALL_GROUP" value="state-compare-rocksdb-20261007" />
-      <env name="HOTNEWS_STATE_BACKEND" value="rocksdb" />
+      <env name="HOTNEWS_ROLE_ALL_GROUP" value="hotnews-all-two-stage-run1" />
+      <env name="HOTNEWS_STATE_BACKEND" value="hashmap" />
     </envs>
     <output_file path="D:\study\study_flink\hotnews-realtime\tests\roles\state-backend\logs\state-rocksdb-20261007.log" is_save="true" />
     <option name="INCLUDE_PROVIDED_SCOPE" value="true" />

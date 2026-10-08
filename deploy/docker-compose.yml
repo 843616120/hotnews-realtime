@@ -29,8 +29,22 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-    volumes:
-      - kafka-data:/var/lib/kafka/data
+  kafka-init:
+    image: confluentinc/cp-kafka:7.5.0
+    depends_on:
+      - kafka
+    entrypoint: ["/bin/bash", "-c"]
+    command: |
+      echo "等待 Kafka 就绪..."
+      until kafka-topics --bootstrap-server kafka:29092 --list >/dev/null 2>&1; do
+        sleep 2
+      done
+      echo "设置默认消费者配额（削峰）..."
+      kafka-configs --bootstrap-server kafka:29092 \
+        --alter --add-config 'consumer_byte_rate=10485760' \
+        --entity-type clients --entity-default
+      echo "配额设置完成，退出。"
+
 
   mysql:
     image: mysql:8.0.16

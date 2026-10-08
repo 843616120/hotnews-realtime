@@ -1,0 +1,126 @@
+[
+  {
+    "id": "Status.JVM.GarbageCollector.PS_MarkSweep.Time",
+    "value": "1132"
+  },
+  {
+    "id": "Status.JVM.Memory.Mapped.TotalCapacity",
+    "value": "0"
+  },
+  {
+    "id": "Status.Network.AvailableMemorySegments",
+    "value": "1562"
+  },
+  {
+    "id": "Status.Network.TotalMemorySegments",
+    "value": "2048"
+  },
+  {
+    "id": "Status.JVM.Memory.Mapped.MemoryUsed",
+    "value": "0"
+  },
+  {
+    "id": "Status.Flink.Memory.Managed.Total",
+    "value": "134217728"
+  },
+  {
+    "id": "Status.Shuffle.Netty.UsedMemory",
+    "value": "15925248"
+  },
+  {
+    "id": "Status.JVM.Memory.Heap.Committed",
+    "value": "1644691456"
+  },
+  {
+    "id": "Status.Shuffle.Netty.TotalMemory",
+    "value": "67108864"
+  },
+  {
+    "id": "Status.Shuffle.Netty.RequestedMemoryUsage",
+    "value": "63"
+  },
+  {
+    "id": "Status.JVM.Memory.Metaspace.Committed",
+    "value": "94896128"
+  },
+  {
+    "id": "Status.JVM.GarbageCollector.PS_Scavenge.Time",
+    "value": "2303"
+  },
+  {
+    "id": "Status.JVM.GarbageCollector.PS_MarkSweep.Count",
+    "value": "5"
+  },
+  {
+    "id": "Status.JVM.Memory.Direct.Count",
+    "value": "2078"
+  },
+  {
+    "id": "Status.Shuffle.Netty.AvailableMemorySegments",
+    "value": "1562"
+  },
+  {
+    "id": "Status.JVM.GarbageCollector.PS_Scavenge.Count",
+    "value": "101"
+  },
+  {
+    "id": "Status.JVM.Memory.NonHeap.Max",
+    "value": "-1"
+  },
+  {
+    "id": "Status.Shuffle.Netty.TotalMemorySegments",
+    "value": "2048"
+  },
+  {
+    "id": "Status.JVM.Memory.NonHeap.Committed",
+    "value": "148307968"
+  },
+  {
+    "id": "Status.JVM.Memory.NonHeap.Used",
+    "value": "132109832"
+  },
+  {
+    "id": "Status.JVM.Memory.Metaspace.Max",
+    "value": "-1"
+  },
+  {
+    "id": "Status.JVM.Memory.Direct.MemoryUsed",
+    "value": "68129261"
+  },
+  {
+    "id": "Status.JVM.Memory.Direct.TotalCapacity",
+    "value": "68129260"
+  },
+  {
+    "id": "Status.Shuffle.Netty.UsedMemorySegments",
+    "value": "486"
+  },
+  {
+    "id": "Status.JVM.Memory.Mapped.Count",
+    "value": "0"
+  },
+  {
+    "id": "Status.JVM.Memory.Metaspace.Used",
+    "value": "81991504"
+  },
+  {
+    "id": "Status.Flink.Memory.Managed.Used",
+    "value": "0"
+  },
+  {
+    "id": "Status.JVM.CPU.Load",
+    "value": "0.039009114254001845"
+  },
+  {
+    "id": "Status.JVM.Memory.Heap.Max",
+    "value": "3267887104"
+  },
+  {
+    "id": "Status.JVM.Memory.Heap.Used",
+    "value": "1413281056"
+  },
+  {
+    "id": "Status.Shuffle.Netty.AvailableMemory",
+    "value": "51183616"
+  }
+]

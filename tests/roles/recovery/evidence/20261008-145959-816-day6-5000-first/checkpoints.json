@@ -1,0 +1,98 @@
+{
+  "counts": {
+    "restored": 0,
+    "total": 1,
+    "in_progress": 1,
+    "completed": 0,
+    "failed": 0
+  },
+  "summary": {
+    "checkpointed_size": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": "NaN",
+      "p90": "NaN",
+      "p95": "NaN",
+      "p99": "NaN",
+      "p999": "NaN"
+    },
+    "state_size": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": "NaN",
+      "p90": "NaN",
+      "p95": "NaN",
+      "p99": "NaN",
+      "p999": "NaN"
+    },
+    "end_to_end_duration": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": "NaN",
+      "p90": "NaN",
+      "p95": "NaN",
+      "p99": "NaN",
+      "p999": "NaN"
+    },
+    "alignment_buffered": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": 0.0,
+      "p90": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "p999": 0.0
+    },
+    "processed_data": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": "NaN",
+      "p90": "NaN",
+      "p95": "NaN",
+      "p99": "NaN",
+      "p999": "NaN"
+    },
+    "persisted_data": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": "NaN",
+      "p90": "NaN",
+      "p95": "NaN",
+      "p99": "NaN",
+      "p999": "NaN"
+    }
+  },
+  "latest": {
+    "completed": null,
+    "savepoint": null,
+    "failed": null,
+    "restored": null
+  },
+  "history": [
+    {
+      "className": "in_progress",
+      "id": 1,
+      "status": "IN_PROGRESS",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791442782037,
+      "latest_ack_timestamp": 1791442794133,
+      "checkpointed_size": 410500,
+      "state_size": 410500,
+      "end_to_end_duration": 12096,
+      "alignment_buffered": 0,
+      "processed_data": 804749,
+      "persisted_data": 0,
+      "num_subtasks": 42,
+      "num_acknowledged_subtasks": 16,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {}
+    }
+  ]
+}

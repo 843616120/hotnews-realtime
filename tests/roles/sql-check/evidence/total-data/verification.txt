@@ -1,0 +1,60 @@
+Rule A / Rule B 全量固定输入复验记录
+日期：2026-10-07
+项目：D:\study\study_flink\hotnews-realtime
+
+固定输入目录：
+D:\study\study_flink\hotnews-realtime\generator\generator\total_data
+
+输入文件证据：
+article_stream.jsonl 行数：500
+behavior_stream.jsonl 行数：100000
+article_stream.jsonl SHA256：
+AC5CE6944C1E2D4C045A7E0BA13BC2829C308EEC5A49612C8ABF918C9449C395
+behavior_stream.jsonl SHA256：
+47F6048ED92D27AD40494355CBC5EFF90B257FBAC728BCF7915B407738ADA213
+
+执行命令：
+node --no-warnings tests\roles\verify.js --role a --flink-log "D:\study\study_flink\hotnews-realtime\tests\roles\role-a.log" --through 2026-09-27T00:10:00Z --data-dir "D:\study\study_flink\hotnews-realtime\generator\generator\total_data"
+
+独立清洗结果：
+article_raw：500
+article_clean：500
+behavior_raw：100000
+behavior_clean：97044
+joined：97044
+
+Rule A：
+SQL 基准：17 行
+覆盖窗口：[2026-09-26T23:57:00Z, 2026-09-27T00:10:00Z)
+Flink：17 行
+缺失：0
+多出：0
+字段差异：0
+各窗口明细：
+[2026-09-26T23:57:00.000Z, 2026-09-27T00:02:00.000Z)：SQL=1 Flink=1
+[2026-09-26T23:58:00.000Z, 2026-09-27T00:03:00.000Z)：SQL=2 Flink=2
+[2026-09-26T23:59:00.000Z, 2026-09-27T00:04:00.000Z)：SQL=2 Flink=2
+[2026-09-27T00:00:00.000Z, 2026-09-27T00:05:00.000Z)：SQL=2 Flink=2
+[2026-09-27T00:01:00.000Z, 2026-09-27T00:06:00.000Z)：SQL=2 Flink=2
+[2026-09-27T00:02:00.000Z, 2026-09-27T00:07:00.000Z)：SQL=2 Flink=2
+[2026-09-27T00:03:00.000Z, 2026-09-27T00:08:00.000Z)：SQL=2 Flink=2
+[2026-09-27T00:04:00.000Z, 2026-09-27T00:09:00.000Z)：SQL=2 Flink=2
+[2026-09-27T00:05:00.000Z, 2026-09-27T00:10:00.000Z)：SQL=2 Flink=2
+每个窗口的缺失、多出、字段差异均为 0。
+
+执行命令：
+node --no-warnings tests\roles\verify.js --role b --flink-log "D:\study\study_flink\hotnews-realtime\tests\roles\role-b.log" --through 2026-09-27T00:10:00Z --data-dir "D:\study\study_flink\hotnews-realtime\generator\generator\total_data"
+
+Rule B：
+SQL 基准：5 行
+覆盖窗口：[2026-09-27T00:00:00Z, 2026-09-27T00:10:00Z)
+Flink：5 行
+缺失：0
+多出：0
+字段差异：0
+窗口明细：
+[2026-09-27T00:00:00.000Z, 2026-09-27T00:10:00.000Z)：SQL=5 Flink=5
+
+本记录只核对独立 SQL 与 Rule A/Rule B 日志的窗口、业务键和结果字段。
+上游链路已由用户确认通过，本次不再把 Kafka 中是否属于 A/B 输入作为阻塞项。
+本记录不改变历史 Redis/MySQL 专项快照的结论；Redis/MySQL 需按专项证据单独判断。

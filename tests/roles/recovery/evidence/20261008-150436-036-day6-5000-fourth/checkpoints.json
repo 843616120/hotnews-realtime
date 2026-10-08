@@ -1,0 +1,160 @@
+{
+  "counts": {
+    "restored": 0,
+    "total": 3,
+    "in_progress": 1,
+    "completed": 2,
+    "failed": 0
+  },
+  "summary": {
+    "checkpointed_size": {
+      "min": 2799749,
+      "max": 4910418,
+      "avg": 3855083,
+      "p50": 3855083.5,
+      "p90": 4910418.0,
+      "p95": 4910418.0,
+      "p99": 4910418.0,
+      "p999": 4910418.0
+    },
+    "state_size": {
+      "min": 2799749,
+      "max": 4913862,
+      "avg": 3856805,
+      "p50": 3856805.5,
+      "p90": 4913862.0,
+      "p95": 4913862.0,
+      "p99": 4913862.0,
+      "p999": 4913862.0
+    },
+    "end_to_end_duration": {
+      "min": 112580,
+      "max": 150579,
+      "avg": 131579,
+      "p50": 131579.5,
+      "p90": 150579.0,
+      "p95": 150579.0,
+      "p99": 150579.0,
+      "p999": 150579.0
+    },
+    "alignment_buffered": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": 0.0,
+      "p90": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "p999": 0.0
+    },
+    "processed_data": {
+      "min": 1963191,
+      "max": 3249863,
+      "avg": 2606527,
+      "p50": 2606527.0,
+      "p90": 3249863.0,
+      "p95": 3249863.0,
+      "p99": 3249863.0,
+      "p999": 3249863.0
+    },
+    "persisted_data": {
+      "min": 0,
+      "max": 0,
+      "avg": 0,
+      "p50": 0.0,
+      "p90": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "p999": 0.0
+    }
+  },
+  "latest": {
+    "completed": {
+      "className": "completed",
+      "id": 2,
+      "status": "COMPLETED",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791442899321,
+      "latest_ack_timestamp": 1791443049900,
+      "checkpointed_size": 4910418,
+      "state_size": 4913862,
+      "end_to_end_duration": 150579,
+      "alignment_buffered": 0,
+      "processed_data": 3249863,
+      "persisted_data": 0,
+      "num_subtasks": 42,
+      "num_acknowledged_subtasks": 42,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {},
+      "external_path": "file:/opt/flink/checkpoints/day5/24f327b9643e65225dacc62a794b3cee/chk-2",
+      "discarded": false
+    },
+    "savepoint": null,
+    "failed": null,
+    "restored": null
+  },
+  "history": [
+    {
+      "className": "in_progress",
+      "id": 3,
+      "status": "IN_PROGRESS",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791443054758,
+      "latest_ack_timestamp": 1791443071828,
+      "checkpointed_size": 732042,
+      "state_size": 925754,
+      "end_to_end_duration": 17070,
+      "alignment_buffered": 0,
+      "processed_data": 486257,
+      "persisted_data": 0,
+      "num_subtasks": 42,
+      "num_acknowledged_subtasks": 13,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {}
+    },
+    {
+      "className": "completed",
+      "id": 2,
+      "status": "COMPLETED",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791442899321,
+      "latest_ack_timestamp": 1791443049900,
+      "checkpointed_size": 4910418,
+      "state_size": 4913862,
+      "end_to_end_duration": 150579,
+      "alignment_buffered": 0,
+      "processed_data": 3249863,
+      "persisted_data": 0,
+      "num_subtasks": 42,
+      "num_acknowledged_subtasks": 42,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {},
+      "external_path": "file:/opt/flink/checkpoints/day5/24f327b9643e65225dacc62a794b3cee/chk-2",
+      "discarded": false
+    },
+    {
+      "className": "completed",
+      "id": 1,
+      "status": "COMPLETED",
+      "is_savepoint": false,
+      "savepointFormat": null,
+      "trigger_timestamp": 1791442782037,
+      "latest_ack_timestamp": 1791442894617,
+      "checkpointed_size": 2799749,
+      "state_size": 2799749,
+      "end_to_end_duration": 112580,
+      "alignment_buffered": 0,
+      "processed_data": 1963191,
+      "persisted_data": 0,
+      "num_subtasks": 42,
+      "num_acknowledged_subtasks": 42,
+      "checkpoint_type": "CHECKPOINT",
+      "tasks": {},
+      "external_path": "file:/opt/flink/checkpoints/day5/24f327b9643e65225dacc62a794b3cee/chk-1",
+      "discarded": false
+    }
+  ]
+}

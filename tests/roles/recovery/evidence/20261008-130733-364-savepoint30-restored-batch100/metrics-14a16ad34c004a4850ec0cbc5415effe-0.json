@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "163.0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "839"
+  },
+  {
+    "id": "2.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.KeyedProcess.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "0.KeyedProcess.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "6248237"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.KeyedProcess.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.KeyedProcess.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.Map.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.KeyedProcess.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.Map.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsIn",
+    "value": "0"
+  },
+  {
+    "id": "2.busyTimeMsPerSecond",
+    "value": "131.0"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsOutPerSecond",
+    "value": "0.0"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "0.Map.numRecordsIn",
+    "value": "1772"
+  },
+  {
+    "id": "2.Sink__MySQL_role_B_audit_events.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "0.Map.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Map.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "0.Map.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "18.216666666666665"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "1773"
+  },
+  {
+    "id": "2.Sink__MySQL_role_B_audit_events.throughput.MySQL_role_B_audit_events.records",
+    "value": "1773"
+  }
+]

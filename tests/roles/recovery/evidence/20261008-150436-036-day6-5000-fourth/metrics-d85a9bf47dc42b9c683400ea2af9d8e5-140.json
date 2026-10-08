@@ -1,0 +1,114 @@
+[
+  {
+    "id": "1.throughput__role_a_result.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.SlidingEventTimeWindows.numLateRecordsDropped",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Map.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.Sink__Print_to_Std__Out.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Sink__MySQL_article_alerts.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.SlidingEventTimeWindows.numLateRecordsDropped",
+    "value": "0"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "134451000000"
+  },
+  {
+    "id": "0.Map.numRecordsIn",
+    "value": "3023"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "0.Map.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.SlidingEventTimeWindows.numRecordsOut",
+    "value": "2763"
+  },
+  {
+    "id": "1.SlidingEventTimeWindows.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "2.SlidingEventTimeWindows.numRecordsOut",
+    "value": "15"
+  },
+  {
+    "id": "0.Sink__Print_to_Std__Out.numRecordsInPerSecond",
+    "value": "45.53333333333333"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "134732000000"
+  },
+  {
+    "id": "2.Sink__MySQL_role_A_audit_events.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.SlidingEventTimeWindows.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "2.Sink__MySQL_article_alerts.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.throughput__role_a_result.throughput.role_a_result.records_per_second",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Map.currentOutputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.SlidingEventTimeWindows.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.SlidingEventTimeWindows.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790473488327"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "15.783333333333333"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "2330"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "317.94999999999936"
+  }
+]

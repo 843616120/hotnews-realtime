@@ -1,0 +1,86 @@
+[
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.throughput.Redis_latest_category_ranking.records",
+    "value": "19679"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.numRecordsInPerSecond",
+    "value": "0.16666666666666666"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.throughput.Redis_latest_category_ranking.records_per_second",
+    "value": "0.16666666666666666"
+  },
+  {
+    "id": "0.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "41179000000"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "0.16666666666666666"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "19679"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.numRecordsIn",
+    "value": "19679"
+  },
+  {
+    "id": "0.checkpointAlignmentTime",
+    "value": "39307"
+  },
+  {
+    "id": "0.Sink__Redis_latest_category_ranking.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "0"
+  }
+]

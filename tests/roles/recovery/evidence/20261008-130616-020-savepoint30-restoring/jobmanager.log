@@ -1,0 +1,634 @@
+2026-10-08 05:04:31,067 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - --------------------------------------------------------------------------------
+2026-10-08 05:04:31,068 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  Preconfiguration: 
+2026-10-08 05:04:31,068 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - 
+
+
+RESOURCE_PARAMS extraction logs:
+jvm_params: -Xmx1073741824 -Xms1073741824 -XX:MaxMetaspaceSize=268435456
+dynamic_configs: -D jobmanager.memory.off-heap.size=134217728b -D jobmanager.memory.jvm-overhead.min=201326592b -D jobmanager.memory.jvm-metaspace.size=268435456b -D jobmanager.memory.heap.size=1073741824b -D jobmanager.memory.jvm-overhead.max=201326592b
+logs: WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+INFO  [] - Loading configuration property: taskmanager.memory.process.size, 2048m
+INFO  [] - Loading configuration property: execution.checkpointing.mode, EXACTLY_ONCE
+INFO  [] - Loading configuration property: state.checkpoints.num-retained, 3
+INFO  [] - Loading configuration property: jobmanager.rpc.address, jobmanager
+INFO  [] - Loading configuration property: state.backend.rocksdb.localdir, /opt/flink/rocksdb
+INFO  [] - Loading configuration property: jobmanager.memory.process.size, 1600m
+INFO  [] - Loading configuration property: state.savepoints.dir, file:///opt/flink/savepoints
+INFO  [] - Loading configuration property: rest.bind-address, 0.0.0.0
+INFO  [] - Loading configuration property: rest.port, 8081
+INFO  [] - Loading configuration property: execution.checkpointing.interval, 10s
+INFO  [] - Loading configuration property: execution.checkpointing.timeout, 60s
+INFO  [] - Loading configuration property: parallelism.default, 2
+INFO  [] - Loading configuration property: taskmanager.numberOfTaskSlots, 8
+INFO  [] - Loading configuration property: execution.checkpointing.min-pause, 2s
+INFO  [] - Loading configuration property: execution.checkpointing.max-concurrent-checkpoints, 1
+INFO  [] - Loading configuration property: state.checkpoints.dir, file:///opt/flink/checkpoints
+INFO  [] - The derived from fraction jvm overhead memory (160.000mb (167772162 bytes)) is less than its min value 192.000mb (201326592 bytes), min value will be used instead
+INFO  [] - Final Master Memory configuration:
+INFO  [] -   Total Process Memory: 1.563gb (1677721600 bytes)
+INFO  [] -     Total Flink Memory: 1.125gb (1207959552 bytes)
+INFO  [] -       JVM Heap:         1024.000mb (1073741824 bytes)
+INFO  [] -       Off-heap:         128.000mb (134217728 bytes)
+INFO  [] -     JVM Metaspace:      256.000mb (268435456 bytes)
+INFO  [] -     JVM Overhead:       192.000mb (201326592 bytes)
+
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - --------------------------------------------------------------------------------
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  Starting StandaloneSessionClusterEntrypoint (Version: 1.17.0, Scala: 2.12, Rev:69ecda0, Date:2023-03-17T10:30:06+01:00)
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  OS current user: flink
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  Current Hadoop/Kerberos user: <no hadoop dependency found>
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  JVM: OpenJDK 64-Bit Server VM - Eclipse Adoptium - 11/11.0.19+7
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  Arch: amd64
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  Maximum heap size: 1024 MiBytes
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  JAVA_HOME: /opt/java/openjdk
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  No Hadoop Dependency available
+2026-10-08 05:04:31,069 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  JVM Options:
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -Xmx1073741824
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -Xms1073741824
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -XX:MaxMetaspaceSize=268435456
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -Dlog.file=/opt/flink/log/flink--standalonesession-0-jobmanager.log
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -Dlog4j.configuration=file:/opt/flink/conf/log4j-console.properties
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -Dlog4j.configurationFile=file:/opt/flink/conf/log4j-console.properties
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -Dlogback.configurationFile=file:/opt/flink/conf/logback-console.xml
+2026-10-08 05:04:31,070 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  Program Arguments:
+2026-10-08 05:04:31,071 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -D
+2026-10-08 05:04:31,071 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     jobmanager.memory.off-heap.size=134217728b
+2026-10-08 05:04:31,071 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -D
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     jobmanager.memory.jvm-overhead.min=201326592b
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -D
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     jobmanager.memory.jvm-metaspace.size=268435456b
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -D
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     jobmanager.memory.heap.size=1073741824b
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     -D
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     jobmanager.memory.jvm-overhead.max=201326592b
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     --configDir
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     /opt/flink/conf
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     --executionMode
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -     cluster
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] -  Classpath: /opt/flink/lib/flink-cep-1.17.0.jar:/opt/flink/lib/flink-connector-files-1.17.0.jar:/opt/flink/lib/flink-csv-1.17.0.jar:/opt/flink/lib/flink-json-1.17.0.jar:/opt/flink/lib/flink-scala_2.12-1.17.0.jar:/opt/flink/lib/flink-table-api-java-uber-1.17.0.jar:/opt/flink/lib/flink-table-planner-loader-1.17.0.jar:/opt/flink/lib/flink-table-runtime-1.17.0.jar:/opt/flink/lib/log4j-1.2-api-2.17.1.jar:/opt/flink/lib/log4j-api-2.17.1.jar:/opt/flink/lib/log4j-core-2.17.1.jar:/opt/flink/lib/log4j-slf4j-impl-2.17.1.jar:/opt/flink/lib/flink-dist-1.17.0.jar::::
+2026-10-08 05:04:31,072 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - --------------------------------------------------------------------------------
+2026-10-08 05:04:31,073 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - Registered UNIX signal handlers for [TERM, HUP, INT]
+2026-10-08 05:04:31,085 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: taskmanager.memory.process.size, 2048m
+2026-10-08 05:04:31,086 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: execution.checkpointing.mode, EXACTLY_ONCE
+2026-10-08 05:04:31,086 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: state.checkpoints.num-retained, 3
+2026-10-08 05:04:31,086 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: jobmanager.rpc.address, jobmanager
+2026-10-08 05:04:31,086 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: state.backend.rocksdb.localdir, /opt/flink/rocksdb
+2026-10-08 05:04:31,086 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: jobmanager.memory.process.size, 1600m
+2026-10-08 05:04:31,086 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: state.savepoints.dir, file:///opt/flink/savepoints
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: rest.bind-address, 0.0.0.0
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: rest.port, 8081
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: execution.checkpointing.interval, 10s
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: execution.checkpointing.timeout, 60s
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: parallelism.default, 2
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: taskmanager.numberOfTaskSlots, 8
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: execution.checkpointing.min-pause, 2s
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: execution.checkpointing.max-concurrent-checkpoints, 1
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: state.checkpoints.dir, file:///opt/flink/checkpoints
+2026-10-08 05:04:31,087 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading dynamic configuration property: jobmanager.memory.off-heap.size, 134217728b
+2026-10-08 05:04:31,088 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading dynamic configuration property: jobmanager.memory.jvm-overhead.min, 201326592b
+2026-10-08 05:04:31,088 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading dynamic configuration property: jobmanager.memory.jvm-metaspace.size, 268435456b
+2026-10-08 05:04:31,088 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading dynamic configuration property: jobmanager.memory.heap.size, 1073741824b
+2026-10-08 05:04:31,088 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading dynamic configuration property: jobmanager.memory.jvm-overhead.max, 201326592b
+2026-10-08 05:04:31,106 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - Starting StandaloneSessionClusterEntrypoint.
+2026-10-08 05:04:31,138 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - Install default filesystem.
+2026-10-08 05:04:31,142 INFO  org.apache.flink.core.fs.FileSystem                          [] - Hadoop is not in the classpath/dependencies. The extended set of supported File Systems via Hadoop is not available.
+2026-10-08 05:04:31,153 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: metrics-statsd
+2026-10-08 05:04:31,159 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: metrics-prometheus
+2026-10-08 05:04:31,159 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: metrics-jmx
+2026-10-08 05:04:31,159 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: metrics-slf4j
+2026-10-08 05:04:31,160 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: metrics-datadog
+2026-10-08 05:04:31,160 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: metrics-graphite
+2026-10-08 05:04:31,160 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: external-resource-gpu
+2026-10-08 05:04:31,160 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID not found, creating it: metrics-influx
+2026-10-08 05:04:31,179 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - Install security context.
+2026-10-08 05:04:31,192 INFO  org.apache.flink.runtime.security.modules.HadoopModuleFactory [] - Cannot create Hadoop Security Module because Hadoop cannot be found in the Classpath.
+2026-10-08 05:04:31,195 INFO  org.apache.flink.runtime.security.modules.JaasModule         [] - Jaas file will be created as /tmp/jaas-1806331545299391071.conf.
+2026-10-08 05:04:31,202 INFO  org.apache.flink.runtime.security.contexts.HadoopSecurityContextFactory [] - Cannot install HadoopSecurityContext because Hadoop cannot be found in the Classpath.
+2026-10-08 05:04:31,204 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - Initializing cluster services.
+2026-10-08 05:04:31,211 INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - Using working directory: WorkingDirectory(/tmp/jm_200e907f331764fee6b5b59cbfd9dbc7).
+2026-10-08 05:04:31,622 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcServiceUtils        [] - Trying to start actor system, external address jobmanager:6123, bind address 0.0.0.0:6123.
+2026-10-08 05:04:32,141 INFO  akka.event.slf4j.Slf4jLogger                                 [] - Slf4jLogger started
+2026-10-08 05:04:32,162 INFO  akka.remote.RemoteActorRefProvider                           [] - Akka Cluster not in use - enabling unsafe features anyway because `akka.remote.use-unsafe-remote-features-outside-cluster` has been enabled.
+2026-10-08 05:04:32,163 INFO  akka.remote.Remoting                                         [] - Starting remoting
+2026-10-08 05:04:32,266 INFO  akka.remote.Remoting                                         [] - Remoting started; listening on addresses :[akka.tcp://flink@jobmanager:6123]
+2026-10-08 05:04:32,361 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcServiceUtils        [] - Actor system started at akka.tcp://flink@jobmanager:6123
+2026-10-08 05:04:32,385 INFO  org.apache.flink.configuration.Configuration                 [] - Config uses fallback configuration key 'jobmanager.rpc.address' instead of key 'rest.address'
+2026-10-08 05:04:32,392 INFO  org.apache.flink.runtime.blob.BlobServer                     [] - Created BLOB server storage directory /tmp/jm_200e907f331764fee6b5b59cbfd9dbc7/blobStorage
+2026-10-08 05:04:32,398 INFO  org.apache.flink.runtime.blob.BlobServer                     [] - Started BLOB server at 0.0.0.0:39369 - max concurrent requests: 50 - max backlog: 1000
+2026-10-08 05:04:32,405 INFO  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Loading delegation token providers
+2026-10-08 05:04:32,412 INFO  org.apache.flink.runtime.security.token.hadoop.HadoopFSDelegationTokenProvider [] - Hadoop FS is not available (not packaged with this application): NoClassDefFoundError : "org/apache/hadoop/conf/Configuration".
+2026-10-08 05:04:32,413 INFO  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Delegation token provider hadoopfs loaded and initialized
+2026-10-08 05:04:32,414 INFO  org.apache.flink.runtime.security.token.hadoop.HBaseDelegationTokenProvider [] - HBase is not available (not packaged with this application): NoClassDefFoundError : "org/apache/hadoop/conf/Configuration".
+2026-10-08 05:04:32,415 INFO  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Delegation token provider hbase loaded and initialized
+2026-10-08 05:04:32,416 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-statsd
+2026-10-08 05:04:32,416 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-prometheus
+2026-10-08 05:04:32,419 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-jmx
+2026-10-08 05:04:32,419 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-slf4j
+2026-10-08 05:04:32,419 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-datadog
+2026-10-08 05:04:32,419 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-graphite
+2026-10-08 05:04:32,420 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: external-resource-gpu
+2026-10-08 05:04:32,420 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-influx
+2026-10-08 05:04:32,420 INFO  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Delegation token providers loaded successfully
+2026-10-08 05:04:32,421 INFO  org.apache.flink.runtime.security.token.DelegationTokenReceiverRepository [] - Loading delegation token receivers
+2026-10-08 05:04:32,424 INFO  org.apache.flink.runtime.security.token.DelegationTokenReceiverRepository [] - Delegation token receiver hadoopfs loaded and initialized
+2026-10-08 05:04:32,424 INFO  org.apache.flink.runtime.security.token.DelegationTokenReceiverRepository [] - Delegation token receiver hbase loaded and initialized
+2026-10-08 05:04:32,425 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-statsd
+2026-10-08 05:04:32,425 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-prometheus
+2026-10-08 05:04:32,425 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-jmx
+2026-10-08 05:04:32,425 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-slf4j
+2026-10-08 05:04:32,425 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-datadog
+2026-10-08 05:04:32,425 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-graphite
+2026-10-08 05:04:32,425 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: external-resource-gpu
+2026-10-08 05:04:32,426 INFO  org.apache.flink.core.plugin.DefaultPluginManager            [] - Plugin loader with ID found, reusing it: metrics-influx
+2026-10-08 05:04:32,426 INFO  org.apache.flink.runtime.security.token.DelegationTokenReceiverRepository [] - Delegation token receivers loaded successfully
+2026-10-08 05:04:32,426 INFO  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Checking provider and receiver instances consistency
+2026-10-08 05:04:32,426 INFO  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Provider and receiver instances are consistent
+2026-10-08 05:04:32,434 INFO  org.apache.flink.runtime.metrics.MetricRegistryImpl          [] - No metrics reporter configured, no metrics will be exposed/reported.
+2026-10-08 05:04:32,437 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcServiceUtils        [] - Trying to start actor system, external address jobmanager:0, bind address 0.0.0.0:0.
+2026-10-08 05:04:32,450 INFO  akka.event.slf4j.Slf4jLogger                                 [] - Slf4jLogger started
+2026-10-08 05:04:32,455 INFO  akka.remote.RemoteActorRefProvider                           [] - Akka Cluster not in use - enabling unsafe features anyway because `akka.remote.use-unsafe-remote-features-outside-cluster` has been enabled.
+2026-10-08 05:04:32,455 INFO  akka.remote.Remoting                                         [] - Starting remoting
+2026-10-08 05:04:32,468 INFO  akka.remote.Remoting                                         [] - Remoting started; listening on addresses :[akka.tcp://flink-metrics@jobmanager:43587]
+2026-10-08 05:04:32,476 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcServiceUtils        [] - Actor system started at akka.tcp://flink-metrics@jobmanager:43587
+2026-10-08 05:04:32,490 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcService             [] - Starting RPC endpoint for org.apache.flink.runtime.metrics.dump.MetricQueryService at akka://flink-metrics/user/rpc/MetricQueryService .
+2026-10-08 05:04:32,513 INFO  org.apache.flink.runtime.dispatcher.FileExecutionGraphInfoStore [] - Initializing FileExecutionGraphInfoStore: Storage directory /tmp/executionGraphStore-d0367bbd-261a-4c3f-9331-381199de4469, expiration time 3600000, maximum cache size 52428800 bytes.
+2026-10-08 05:04:32,570 INFO  org.apache.flink.configuration.Configuration                 [] - Config uses fallback configuration key 'jobmanager.rpc.address' instead of key 'rest.address'
+2026-10-08 05:04:32,570 INFO  org.apache.flink.configuration.Configuration                 [] - Config uses fallback configuration key 'rest.port' instead of key 'rest.bind-port'
+2026-10-08 05:04:32,639 INFO  org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint   [] - Upload directory /tmp/flink-web-8ac86d60-d927-4b70-a91d-0c52cba965a6/flink-web-upload does not exist. 
+2026-10-08 05:04:32,643 INFO  org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint   [] - Created directory /tmp/flink-web-8ac86d60-d927-4b70-a91d-0c52cba965a6/flink-web-upload for file uploads.
+2026-10-08 05:04:32,645 INFO  org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint   [] - Starting rest endpoint.
+2026-10-08 05:04:32,897 INFO  org.apache.flink.runtime.webmonitor.WebMonitorUtils          [] - Determined location of main cluster component log file: /opt/flink/log/flink--standalonesession-0-jobmanager.log
+2026-10-08 05:04:32,897 INFO  org.apache.flink.runtime.webmonitor.WebMonitorUtils          [] - Determined location of main cluster component stdout file: /opt/flink/log/flink--standalonesession-0-jobmanager.out
+2026-10-08 05:04:32,992 INFO  org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint   [] - Rest endpoint listening at jobmanager:8081
+2026-10-08 05:04:32,994 INFO  org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint   [] - http://jobmanager:8081 was granted leadership with leaderSessionID=00000000-0000-0000-0000-000000000000
+2026-10-08 05:04:32,995 INFO  org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint   [] - Web frontend listening at http://jobmanager:8081.
+2026-10-08 05:04:33,013 INFO  org.apache.flink.runtime.dispatcher.runner.DefaultDispatcherRunner [] - DefaultDispatcherRunner was granted leadership with leader id 00000000-0000-0000-0000-000000000000. Creating new DispatcherLeaderProcess.
+2026-10-08 05:04:33,019 INFO  org.apache.flink.runtime.dispatcher.runner.SessionDispatcherLeaderProcess [] - Start SessionDispatcherLeaderProcess.
+2026-10-08 05:04:33,021 INFO  org.apache.flink.runtime.resourcemanager.ResourceManagerServiceImpl [] - Starting resource manager service.
+2026-10-08 05:04:33,022 INFO  org.apache.flink.runtime.resourcemanager.ResourceManagerServiceImpl [] - Resource manager service is granted leadership with session id 00000000-0000-0000-0000-000000000000.
+2026-10-08 05:04:33,028 INFO  org.apache.flink.runtime.dispatcher.runner.SessionDispatcherLeaderProcess [] - Recover all persisted job graphs that are not finished, yet.
+2026-10-08 05:04:33,029 INFO  org.apache.flink.runtime.dispatcher.runner.SessionDispatcherLeaderProcess [] - Successfully recovered 0 persisted job graphs.
+2026-10-08 05:04:33,046 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcService             [] - Starting RPC endpoint for org.apache.flink.runtime.dispatcher.StandaloneDispatcher at akka://flink/user/rpc/dispatcher_0 .
+2026-10-08 05:04:33,053 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcService             [] - Starting RPC endpoint for org.apache.flink.runtime.resourcemanager.StandaloneResourceManager at akka://flink/user/rpc/resourcemanager_1 .
+2026-10-08 05:04:33,074 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Starting the resource manager.
+2026-10-08 05:04:33,094 INFO  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Starting tokens update task
+2026-10-08 05:04:33,095 WARN  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - No tokens obtained so skipping listener notification
+2026-10-08 05:04:33,095 WARN  org.apache.flink.runtime.security.token.DefaultDelegationTokenManager [] - Tokens update task not started because either no tokens obtained or none of the tokens specified its renewal date
+2026-10-08 05:04:34,253 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:34,264 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Registering TaskManager with ResourceID 172.18.0.8:37507-02ec21 (akka.tcp://flink@172.18.0.8:37507/user/rpc/taskmanager_0) at ResourceManager
+2026-10-08 05:04:34,283 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:37,166 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:37,175 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:40,164 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:40,172 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:43,168 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:43,174 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:46,168 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:46,175 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:49,171 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:49,177 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:52,172 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:52,178 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:55,162 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:55,171 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:58,168 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:04:58,175 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:01,170 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:01,179 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:02,815 INFO  org.apache.flink.runtime.dispatcher.StandaloneDispatcher     [] - Received JobGraph submission 'Achieve_roleAll' (78319e421e7d0f398bf2dffbf9ec6852).
+2026-10-08 05:05:02,816 INFO  org.apache.flink.runtime.dispatcher.StandaloneDispatcher     [] - Submitting job 'Achieve_roleAll' (78319e421e7d0f398bf2dffbf9ec6852).
+2026-10-08 05:05:02,835 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcService             [] - Starting RPC endpoint for org.apache.flink.runtime.jobmaster.JobMaster at akka://flink/user/rpc/jobmanager_2 .
+2026-10-08 05:05:02,843 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Initializing job 'Achieve_roleAll' (78319e421e7d0f398bf2dffbf9ec6852).
+2026-10-08 05:05:02,869 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using restart back off time strategy FixedDelayRestartBackoffTimeStrategy(maxNumberRestartAttempts=3, backoffTimeMS=30000) for Achieve_roleAll (78319e421e7d0f398bf2dffbf9ec6852).
+2026-10-08 05:05:02,901 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Created execution graph 81969867992504d8e2de720b8940f987 for job 78319e421e7d0f398bf2dffbf9ec6852.
+2026-10-08 05:05:02,913 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Running initialization on master for job Achieve_roleAll (78319e421e7d0f398bf2dffbf9ec6852).
+2026-10-08 05:05:02,914 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Successfully ran initialization on master in 0 ms.
+2026-10-08 05:05:02,963 INFO  org.apache.flink.runtime.scheduler.adapter.DefaultExecutionTopology [] - Built 1 new pipelined regions in 0 ms, total 1 pipelined regions currently.
+2026-10-08 05:05:02,974 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using job/cluster config to configure application-defined state backend: EmbeddedRocksDBStateBackend{, localRocksDbDirectories=null, enableIncrementalCheckpointing=TRUE, numberOfTransferThreads=-1, writeBatchSize=-1}
+2026-10-08 05:05:02,977 INFO  org.apache.flink.contrib.streaming.state.EmbeddedRocksDBStateBackend [] - Using predefined options: DEFAULT.
+2026-10-08 05:05:02,977 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using application-defined state backend: EmbeddedRocksDBStateBackend{, localRocksDbDirectories=[/opt/flink/rocksdb], enableIncrementalCheckpointing=TRUE, numberOfTransferThreads=4, writeBatchSize=2097152}
+2026-10-08 05:05:02,977 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - State backend loader loads the state backend as EmbeddedRocksDBStateBackend
+2026-10-08 05:05:02,979 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using job/cluster config to configure application-defined checkpoint storage: org.apache.flink.runtime.state.storage.FileSystemCheckpointStorage@81c85285
+2026-10-08 05:05:03,005 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No checkpoint found during restore.
+2026-10-08 05:05:03,006 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Starting job 78319e421e7d0f398bf2dffbf9ec6852 from savepoint file:///opt/flink/savepoints/savepoint-29b706-b070e19bc66a ()
+2026-10-08 05:05:03,577 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Reset the checkpoint ID of job 78319e421e7d0f398bf2dffbf9ec6852 to 31.
+2026-10-08 05:05:03,577 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job 78319e421e7d0f398bf2dffbf9ec6852 from Savepoint 30 @ 0 for 78319e421e7d0f398bf2dffbf9ec6852 located at file:/opt/flink/savepoints/savepoint-29b706-b070e19bc66a.
+2026-10-08 05:05:03,588 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2026-10-08 05:05:03,589 INFO  org.apache.flink.runtime.operators.coordination.RecreateOnResetOperatorCoordinator [] - Resetting coordinator to checkpoint.
+2026-10-08 05:05:03,590 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Closing SourceCoordinator for source Source: Article_Source.
+2026-10-08 05:05:03,591 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source coordinator for source Source: Article_Source closed.
+2026-10-08 05:05:03,592 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Restoring SplitEnumerator of source Source: Article_Source from checkpoint.
+2026-10-08 05:05:03,594 INFO  org.apache.flink.runtime.operators.coordination.RecreateOnResetOperatorCoordinator [] - Resetting coordinator to checkpoint.
+2026-10-08 05:05:03,598 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Closing SourceCoordinator for source Source: Behavior_Source.
+2026-10-08 05:05:03,599 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using failover strategy org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy@5d15dfb for Achieve_roleAll (78319e421e7d0f398bf2dffbf9ec6852).
+2026-10-08 05:05:03,599 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source coordinator for source Source: Behavior_Source closed.
+2026-10-08 05:05:03,599 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Restoring SplitEnumerator of source Source: Behavior_Source from checkpoint.
+2026-10-08 05:05:03,607 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Starting execution of job 'Achieve_roleAll' (78319e421e7d0f398bf2dffbf9ec6852) under job master id 00000000000000000000000000000000.
+2026-10-08 05:05:03,610 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Starting split enumerator for source Source: Article_Source.
+2026-10-08 05:05:03,611 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Starting split enumerator for source Source: Behavior_Source.
+2026-10-08 05:05:03,611 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Starting scheduling with scheduling strategy [org.apache.flink.runtime.scheduler.strategy.PipelinedRegionSchedulingStrategy]
+2026-10-08 05:05:03,611 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job Achieve_roleAll (78319e421e7d0f398bf2dffbf9ec6852) switched from state CREATED to RUNNING.
+2026-10-08 05:05:03,616 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (1/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (2/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (3/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (1/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (2/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (3/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (1/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (2/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (3/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (1/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (2/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (3/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,617 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (1/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (2/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (3/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (1/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (2/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (3/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (1/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (2/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (3/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,618 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL IP alerts (1/1) (81969867992504d8e2de720b8940f987_793383076bbf3383631a5b2677de937b_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - TumblingEventTimeWindows -> throughput: role_b_result -> Sink: MySQL category ranks (1/1) (81969867992504d8e2de720b8940f987_d054944ec88d90781166e8c237f02a72_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (1/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (2/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (3/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (1/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (2/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (3/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Redis latest category ranking (1/1) (81969867992504d8e2de720b8940f987_a3e6789924da2c554ef7bcd2bda10ef2_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_0_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_1_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,619 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_2_0) switched from CREATED to SCHEDULED.
+2026-10-08 05:05:03,624 INFO  org.apache.kafka.clients.admin.AdminClientConfig             [] - AdminClientConfig values: 
+	bootstrap.servers = [kafka:29092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotnews-role-all-salted-article-enumerator-admin-client
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-10-08 05:05:03,624 INFO  org.apache.kafka.clients.admin.AdminClientConfig             [] - AdminClientConfig values: 
+	bootstrap.servers = [kafka:29092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotnews-role-all-salted-behavior-enumerator-admin-client
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-10-08 05:05:03,635 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Connecting to ResourceManager akka.tcp://flink@jobmanager:6123/user/rpc/resourcemanager_*(00000000000000000000000000000000)
+2026-10-08 05:05:03,638 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Resolved ResourceManager address, beginning registration
+2026-10-08 05:05:03,639 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Registering job manager 00000000000000000000000000000000@akka.tcp://flink@jobmanager:6123/user/rpc/jobmanager_2 for job 78319e421e7d0f398bf2dffbf9ec6852.
+2026-10-08 05:05:03,644 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Registered job manager 00000000000000000000000000000000@akka.tcp://flink@jobmanager:6123/user/rpc/jobmanager_2 for job 78319e421e7d0f398bf2dffbf9ec6852.
+2026-10-08 05:05:03,647 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - JobManager successfully registered at ResourceManager, leader id: 00000000000000000000000000000000.
+2026-10-08 05:05:03,649 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job 78319e421e7d0f398bf2dffbf9ec6852: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=3}]
+2026-10-08 05:05:03,667 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'key.deserializer' was supplied but isn't a known config.
+2026-10-08 05:05:03,667 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'value.deserializer' was supplied but isn't a known config.
+2026-10-08 05:05:03,667 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'commit.offsets.on.checkpoint' was supplied but isn't a known config.
+2026-10-08 05:05:03,667 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'enable.auto.commit' was supplied but isn't a known config.
+2026-10-08 05:05:03,667 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'client.id.prefix' was supplied but isn't a known config.
+2026-10-08 05:05:03,668 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'group.id' was supplied but isn't a known config.
+2026-10-08 05:05:03,668 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'partition.discovery.interval.ms' was supplied but isn't a known config.
+2026-10-08 05:05:03,668 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'auto.offset.reset' was supplied but isn't a known config.
+2026-10-08 05:05:03,669 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka version: 3.2.3
+2026-10-08 05:05:03,669 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka commitId: 50029d3ed8ba576f
+2026-10-08 05:05:03,669 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka startTimeMs: 1791435903668
+2026-10-08 05:05:03,667 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'key.deserializer' was supplied but isn't a known config.
+2026-10-08 05:05:03,669 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'value.deserializer' was supplied but isn't a known config.
+2026-10-08 05:05:03,669 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'commit.offsets.on.checkpoint' was supplied but isn't a known config.
+2026-10-08 05:05:03,670 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'enable.auto.commit' was supplied but isn't a known config.
+2026-10-08 05:05:03,670 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'client.id.prefix' was supplied but isn't a known config.
+2026-10-08 05:05:03,670 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'group.id' was supplied but isn't a known config.
+2026-10-08 05:05:03,670 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'partition.discovery.interval.ms' was supplied but isn't a known config.
+2026-10-08 05:05:03,670 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'auto.offset.reset' was supplied but isn't a known config.
+2026-10-08 05:05:03,670 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka version: 3.2.3
+2026-10-08 05:05:03,671 INFO  org.apache.flink.connector.kafka.source.enumerator.KafkaSourceEnumerator [] - Starting the KafkaSourceEnumerator for consumer group hotnews-role-all-salted-behavior without periodic partition discovery.
+2026-10-08 05:05:03,671 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka commitId: 50029d3ed8ba576f
+2026-10-08 05:05:03,671 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka startTimeMs: 1791435903670
+2026-10-08 05:05:03,671 INFO  org.apache.flink.connector.kafka.source.enumerator.KafkaSourceEnumerator [] - Starting the KafkaSourceEnumerator for consumer group hotnews-role-all-salted-article without periodic partition discovery.
+2026-10-08 05:05:03,804 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (1/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,807 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_0_0 and vertex id cbc357ccb763df2852fee8c4fc7d55f2_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,814 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (2/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,814 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_1_0 and vertex id cbc357ccb763df2852fee8c4fc7d55f2_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,819 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (3/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,819 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_2_0 and vertex id cbc357ccb763df2852fee8c4fc7d55f2_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,820 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (1/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,820 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Behavior_Source -> throughput: source_behavior_records -> Process (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_0_0 and vertex id 6cdc5bb954874d922eaee11a8e7b5dd5_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,821 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (2/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,824 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Behavior_Source -> throughput: source_behavior_records -> Process (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_1_0 and vertex id 6cdc5bb954874d922eaee11a8e7b5dd5_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,824 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (3/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,824 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Behavior_Source -> throughput: source_behavior_records -> Process (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_2_0 and vertex id 6cdc5bb954874d922eaee11a8e7b5dd5_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,824 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (1/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,824 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: MySQL dirty_data (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_0_0 and vertex id 10b0aacb12137e1e4ca962d94fbd9bde_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,862 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (2/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,862 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: MySQL dirty_data (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_1_0 and vertex id 10b0aacb12137e1e4ca962d94fbd9bde_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,865 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (3/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,865 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: MySQL dirty_data (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_2_0 and vertex id 10b0aacb12137e1e4ca962d94fbd9bde_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,866 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (1/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,866 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> Timestamps/Watermarks -> Map (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_0_0 and vertex id 14a16ad34c004a4850ec0cbc5415effe_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,875 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (2/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,875 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> Timestamps/Watermarks -> Map (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_1_0 and vertex id 14a16ad34c004a4850ec0cbc5415effe_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,876 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (3/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,878 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> Timestamps/Watermarks -> Map (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_2_0 and vertex id 14a16ad34c004a4850ec0cbc5415effe_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,879 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (1/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,879 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_0_0 and vertex id 478166aec60be18b2c3a147dfb254e56_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,890 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (2/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,890 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_1_0 and vertex id 478166aec60be18b2c3a147dfb254e56_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,890 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (3/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,890 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_2_0 and vertex id 478166aec60be18b2c3a147dfb254e56_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,890 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (1/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,890 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Restore_Behavior_Event_Time (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_0_0 and vertex id ff3f75383ba36c9de1605a88b0ea0954_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,897 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (2/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,897 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Restore_Behavior_Event_Time (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_1_0 and vertex id ff3f75383ba36c9de1605a88b0ea0954_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,898 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (3/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,899 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Restore_Behavior_Event_Time (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_2_0 and vertex id ff3f75383ba36c9de1605a88b0ea0954_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,900 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (1/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,902 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_0_0 and vertex id 6e1c65b3f24f3dba071cafe1e1ed0bf1_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,903 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (2/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,903 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_1_0 and vertex id 6e1c65b3f24f3dba071cafe1e1ed0bf1_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,904 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (3/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,922 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_2_0 and vertex id 6e1c65b3f24f3dba071cafe1e1ed0bf1_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,922 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,923 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_0_0 and vertex id d85a9bf47dc42b9c683400ea2af9d8e5_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,923 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,924 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_1_0 and vertex id d85a9bf47dc42b9c683400ea2af9d8e5_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,924 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,925 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_2_0 and vertex id d85a9bf47dc42b9c683400ea2af9d8e5_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,926 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,927 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_0_0 and vertex id eaf14f381700687020988d362e644c13_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,928 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,930 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_1_0 and vertex id eaf14f381700687020988d362e644c13_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,935 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,936 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_2_0 and vertex id eaf14f381700687020988d362e644c13_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,936 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL IP alerts (1/1) (81969867992504d8e2de720b8940f987_793383076bbf3383631a5b2677de937b_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,937 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: MySQL IP alerts (1/1) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_793383076bbf3383631a5b2677de937b_0_0 and vertex id 793383076bbf3383631a5b2677de937b_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,937 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - TumblingEventTimeWindows -> throughput: role_b_result -> Sink: MySQL category ranks (1/1) (81969867992504d8e2de720b8940f987_d054944ec88d90781166e8c237f02a72_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,937 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying TumblingEventTimeWindows -> throughput: role_b_result -> Sink: MySQL category ranks (1/1) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_d054944ec88d90781166e8c237f02a72_0_0 and vertex id d054944ec88d90781166e8c237f02a72_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,938 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (1/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,938 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Map -> Sink: MySQL role B audit events (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_0_0 and vertex id 46a029f11a612cb1a984ea7e9f09bc8f_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,939 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (2/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,940 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Map -> Sink: MySQL role B audit events (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_1_0 and vertex id 46a029f11a612cb1a984ea7e9f09bc8f_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,942 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (3/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,943 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Map -> Sink: MySQL role B audit events (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_2_0 and vertex id 46a029f11a612cb1a984ea7e9f09bc8f_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,943 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (1/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,943 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Filter -> Map -> throughput: role_b_redis_snapshots (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_0_0 and vertex id 06990c4d9273ce846882a0f118aef3b9_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,947 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (2/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,948 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Filter -> Map -> throughput: role_b_redis_snapshots (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_1_0 and vertex id 06990c4d9273ce846882a0f118aef3b9_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,950 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (3/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,951 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Filter -> Map -> throughput: role_b_redis_snapshots (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_2_0 and vertex id 06990c4d9273ce846882a0f118aef3b9_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,953 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Redis latest category ranking (1/1) (81969867992504d8e2de720b8940f987_a3e6789924da2c554ef7bcd2bda10ef2_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,953 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: Redis latest category ranking (1/1) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_a3e6789924da2c554ef7bcd2bda10ef2_0_0 and vertex id a3e6789924da2c554ef7bcd2bda10ef2_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,955 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,955 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: Print to Std. Out (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_0_0 and vertex id d86a34cfb53f8f110b27cc1d2e8abc7d_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,956 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,957 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: Print to Std. Out (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_1_0 and vertex id d86a34cfb53f8f110b27cc1d2e8abc7d_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,957 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,958 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: Print to Std. Out (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_2_0 and vertex id d86a34cfb53f8f110b27cc1d2e8abc7d_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:03,958 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_0_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,959 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: Print to Std. Out (1/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_0_0 and vertex id 363f880eca418ec3be81cac66165c910_0 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id 37d0fb7f829c80d4630d6ad0db4ff1f7
+2026-10-08 05:05:03,960 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_1_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,961 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: Print to Std. Out (2/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_1_0 and vertex id 363f880eca418ec3be81cac66165c910_1 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id b7d2a3c0c10bf686fb77d0e6595a9f67
+2026-10-08 05:05:03,961 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_2_0) switched from SCHEDULED to DEPLOYING.
+2026-10-08 05:05:03,962 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Sink: Print to Std. Out (3/3) (attempt #0) with attempt id 81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_2_0 and vertex id 363f880eca418ec3be81cac66165c910_2 to 172.18.0.8:37507-02ec21 @ deploy-taskmanager-1.deploy_default (dataPort=40363) with allocation id f484f001ecde3c22dec130ac09f11dbc
+2026-10-08 05:05:04,173 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:04,187 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:04,587 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,589 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (2/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,595 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,595 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,596 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,596 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (2/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,597 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (3/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,600 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (3/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,602 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (3/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,603 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,606 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (2/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,607 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Redis latest category ranking (1/1) (81969867992504d8e2de720b8940f987_a3e6789924da2c554ef7bcd2bda10ef2_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,609 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,612 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (1/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,612 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (1/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,614 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (2/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,615 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (3/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,616 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,621 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,624 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL IP alerts (1/1) (81969867992504d8e2de720b8940f987_793383076bbf3383631a5b2677de937b_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,626 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (1/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,627 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (1/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,628 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,628 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,628 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (2/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,637 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (3/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,639 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (1/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,640 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,642 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,739 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (3/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,741 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (1/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,749 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (1/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,758 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> Timestamps/Watermarks -> Map (2/3) (81969867992504d8e2de720b8940f987_14a16ad34c004a4850ec0cbc5415effe_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,762 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (2/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,766 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> throughput: clean_behavior_records -> (Sink: MySQL clean behavior, Filter, Filter) (3/3) (81969867992504d8e2de720b8940f987_6e1c65b3f24f3dba071cafe1e1ed0bf1_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:04,960 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - TumblingEventTimeWindows -> throughput: role_b_result -> Sink: MySQL category ranks (1/1) (81969867992504d8e2de720b8940f987_d054944ec88d90781166e8c237f02a72_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:05,008 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (3/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:05,037 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (2/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:05,060 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (3/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_2_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:05,061 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (2/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_1_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:05,065 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (1/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:05,118 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (1/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from DEPLOYING to INITIALIZING.
+2026-10-08 05:05:05,308 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (3/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,309 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (1/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,311 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,323 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (1/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,324 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,328 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (3/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,346 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (3/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,347 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Filter -> Map -> throughput: role_b_redis_snapshots (2/3) (81969867992504d8e2de720b8940f987_06990c4d9273ce846882a0f118aef3b9_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,347 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Restore_Behavior_Event_Time (2/3) (81969867992504d8e2de720b8940f987_ff3f75383ba36c9de1605a88b0ea0954_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,347 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (2/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,352 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_363f880eca418ec3be81cac66165c910_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,359 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Print to Std. Out (1/3) (81969867992504d8e2de720b8940f987_d86a34cfb53f8f110b27cc1d2e8abc7d_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:05,374 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: Redis latest category ranking (1/1) (81969867992504d8e2de720b8940f987_a3e6789924da2c554ef7bcd2bda10ef2_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,019 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Article_Source registering reader for parallel task 1 (#0) @ 172.18.0.8
+2026-10-08 05:05:06,021 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Article_Source registering reader for parallel task 0 (#0) @ 172.18.0.8
+2026-10-08 05:05:06,025 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Behavior_Source registering reader for parallel task 0 (#0) @ 172.18.0.8
+2026-10-08 05:05:06,043 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (1/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,045 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Article_Source registering reader for parallel task 2 (#0) @ 172.18.0.8
+2026-10-08 05:05:06,049 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Behavior_Source registering reader for parallel task 2 (#0) @ 172.18.0.8
+2026-10-08 05:05:06,067 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Behavior_Source registering reader for parallel task 1 (#0) @ 172.18.0.8
+2026-10-08 05:05:06,084 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (2/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,084 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Article_Source -> throughput: source_article_records -> Process -> Timestamps/Watermarks -> Flat Map (3/3) (81969867992504d8e2de720b8940f987_cbc357ccb763df2852fee8c4fc7d55f2_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,085 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (3/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,092 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (2/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,093 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Behavior_Source -> throughput: source_behavior_records -> Process (1/3) (81969867992504d8e2de720b8940f987_6cdc5bb954874d922eaee11a8e7b5dd5_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,749 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (2/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,767 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (3/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,768 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (3/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,782 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (1/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,792 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: MySQL role B audit events (2/3) (81969867992504d8e2de720b8940f987_46a029f11a612cb1a984ea7e9f09bc8f_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,794 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL IP alerts (1/1) (81969867992504d8e2de720b8940f987_793383076bbf3383631a5b2677de937b_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:06,803 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Sink: MySQL dirty_data (1/3) (81969867992504d8e2de720b8940f987_10b0aacb12137e1e4ca962d94fbd9bde_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:07,165 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:07,175 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:07,294 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - TumblingEventTimeWindows -> throughput: role_b_result -> Sink: MySQL category ranks (1/1) (81969867992504d8e2de720b8940f987_d054944ec88d90781166e8c237f02a72_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:10,174 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:10,182 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:12,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (1/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:12,481 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (3/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:12,588 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Co-Keyed-Process -> (Sink: MySQL late_data, Sink: MySQL unmatched_behavior, Sink: MySQL matched behavior) (2/3) (81969867992504d8e2de720b8940f987_478166aec60be18b2c3a147dfb254e56_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:13,161 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:13,168 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:16,166 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:16,172 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:19,173 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:19,179 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:22,162 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:22,170 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:25,170 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:25,177 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:28,160 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:28,167 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:30,052 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job 78319e421e7d0f398bf2dffbf9ec6852 since Checkpoint triggering task KeyedProcess -> Timestamps/Watermarks -> Map (1/3) of job 78319e421e7d0f398bf2dffbf9ec6852 is not being executed at the moment. Aborting checkpoint. Failure reason: Not all required tasks are currently running..
+2026-10-08 05:05:31,158 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:31,166 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:34,158 ERROR org.apache.flink.runtime.rest.handler.job.JobDetailsHandler  [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:34,165 ERROR org.apache.flink.runtime.rest.handler.job.JobExceptionsHandler [] - Exception occurred in REST handler: Job 29b706b9d0643dc1352dcc6cd2aee6bf not found
+2026-10-08 05:05:40,681 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:42,954 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:05:44,591 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - SlidingEventTimeWindows -> (Map -> Sink: MySQL role A audit events, throughput: role_a_result -> Sink: MySQL article alerts, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_d85a9bf47dc42b9c683400ea2af9d8e5_1_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:06:00,040 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job 78319e421e7d0f398bf2dffbf9ec6852 since Checkpoint triggering task KeyedProcess -> Timestamps/Watermarks -> Map (1/3) of job 78319e421e7d0f398bf2dffbf9ec6852 is not being executed at the moment. Aborting checkpoint. Failure reason: Not all required tasks are currently running..
+2026-10-08 05:06:02,213 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (3/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_2_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:06:02,867 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (1/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_0_0) switched from INITIALIZING to RUNNING.
+2026-10-08 05:06:03,459 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - KeyedProcess -> (Map -> Sink: MySQL role C audit events, throughput: role_c_result, Sink: Print to Std. Out, Sink: Print to Std. Out) (2/3) (81969867992504d8e2de720b8940f987_eaf14f381700687020988d362e644c13_1_0) switched from INITIALIZING to RUNNING.
+

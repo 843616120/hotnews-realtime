@@ -1,0 +1,1811 @@
+[
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-rebalance-total"
+  },
+  {
+    "id": "0.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "1.Process.numBytesOut"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInLocal"
+  },
+  {
+    "id": "0.accumulateBusyTimeMs"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-rate"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputQueueSize"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputQueueLength"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-close-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.reauthentication-latency-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.bytes-consumed-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-size-max"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-assigned-latency-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-rebalance-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.select-rate"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.currentOutputWatermark"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numBytesOut"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-poll-seconds-ago"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInLocal"
+  },
+  {
+    "id": "2.numBytesIn"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsInErrors"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Output.Buffers.outputQueueSize"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.time-between-poll-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-waittime-total"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInLocal"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-sync-time-ns-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-close-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.bytes-consumed-total"
+  },
+  {
+    "id": "2.busyTimeMsPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-rebalance-rate-per-hour"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-size-avg"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputQueueLength"
+  },
+  {
+    "id": "2.Shuffle.Netty.Output.Buffers.outputQueueSize"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.commitsFailed"
+  },
+  {
+    "id": "0.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.numBytesInRemote"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outputQueueSize"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-close-rate"
+  },
+  {
+    "id": "2.mailboxQueueSize"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numBytesInPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-response-time-max"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "2.Process.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.maxHardBackPressureTimeMs"
+  },
+  {
+    "id": "2.Process.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.response-total"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-heartbeat-seconds-ago"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numRecordsIn"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-revoked-latency-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-reauthentication-total"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputQueueLength"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.3.currentOffset"
+  },
+  {
+    "id": "0.numBuffersOut"
+  },
+  {
+    "id": "1.Process.numRecordsOut"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.sourceIdleTime"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.iotime-total"
+  },
+  {
+    "id": "2.accumulateBusyTimeMs"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lead-min"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.assigned-partitions"
+  },
+  {
+    "id": "1.buffers.outputQueueLength"
+  },
+  {
+    "id": "1.accumulateBusyTimeMs"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.version"
+  },
+  {
+    "id": "1.Process.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.0.committedOffset"
+  },
+  {
+    "id": "1.Process.numBytesInPerSecond"
+  },
+  {
+    "id": "1.numBuffersOut"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Output.Buffers.outPoolUsage"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.reauthentication-latency-avg"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-revoked-latency-max"
+  },
+  {
+    "id": "1.maxHardBackPressureTimeMs"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-ratio"
+  },
+  {
+    "id": "1.numBytesInLocal"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inPoolUsage"
+  },
+  {
+    "id": "0.Process.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.Shuffle.Netty.Output.Buffers.outputQueueLength"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p999"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-latency-avg"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-rate"
+  },
+  {
+    "id": "1.numBytesInPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-assigned-latency-max"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.3.committedOffset"
+  },
+  {
+    "id": "2.numBuffersOut"
+  },
+  {
+    "id": "2.numBytesInPerSecond"
+  },
+  {
+    "id": "1.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.incoming-byte-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.iotime-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-latency-avg"
+  },
+  {
+    "id": "2.buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-creation-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.count"
+  },
+  {
+    "id": "0.Process.numBytesInPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-time-ns-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsIn"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-authentication-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-total"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outputQueueLength"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numBytesInPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-total"
+  },
+  {
+    "id": "2.mailboxLatencyMs_mean"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-time-ns-avg"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numBytesInPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-size-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.reauthentication-latency-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-per-request-avg"
+  },
+  {
+    "id": "2.numBytesOutPerSecond"
+  },
+  {
+    "id": "1.numBytesOut"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInLocal"
+  },
+  {
+    "id": "2.buffers.inputQueueLength"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numRecordsIn"
+  },
+  {
+    "id": "2.mailboxLatencyMs_median"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-count"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numRecordsInPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-rate-per-hour"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-waittime-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.network-io-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-ratio"
+  },
+  {
+    "id": "0.isBackPressured"
+  },
+  {
+    "id": "1.buffers.inputQueueSize"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsIn"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.response-total"
+  },
+  {
+    "id": "2.numBuffersInRemote"
+  },
+  {
+    "id": "1.Shuffle.Netty.Output.Buffers.outputQueueLength"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-time-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.count"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-rebalance-rate-per-hour"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.outgoing-byte-total"
+  },
+  {
+    "id": "1.Process.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.numBuffersInRemote"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-rebalance-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-time-ns-avg"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.commitsSucceeded"
+  },
+  {
+    "id": "0.numBuffersOutPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.5.currentOffset"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-throttle-time-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-creation-rate"
+  },
+  {
+    "id": "1.Process.currentOutputWatermark"
+  },
+  {
+    "id": "0.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p75"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-lost-latency-max"
+  },
+  {
+    "id": "2.Process.numBytesInPerSecond"
+  },
+  {
+    "id": "1.numBuffersInLocal"
+  },
+  {
+    "id": "1.mailboxLatencyMs_median"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.poll-idle-ratio-avg"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.Process.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numBytesIn"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.commitsSucceeded"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-reauthentication-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-count"
+  },
+  {
+    "id": "1.Process.numBytesIn"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-time-avg"
+  },
+  {
+    "id": "1.mailboxLatencyMs_max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-time-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-poll-seconds-ago"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-reauthentication-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.outgoing-byte-total"
+  },
+  {
+    "id": "2.numBuffersOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inPoolUsage"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-waittime-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-latency-max"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.start-time-ms"
+  },
+  {
+    "id": "2.buffers.inputQueueSize"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.incoming-byte-total"
+  },
+  {
+    "id": "0.Process.numBytesOut"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsOut"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.commitsFailed"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.incoming-byte-total"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInLocal"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-rebalance-seconds-ago"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInRemote"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-size-avg"
+  },
+  {
+    "id": "1.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.start-time-ms"
+  },
+  {
+    "id": "2.accumulateBackPressuredTimeMs"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numBytesInPerSecond"
+  },
+  {
+    "id": "2.isBackPressured"
+  },
+  {
+    "id": "2.mailboxLatencyMs_max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-lost-latency-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.sourceIdleTime"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-total"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numRecordsOut"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second"
+  },
+  {
+    "id": "1.Source__Behavior_Source.currentEmitEventTimeLag"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-rebalance-rate-per-hour"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-authentication-total"
+  },
+  {
+    "id": "2.maxHardBackPressureTimeMs"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-throttle-time-avg"
+  },
+  {
+    "id": "2.Process.numBytesOut"
+  },
+  {
+    "id": "0.mailboxMailsPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outPoolUsage"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsOut"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-time-ns-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-no-reauth-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-count"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numBytesOut"
+  },
+  {
+    "id": "2.accumulateIdleTimeMs"
+  },
+  {
+    "id": "1.buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.currentOutputWatermark"
+  },
+  {
+    "id": "0.numBytesIn"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-rebalance-seconds-ago"
+  },
+  {
+    "id": "2.Process.numRecordsIn"
+  },
+  {
+    "id": "1.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-time-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.bytes-consumed-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.committed-time-ns-total"
+  },
+  {
+    "id": "1.buffers.inputQueueLength"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inPoolUsage"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.sourceIdleTime"
+  },
+  {
+    "id": "0.mailboxLatencyMs_mean"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.bytes-consumed-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-latency-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-reauthentication-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.version"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.select-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-latency-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-creation-total"
+  },
+  {
+    "id": "1.mailboxLatencyMs_mean"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.time-between-poll-max"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.currentOutputWatermark"
+  },
+  {
+    "id": "0.buffers.inPoolUsage"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.reauthentication-latency-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-close-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.currentOutputWatermark"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsOut"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p99"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p98"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.poll-idle-ratio-avg"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-ratio"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p90"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-latency-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-time-ns-avg"
+  },
+  {
+    "id": "2.Process.currentOutputWatermark"
+  },
+  {
+    "id": "1.buffers.outputQueueSize"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-time-ns-avg"
+  },
+  {
+    "id": "0.mailboxLatencyMs_stddev"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.network-io-rate"
+  },
+  {
+    "id": "1.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.numBytesOut"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-close-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.currentOutputWatermark"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.response-rate"
+  },
+  {
+    "id": "0.Process.currentOutputWatermark"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.network-io-rate"
+  },
+  {
+    "id": "0.numBuffersInLocal"
+  },
+  {
+    "id": "1.Process.currentInputWatermark"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-assigned-latency-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-reauthentication-total"
+  },
+  {
+    "id": "1.buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.accumulateBackPressuredTimeMs"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.4.committedOffset"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-assigned-latency-avg"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.assigned-partitions"
+  },
+  {
+    "id": "1.maxSoftBackPressureTimeMs"
+  },
+  {
+    "id": "1.isBackPressured"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-reauthentication-rate"
+  },
+  {
+    "id": "1.mailboxLatencyMs_stddev"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.reauthentication-latency-max"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numBytesIn"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-size-max"
+  },
+  {
+    "id": "0.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-lost-latency-avg"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-latency-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.1.committedOffset"
+  },
+  {
+    "id": "0.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numBytesIn"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-time-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.committed-time-ns-total"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "1.mailboxLatencyMs_min"
+  },
+  {
+    "id": "0.buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.version"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.2.currentOffset"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-latency-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.select-total"
+  },
+  {
+    "id": "2.Process.numBytesIn"
+  },
+  {
+    "id": "2.numRecordsOut"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-time-avg"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-size-avg"
+  },
+  {
+    "id": "1.mailboxQueueSize"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-avg"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numBytesIn"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-latency-avg"
+  },
+  {
+    "id": "2.mailboxLatencyMs_min"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-rate"
+  },
+  {
+    "id": "0.mailboxLatencyMs_median"
+  },
+  {
+    "id": "0.busyTimeMsPerSecond"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.currentInputWatermark"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.commitsSucceeded"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-time-ns-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.outgoing-byte-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.select-rate"
+  },
+  {
+    "id": "1.numBytesInRemote"
+  },
+  {
+    "id": "1.numBytesIn"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-time-ns-total"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.currentInputWatermark"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-rate-per-hour"
+  },
+  {
+    "id": "0.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-sync-time-ns-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInRemote"
+  },
+  {
+    "id": "0.buffers.outPoolUsage"
+  },
+  {
+    "id": "2.buffers.inPoolUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-reauthentication-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-throttle-time-max"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-throttle-time-avg"
+  },
+  {
+    "id": "2.Shuffle.Netty.Output.Buffers.outPoolUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lead-min"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-id"
+  },
+  {
+    "id": "0.buffers.outputQueueSize"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-size-max"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInLocal"
+  },
+  {
+    "id": "0.maxSoftBackPressureTimeMs"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.time-between-poll-max"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-no-reauth-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-ratio"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numBytesOut"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputQueueSize"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-size-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-authentication-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-revoked-latency-avg"
+  },
+  {
+    "id": "2.numBytesInLocal"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.network-io-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.incoming-byte-rate"
+  },
+  {
+    "id": "0.accumulateIdleTimeMs"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-total"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p999"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsIn"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numRecordsOut"
+  },
+  {
+    "id": "2.maxSoftBackPressureTimeMs"
+  },
+  {
+    "id": "1.accumulateBackPressuredTimeMs"
+  },
+  {
+    "id": "1.Process.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-time-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-rate"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-per-request-avg"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-revoked-latency-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-reauthentication-rate"
+  },
+  {
+    "id": "0.Process.numRecordsOut"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-rate"
+  },
+  {
+    "id": "2.buffers.outPoolUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-reauthentication-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-ratio"
+  },
+  {
+    "id": "0.buffers.inputQueueLength"
+  },
+  {
+    "id": "2.Process.currentInputWatermark"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.commitsFailed"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-close-rate"
+  },
+  {
+    "id": "1.mailboxMailsPerSecond"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.currentInputWatermark"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-reauthentication-rate"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-size-avg"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-response-time-max"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.numBytesInPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-lost-latency-max"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.select-rate"
+  },
+  {
+    "id": "2.Process.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-time-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.currentEmitEventTimeLag"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.time-between-poll-avg"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.currentOutputWatermark"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-time-ns-total"
+  },
+  {
+    "id": "0.Process.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.throughput.source_behavior_records.records"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-heartbeat-seconds-ago"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "0.numRecordsIn"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-authentication-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-total"
+  },
+  {
+    "id": "1.numBuffersInRemote"
+  },
+  {
+    "id": "0.mailboxLatencyMs_min"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numBytesIn"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.bytes-consumed-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-time-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.0.currentOffset"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.throughput.source_behavior_records.records"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-rate"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numBytesOut"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.reauthentication-latency-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.outgoing-byte-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-rate"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numBytesInPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-creation-total"
+  },
+  {
+    "id": "0.numRecordsOut"
+  },
+  {
+    "id": "2.numBuffersInLocal"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p75"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsInErrors"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.time-between-poll-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-revoked-latency-max"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "2.buffers.outputQueueSize"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInRemote"
+  },
+  {
+    "id": "0.Process.currentInputWatermark"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.throughput.source_behavior_records.records"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.start-time-ms"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-time-ns-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.network-io-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-per-request-avg"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-rate"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.incoming-byte-rate"
+  },
+  {
+    "id": "2.mailboxLatencyMs_stddev"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p75"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.count"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-latency-avg"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-reauthentication-rate"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "2.mailboxMailsPerSecond"
+  },
+  {
+    "id": "1.buffers.inPoolUsage"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-reauthentication-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-authentication-rate"
+  },
+  {
+    "id": "2.buffers.outputQueueLength"
+  },
+  {
+    "id": "2.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numBytesIn"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.bytes-consumed-total"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p90"
+  },
+  {
+    "id": "0.Process.numRecordsIn"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-creation-total"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numBytesOut"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.time-between-poll-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-size-max"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.iotime-total"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p98"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsIn"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p99"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-time-max"
+  },
+  {
+    "id": "2.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "1.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-poll-seconds-ago"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.poll-idle-ratio-avg"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputQueueSize"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsInErrors"
+  },
+  {
+    "id": "0.buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-latency-avg"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-assigned-latency-max"
+  },
+  {
+    "id": "1.Process.numRecordsIn"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-time-ns-total"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p90"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.response-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-rate"
+  },
+  {
+    "id": "1.numRecordsIn"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.heartbeat-response-time-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numBytesInPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-time-max"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p98"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p99"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInRemote"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.1.currentOffset"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-id"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.outgoing-byte-rate"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.successful-authentication-no-reauth-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-assigned-latency-avg"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-time-ns-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.2.committedOffset"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-latency-avg"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-id"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p999"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "2.Source__Behavior_Source.currentEmitEventTimeLag"
+  },
+  {
+    "id": "1.accumulateIdleTimeMs"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.response-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.request-size-max"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.select-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.join-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.io-wait-ratio"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInRemote"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.sync-time-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-sync-time-ns-total"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-lost-latency-max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numBytesOut"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.outgoing-byte-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.incoming-byte-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.assigned-partitions"
+  },
+  {
+    "id": "0.buffers.outputQueueLength"
+  },
+  {
+    "id": "0.Process.numBytesIn"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInRemote"
+  },
+  {
+    "id": "1.buffers.outPoolUsage"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-heartbeat-seconds-ago"
+  },
+  {
+    "id": "1.numRecordsOut"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.5.committedOffset"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.commit-rate"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-latency-total"
+  },
+  {
+    "id": "2.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.buffers.inputQueueSize"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.4.currentOffset"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.network-io-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.failed-authentication-total"
+  },
+  {
+    "id": "0.numBytesOut"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-rate"
+  },
+  {
+    "id": "0.numBytesInLocal"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.response-total"
+  },
+  {
+    "id": "2.Process.numRecordsOut"
+  },
+  {
+    "id": "1.numBuffersOutPerSecond"
+  },
+  {
+    "id": "2.buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-throttle-time-avg"
+  },
+  {
+    "id": "0.mailboxQueueSize"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.rebalance-rate-per-hour"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-rate"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-throttle-time-max"
+  },
+  {
+    "id": "0.mailboxLatencyMs_max"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lead-min"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-revoked-latency-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.committed-time-ns-total"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-size-max"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.fetch-total"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.last-rebalance-seconds-ago"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.connection-creation-rate"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsOut"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsInPerSecond"
+  },
+  {
+    "id": "2.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.partition-lost-latency-avg"
+  },
+  {
+    "id": "2.numRecordsIn"
+  },
+  {
+    "id": "2.numBytesInRemote"
+  }
+]

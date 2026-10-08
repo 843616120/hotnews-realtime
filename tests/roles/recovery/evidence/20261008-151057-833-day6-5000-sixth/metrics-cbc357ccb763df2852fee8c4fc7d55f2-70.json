@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "2.throughput__source_article_records.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.currentOutputWatermark",
+    "value": "1790470763557"
+  },
+  {
+    "id": "2.throughput__source_article_records.numRecordsIn",
+    "value": "172"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "1.throughput__source_article_records.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.throughput__source_article_records.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.throughput__source_article_records.numBytesOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Source__Article_Source.KafkaSourceReader.KafkaConsumer.records-lead-min",
+    "value": "NaN"
+  },
+  {
+    "id": "2.Source__Article_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+    "value": "NaN"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.throughput__source_article_records.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Source__Article_Source.KafkaSourceReader.topic.topic_article.partition.2.currentOffset",
+    "value": "167"
+  },
+  {
+    "id": "2.throughput__source_article_records.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "0.Source__Article_Source.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Flat_Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Source__Article_Source.KafkaSourceReader.topic.topic_article.partition.0.currentOffset",
+    "value": "171"
+  },
+  {
+    "id": "2.throughput__source_article_records.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.numRecordsOut",
+    "value": "1376"
+  },
+  {
+    "id": "0.Process.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Source__Article_Source.numRecordsInErrors",
+    "value": "0"
+  },
+  {
+    "id": "2.Flat_Map.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Process.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.throughput__source_article_records.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "1.Source__Article_Source.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Source__Article_Source.numRecordsOut",
+    "value": "320"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Source__Article_Source.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Source__Article_Source.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  }
+]

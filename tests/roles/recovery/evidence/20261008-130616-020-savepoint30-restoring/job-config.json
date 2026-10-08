@@ -1,0 +1,11 @@
+{
+  "jid": "78319e421e7d0f398bf2dffbf9ec6852",
+  "name": "Achieve_roleAll",
+  "execution-config": {
+    "execution-mode": "PIPELINED",
+    "restart-strategy": "Restart with fixed delay (30000 ms). #3 restart attempts.",
+    "job-parallelism": 3,
+    "object-reuse-mode": false,
+    "user-config": {}
+  }
+}

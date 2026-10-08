@@ -1,0 +1,3086 @@
+{
+  "inputs": {
+    "a": {
+      "manifest": {
+        "article_stream.jsonl": {
+          "path": "D:\\study\\study_flink\\hotnews-realtime\\generator\\generator\\data\\article_stream.jsonl",
+          "sha256": "ac5ce6944c1e2d4c045a7e0ba13bc2829c308eec5a49612c8abf918c9449c395",
+          "lines": 500
+        },
+        "behavior_stream.jsonl": {
+          "path": "D:\\study\\study_flink\\hotnews-realtime\\generator\\generator\\data\\behavior_stream.jsonl",
+          "sha256": "231eb4dddb9b2f5f30d9cc04f533ff0cd75506cabe822c768eb5d4b5010bb78c",
+          "lines": 50000
+        }
+      },
+      "counts": {
+        "article_raw": 500,
+        "article_clean": 500,
+        "behavior_raw": 50000,
+        "behavior_clean": 48515,
+        "joined": 48515
+      },
+      "eventRange": {
+        "min_ms": 1790467208860,
+        "max_ms": 1790474339339
+      },
+      "actions": [
+        {
+          "action": "click",
+          "n": 39809
+        },
+        {
+          "action": "comment",
+          "n": 3796
+        },
+        {
+          "action": "share",
+          "n": 4910
+        }
+      ]
+    },
+    "b": {
+      "manifest": {
+        "article_stream.jsonl": {
+          "path": "D:\\study\\study_flink\\hotnews-realtime\\generator\\generator\\role2_data\\article_stream.jsonl",
+          "sha256": "ac5ce6944c1e2d4c045a7e0ba13bc2829c308eec5a49612c8abf918c9449c395",
+          "lines": 500
+        },
+        "behavior_stream.jsonl": {
+          "path": "D:\\study\\study_flink\\hotnews-realtime\\generator\\generator\\role2_data\\behavior_stream.jsonl",
+          "sha256": "41078d5dfe27b4f425fdf86823d4d7013f9cf02bcb50e11b558db7c5eb6937fa",
+          "lines": 20000
+        }
+      },
+      "counts": {
+        "article_raw": 500,
+        "article_clean": 500,
+        "behavior_raw": 20000,
+        "behavior_clean": 19412,
+        "joined": 19412
+      },
+      "eventRange": {
+        "min_ms": 1790467208890,
+        "max_ms": 1790474378333
+      },
+      "actions": [
+        {
+          "action": "click",
+          "n": 15964
+        },
+        {
+          "action": "comment",
+          "n": 1497
+        },
+        {
+          "action": "share",
+          "n": 1951
+        }
+      ]
+    }
+  },
+  "a": [
+    {
+      "window_start_ms": 1790467140000,
+      "window_end_ms": 1790467440000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1036
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1253
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1319
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1380
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1362
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1379
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1362
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1417
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1347
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1443
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1380
+    },
+    {
+      "window_start_ms": 1790467500000,
+      "window_end_ms": 1790467800000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1439
+    },
+    {
+      "window_start_ms": 1790467500000,
+      "window_end_ms": 1790467800000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1368
+    },
+    {
+      "window_start_ms": 1790467560000,
+      "window_end_ms": 1790467860000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1416
+    },
+    {
+      "window_start_ms": 1790467560000,
+      "window_end_ms": 1790467860000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1373
+    },
+    {
+      "window_start_ms": 1790467620000,
+      "window_end_ms": 1790467920000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1441
+    },
+    {
+      "window_start_ms": 1790467620000,
+      "window_end_ms": 1790467920000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1373
+    },
+    {
+      "window_start_ms": 1790467680000,
+      "window_end_ms": 1790467980000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1438
+    },
+    {
+      "window_start_ms": 1790467680000,
+      "window_end_ms": 1790467980000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1392
+    },
+    {
+      "window_start_ms": 1790467740000,
+      "window_end_ms": 1790468040000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1419
+    },
+    {
+      "window_start_ms": 1790467740000,
+      "window_end_ms": 1790468040000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1393
+    },
+    {
+      "window_start_ms": 1790467800000,
+      "window_end_ms": 1790468100000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1420
+    },
+    {
+      "window_start_ms": 1790467800000,
+      "window_end_ms": 1790468100000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1423
+    },
+    {
+      "window_start_ms": 1790467860000,
+      "window_end_ms": 1790468160000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1410
+    },
+    {
+      "window_start_ms": 1790467860000,
+      "window_end_ms": 1790468160000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1403
+    },
+    {
+      "window_start_ms": 1790467920000,
+      "window_end_ms": 1790468220000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1380
+    },
+    {
+      "window_start_ms": 1790467920000,
+      "window_end_ms": 1790468220000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1434
+    },
+    {
+      "window_start_ms": 1790467980000,
+      "window_end_ms": 1790468280000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1377
+    },
+    {
+      "window_start_ms": 1790467980000,
+      "window_end_ms": 1790468280000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1471
+    },
+    {
+      "window_start_ms": 1790468040000,
+      "window_end_ms": 1790468340000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1393
+    },
+    {
+      "window_start_ms": 1790468040000,
+      "window_end_ms": 1790468340000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1470
+    },
+    {
+      "window_start_ms": 1790468100000,
+      "window_end_ms": 1790468400000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1375
+    },
+    {
+      "window_start_ms": 1790468100000,
+      "window_end_ms": 1790468400000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1478
+    },
+    {
+      "window_start_ms": 1790468160000,
+      "window_end_ms": 1790468460000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1404
+    },
+    {
+      "window_start_ms": 1790468160000,
+      "window_end_ms": 1790468460000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1472
+    },
+    {
+      "window_start_ms": 1790468220000,
+      "window_end_ms": 1790468520000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1382
+    },
+    {
+      "window_start_ms": 1790468220000,
+      "window_end_ms": 1790468520000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1463
+    },
+    {
+      "window_start_ms": 1790468280000,
+      "window_end_ms": 1790468580000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1380
+    },
+    {
+      "window_start_ms": 1790468280000,
+      "window_end_ms": 1790468580000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1460
+    },
+    {
+      "window_start_ms": 1790468340000,
+      "window_end_ms": 1790468640000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1375
+    },
+    {
+      "window_start_ms": 1790468340000,
+      "window_end_ms": 1790468640000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1473
+    },
+    {
+      "window_start_ms": 1790468400000,
+      "window_end_ms": 1790468700000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1389
+    },
+    {
+      "window_start_ms": 1790468400000,
+      "window_end_ms": 1790468700000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1435
+    },
+    {
+      "window_start_ms": 1790468460000,
+      "window_end_ms": 1790468760000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1376
+    },
+    {
+      "window_start_ms": 1790468460000,
+      "window_end_ms": 1790468760000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1480
+    },
+    {
+      "window_start_ms": 1790468520000,
+      "window_end_ms": 1790468820000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1405
+    },
+    {
+      "window_start_ms": 1790468520000,
+      "window_end_ms": 1790468820000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1436
+    },
+    {
+      "window_start_ms": 1790468580000,
+      "window_end_ms": 1790468880000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1439
+    },
+    {
+      "window_start_ms": 1790468580000,
+      "window_end_ms": 1790468880000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1401
+    },
+    {
+      "window_start_ms": 1790468640000,
+      "window_end_ms": 1790468940000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1443
+    },
+    {
+      "window_start_ms": 1790468640000,
+      "window_end_ms": 1790468940000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1422
+    },
+    {
+      "window_start_ms": 1790468700000,
+      "window_end_ms": 1790469000000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1455
+    },
+    {
+      "window_start_ms": 1790468700000,
+      "window_end_ms": 1790469000000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1427
+    },
+    {
+      "window_start_ms": 1790468760000,
+      "window_end_ms": 1790469060000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1479
+    },
+    {
+      "window_start_ms": 1790468760000,
+      "window_end_ms": 1790469060000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1375
+    },
+    {
+      "window_start_ms": 1790468820000,
+      "window_end_ms": 1790469120000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1494
+    },
+    {
+      "window_start_ms": 1790468820000,
+      "window_end_ms": 1790469120000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1395
+    },
+    {
+      "window_start_ms": 1790468880000,
+      "window_end_ms": 1790469180000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1475
+    },
+    {
+      "window_start_ms": 1790468880000,
+      "window_end_ms": 1790469180000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1394
+    },
+    {
+      "window_start_ms": 1790468940000,
+      "window_end_ms": 1790469240000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1451
+    },
+    {
+      "window_start_ms": 1790468940000,
+      "window_end_ms": 1790469240000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1375
+    },
+    {
+      "window_start_ms": 1790469000000,
+      "window_end_ms": 1790469300000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1416
+    },
+    {
+      "window_start_ms": 1790469000000,
+      "window_end_ms": 1790469300000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1358
+    },
+    {
+      "window_start_ms": 1790469060000,
+      "window_end_ms": 1790469360000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1370
+    },
+    {
+      "window_start_ms": 1790469060000,
+      "window_end_ms": 1790469360000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1400
+    },
+    {
+      "window_start_ms": 1790469120000,
+      "window_end_ms": 1790469420000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1340
+    },
+    {
+      "window_start_ms": 1790469120000,
+      "window_end_ms": 1790469420000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1403
+    },
+    {
+      "window_start_ms": 1790469180000,
+      "window_end_ms": 1790469480000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1320
+    },
+    {
+      "window_start_ms": 1790469180000,
+      "window_end_ms": 1790469480000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1403
+    },
+    {
+      "window_start_ms": 1790469240000,
+      "window_end_ms": 1790469540000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1355
+    },
+    {
+      "window_start_ms": 1790469240000,
+      "window_end_ms": 1790469540000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1431
+    },
+    {
+      "window_start_ms": 1790469300000,
+      "window_end_ms": 1790469600000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1384
+    },
+    {
+      "window_start_ms": 1790469300000,
+      "window_end_ms": 1790469600000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1458
+    },
+    {
+      "window_start_ms": 1790469360000,
+      "window_end_ms": 1790469660000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1434
+    },
+    {
+      "window_start_ms": 1790469360000,
+      "window_end_ms": 1790469660000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1441
+    },
+    {
+      "window_start_ms": 1790469420000,
+      "window_end_ms": 1790469720000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1418
+    },
+    {
+      "window_start_ms": 1790469420000,
+      "window_end_ms": 1790469720000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1466
+    },
+    {
+      "window_start_ms": 1790469480000,
+      "window_end_ms": 1790469780000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1452
+    },
+    {
+      "window_start_ms": 1790469480000,
+      "window_end_ms": 1790469780000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1464
+    },
+    {
+      "window_start_ms": 1790469540000,
+      "window_end_ms": 1790469840000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1414
+    },
+    {
+      "window_start_ms": 1790469540000,
+      "window_end_ms": 1790469840000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1424
+    },
+    {
+      "window_start_ms": 1790469600000,
+      "window_end_ms": 1790469900000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1411
+    },
+    {
+      "window_start_ms": 1790469600000,
+      "window_end_ms": 1790469900000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1418
+    },
+    {
+      "window_start_ms": 1790469660000,
+      "window_end_ms": 1790469960000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1412
+    },
+    {
+      "window_start_ms": 1790469660000,
+      "window_end_ms": 1790469960000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1415
+    },
+    {
+      "window_start_ms": 1790469720000,
+      "window_end_ms": 1790470020000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1430
+    },
+    {
+      "window_start_ms": 1790469720000,
+      "window_end_ms": 1790470020000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1409
+    },
+    {
+      "window_start_ms": 1790469780000,
+      "window_end_ms": 1790470080000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1400
+    },
+    {
+      "window_start_ms": 1790469780000,
+      "window_end_ms": 1790470080000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1406
+    },
+    {
+      "window_start_ms": 1790469840000,
+      "window_end_ms": 1790470140000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1442
+    },
+    {
+      "window_start_ms": 1790469840000,
+      "window_end_ms": 1790470140000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1430
+    },
+    {
+      "window_start_ms": 1790469900000,
+      "window_end_ms": 1790470200000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1434
+    },
+    {
+      "window_start_ms": 1790469900000,
+      "window_end_ms": 1790470200000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1415
+    },
+    {
+      "window_start_ms": 1790469960000,
+      "window_end_ms": 1790470260000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1399
+    },
+    {
+      "window_start_ms": 1790469960000,
+      "window_end_ms": 1790470260000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1408
+    },
+    {
+      "window_start_ms": 1790470020000,
+      "window_end_ms": 1790470320000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1419
+    },
+    {
+      "window_start_ms": 1790470020000,
+      "window_end_ms": 1790470320000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1382
+    },
+    {
+      "window_start_ms": 1790470080000,
+      "window_end_ms": 1790470380000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1454
+    },
+    {
+      "window_start_ms": 1790470080000,
+      "window_end_ms": 1790470380000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1375
+    },
+    {
+      "window_start_ms": 1790470140000,
+      "window_end_ms": 1790470440000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1446
+    },
+    {
+      "window_start_ms": 1790470140000,
+      "window_end_ms": 1790470440000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1376
+    },
+    {
+      "window_start_ms": 1790470200000,
+      "window_end_ms": 1790470500000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1451
+    },
+    {
+      "window_start_ms": 1790470200000,
+      "window_end_ms": 1790470500000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1382
+    },
+    {
+      "window_start_ms": 1790470260000,
+      "window_end_ms": 1790470560000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1466
+    },
+    {
+      "window_start_ms": 1790470260000,
+      "window_end_ms": 1790470560000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1394
+    },
+    {
+      "window_start_ms": 1790470320000,
+      "window_end_ms": 1790470620000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1424
+    },
+    {
+      "window_start_ms": 1790470320000,
+      "window_end_ms": 1790470620000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1424
+    },
+    {
+      "window_start_ms": 1790470380000,
+      "window_end_ms": 1790470680000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1378
+    },
+    {
+      "window_start_ms": 1790470380000,
+      "window_end_ms": 1790470680000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1441
+    },
+    {
+      "window_start_ms": 1790470440000,
+      "window_end_ms": 1790470740000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1371
+    },
+    {
+      "window_start_ms": 1790470440000,
+      "window_end_ms": 1790470740000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1414
+    },
+    {
+      "window_start_ms": 1790470500000,
+      "window_end_ms": 1790470800000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1369
+    },
+    {
+      "window_start_ms": 1790470500000,
+      "window_end_ms": 1790470800000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1424
+    },
+    {
+      "window_start_ms": 1790470560000,
+      "window_end_ms": 1790470860000,
+      "article_id": "article-000328",
+      "title": "从数据看world，这几个趋势值得持续关注",
+      "category": "world",
+      "click_count": 1191
+    },
+    {
+      "window_start_ms": 1790470560000,
+      "window_end_ms": 1790470860000,
+      "article_id": "article-000338",
+      "title": "science领域迎来新变化，专家解读背后的关键机会",
+      "category": "science",
+      "click_count": 1174
+    }
+  ],
+  "b": [
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467800000,
+      "rank": 1,
+      "category": "world",
+      "score": 1139,
+      "revision": 2298,
+      "top_articles": [
+        {
+          "article_id": "article-000328",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 1136
+        },
+        {
+          "article_id": "article-000446",
+          "title": "最新进展公布，world行业进入加速阶段",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467800000,
+      "rank": 2,
+      "category": "science",
+      "score": 1103,
+      "revision": 2298,
+      "top_articles": [
+        {
+          "article_id": "article-000338",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 1100
+        },
+        {
+          "article_id": "article-000070",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 1
+        },
+        {
+          "article_id": "article-000107",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 1
+        },
+        {
+          "article_id": "article-000486",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467800000,
+      "rank": 3,
+      "category": "sports",
+      "score": 20,
+      "revision": 2298,
+      "top_articles": [
+        {
+          "article_id": "article-000197",
+          "title": "权威报告发布：sports未来一年的重点方向",
+          "score": 3
+        },
+        {
+          "article_id": "article-000269",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 3
+        },
+        {
+          "article_id": "article-000404",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 3
+        },
+        {
+          "article_id": "article-000473",
+          "title": "权威报告发布：sports未来一年的重点方向",
+          "score": 3
+        },
+        {
+          "article_id": "article-000460",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467800000,
+      "rank": 4,
+      "category": "finance",
+      "score": 13,
+      "revision": 2298,
+      "top_articles": [
+        {
+          "article_id": "article-000049",
+          "title": "从数据看finance，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000465",
+          "title": "最新进展公布，finance行业进入加速阶段",
+          "score": 3
+        },
+        {
+          "article_id": "article-000445",
+          "title": "权威报告发布：finance未来一年的重点方向",
+          "score": 2
+        },
+        {
+          "article_id": "article-000078",
+          "title": "最新进展公布，finance行业进入加速阶段",
+          "score": 1
+        },
+        {
+          "article_id": "article-000089",
+          "title": "最新进展公布，finance行业进入加速阶段",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467800000,
+      "rank": 5,
+      "category": "entertainment",
+      "score": 11,
+      "revision": 2298,
+      "top_articles": [
+        {
+          "article_id": "article-000176",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 2
+        },
+        {
+          "article_id": "article-000230",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        },
+        {
+          "article_id": "article-000427",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        },
+        {
+          "article_id": "article-000023",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 1
+        },
+        {
+          "article_id": "article-000026",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467800000,
+      "window_end_ms": 1790468400000,
+      "rank": 1,
+      "category": "science",
+      "score": 1202,
+      "revision": 2545,
+      "top_articles": [
+        {
+          "article_id": "article-000338",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 1159
+        },
+        {
+          "article_id": "article-000298",
+          "title": "一线观察：science热点事件正在如何影响普通人",
+          "score": 7
+        },
+        {
+          "article_id": "article-000240",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000070",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 3
+        },
+        {
+          "article_id": "article-000185",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467800000,
+      "window_end_ms": 1790468400000,
+      "rank": 2,
+      "category": "world",
+      "score": 1178,
+      "revision": 2545,
+      "top_articles": [
+        {
+          "article_id": "article-000328",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 1150
+        },
+        {
+          "article_id": "article-000157",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 3
+        },
+        {
+          "article_id": "article-000323",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 3
+        },
+        {
+          "article_id": "article-000339",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 3
+        },
+        {
+          "article_id": "article-000399",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467800000,
+      "window_end_ms": 1790468400000,
+      "rank": 3,
+      "category": "entertainment",
+      "score": 53,
+      "revision": 2545,
+      "top_articles": [
+        {
+          "article_id": "article-000099",
+          "title": "最新进展公布，entertainment行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000192",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000230",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000299",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000481",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467800000,
+      "window_end_ms": 1790468400000,
+      "rank": 4,
+      "category": "sports",
+      "score": 40,
+      "revision": 2545,
+      "top_articles": [
+        {
+          "article_id": "article-000269",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000285",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000317",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000061",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 3
+        },
+        {
+          "article_id": "article-000429",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790467800000,
+      "window_end_ms": 1790468400000,
+      "rank": 5,
+      "category": "health",
+      "score": 29,
+      "revision": 2545,
+      "top_articles": [
+        {
+          "article_id": "article-000215",
+          "title": "权威报告发布：health未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000489",
+          "title": "health领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000260",
+          "title": "权威报告发布：health未来一年的重点方向",
+          "score": 3
+        },
+        {
+          "article_id": "article-000281",
+          "title": "权威报告发布：health未来一年的重点方向",
+          "score": 3
+        },
+        {
+          "article_id": "article-000315",
+          "title": "从数据看health，这几个趋势值得持续关注",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790468400000,
+      "window_end_ms": 1790469000000,
+      "rank": 1,
+      "category": "world",
+      "score": 1240,
+      "revision": 2649,
+      "top_articles": [
+        {
+          "article_id": "article-000328",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 1194
+        },
+        {
+          "article_id": "article-000157",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000098",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000223",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000291",
+          "title": "权威报告发布：world未来一年的重点方向",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790468400000,
+      "window_end_ms": 1790469000000,
+      "rank": 2,
+      "category": "science",
+      "score": 1161,
+      "revision": 2649,
+      "top_articles": [
+        {
+          "article_id": "article-000338",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 1101
+        },
+        {
+          "article_id": "article-000221",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000138",
+          "title": "权威报告发布：science未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000235",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000103",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790468400000,
+      "window_end_ms": 1790469000000,
+      "rank": 3,
+      "category": "entertainment",
+      "score": 62,
+      "revision": 2649,
+      "top_articles": [
+        {
+          "article_id": "article-000300",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000306",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000427",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000165",
+          "title": "最新进展公布，entertainment行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000248",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790468400000,
+      "window_end_ms": 1790469000000,
+      "rank": 4,
+      "category": "sports",
+      "score": 61,
+      "revision": 2649,
+      "top_articles": [
+        {
+          "article_id": "article-000118",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000303",
+          "title": "权威报告发布：sports未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000364",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000061",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 3
+        },
+        {
+          "article_id": "article-000159",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790468400000,
+      "window_end_ms": 1790469000000,
+      "rank": 5,
+      "category": "technology",
+      "score": 56,
+      "revision": 2649,
+      "top_articles": [
+        {
+          "article_id": "article-000146",
+          "title": "一线观察：technology热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000034",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000175",
+          "title": "technology领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000474",
+          "title": "technology领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000077",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469000000,
+      "window_end_ms": 1790469600000,
+      "rank": 1,
+      "category": "science",
+      "score": 1254,
+      "revision": 2877,
+      "top_articles": [
+        {
+          "article_id": "article-000338",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 1162
+        },
+        {
+          "article_id": "article-000122",
+          "title": "权威报告发布：science未来一年的重点方向",
+          "score": 6
+        },
+        {
+          "article_id": "article-000090",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000070",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000133",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469000000,
+      "window_end_ms": 1790469600000,
+      "rank": 2,
+      "category": "world",
+      "score": 1235,
+      "revision": 2877,
+      "top_articles": [
+        {
+          "article_id": "article-000328",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 1149
+        },
+        {
+          "article_id": "article-000323",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000022",
+          "title": "最新进展公布，world行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000056",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000157",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469000000,
+      "window_end_ms": 1790469600000,
+      "rank": 3,
+      "category": "entertainment",
+      "score": 96,
+      "revision": 2877,
+      "top_articles": [
+        {
+          "article_id": "article-000368",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000427",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000248",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000287",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000331",
+          "title": "最新进展公布，entertainment行业进入加速阶段",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469000000,
+      "window_end_ms": 1790469600000,
+      "rank": 4,
+      "category": "sports",
+      "score": 84,
+      "revision": 2877,
+      "top_articles": [
+        {
+          "article_id": "article-000374",
+          "title": "权威报告发布：sports未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000395",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000429",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000459",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000054",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469000000,
+      "window_end_ms": 1790469600000,
+      "rank": 5,
+      "category": "technology",
+      "score": 82,
+      "revision": 2877,
+      "top_articles": [
+        {
+          "article_id": "article-000128",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 8
+        },
+        {
+          "article_id": "article-000209",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000076",
+          "title": "一线观察：technology热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000146",
+          "title": "一线观察：technology热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000327",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469600000,
+      "window_end_ms": 1790470200000,
+      "rank": 1,
+      "category": "science",
+      "score": 1231,
+      "revision": 2932,
+      "top_articles": [
+        {
+          "article_id": "article-000338",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 1119
+        },
+        {
+          "article_id": "article-000202",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000103",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000109",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000329",
+          "title": "权威报告发布：science未来一年的重点方向",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469600000,
+      "window_end_ms": 1790470200000,
+      "rank": 2,
+      "category": "world",
+      "score": 1185,
+      "revision": 2932,
+      "top_articles": [
+        {
+          "article_id": "article-000328",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 1083
+        },
+        {
+          "article_id": "article-000022",
+          "title": "最新进展公布，world行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000031",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000151",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000180",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469600000,
+      "window_end_ms": 1790470200000,
+      "rank": 3,
+      "category": "sports",
+      "score": 124,
+      "revision": 2932,
+      "top_articles": [
+        {
+          "article_id": "article-000269",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000285",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000406",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000454",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000095",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469600000,
+      "window_end_ms": 1790470200000,
+      "rank": 4,
+      "category": "entertainment",
+      "score": 113,
+      "revision": 2932,
+      "top_articles": [
+        {
+          "article_id": "article-000372",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 6
+        },
+        {
+          "article_id": "article-000026",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000112",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000366",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000485",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790469600000,
+      "window_end_ms": 1790470200000,
+      "rank": 5,
+      "category": "finance",
+      "score": 105,
+      "revision": 2932,
+      "top_articles": [
+        {
+          "article_id": "article-000038",
+          "title": "finance领域迎来新变化，专家解读背后的关键机会",
+          "score": 7
+        },
+        {
+          "article_id": "article-000386",
+          "title": "最新进展公布，finance行业进入加速阶段",
+          "score": 6
+        },
+        {
+          "article_id": "article-000337",
+          "title": "finance领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000088",
+          "title": "从数据看finance，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000198",
+          "title": "一线观察：finance热点事件正在如何影响普通人",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470200000,
+      "window_end_ms": 1790470800000,
+      "rank": 1,
+      "category": "science",
+      "score": 1267,
+      "revision": 3103,
+      "top_articles": [
+        {
+          "article_id": "article-000338",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 1138
+        },
+        {
+          "article_id": "article-000161",
+          "title": "权威报告发布：science未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000016",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000244",
+          "title": "一线观察：science热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000304",
+          "title": "一线观察：science热点事件正在如何影响普通人",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470200000,
+      "window_end_ms": 1790470800000,
+      "rank": 2,
+      "category": "world",
+      "score": 1221,
+      "revision": 3103,
+      "top_articles": [
+        {
+          "article_id": "article-000328",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 1103
+        },
+        {
+          "article_id": "article-000144",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000371",
+          "title": "权威报告发布：world未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000022",
+          "title": "最新进展公布，world行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000024",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470200000,
+      "window_end_ms": 1790470800000,
+      "rank": 3,
+      "category": "sports",
+      "score": 141,
+      "revision": 3103,
+      "top_articles": [
+        {
+          "article_id": "article-000404",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 6
+        },
+        {
+          "article_id": "article-000118",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000493",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000127",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000163",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470200000,
+      "window_end_ms": 1790470800000,
+      "rank": 4,
+      "category": "entertainment",
+      "score": 136,
+      "revision": 3103,
+      "top_articles": [
+        {
+          "article_id": "article-000220",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 6
+        },
+        {
+          "article_id": "article-000248",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 6
+        },
+        {
+          "article_id": "article-000463",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 6
+        },
+        {
+          "article_id": "article-000360",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000483",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470200000,
+      "window_end_ms": 1790470800000,
+      "rank": 5,
+      "category": "technology",
+      "score": 130,
+      "revision": 3103,
+      "top_articles": [
+        {
+          "article_id": "article-000302",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 6
+        },
+        {
+          "article_id": "article-000405",
+          "title": "一线观察：technology热点事件正在如何影响普通人",
+          "score": 6
+        },
+        {
+          "article_id": "article-000062",
+          "title": "一线观察：technology热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000077",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000117",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470800000,
+      "window_end_ms": 1790471400000,
+      "rank": 1,
+      "category": "science",
+      "score": 170,
+      "revision": 945,
+      "top_articles": [
+        {
+          "article_id": "article-000338",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 11
+        },
+        {
+          "article_id": "article-000462",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 6
+        },
+        {
+          "article_id": "article-000351",
+          "title": "一线观察：science热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000082",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000122",
+          "title": "权威报告发布：science未来一年的重点方向",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470800000,
+      "window_end_ms": 1790471400000,
+      "rank": 2,
+      "category": "world",
+      "score": 155,
+      "revision": 945,
+      "top_articles": [
+        {
+          "article_id": "article-000328",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 34
+        },
+        {
+          "article_id": "article-000013",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 6
+        },
+        {
+          "article_id": "article-000342",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 6
+        },
+        {
+          "article_id": "article-000223",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000098",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470800000,
+      "window_end_ms": 1790471400000,
+      "rank": 3,
+      "category": "sports",
+      "score": 140,
+      "revision": 945,
+      "top_articles": [
+        {
+          "article_id": "article-000320",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 6
+        },
+        {
+          "article_id": "article-000066",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000231",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000429",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000042",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470800000,
+      "window_end_ms": 1790471400000,
+      "rank": 4,
+      "category": "technology",
+      "score": 131,
+      "revision": 945,
+      "top_articles": [
+        {
+          "article_id": "article-000034",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000146",
+          "title": "一线观察：technology热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000184",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000015",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000173",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790470800000,
+      "window_end_ms": 1790471400000,
+      "rank": 5,
+      "category": "entertainment",
+      "score": 129,
+      "revision": 945,
+      "top_articles": [
+        {
+          "article_id": "article-000390",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 7
+        },
+        {
+          "article_id": "article-000143",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000408",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000064",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000172",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790471400000,
+      "window_end_ms": 1790472000000,
+      "rank": 1,
+      "category": "entertainment",
+      "score": 131,
+      "revision": 733,
+      "top_articles": [
+        {
+          "article_id": "article-000458",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 7
+        },
+        {
+          "article_id": "article-000229",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 6
+        },
+        {
+          "article_id": "article-000359",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000037",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000044",
+          "title": "权威报告发布：entertainment未来一年的重点方向",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790471400000,
+      "window_end_ms": 1790472000000,
+      "rank": 2,
+      "category": "sports",
+      "score": 127,
+      "revision": 733,
+      "top_articles": [
+        {
+          "article_id": "article-000019",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 6
+        },
+        {
+          "article_id": "article-000492",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 6
+        },
+        {
+          "article_id": "article-000451",
+          "title": "权威报告发布：sports未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000179",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000181",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790471400000,
+      "window_end_ms": 1790472000000,
+      "rank": 3,
+      "category": "technology",
+      "score": 113,
+      "revision": 733,
+      "top_articles": [
+        {
+          "article_id": "article-000096",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000171",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000213",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000266",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000312",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790471400000,
+      "window_end_ms": 1790472000000,
+      "rank": 4,
+      "category": "science",
+      "score": 96,
+      "revision": 733,
+      "top_articles": [
+        {
+          "article_id": "article-000094",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000137",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000334",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000058",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 3
+        },
+        {
+          "article_id": "article-000090",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790471400000,
+      "window_end_ms": 1790472000000,
+      "rank": 5,
+      "category": "world",
+      "score": 96,
+      "revision": 733,
+      "top_articles": [
+        {
+          "article_id": "article-000014",
+          "title": "权威报告发布：world未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000017",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000377",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000113",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000410",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472000000,
+      "window_end_ms": 1790472600000,
+      "rank": 1,
+      "category": "science",
+      "score": 102,
+      "revision": 581,
+      "top_articles": [
+        {
+          "article_id": "article-000082",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 8
+        },
+        {
+          "article_id": "article-000430",
+          "title": "一线观察：science热点事件正在如何影响普通人",
+          "score": 6
+        },
+        {
+          "article_id": "article-000137",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000415",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000125",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472000000,
+      "window_end_ms": 1790472600000,
+      "rank": 2,
+      "category": "technology",
+      "score": 94,
+      "revision": 581,
+      "top_articles": [
+        {
+          "article_id": "article-000136",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 6
+        },
+        {
+          "article_id": "article-000027",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000213",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000302",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000332",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472000000,
+      "window_end_ms": 1790472600000,
+      "rank": 3,
+      "category": "sports",
+      "score": 86,
+      "revision": 581,
+      "top_articles": [
+        {
+          "article_id": "article-000074",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000320",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000012",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000179",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000258",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472000000,
+      "window_end_ms": 1790472600000,
+      "rank": 4,
+      "category": "finance",
+      "score": 81,
+      "revision": 581,
+      "top_articles": [
+        {
+          "article_id": "article-000264",
+          "title": "一线观察：finance热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000296",
+          "title": "一线观察：finance热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000333",
+          "title": "从数据看finance，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000411",
+          "title": "权威报告发布：finance未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000030",
+          "title": "权威报告发布：finance未来一年的重点方向",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472000000,
+      "window_end_ms": 1790472600000,
+      "rank": 5,
+      "category": "world",
+      "score": 76,
+      "revision": 581,
+      "top_articles": [
+        {
+          "article_id": "article-000025",
+          "title": "权威报告发布：world未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000043",
+          "title": "最新进展公布，world行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000056",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000113",
+          "title": "从数据看world，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000355",
+          "title": "最新进展公布，world行业进入加速阶段",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472600000,
+      "window_end_ms": 1790473200000,
+      "rank": 1,
+      "category": "sports",
+      "score": 73,
+      "revision": 425,
+      "top_articles": [
+        {
+          "article_id": "article-000292",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 5
+        },
+        {
+          "article_id": "article-000491",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000249",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000320",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000492",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472600000,
+      "window_end_ms": 1790473200000,
+      "rank": 2,
+      "category": "science",
+      "score": 68,
+      "revision": 425,
+      "top_articles": [
+        {
+          "article_id": "article-000321",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000397",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000417",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000125",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 3
+        },
+        {
+          "article_id": "article-000214",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472600000,
+      "window_end_ms": 1790473200000,
+      "rank": 3,
+      "category": "technology",
+      "score": 68,
+      "revision": 425,
+      "top_articles": [
+        {
+          "article_id": "article-000097",
+          "title": "最新进展公布，technology行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000184",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000010",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 3
+        },
+        {
+          "article_id": "article-000096",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 3
+        },
+        {
+          "article_id": "article-000136",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472600000,
+      "window_end_ms": 1790473200000,
+      "rank": 4,
+      "category": "health",
+      "score": 60,
+      "revision": 425,
+      "top_articles": [
+        {
+          "article_id": "article-000002",
+          "title": "health领域迎来新变化，专家解读背后的关键机会",
+          "score": 7
+        },
+        {
+          "article_id": "article-000496",
+          "title": "从数据看health，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000135",
+          "title": "从数据看health，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000380",
+          "title": "权威报告发布：health未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000052",
+          "title": "一线观察：health热点事件正在如何影响普通人",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790472600000,
+      "window_end_ms": 1790473200000,
+      "rank": 5,
+      "category": "entertainment",
+      "score": 56,
+      "revision": 425,
+      "top_articles": [
+        {
+          "article_id": "article-000143",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 6
+        },
+        {
+          "article_id": "article-000001",
+          "title": "最新进展公布，entertainment行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000360",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 4
+        },
+        {
+          "article_id": "article-000046",
+          "title": "一线观察：entertainment热点事件正在如何影响普通人",
+          "score": 3
+        },
+        {
+          "article_id": "article-000191",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473200000,
+      "window_end_ms": 1790473800000,
+      "rank": 1,
+      "category": "health",
+      "score": 45,
+      "revision": 246,
+      "top_articles": [
+        {
+          "article_id": "article-000072",
+          "title": "最新进展公布，health行业进入加速阶段",
+          "score": 4
+        },
+        {
+          "article_id": "article-000087",
+          "title": "权威报告发布：health未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000313",
+          "title": "权威报告发布：health未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000393",
+          "title": "一线观察：health热点事件正在如何影响普通人",
+          "score": 4
+        },
+        {
+          "article_id": "article-000129",
+          "title": "health领域迎来新变化，专家解读背后的关键机会",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473200000,
+      "window_end_ms": 1790473800000,
+      "rank": 2,
+      "category": "science",
+      "score": 45,
+      "revision": 246,
+      "top_articles": [
+        {
+          "article_id": "article-000316",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000246",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 3
+        },
+        {
+          "article_id": "article-000294",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 3
+        },
+        {
+          "article_id": "article-000430",
+          "title": "一线观察：science热点事件正在如何影响普通人",
+          "score": 3
+        },
+        {
+          "article_id": "article-000082",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473200000,
+      "window_end_ms": 1790473800000,
+      "rank": 3,
+      "category": "sports",
+      "score": 39,
+      "revision": 246,
+      "top_articles": [
+        {
+          "article_id": "article-000438",
+          "title": "权威报告发布：sports未来一年的重点方向",
+          "score": 6
+        },
+        {
+          "article_id": "article-000181",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 5
+        },
+        {
+          "article_id": "article-000491",
+          "title": "最新进展公布，sports行业进入加速阶段",
+          "score": 5
+        },
+        {
+          "article_id": "article-000115",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 3
+        },
+        {
+          "article_id": "article-000249",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473200000,
+      "window_end_ms": 1790473800000,
+      "rank": 4,
+      "category": "technology",
+      "score": 35,
+      "revision": 246,
+      "top_articles": [
+        {
+          "article_id": "article-000010",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 4
+        },
+        {
+          "article_id": "article-000123",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000207",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000216",
+          "title": "从数据看technology，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000154",
+          "title": "权威报告发布：technology未来一年的重点方向",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473200000,
+      "window_end_ms": 1790473800000,
+      "rank": 5,
+      "category": "world",
+      "score": 28,
+      "revision": 246,
+      "top_articles": [
+        {
+          "article_id": "article-000293",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 6
+        },
+        {
+          "article_id": "article-000347",
+          "title": "权威报告发布：world未来一年的重点方向",
+          "score": 3
+        },
+        {
+          "article_id": "article-000011",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 2
+        },
+        {
+          "article_id": "article-000013",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        },
+        {
+          "article_id": "article-000021",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473800000,
+      "window_end_ms": 1790474400000,
+      "rank": 1,
+      "category": "health",
+      "score": 16,
+      "revision": 78,
+      "top_articles": [
+        {
+          "article_id": "article-000318",
+          "title": "权威报告发布：health未来一年的重点方向",
+          "score": 5
+        },
+        {
+          "article_id": "article-000002",
+          "title": "health领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        },
+        {
+          "article_id": "article-000050",
+          "title": "最新进展公布，health行业进入加速阶段",
+          "score": 2
+        },
+        {
+          "article_id": "article-000158",
+          "title": "一线观察：health热点事件正在如何影响普通人",
+          "score": 2
+        },
+        {
+          "article_id": "article-000072",
+          "title": "最新进展公布，health行业进入加速阶段",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473800000,
+      "window_end_ms": 1790474400000,
+      "rank": 2,
+      "category": "science",
+      "score": 15,
+      "revision": 78,
+      "top_articles": [
+        {
+          "article_id": "article-000415",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 5
+        },
+        {
+          "article_id": "article-000082",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 3
+        },
+        {
+          "article_id": "article-000316",
+          "title": "从数据看science，这几个趋势值得持续关注",
+          "score": 2
+        },
+        {
+          "article_id": "article-000397",
+          "title": "science领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        },
+        {
+          "article_id": "article-000206",
+          "title": "最新进展公布，science行业进入加速阶段",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473800000,
+      "window_end_ms": 1790474400000,
+      "rank": 3,
+      "category": "world",
+      "score": 13,
+      "revision": 78,
+      "top_articles": [
+        {
+          "article_id": "article-000011",
+          "title": "一线观察：world热点事件正在如何影响普通人",
+          "score": 2
+        },
+        {
+          "article_id": "article-000021",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        },
+        {
+          "article_id": "article-000238",
+          "title": "权威报告发布：world未来一年的重点方向",
+          "score": 2
+        },
+        {
+          "article_id": "article-000293",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        },
+        {
+          "article_id": "article-000398",
+          "title": "world领域迎来新变化，专家解读背后的关键机会",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473800000,
+      "window_end_ms": 1790474400000,
+      "rank": 4,
+      "category": "entertainment",
+      "score": 11,
+      "revision": 78,
+      "top_articles": [
+        {
+          "article_id": "article-000085",
+          "title": "entertainment领域迎来新变化，专家解读背后的关键机会",
+          "score": 3
+        },
+        {
+          "article_id": "article-000168",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 2
+        },
+        {
+          "article_id": "article-000191",
+          "title": "从数据看entertainment，这几个趋势值得持续关注",
+          "score": 2
+        },
+        {
+          "article_id": "article-000001",
+          "title": "最新进展公布，entertainment行业进入加速阶段",
+          "score": 1
+        },
+        {
+          "article_id": "article-000203",
+          "title": "最新进展公布，entertainment行业进入加速阶段",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "window_start_ms": 1790473800000,
+      "window_end_ms": 1790474400000,
+      "rank": 5,
+      "category": "sports",
+      "score": 11,
+      "revision": 78,
+      "top_articles": [
+        {
+          "article_id": "article-000181",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 4
+        },
+        {
+          "article_id": "article-000276",
+          "title": "从数据看sports，这几个趋势值得持续关注",
+          "score": 2
+        },
+        {
+          "article_id": "article-000396",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 2
+        },
+        {
+          "article_id": "article-000115",
+          "title": "一线观察：sports热点事件正在如何影响普通人",
+          "score": 1
+        },
+        {
+          "article_id": "article-000249",
+          "title": "sports领域迎来新变化，专家解读背后的关键机会",
+          "score": 1
+        }
+      ]
+    }
+  ]
+}

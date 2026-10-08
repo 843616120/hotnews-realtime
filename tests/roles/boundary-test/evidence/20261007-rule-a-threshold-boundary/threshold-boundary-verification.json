@@ -1,0 +1,947 @@
+{
+  "verified_at": "2026-10-07T07:30:56.071Z",
+  "scope": "Rule A 阈值和事件时间边界，不包含迟到清理验收",
+  "manifest": {
+    "article_stream.jsonl": {
+      "path": "D:\\study\\study_flink\\hotnews-realtime\\tests\\roles\\ab-acceptance\\inputs\\20261007-ab\\role-a\\article_stream.jsonl",
+      "lines": 7,
+      "sha256": "7b31b81450300252bfca4c368bf804086f958fa948b50efeae8e49abd1123a30"
+    },
+    "behavior_stream.jsonl": {
+      "path": "D:\\study\\study_flink\\hotnews-realtime\\tests\\roles\\ab-acceptance\\inputs\\20261007-ab\\role-a\\behavior_stream.jsonl",
+      "lines": 7013,
+      "sha256": "5988f1f4690b581bcdc6cb453c757c5ad8ce67df79e0ae96def38bd7c5277eab"
+    }
+  },
+  "checks": [
+    {
+      "name": "count-999 独立 SQL 五窗口点击数",
+      "expected": [
+        999,
+        999,
+        999,
+        999,
+        999
+      ],
+      "actual": [
+        999,
+        999,
+        999,
+        999,
+        999
+      ],
+      "passed": true
+    },
+    {
+      "name": "count-999 实际告警窗口数",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "count-1000 独立 SQL 五窗口点击数",
+      "expected": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "actual": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "passed": true
+    },
+    {
+      "name": "count-1000 实际告警窗口数",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "count-1001 独立 SQL 五窗口点击数",
+      "expected": [
+        1001,
+        1001,
+        1001,
+        1001,
+        1001
+      ],
+      "actual": [
+        1001,
+        1001,
+        1001,
+        1001,
+        1001
+      ],
+      "passed": true
+    },
+    {
+      "name": "count-1001 实际告警窗口数",
+      "expected": 5,
+      "actual": 5,
+      "passed": true
+    },
+    {
+      "name": "boundary-before 在 [00:00,00:05) 的 SQL 点击数",
+      "expected": 1001,
+      "actual": 1001,
+      "passed": true
+    },
+    {
+      "name": "boundary-before 实际告警窗口数",
+      "expected": 5,
+      "actual": 5,
+      "passed": true
+    },
+    {
+      "name": "boundary-before 在 [00:00,00:05) 是否告警",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "boundary-at 在 [00:00,00:05) 的 SQL 点击数",
+      "expected": 1000,
+      "actual": 1000,
+      "passed": true
+    },
+    {
+      "name": "boundary-at 实际告警窗口数",
+      "expected": 4,
+      "actual": 4,
+      "passed": true
+    },
+    {
+      "name": "boundary-at 在 [00:00,00:05) 是否告警",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "boundary-after 在 [00:00,00:05) 的 SQL 点击数",
+      "expected": 1000,
+      "actual": 1000,
+      "passed": true
+    },
+    {
+      "name": "boundary-after 实际告警窗口数",
+      "expected": 4,
+      "actual": 4,
+      "passed": true
+    },
+    {
+      "name": "boundary-after 在 [00:00,00:05) 是否告警",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "1001 次点击的实际五个窗口起点",
+      "expected": [
+        1790467200000,
+        1790467260000,
+        1790467320000,
+        1790467380000,
+        1790467440000
+      ],
+      "actual": [
+        1790467200000,
+        1790467260000,
+        1790467320000,
+        1790467380000,
+        1790467440000
+      ],
+      "passed": true
+    },
+    {
+      "name": "share/comment 样本确实存在",
+      "expected": 4,
+      "actual": 4,
+      "passed": true
+    },
+    {
+      "name": "1000 点击样本包含一条重复 click",
+      "expected": 1001,
+      "actual": 1001,
+      "passed": true
+    },
+    {
+      "name": "重复 click 在 SQL 中去重后仍为 1000",
+      "expected": 1000,
+      "actual": 1000,
+      "passed": true
+    },
+    {
+      "name": "六个样本的独立 SQL 正例行数",
+      "expected": 18,
+      "actual": 18,
+      "passed": true
+    },
+    {
+      "name": "六个样本的实际唯一告警键数",
+      "expected": 18,
+      "actual": 18,
+      "passed": true
+    },
+    {
+      "name": "逐窗口、文章、字段 SQL 差异",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "编译和运行期间生产源码未变",
+      "expected": [
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\constant\\Constant.java",
+          "F0E1408AD14503383E7561D59C87182542DACC5AB23FDCF5574AB59F0F1E3B55"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\model\\CategoryRankingSnapshot.java",
+          "A16331FBB1F4F840AEA02C489E302170F4C41E5C91D4EB0C39E43F7796A76544"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkMetricsUtil.java",
+          "0E5BB134E0B721E504BF6A556602EABFC77429F676A284BA0DE2A769061BFA9E"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkRuntimeUtil.java",
+          "CB89F4D81E3C158B0E79319C7ADCD1198354CEA08FEB8C8D6B9BD66E494D724D"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSinkUtil.java",
+          "7D13D33EC7CA020931488C0810340D1F8FC9D70772B2637DE1CBD4AFA42E5E4C"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSourceUtil.java",
+          "CB19C4C1AEFAC2B97551CD89A4C64B4849BBF2EE1E84449048D2421342D1C510"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\RoleStreamUtil.java",
+          "84BA65E4086651D1650799B82E9B1FB5D94A79B884B94006C4B60A6818A7CAF0"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-join\\src\\main\\java\\com\\agd\\flink\\join\\ArticleJoinBehavior.java",
+          "EDAB65CB6D9960AB9A1FFA203159649905DD7B9941914A19BBCE9A4D943E11F3"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\rolea\\Achieve_roleA.java",
+          "C450DD744350A6FA553813E78A6414B17C36E9E7CE91170A8DCB44CBF8702015"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\roleb\\Achieve_roleB.java",
+          "8D595133697EEE1F0D4170F315C2EDD8106DFF3DE50F2FF61CE03F1D09326A52"
+        ]
+      ],
+      "actual": [
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\constant\\Constant.java",
+          "F0E1408AD14503383E7561D59C87182542DACC5AB23FDCF5574AB59F0F1E3B55"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\model\\CategoryRankingSnapshot.java",
+          "A16331FBB1F4F840AEA02C489E302170F4C41E5C91D4EB0C39E43F7796A76544"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkMetricsUtil.java",
+          "0E5BB134E0B721E504BF6A556602EABFC77429F676A284BA0DE2A769061BFA9E"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkRuntimeUtil.java",
+          "CB89F4D81E3C158B0E79319C7ADCD1198354CEA08FEB8C8D6B9BD66E494D724D"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSinkUtil.java",
+          "7D13D33EC7CA020931488C0810340D1F8FC9D70772B2637DE1CBD4AFA42E5E4C"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSourceUtil.java",
+          "CB19C4C1AEFAC2B97551CD89A4C64B4849BBF2EE1E84449048D2421342D1C510"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\RoleStreamUtil.java",
+          "84BA65E4086651D1650799B82E9B1FB5D94A79B884B94006C4B60A6818A7CAF0"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-join\\src\\main\\java\\com\\agd\\flink\\join\\ArticleJoinBehavior.java",
+          "EDAB65CB6D9960AB9A1FFA203159649905DD7B9941914A19BBCE9A4D943E11F3"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\rolea\\Achieve_roleA.java",
+          "C450DD744350A6FA553813E78A6414B17C36E9E7CE91170A8DCB44CBF8702015"
+        ],
+        [
+          "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\roleb\\Achieve_roleB.java",
+          "8D595133697EEE1F0D4170F315C2EDD8106DFF3DE50F2FF61CE03F1D09326A52"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "六个样本均在首次 Watermark 前到达",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    }
+  ],
+  "sqlWindowCounts": [
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1000
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1000
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "count-1000",
+      "title": "验收文章 count-1000",
+      "category": "threshold",
+      "click_count": 1000
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "count-999",
+      "title": "验收文章 count-999",
+      "category": "threshold",
+      "click_count": 999
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "count-1000",
+      "title": "验收文章 count-1000",
+      "category": "threshold",
+      "click_count": 1000
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "count-999",
+      "title": "验收文章 count-999",
+      "category": "threshold",
+      "click_count": 999
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "count-1000",
+      "title": "验收文章 count-1000",
+      "category": "threshold",
+      "click_count": 1000
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "count-999",
+      "title": "验收文章 count-999",
+      "category": "threshold",
+      "click_count": 999
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "count-1000",
+      "title": "验收文章 count-1000",
+      "category": "threshold",
+      "click_count": 1000
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "count-999",
+      "title": "验收文章 count-999",
+      "category": "threshold",
+      "click_count": 999
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "count-1000",
+      "title": "验收文章 count-1000",
+      "category": "threshold",
+      "click_count": 1000
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "count-999",
+      "title": "验收文章 count-999",
+      "category": "threshold",
+      "click_count": 999
+    },
+    {
+      "window_start_ms": 1790467500000,
+      "window_end_ms": 1790467800000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1
+    },
+    {
+      "window_start_ms": 1790467500000,
+      "window_end_ms": 1790467800000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1
+    }
+  ],
+  "sqlAlerts": [
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    }
+  ],
+  "actual": [
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467200000,
+      "window_end_ms": 1790467500000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467260000,
+      "window_end_ms": 1790467560000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467320000,
+      "window_end_ms": 1790467620000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467380000,
+      "window_end_ms": 1790467680000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-at",
+      "title": "验收文章 boundary-at",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "count-1001",
+      "title": "验收文章 count-1001",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-after",
+      "title": "验收文章 boundary-after",
+      "category": "threshold",
+      "click_count": 1001
+    },
+    {
+      "window_start_ms": 1790467440000,
+      "window_end_ms": 1790467740000,
+      "article_id": "boundary-before",
+      "title": "验收文章 boundary-before",
+      "category": "threshold",
+      "click_count": 1001
+    }
+  ],
+  "differences": [],
+  "sourceBefore": [
+    {
+      "Algorithm": "SHA256",
+      "Hash": "F0E1408AD14503383E7561D59C87182542DACC5AB23FDCF5574AB59F0F1E3B55",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\constant\\Constant.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "A16331FBB1F4F840AEA02C489E302170F4C41E5C91D4EB0C39E43F7796A76544",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\model\\CategoryRankingSnapshot.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "0E5BB134E0B721E504BF6A556602EABFC77429F676A284BA0DE2A769061BFA9E",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkMetricsUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "CB89F4D81E3C158B0E79319C7ADCD1198354CEA08FEB8C8D6B9BD66E494D724D",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkRuntimeUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "7D13D33EC7CA020931488C0810340D1F8FC9D70772B2637DE1CBD4AFA42E5E4C",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSinkUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "CB19C4C1AEFAC2B97551CD89A4C64B4849BBF2EE1E84449048D2421342D1C510",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSourceUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "84BA65E4086651D1650799B82E9B1FB5D94A79B884B94006C4B60A6818A7CAF0",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\RoleStreamUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "EDAB65CB6D9960AB9A1FFA203159649905DD7B9941914A19BBCE9A4D943E11F3",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-join\\src\\main\\java\\com\\agd\\flink\\join\\ArticleJoinBehavior.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "C450DD744350A6FA553813E78A6414B17C36E9E7CE91170A8DCB44CBF8702015",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\rolea\\Achieve_roleA.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "8D595133697EEE1F0D4170F315C2EDD8106DFF3DE50F2FF61CE03F1D09326A52",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\roleb\\Achieve_roleB.java"
+    }
+  ],
+  "sourceAfter": [
+    {
+      "Algorithm": "SHA256",
+      "Hash": "F0E1408AD14503383E7561D59C87182542DACC5AB23FDCF5574AB59F0F1E3B55",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\constant\\Constant.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "A16331FBB1F4F840AEA02C489E302170F4C41E5C91D4EB0C39E43F7796A76544",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\model\\CategoryRankingSnapshot.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "0E5BB134E0B721E504BF6A556602EABFC77429F676A284BA0DE2A769061BFA9E",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkMetricsUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "CB89F4D81E3C158B0E79319C7ADCD1198354CEA08FEB8C8D6B9BD66E494D724D",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkRuntimeUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "7D13D33EC7CA020931488C0810340D1F8FC9D70772B2637DE1CBD4AFA42E5E4C",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSinkUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "CB19C4C1AEFAC2B97551CD89A4C64B4849BBF2EE1E84449048D2421342D1C510",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\FlinkSourceUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "84BA65E4086651D1650799B82E9B1FB5D94A79B884B94006C4B60A6818A7CAF0",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-common\\src\\main\\java\\util\\RoleStreamUtil.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "EDAB65CB6D9960AB9A1FFA203159649905DD7B9941914A19BBCE9A4D943E11F3",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-join\\src\\main\\java\\com\\agd\\flink\\join\\ArticleJoinBehavior.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "C450DD744350A6FA553813E78A6414B17C36E9E7CE91170A8DCB44CBF8702015",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\rolea\\Achieve_roleA.java"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "8D595133697EEE1F0D4170F315C2EDD8106DFF3DE50F2FF61CE03F1D09326A52",
+      "Path": "D:\\study\\study_flink\\hotnews-realtime\\flink-job\\flink-rules\\src\\main\\java\\com\\agd\\flink\\roles\\roleb\\Achieve_roleB.java"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "mode": "exactly_once",
+  "interval": 30000,
+  "timeout": 180000,
+  "min_pause": 2000,
+  "max_concurrent": 1,
+  "externalization": {
+    "enabled": true,
+    "delete_on_cancellation": false
+  },
+  "state_backend": "EmbeddedRocksDBStateBackend",
+  "checkpoint_storage": "FileSystemCheckpointStorage",
+  "unaligned_checkpoints": false,
+  "tolerable_failed_checkpoints": 3,
+  "aligned_checkpoint_timeout": 0,
+  "checkpoints_after_tasks_finish": true,
+  "state_changelog_enabled": false,
+  "changelog_periodic_materialization_interval": 600000,
+  "changelog_storage": "memory"
+}

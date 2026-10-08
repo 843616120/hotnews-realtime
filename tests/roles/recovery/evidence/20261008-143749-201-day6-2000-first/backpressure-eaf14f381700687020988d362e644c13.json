@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "backpressureLevel": "ok",
+  "end-timestamp": 1791441468454,
+  "subtasks": [
+    {
+      "subtask": 0,
+      "backpressureLevel": "ok",
+      "ratio": 0.0,
+      "idleRatio": 0.523,
+      "busyRatio": 0.477,
+      "backpressure-level": "ok"
+    },
+    {
+      "subtask": 1,
+      "backpressureLevel": "ok",
+      "ratio": 0.0,
+      "idleRatio": 0.454,
+      "busyRatio": 0.546,
+      "backpressure-level": "ok"
+    },
+    {
+      "subtask": 2,
+      "backpressureLevel": "ok",
+      "ratio": 0.0,
+      "idleRatio": 0.646,
+      "busyRatio": 0.354,
+      "backpressure-level": "ok"
+    }
+  ],
+  "backpressure-level": "ok"
+}

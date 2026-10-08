@@ -1,0 +1,135 @@
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    hostname: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper-data:/var/lib/zookeeper/data
+      - zookeeper-log:/var/lib/zookeeper/log
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    hostname: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "${KAFKA_PORT:-9092}:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:${KAFKA_PORT:-9092}
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+
+  mysql:
+    image: mysql:8.0.16
+    hostname: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-hotnews}
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../sql:/docker-entrypoint-initdb.d:ro
+
+  redis:
+    image: redis:7.2-alpine
+    hostname: redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+
+  redisinsight:
+    image: redis/redisinsight:latest
+    ports:
+      - "${REDISINSIGHT_PORT:-5540}:5540"
+    volumes:
+      - redisinsight-data:/data
+
+  jobmanager:
+    image: flink:1.17.0-scala_2.12-java11
+    hostname: jobmanager
+    command: jobmanager
+    ports:
+      - "${FLINK_WEB_PORT:-8081}:8081"
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: jobmanager
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-hotnews}
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      HOTNEWS_CHECKPOINT_DIR: file:///opt/flink/checkpoints/day5
+      HOTNEWS_MYSQL_BATCH_SIZE: ${HOTNEWS_MYSQL_BATCH_SIZE:-200}
+      HOTNEWS_STATE_BACKEND: rocksdb
+    volumes:
+      - ./flink-conf.yaml:/opt/flink/conf/flink-conf.yaml:ro
+      - ../flink-job/flink-join/target:/opt/flink/usrlib/join:ro
+      - ../flink-job/flink-rules/target:/opt/flink/usrlib/rules:ro
+      - ../flink-job/flink-state/target:/opt/flink/usrlib/state:ro
+      - type: bind
+        source: D:/docker_data/flink/checkpoints
+        target: /opt/flink/checkpoints
+      - type: bind
+        source: D:/docker_data/flink/savepoints
+        target: /opt/flink/savepoints
+
+  taskmanager:
+    image: flink:1.17.0-scala_2.12-java11
+    hostname: taskmanager
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: jobmanager
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-hotnews}
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      HOTNEWS_STATE_BACKEND: rocksdb
+      HOTNEWS_CHECKPOINT_DIR: file:///opt/flink/checkpoints/day5
+      HOTNEWS_MYSQL_BATCH_SIZE: ${HOTNEWS_MYSQL_BATCH_SIZE:-200}
+    volumes:
+      - ./flink-conf.yaml:/opt/flink/conf/flink-conf.yaml:ro
+      - type: bind
+        source: D:/docker_data/flink/rocksdb
+        target: /opt/flink/rocksdb
+      - type: bind
+        source: D:/docker_data/flink/checkpoints
+        target: /opt/flink/checkpoints
+      - type: bind
+        source: D:/docker_data/flink/savepoints
+        target: /opt/flink/savepoints
+
+volumes:
+  zookeeper-data:
+  zookeeper-log:
+  kafka-data:
+  mysql-data:
+  redis-data:
+  redisinsight-data:

@@ -1,0 +1,893 @@
+[
+  {
+    "id": "1.buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "0.accumulateBackPressuredTimeMs"
+  },
+  {
+    "id": "2.KeyedProcess.numBytesIn"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInLocal"
+  },
+  {
+    "id": "1.KeyedProcess.currentInputWatermark"
+  },
+  {
+    "id": "0.accumulateBusyTimeMs"
+  },
+  {
+    "id": "1.maxSoftBackPressureTimeMs"
+  },
+  {
+    "id": "1.isBackPressured"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputQueueSize"
+  },
+  {
+    "id": "1.mailboxLatencyMs_stddev"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputQueueLength"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.currentOutputWatermark"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numBytesInPerSecond"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.checkpointAlignmentTime"
+  },
+  {
+    "id": "1.KeyedProcess.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "1.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInLocal"
+  },
+  {
+    "id": "2.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "1.mailboxLatencyMs_min"
+  },
+  {
+    "id": "2.numBytesIn"
+  },
+  {
+    "id": "0.buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsOut"
+  },
+  {
+    "id": "0.Map.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.hardBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Output.Buffers.outputQueueSize"
+  },
+  {
+    "id": "0.KeyedProcess.currentInputWatermark"
+  },
+  {
+    "id": "2.numRecordsOut"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInLocal"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "1.mailboxQueueSize"
+  },
+  {
+    "id": "2.busyTimeMsPerSecond"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsIn"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.mailboxLatencyMs_min"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputQueueLength"
+  },
+  {
+    "id": "0.mailboxLatencyMs_median"
+  },
+  {
+    "id": "2.Shuffle.Netty.Output.Buffers.outputQueueSize"
+  },
+  {
+    "id": "0.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.numBytesInRemote"
+  },
+  {
+    "id": "0.busyTimeMsPerSecond"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outputQueueSize"
+  },
+  {
+    "id": "2.currentInputWatermark"
+  },
+  {
+    "id": "2.mailboxQueueSize"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesIn"
+  },
+  {
+    "id": "0.KeyedProcess.currentOutputWatermark"
+  },
+  {
+    "id": "0.maxHardBackPressureTimeMs"
+  },
+  {
+    "id": "1.numBytesInRemote"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesOut"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.numBytesIn"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputQueueLength"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.numBuffersOut"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "2.accumulateBusyTimeMs"
+  },
+  {
+    "id": "0.KeyedProcess.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.buffers.outputQueueLength"
+  },
+  {
+    "id": "0.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "1.accumulateBusyTimeMs"
+  },
+  {
+    "id": "1.KeyedProcess.currentOutputWatermark"
+  },
+  {
+    "id": "0.KeyedProcess.numBytesIn"
+  },
+  {
+    "id": "0.currentInputWatermark"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInRemote"
+  },
+  {
+    "id": "0.buffers.outPoolUsage"
+  },
+  {
+    "id": "2.buffers.inPoolUsage"
+  },
+  {
+    "id": "1.numBuffersOut"
+  },
+  {
+    "id": "1.backPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "2.KeyedProcess.numBytesOut"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsOut"
+  },
+  {
+    "id": "0.KeyedProcess.numBytesInPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Output.Buffers.outPoolUsage"
+  },
+  {
+    "id": "2.Shuffle.Netty.Output.Buffers.outPoolUsage"
+  },
+  {
+    "id": "1.maxHardBackPressureTimeMs"
+  },
+  {
+    "id": "1.numBytesInLocal"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inPoolUsage"
+  },
+  {
+    "id": "0.buffers.outputQueueSize"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInLocal"
+  },
+  {
+    "id": "2.Shuffle.Netty.Output.Buffers.outputQueueLength"
+  },
+  {
+    "id": "0.maxSoftBackPressureTimeMs"
+  },
+  {
+    "id": "1.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p999"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "1.numBytesInPerSecond"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesInPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputQueueSize"
+  },
+  {
+    "id": "2.numBuffersOut"
+  },
+  {
+    "id": "2.numBytesInPerSecond"
+  },
+  {
+    "id": "1.Map.numBytesOut"
+  },
+  {
+    "id": "1.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "2.KeyedProcess.currentOutputWatermark"
+  },
+  {
+    "id": "2.buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "2.Map.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.Map.numBytesInPerSecond"
+  },
+  {
+    "id": "0.Map.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.numBytesInLocal"
+  },
+  {
+    "id": "2.Map.numRecordsIn"
+  },
+  {
+    "id": "0.accumulateIdleTimeMs"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p999"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outputQueueLength"
+  },
+  {
+    "id": "2.mailboxLatencyMs_mean"
+  },
+  {
+    "id": "1.Map.numRecordsInPerSecond"
+  },
+  {
+    "id": "2.maxSoftBackPressureTimeMs"
+  },
+  {
+    "id": "1.KeyedProcess.numBytesInPerSecond"
+  },
+  {
+    "id": "1.accumulateBackPressuredTimeMs"
+  },
+  {
+    "id": "2.numBytesOutPerSecond"
+  },
+  {
+    "id": "1.numBytesOut"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsIn"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInLocal"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesOut"
+  },
+  {
+    "id": "2.buffers.outPoolUsage"
+  },
+  {
+    "id": "2.buffers.inputQueueLength"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesIn"
+  },
+  {
+    "id": "0.buffers.inputQueueLength"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsIn"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.currentOutputWatermark"
+  },
+  {
+    "id": "2.mailboxLatencyMs_median"
+  },
+  {
+    "id": "2.Map.numRecordsOut"
+  },
+  {
+    "id": "1.mailboxMailsPerSecond"
+  },
+  {
+    "id": "1.checkpointAlignmentTime"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "0.isBackPressured"
+  },
+  {
+    "id": "1.buffers.inputQueueSize"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numRecordsIn"
+  },
+  {
+    "id": "2.numBuffersInRemote"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.numBytesInPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Output.Buffers.outputQueueLength"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "0.numRecordsIn"
+  },
+  {
+    "id": "0.Map.numBytesIn"
+  },
+  {
+    "id": "1.numBuffersInRemote"
+  },
+  {
+    "id": "0.mailboxLatencyMs_min"
+  },
+  {
+    "id": "0.numBuffersInRemote"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.numBuffersOutPerSecond"
+  },
+  {
+    "id": "0.Map.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.KeyedProcess.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.KeyedProcess.numRecordsOut"
+  },
+  {
+    "id": "0.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numRecordsOut"
+  },
+  {
+    "id": "2.Map.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p75"
+  },
+  {
+    "id": "1.numBuffersInLocal"
+  },
+  {
+    "id": "1.mailboxLatencyMs_median"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numBytesInPerSecond"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.numRecordsOut"
+  },
+  {
+    "id": "2.numBuffersInLocal"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p75"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.currentInputWatermark"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "2.buffers.outputQueueSize"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInRemote"
+  },
+  {
+    "id": "2.Map.numBytesOut"
+  },
+  {
+    "id": "1.Map.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.mailboxLatencyMs_max"
+  },
+  {
+    "id": "2.Map.currentInputWatermark"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "2.numBuffersOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inPoolUsage"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond"
+  },
+  {
+    "id": "2.buffers.inputQueueSize"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.currentInputWatermark"
+  },
+  {
+    "id": "2.mailboxLatencyMs_stddev"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p75"
+  },
+  {
+    "id": "2.Map.numBytesOutPerSecond"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos"
+  },
+  {
+    "id": "2.KeyedProcess.numBytesOutPerSecond"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Map.numBytesInPerSecond"
+  },
+  {
+    "id": "2.mailboxMailsPerSecond"
+  },
+  {
+    "id": "1.buffers.inPoolUsage"
+  },
+  {
+    "id": "1.KeyedProcess.numBytesOut"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInLocal"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numBytesIn"
+  },
+  {
+    "id": "2.buffers.outputQueueLength"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInRemote"
+  },
+  {
+    "id": "1.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "2.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "2.accumulateBackPressuredTimeMs"
+  },
+  {
+    "id": "1.KeyedProcess.numBytesIn"
+  },
+  {
+    "id": "2.Map.currentOutputWatermark"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p90"
+  },
+  {
+    "id": "2.isBackPressured"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond"
+  },
+  {
+    "id": "2.mailboxLatencyMs_max"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numBytesOutPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numRecordsOut"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p98"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p99"
+  },
+  {
+    "id": "2.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "1.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numRecordsOut"
+  },
+  {
+    "id": "1.Map.numRecordsIn"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numRecordsInPerSecond"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.Buffers.inputQueueSize"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond"
+  },
+  {
+    "id": "2.maxHardBackPressureTimeMs"
+  },
+  {
+    "id": "0.buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "0.mailboxMailsPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outPoolUsage"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p90"
+  },
+  {
+    "id": "1.numRecordsIn"
+  },
+  {
+    "id": "1.Map.numBytesIn"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p98"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p99"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInRemote"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95"
+  },
+  {
+    "id": "0.KeyedProcess.numBytesOut"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.numRecordsIn"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.accumulateIdleTimeMs"
+  },
+  {
+    "id": "1.buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "0.Map.numRecordsOut"
+  },
+  {
+    "id": "2.Map.numBytesIn"
+  },
+  {
+    "id": "0.numBytesIn"
+  },
+  {
+    "id": "2.checkpointAlignmentTime"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos"
+  },
+  {
+    "id": "1.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p999"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "1.buffers.inputQueueLength"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.Buffers.inPoolUsage"
+  },
+  {
+    "id": "1.accumulateIdleTimeMs"
+  },
+  {
+    "id": "0.mailboxLatencyMs_mean"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBuffersInRemote"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos"
+  },
+  {
+    "id": "1.Map.currentInputWatermark"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.numRecordsIn"
+  },
+  {
+    "id": "1.Map.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numBytesOut"
+  },
+  {
+    "id": "1.mailboxLatencyMs_mean"
+  },
+  {
+    "id": "0.buffers.outputQueueLength"
+  },
+  {
+    "id": "2.Map.numBytesInPerSecond"
+  },
+  {
+    "id": "2.Shuffle.Netty.Input.numBuffersInRemote"
+  },
+  {
+    "id": "1.buffers.outPoolUsage"
+  },
+  {
+    "id": "1.Map.numRecordsOut"
+  },
+  {
+    "id": "1.numRecordsOut"
+  },
+  {
+    "id": "0.buffers.inPoolUsage"
+  },
+  {
+    "id": "2.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95"
+  },
+  {
+    "id": "1.Shuffle.Netty.Input.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "0.buffers.inputQueueSize"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond"
+  },
+  {
+    "id": "1.Map.currentOutputWatermark"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p99"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p98"
+  },
+  {
+    "id": "0.numBytesOut"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p90"
+  },
+  {
+    "id": "0.Map.numRecordsIn"
+  },
+  {
+    "id": "0.numBytesInLocal"
+  },
+  {
+    "id": "1.buffers.outputQueueSize"
+  },
+  {
+    "id": "0.mailboxLatencyMs_stddev"
+  },
+  {
+    "id": "0.Timestamps/Watermarks.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.Map.currentInputWatermark"
+  },
+  {
+    "id": "1.numBytesOutPerSecond"
+  },
+  {
+    "id": "1.numBuffersOutPerSecond"
+  },
+  {
+    "id": "2.numBytesOut"
+  },
+  {
+    "id": "2.buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.mailboxQueueSize"
+  },
+  {
+    "id": "1.Timestamps/Watermarks.currentOutputWatermark"
+  },
+  {
+    "id": "0.mailboxLatencyMs_max"
+  },
+  {
+    "id": "2.KeyedProcess.currentInputWatermark"
+  },
+  {
+    "id": "0.Map.currentOutputWatermark"
+  },
+  {
+    "id": "1.currentInputWatermark"
+  },
+  {
+    "id": "0.numBuffersInLocal"
+  },
+  {
+    "id": "2.numRecordsInPerSecond"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond"
+  },
+  {
+    "id": "2.numRecordsIn"
+  },
+  {
+    "id": "2.KeyedProcess.numBytesInPerSecond"
+  },
+  {
+    "id": "1.KeyedProcess.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Map.numBytesOut"
+  },
+  {
+    "id": "2.Timestamps/Watermarks.currentInputWatermark"
+  },
+  {
+    "id": "2.numBytesInRemote"
+  }
+]

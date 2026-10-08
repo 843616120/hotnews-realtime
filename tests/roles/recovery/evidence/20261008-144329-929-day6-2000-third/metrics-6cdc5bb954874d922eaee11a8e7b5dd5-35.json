@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "1.0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.numRecordsOut",
+    "value": "30844"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.4.committedOffset",
+    "value": "-1"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsOut",
+    "value": "10784"
+  },
+  {
+    "id": "1.idleTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Source__Behavior_Source.numRecordsInPerSecond",
+    "value": "0.016666666666666666"
+  },
+  {
+    "id": "0.Source__Behavior_Source.numRecordsOut",
+    "value": "11410"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numBytesOut",
+    "value": "0"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second",
+    "value": "0.06666666666666667"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Source__Behavior_Source.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Source__Behavior_Source.pendingRecords",
+    "value": "8955"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-total",
+    "value": "17038.0"
+  },
+  {
+    "id": "1.throughput__source_behavior_records.numBytesIn",
+    "value": "0"
+  },
+  {
+    "id": "2.Process.numRecordsIn",
+    "value": "5392"
+  },
+  {
+    "id": "2.Process.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Process.numRecordsInPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-rate",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+    "value": "NaN"
+  },
+  {
+    "id": "2.softBackPressuredTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.Source__Behavior_Source.KafkaSourceReader.topic.topic_behavior.partition.1.committedOffset",
+    "value": "-1"
+  },
+  {
+    "id": "2.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-total",
+    "value": "6147.0"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.numRecordsOut",
+    "value": "5392"
+  },
+  {
+    "id": "0.throughput__source_behavior_records.throughput.source_behavior_records.records_per_second",
+    "value": "0.0"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.Source__Behavior_Source.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Process.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.throughput__source_behavior_records.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-consumed-total",
+    "value": "4038.0"
+  },
+  {
+    "id": "1.Process.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Source__Behavior_Source.KafkaSourceReader.KafkaConsumer.records-lag-max",
+    "value": "NaN"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "0.016666666666666666"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "38000000"
+  },
+  {
+    "id": "0.Source__Behavior_Source.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  }
+]

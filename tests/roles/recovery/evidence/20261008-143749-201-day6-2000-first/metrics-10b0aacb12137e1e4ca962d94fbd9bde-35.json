@@ -1,0 +1,114 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "1.0"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.checkpointAlignmentTime",
+    "value": "24739"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "17000000"
+  },
+  {
+    "id": "0.Sink__MySQL_dirty_data.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.Sink__MySQL_dirty_data.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.Sink__MySQL_dirty_data.numRecordsInPerSecond",
+    "value": "1.1166666666666667"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Sink__MySQL_dirty_data.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "0.Sink__MySQL_dirty_data.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "0.Sink__MySQL_dirty_data.currentOutputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "1.0"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "1.1166666666666667"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "16000000"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Sink__MySQL_dirty_data.throughput.MySQL_dirty_data.records",
+    "value": "110"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "101"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "1.7666666666666666"
+  },
+  {
+    "id": "0.Sink__MySQL_dirty_data.numRecordsInPerSecond",
+    "value": "1.5833333333333333"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "2.Sink__MySQL_dirty_data.numRecordsOut",
+    "value": "0"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "110"
+  },
+  {
+    "id": "0.Sink__MySQL_dirty_data.currentInputWatermark",
+    "value": "-9223372036854775808"
+  },
+  {
+    "id": "2.Sink__MySQL_dirty_data.numRecordsIn",
+    "value": "110"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "1.0"
+  }
+]

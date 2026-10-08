@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "backpressureLevel": "ok",
+  "end-timestamp": 1791435973941,
+  "subtasks": [
+    {
+      "subtask": 0,
+      "backpressureLevel": "ok",
+      "ratio": 0.0,
+      "idleRatio": 1.0,
+      "busyRatio": 0.0,
+      "backpressure-level": "ok"
+    }
+  ],
+  "backpressure-level": "ok"
+}

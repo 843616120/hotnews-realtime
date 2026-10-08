@@ -1,0 +1,90 @@
+[
+  {
+    "id": "0.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "57.1"
+  },
+  {
+    "id": "2.checkpointStartDelayNanos",
+    "value": "8374000000"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond",
+    "value": "67.88333333333334"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond",
+    "value": "703"
+  },
+  {
+    "id": "1.Restore_Behavior_Event_Time.currentOutputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "0.Restore_Behavior_Event_Time.numRecordsInPerSecond",
+    "value": "67.88333333333334"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos",
+    "value": "41163000000"
+  },
+  {
+    "id": "1.numRecordsOut",
+    "value": "22413"
+  },
+  {
+    "id": "1.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.numRecordsIn",
+    "value": "22413"
+  },
+  {
+    "id": "2.numRecordsInPerSecond",
+    "value": "27.133333333333333"
+  },
+  {
+    "id": "2.numRecordsOutPerSecond",
+    "value": "27.133333333333333"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "1.0"
+  },
+  {
+    "id": "2.numRecordsIn",
+    "value": "14827"
+  },
+  {
+    "id": "0.Restore_Behavior_Event_Time.currentInputWatermark",
+    "value": "1790474317581"
+  },
+  {
+    "id": "2.Restore_Behavior_Event_Time.numRecordsOut",
+    "value": "14827"
+  },
+  {
+    "id": "2.Restore_Behavior_Event_Time.numRecordsIn",
+    "value": "14827"
+  },
+  {
+    "id": "2.mailboxLatencyMs_p95",
+    "value": "0.9499999999999957"
+  }
+]

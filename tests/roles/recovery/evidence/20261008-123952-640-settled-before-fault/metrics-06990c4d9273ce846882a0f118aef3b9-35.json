@@ -1,0 +1,142 @@
+[
+  {
+    "id": "2.Map.numRecordsInPerSecond",
+    "value": "16.416666666666668"
+  },
+  {
+    "id": "1.throughput__role_b_redis_snapshots.numRecordsOut",
+    "value": "10304"
+  },
+  {
+    "id": "1.softBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.Map.currentOutputWatermark",
+    "value": "1790474374515"
+  },
+  {
+    "id": "1.busyTimeMsPerSecond",
+    "value": "0.0"
+  },
+  {
+    "id": "1.mailboxLatencyMs_p95",
+    "value": "0.0"
+  },
+  {
+    "id": "1.checkpointAlignmentTime",
+    "value": "0"
+  },
+  {
+    "id": "0.numRecordsOut",
+    "value": "10303"
+  },
+  {
+    "id": "2.Filter.currentInputWatermark",
+    "value": "1790474374515"
+  },
+  {
+    "id": "0.throughput__role_b_redis_snapshots.numRecordsOut",
+    "value": "10303"
+  },
+  {
+    "id": "1.Filter.numRecordsInPerSecond",
+    "value": "82.05"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "1.numRecordsInPerSecond",
+    "value": "82.05"
+  },
+  {
+    "id": "0.Filter.numRecordsIn",
+    "value": "51516"
+  },
+  {
+    "id": "0.throughput__role_b_redis_snapshots.currentInputWatermark",
+    "value": "1790474374515"
+  },
+  {
+    "id": "1.Map.numRecordsIn",
+    "value": "10304"
+  },
+  {
+    "id": "0.Filter.numRecordsInPerSecond",
+    "value": "82.05"
+  },
+  {
+    "id": "2.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond",
+    "value": "0"
+  },
+  {
+    "id": "2.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "0.throughput__role_b_redis_snapshots.throughput.role_b_redis_snapshots.records",
+    "value": "10303"
+  },
+  {
+    "id": "0.throughput__role_b_redis_snapshots.currentOutputWatermark",
+    "value": "1790474374515"
+  },
+  {
+    "id": "2.throughput__role_b_redis_snapshots.throughput.role_b_redis_snapshots.records",
+    "value": "10303"
+  },
+  {
+    "id": "1.Map.numRecordsOutPerSecond",
+    "value": "16.416666666666668"
+  },
+  {
+    "id": "2.Map.currentInputWatermark",
+    "value": "1790474374515"
+  },
+  {
+    "id": "0.throughput__role_b_redis_snapshots.numRecordsIn",
+    "value": "10303"
+  },
+  {
+    "id": "0.numRecordsIn",
+    "value": "51516"
+  },
+  {
+    "id": "0.Filter.numRecordsOutPerSecond",
+    "value": "16.4"
+  },
+  {
+    "id": "2.Filter.numRecordsIn",
+    "value": "51517"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond",
+    "value": "1000"
+  },
+  {
+    "id": "1.Filter.numRecordsOut",
+    "value": "10304"
+  },
+  {
+    "id": "2.throughput__role_b_redis_snapshots.throughput.role_b_redis_snapshots.records_per_second",
+    "value": "16.416666666666668"
+  },
+  {
+    "id": "1.checkpointStartDelayNanos",
+    "value": "13000000"
+  },
+  {
+    "id": "0.Map.numRecordsOutPerSecond",
+    "value": "16.4"
+  },
+  {
+    "id": "2.backPressuredTimeMsPerSecond",
+    "value": "0"
+  }
+]

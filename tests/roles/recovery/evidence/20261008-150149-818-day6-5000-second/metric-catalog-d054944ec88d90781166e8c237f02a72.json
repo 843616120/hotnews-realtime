@@ -1,0 +1,314 @@
+[
+  {
+    "id": "0.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "0.accumulateBackPressuredTimeMs"
+  },
+  {
+    "id": "0.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p75"
+  },
+  {
+    "id": "0.accumulateBusyTimeMs"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputQueueSize"
+  },
+  {
+    "id": "0.softBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.checkpointAlignmentTime"
+  },
+  {
+    "id": "0.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "0.numRecordsOut"
+  },
+  {
+    "id": "0.backPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsIn"
+  },
+  {
+    "id": "0.buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInRemote"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsIn"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInLocal"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.currentInputWatermark"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inPoolUsage"
+  },
+  {
+    "id": "0.idleTimeMsPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputQueueLength"
+  },
+  {
+    "id": "0.mailboxLatencyMs_median"
+  },
+  {
+    "id": "0.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.numBytesInRemote"
+  },
+  {
+    "id": "0.busyTimeMsPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outputQueueSize"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numBytesIn"
+  },
+  {
+    "id": "0.throughput__role_b_result.currentInputWatermark"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInRemotePerSecond"
+  },
+  {
+    "id": "0.maxHardBackPressureTimeMs"
+  },
+  {
+    "id": "0.numBuffersOut"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.currentOutputWatermark"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "0.currentInputWatermark"
+  },
+  {
+    "id": "0.hardBackPressuredTimeMsPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInRemote"
+  },
+  {
+    "id": "0.buffers.outPoolUsage"
+  },
+  {
+    "id": "0.buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "0.mailboxMailsPerSecond"
+  },
+  {
+    "id": "0.throughput__role_b_result.throughput.role_b_result.records_per_second"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outPoolUsage"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsIn"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numBytesInPerSecond"
+  },
+  {
+    "id": "0.buffers.outputQueueSize"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numBytesOut"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.throughput.MySQL_category_ranks.records_per_second"
+  },
+  {
+    "id": "0.maxSoftBackPressureTimeMs"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.numBytesIn"
+  },
+  {
+    "id": "0.throughput__role_b_result.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.checkpointStartDelayNanos"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numBytesIn"
+  },
+  {
+    "id": "0.mailboxLatencyMs_mean"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsOut"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numBytesOut"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.currentOutputWatermark"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numRecordsOut"
+  },
+  {
+    "id": "0.Sink__MySQL_category_ranks.numBytesInPerSecond"
+  },
+  {
+    "id": "0.buffers.outputQueueLength"
+  },
+  {
+    "id": "0.accumulateIdleTimeMs"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p999"
+  },
+  {
+    "id": "0.buffers.inPoolUsage"
+  },
+  {
+    "id": "0.Shuffle.Netty.Output.Buffers.outputQueueLength"
+  },
+  {
+    "id": "0.throughput__role_b_result.throughput.role_b_result.records"
+  },
+  {
+    "id": "0.throughput__role_b_result.numBytesIn"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p95"
+  },
+  {
+    "id": "0.buffers.inputQueueSize"
+  },
+  {
+    "id": "0.numRecordsOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInLocalPerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p99"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputFloatingBuffersUsage"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p98"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.Buffers.inputExclusiveBuffersUsage"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBuffersInLocal"
+  },
+  {
+    "id": "0.numBytesOut"
+  },
+  {
+    "id": "0.throughput__role_b_result.currentOutputWatermark"
+  },
+  {
+    "id": "0.mailboxLatencyMs_p90"
+  },
+  {
+    "id": "0.buffers.inputQueueLength"
+  },
+  {
+    "id": "0.numBytesInLocal"
+  },
+  {
+    "id": "0.mailboxLatencyMs_stddev"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numRecordsOut"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numBytesOutPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInRemotePerSecond"
+  },
+  {
+    "id": "0.isBackPressured"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.numLateRecordsDropped"
+  },
+  {
+    "id": "0.mailboxQueueSize"
+  },
+  {
+    "id": "0.numBytesInPerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_max"
+  },
+  {
+    "id": "0.throughput__role_b_result.numRecordsInPerSecond"
+  },
+  {
+    "id": "0.Shuffle.Netty.Input.numBytesInLocalPerSecond"
+  },
+  {
+    "id": "0.throughput__role_b_result.numBytesOut"
+  },
+  {
+    "id": "0.TumblingEventTimeWindows.currentInputWatermark"
+  },
+  {
+    "id": "0.numRecordsIn"
+  },
+  {
+    "id": "0.numBuffersInLocal"
+  },
+  {
+    "id": "0.throughput__role_b_result.numBytesInPerSecond"
+  },
+  {
+    "id": "0.mailboxLatencyMs_min"
+  },
+  {
+    "id": "0.numBuffersInRemote"
+  },
+  {
+    "id": "0.numBuffersOutPerSecond"
+  }
+]

@@ -1,0 +1,228 @@
+{
+  "id": "10b0aacb12137e1e4ca962d94fbd9bde",
+  "name": "Sink: MySQL dirty_data",
+  "parallelism": 3,
+  "maxParallelism": 128,
+  "now": 1791434393351,
+  "subtasks": [
+    {
+      "subtask": 0,
+      "status": "RUNNING",
+      "attempt": 0,
+      "host": "deploy-taskmanager-1",
+      "start-time": 1791433782783,
+      "end-time": -1,
+      "duration": 610568,
+      "metrics": {
+        "read-bytes": 188714,
+        "read-bytes-complete": true,
+        "write-bytes": 0,
+        "write-bytes-complete": true,
+        "read-records": 426,
+        "read-records-complete": true,
+        "write-records": 0,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 647372,
+        "accumulated-busy-time": 0.0
+      },
+      "taskmanager-id": "172.18.0.8:41807-f2e630",
+      "status-duration": {
+        "DEPLOYING": 728,
+        "RUNNING": 608897,
+        "CREATED": 100,
+        "SCHEDULED": 215,
+        "INITIALIZING": 943
+      },
+      "start_time": 1791433782783
+    },
+    {
+      "subtask": 1,
+      "status": "RUNNING",
+      "attempt": 0,
+      "host": "deploy-taskmanager-1",
+      "start-time": 1791433782795,
+      "end-time": -1,
+      "duration": 610556,
+      "metrics": {
+        "read-bytes": 186925,
+        "read-bytes-complete": true,
+        "write-bytes": 0,
+        "write-bytes-complete": true,
+        "read-records": 422,
+        "read-records-complete": true,
+        "write-records": 0,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 648134,
+        "accumulated-busy-time": 0.0
+      },
+      "taskmanager-id": "172.18.0.8:41807-f2e630",
+      "status-duration": {
+        "DEPLOYING": 715,
+        "RUNNING": 608948,
+        "CREATED": 100,
+        "SCHEDULED": 227,
+        "INITIALIZING": 893
+      },
+      "start_time": 1791433782795
+    },
+    {
+      "subtask": 2,
+      "status": "RUNNING",
+      "attempt": 0,
+      "host": "deploy-taskmanager-1",
+      "start-time": 1791433782796,
+      "end-time": -1,
+      "duration": 610555,
+      "metrics": {
+        "read-bytes": 66419,
+        "read-bytes-complete": true,
+        "write-bytes": 0,
+        "write-bytes-complete": true,
+        "read-records": 150,
+        "read-records-complete": true,
+        "write-records": 0,
+        "write-records-complete": true,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 660726,
+        "accumulated-busy-time": 0.0
+      },
+      "taskmanager-id": "172.18.0.8:41807-f2e630",
+      "status-duration": {
+        "DEPLOYING": 707,
+        "RUNNING": 608932,
+        "CREATED": 100,
+        "SCHEDULED": 228,
+        "INITIALIZING": 916
+      },
+      "start_time": 1791433782796
+    }
+  ],
+  "aggregated": {
+    "metrics": {
+      "write-records": {
+        "p25": 0,
+        "min": 0,
+        "avg": 0,
+        "median": 0,
+        "max": 0,
+        "sum": 0,
+        "p95": 0,
+        "p75": 0
+      },
+      "accumulated-backpressured-time": {
+        "p25": 0,
+        "min": 0,
+        "avg": 0,
+        "median": 0,
+        "max": 0,
+        "sum": 0,
+        "p95": 0,
+        "p75": 0
+      },
+      "accumulated-idle-time": {
+        "p25": 647372,
+        "min": 647372,
+        "avg": 652077,
+        "median": 648134,
+        "max": 660726,
+        "sum": 1956232,
+        "p95": 660726,
+        "p75": 660726
+      },
+      "write-bytes": {
+        "p25": 0,
+        "min": 0,
+        "avg": 0,
+        "median": 0,
+        "max": 0,
+        "sum": 0,
+        "p95": 0,
+        "p75": 0
+      },
+      "read-bytes": {
+        "p25": 66419,
+        "min": 66419,
+        "avg": 147352,
+        "median": 186925,
+        "max": 188714,
+        "sum": 442058,
+        "p95": 188714,
+        "p75": 188714
+      },
+      "read-records": {
+        "p25": 150,
+        "min": 150,
+        "avg": 332,
+        "median": 422,
+        "max": 426,
+        "sum": 998,
+        "p95": 426,
+        "p75": 426
+      },
+      "accumulated-busy-time": {
+        "p25": 0,
+        "min": 0,
+        "avg": 0,
+        "median": 0,
+        "max": 0,
+        "sum": 0,
+        "p95": 0,
+        "p75": 0
+      }
+    },
+    "status-duration": {
+      "CREATED": {
+        "p25": 100,
+        "min": 100,
+        "avg": 100,
+        "median": 100,
+        "max": 100,
+        "sum": 300,
+        "p95": 100,
+        "p75": 100
+      },
+      "RUNNING": {
+        "p25": 608897,
+        "min": 608897,
+        "avg": 608925,
+        "median": 608932,
+        "max": 608948,
+        "sum": 1826777,
+        "p95": 608948,
+        "p75": 608948
+      },
+      "INITIALIZING": {
+        "p25": 893,
+        "min": 893,
+        "avg": 917,
+        "median": 916,
+        "max": 943,
+        "sum": 2752,
+        "p95": 943,
+        "p75": 943
+      },
+      "SCHEDULED": {
+        "p25": 215,
+        "min": 215,
+        "avg": 223,
+        "median": 227,
+        "max": 228,
+        "sum": 670,
+        "p95": 228,
+        "p75": 228
+      },
+      "DEPLOYING": {
+        "p25": 707,
+        "min": 707,
+        "avg": 716,
+        "median": 715,
+        "max": 728,
+        "sum": 2150,
+        "p95": 728,
+        "p75": 728
+      }
+    }
+  }
+}
